@@ -29,21 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addTravelogueNoteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.openExistingShipFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createNewShipDataFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editCurrentShipsDataFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
-            this.addWorldImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tbImages = new System.Windows.Forms.ToolStripMenuItem();
-            this.utilitiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.verifyCurrentVersionFilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cargoManifestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.summaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,17 +45,10 @@
             this.cargoHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.travelogueRSSFeedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showJumpMapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.generateOriginCodesForAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.generateOriginCodesForAllInWorldDropdownToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.j6TradeReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.stStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.sbImperialDate = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
-            this.add3DaysToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.add2DaysToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addADayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sbCredits = new System.Windows.Forms.ToolStripStatusLabel();
             this.sbCurrentWorld = new System.Windows.Forms.ToolStripStatusLabel();
             this.sbVersion = new System.Windows.Forms.ToolStripStatusLabel();
@@ -163,8 +150,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.ckMTExpanded = new System.Windows.Forms.CheckBox();
+            this.addWorldImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
+            this.generateOriginCodesForAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -197,7 +186,6 @@
             this.groupBox9.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -205,7 +193,6 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.tbImages,
-            this.utilitiesToolStripMenuItem,
             this.reportsToolStripMenuItem,
             this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -237,11 +224,6 @@
             this.addTravelogueNoteToolStripMenuItem.Text = "add travelogue note";
             this.addTravelogueNoteToolStripMenuItem.Click += new System.EventHandler(this.addTravelogueNoteToolStripMenuItem_Click);
             // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(209, 6);
-            // 
             // openExistingShipFileToolStripMenuItem
             // 
             this.openExistingShipFileToolStripMenuItem.Name = "openExistingShipFileToolStripMenuItem";
@@ -263,18 +245,6 @@
             this.editCurrentShipsDataFileToolStripMenuItem.Text = "edit current ship\'s data file";
             this.editCurrentShipsDataFileToolStripMenuItem.Click += new System.EventHandler(this.editCurrentShipsDataFileToolStripMenuItem_Click);
             // 
-            // toolStripMenuItem3
-            // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(209, 6);
-            // 
-            // addWorldImageToolStripMenuItem
-            // 
-            this.addWorldImageToolStripMenuItem.Name = "addWorldImageToolStripMenuItem";
-            this.addWorldImageToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
-            this.addWorldImageToolStripMenuItem.Text = "add world image";
-            this.addWorldImageToolStripMenuItem.Click += new System.EventHandler(this.addWorldImageToolStripMenuItem_Click);
-            // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
@@ -292,21 +262,6 @@
             this.tbImages.Name = "tbImages";
             this.tbImages.Size = new System.Drawing.Size(54, 20);
             this.tbImages.Text = "Images";
-            // 
-            // utilitiesToolStripMenuItem
-            // 
-            this.utilitiesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.verifyCurrentVersionFilesToolStripMenuItem});
-            this.utilitiesToolStripMenuItem.Name = "utilitiesToolStripMenuItem";
-            this.utilitiesToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
-            this.utilitiesToolStripMenuItem.Text = "Utilities";
-            // 
-            // verifyCurrentVersionFilesToolStripMenuItem
-            // 
-            this.verifyCurrentVersionFilesToolStripMenuItem.Name = "verifyCurrentVersionFilesToolStripMenuItem";
-            this.verifyCurrentVersionFilesToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
-            this.verifyCurrentVersionFilesToolStripMenuItem.Text = "verify current version files";
-            this.verifyCurrentVersionFilesToolStripMenuItem.Click += new System.EventHandler(this.verifyCurrentVersionFilesToolStripMenuItem_Click);
             // 
             // reportsToolStripMenuItem
             // 
@@ -364,29 +319,6 @@
             this.showJumpMapToolStripMenuItem.Text = "show jump map";
             this.showJumpMapToolStripMenuItem.Click += new System.EventHandler(this.showJumpMapToolStripMenuItem_Click);
             // 
-            // generateOriginCodesForAllToolStripMenuItem
-            // 
-            this.generateOriginCodesForAllToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.generateOriginCodesForAllInWorldDropdownToolStripMenuItem,
-            this.j6TradeReportToolStripMenuItem});
-            this.generateOriginCodesForAllToolStripMenuItem.Name = "generateOriginCodesForAllToolStripMenuItem";
-            this.generateOriginCodesForAllToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
-            this.generateOriginCodesForAllToolStripMenuItem.Text = "Trade reports";
-            // 
-            // generateOriginCodesForAllInWorldDropdownToolStripMenuItem
-            // 
-            this.generateOriginCodesForAllInWorldDropdownToolStripMenuItem.Name = "generateOriginCodesForAllInWorldDropdownToolStripMenuItem";
-            this.generateOriginCodesForAllInWorldDropdownToolStripMenuItem.Size = new System.Drawing.Size(314, 22);
-            this.generateOriginCodesForAllInWorldDropdownToolStripMenuItem.Text = "generate origin codes for all in world drop-down";
-            this.generateOriginCodesForAllInWorldDropdownToolStripMenuItem.Click += new System.EventHandler(this.generateOriginCodesForAllInWorldDropdownToolStripMenuItem_Click);
-            // 
-            // j6TradeReportToolStripMenuItem
-            // 
-            this.j6TradeReportToolStripMenuItem.Name = "j6TradeReportToolStripMenuItem";
-            this.j6TradeReportToolStripMenuItem.Size = new System.Drawing.Size(314, 22);
-            this.j6TradeReportToolStripMenuItem.Text = "Jump range trade report";
-            this.j6TradeReportToolStripMenuItem.Click += new System.EventHandler(this.j6TradeReportToolStripMenuItem_Click);
-            // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
@@ -399,7 +331,6 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.stStatus,
             this.sbImperialDate,
-            this.toolStripDropDownButton1,
             this.sbCredits,
             this.sbCurrentWorld,
             this.sbVersion});
@@ -420,40 +351,6 @@
             this.sbImperialDate.Name = "sbImperialDate";
             this.sbImperialDate.Size = new System.Drawing.Size(75, 17);
             this.sbImperialDate.Text = "Imperial Date:";
-            // 
-            // toolStripDropDownButton1
-            // 
-            this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.add3DaysToolStripMenuItem,
-            this.add2DaysToolStripMenuItem,
-            this.addADayToolStripMenuItem});
-            this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
-            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-            this.toolStripDropDownButton1.Size = new System.Drawing.Size(68, 20);
-            this.toolStripDropDownButton1.Text = "add a day";
-            this.toolStripDropDownButton1.Click += new System.EventHandler(this.toolStripDropDownButton1_Click);
-            // 
-            // add3DaysToolStripMenuItem
-            // 
-            this.add3DaysToolStripMenuItem.Name = "add3DaysToolStripMenuItem";
-            this.add3DaysToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
-            this.add3DaysToolStripMenuItem.Text = "add 3 days";
-            this.add3DaysToolStripMenuItem.Click += new System.EventHandler(this.add3DaysToolStripMenuItem_Click);
-            // 
-            // add2DaysToolStripMenuItem
-            // 
-            this.add2DaysToolStripMenuItem.Name = "add2DaysToolStripMenuItem";
-            this.add2DaysToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
-            this.add2DaysToolStripMenuItem.Text = "add 2 days";
-            this.add2DaysToolStripMenuItem.Click += new System.EventHandler(this.add2DaysToolStripMenuItem_Click);
-            // 
-            // addADayToolStripMenuItem
-            // 
-            this.addADayToolStripMenuItem.Name = "addADayToolStripMenuItem";
-            this.addADayToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
-            this.addADayToolStripMenuItem.Text = "add 1 day";
             // 
             // sbCredits
             // 
@@ -616,7 +513,6 @@
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.BackgroundImage = global::Traveller2.Properties.Resources.spback;
             this.pictureBox1.Location = new System.Drawing.Point(3, 151);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(184, 195);
@@ -1223,14 +1119,13 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.groupBox3);
             this.tabPage2.Controls.Add(this.groupBox4);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(597, 521);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Settings/File Info";
+            this.tabPage2.Text = "Settings";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // groupBox4
@@ -1242,7 +1137,7 @@
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox4.Location = new System.Drawing.Point(3, 3);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(591, 278);
+            this.groupBox4.Size = new System.Drawing.Size(591, 290);
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "System Files";
@@ -1405,26 +1300,29 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Classic Traveller:";
             // 
-            // groupBox3
+            // addWorldImageToolStripMenuItem
             // 
-            this.groupBox3.Controls.Add(this.ckMTExpanded);
-            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox3.Location = new System.Drawing.Point(3, 281);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(591, 100);
-            this.groupBox3.TabIndex = 9;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Optional Settings";
+            this.addWorldImageToolStripMenuItem.Name = "addWorldImageToolStripMenuItem";
+            this.addWorldImageToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
+            this.addWorldImageToolStripMenuItem.Text = "add world image";
+            this.addWorldImageToolStripMenuItem.Click += new System.EventHandler(this.addWorldImageToolStripMenuItem_Click);
             // 
-            // ckMTExpanded
+            // toolStripMenuItem2
             // 
-            this.ckMTExpanded.AutoSize = true;
-            this.ckMTExpanded.Location = new System.Drawing.Point(11, 19);
-            this.ckMTExpanded.Name = "ckMTExpanded";
-            this.ckMTExpanded.Size = new System.Drawing.Size(304, 17);
-            this.ckMTExpanded.TabIndex = 0;
-            this.ckMTExpanded.Text = "used Mongoose expanded trade tables (MTGoodsExp.csv)";
-            this.ckMTExpanded.UseVisualStyleBackColor = true;
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(209, 6);
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(209, 6);
+            // 
+            // generateOriginCodesForAllToolStripMenuItem
+            // 
+            this.generateOriginCodesForAllToolStripMenuItem.Name = "generateOriginCodesForAllToolStripMenuItem";
+            this.generateOriginCodesForAllToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
+            this.generateOriginCodesForAllToolStripMenuItem.Text = "generate origin codes for all";
+            this.generateOriginCodesForAllToolStripMenuItem.Click += new System.EventHandler(this.generateOriginCodesForAllToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -1480,8 +1378,6 @@
             this.groupBox6.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1614,16 +1510,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem generateOriginCodesForAllToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem generateOriginCodesForAllInWorldDropdownToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem j6TradeReportToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem utilitiesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem verifyCurrentVersionFilesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
-        private System.Windows.Forms.ToolStripMenuItem addADayToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem add3DaysToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem add2DaysToolStripMenuItem;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.CheckBox ckMTExpanded;
     }
 }
 

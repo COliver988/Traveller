@@ -51,7 +51,7 @@ namespace Traveller
             public string gov;      // government
             public string law;      // law level
             public string TL;       // tech level
-            public int buymod;      // purchase price mod (based on trade codes)
+            public int buymod;      // purchase price mod
         }
 
         private string[] stAtmosphere;
@@ -1170,157 +1170,6 @@ namespace Traveller
             return retValue;
         }
 
-        /// <summary>
-        /// verify the current version's trade files
-        /// </summary>
-        /// <returns></returns>
-        public List<string> verifyFiles(string version)
-        {
-            List<string> results = new List<string>();
-
-            switch (version)
-            {
-                case "MT":
-                    results = verifyMT();
-                    break;
-                default:
-                    results.Add("Version is not currently supported: " + version);
-                    break;
-            }
-
-            return results;
-        }
-
-        /// <summary>
-        /// verify Mongoose Traveller files
-        /// </summary>
-        /// <returns>List(string) - verification notes</returns>
-        private List<string> verifyMT()
-        {
-            List<string> results = new List<string>();
-
-            bool codesOK = true;
-            bool goodsOK = true;
-            bool valuesOK = true;
-
-            results.Add("Testing trade code file    [MTTradeCodes.txt]");
-            try
-            {
-                List<string> codes = loadCSV("MTTradeCodes.txt");
-                if (codes.Count != 17)
-                    results.Add("  warning --> should have 17 lines; only " + codes.Count.ToString() +
-                        " are listed");
-                for (int i = 0; i < codes.Count; i++)
-                {
-                    string[] codeDetail = codes[i].Split(new char[] { ',' });
-                    if (codeDetail.Length != 10)
-                    {
-                        results.Add("  error   --> line " + i.ToString() + " does not have 10 fields");
-                        results.Add("              " + codes[i]);
-                        codesOK = false;
-                    }
-                }
-                if (codesOK)
-                {
-                    results.Add("  --> MT Trade Codes table appears ok");
-                }
-            }
-            catch (Exception ex)
-            {
-                results.Add("  --> error: " + ex.Message);
-                codesOK = false;
-            }
-
-            results.Add(" ");
-            results.Add("Testing trade goods file   [MTGoods.csv]");
-            try
-            {
-                List<string> MTGoods = loadCSV("MTGoods.csv");
-                if (MTGoods.Count != 36)
-                {
-                    results.Add("  warning --> should have 36 lines; only " + MTGoods.Count.ToString() +
-                        " are listed");
-                }
-                for (int i = 0; i < MTGoods.Count; i++)
-                {
-                    string[] codeDetail = MTGoods[i].Split(new char[] { ',' });
-                    if (codeDetail.Length != 7)
-                    {
-                        results.Add("  error   --> line " + i.ToString() + " does not have 7 fields");
-                        results.Add("              " + MTGoods[i]);
-                        goodsOK = false;
-                    }
-                }
-                if (goodsOK)
-                {
-                    results.Add("  --> MT Trade Goods tables appears ok");
-                }
-            }
-            catch (Exception ex2)
-            {
-                results.Add("  --> error: " + ex2.Message);
-                goodsOK = false;
-            }
-
-            results.Add(" ");
-            results.Add("Testing actual values file [MTValue.csv]");
-            try
-            {
-                List<string> avTable = loadCSV("MTValue.csv");
-                if (avTable.Count != 23)
-                {
-                    results.Add("  error --> should have 23 lines; only " + avTable.Count.ToString() +
-                        " are listed");
-                    valuesOK = false;
-                }
-                for (int i = 0; i < avTable.Count; i++)
-                {
-                    string[] line = avTable[i].Split(new char[] { ',' });
-                    if (line.Length != 3)
-                    {
-                        results.Add("  error --> line " + i.ToString() + " does not have 3 values");
-                        results.Add("            " + avTable[i]);
-                        valuesOK = false;
-                    }
-                    else
-                    {
-                        int dRoll = 0;
-                        int.TryParse(line[0], out dRoll);
-                        if (dRoll != (i - 1))
-                        {
-                            string error = String.Format("  error --> line {0} should have the die roll = {1} not {2}",
-                                i, i - 1, line[0]);
-                            results.Add(error);
-                            results.Add("            " + avTable[i]);
-                            valuesOK = false;
-                        }
-                    }
-                }
-
-                if (valuesOK)
-                {
-                    results.Add("  --> actual value tables appear correct");
-                } 
-            }
-            catch (Exception ex3)
-            {
-                results.Add("  --> error: " + ex3.Message);
-                valuesOK = false;
-            }
-
-            results.Add(" ");
-            if (codesOK & goodsOK & valuesOK)
-            {
-                results.Add("all files pass initial inspection");
-            }
-            else
-            {
-                results.Add("errors in one or more files!");
-            }
-
-            return results;
-        }
-
     }
 
     #endregion
@@ -1354,7 +1203,6 @@ namespace Traveller
         private string sectorname;  // sector name (for TravellerMap jump map)
         private int cargoid;        // sequential numbering for unique cargo ID
         private int tradedm;        // buy/sell trade DM
-        private bool illegals;      // do we allow illegals? true = ok, no = re-roll 61..65 (Mongoose)
 
         private string errMsg;       // in case of error
 
@@ -1417,7 +1265,7 @@ namespace Traveller
         /// <param name="year">int - imperial year (i.e., 1105)</param>
         /// <param name="secfile">string - SEC format file</param>
         public Starship(string shipname, int man, int power, int jump, int cargo, int monthly, int jumpcost, int day, int year, 
-            int credits, string version, string secfile, string sec, string sectorname, int tradeDM, bool illegals)
+            int credits, string version, string secfile, string sec, string sectorname, int tradeDM)
         {
             XDocument ns = new XDocument();
             XDeclaration dec = new XDeclaration("1.0", "utf-8", "yes");
@@ -1435,8 +1283,7 @@ namespace Traveller
                     new XElement("secfile", secfile),
                     new XElement("sectorName", sectorname),
                     new XElement("cargoID",0),
-                    new XElement("tradeDM", tradeDM),
-                    new XElement("illegals", illegals)));
+                    new XElement("tradeDM", tradeDM)));
 
             ns.Element("ShipData").Add(
                 new XElement("Ship"));
@@ -1452,7 +1299,7 @@ namespace Traveller
                     new XElement("costs",
                         new XElement("Monthly", monthly.ToString()),
                         new XElement("perJump", jumpcost.ToString()),
-                        new XElement("lastPaid", String.Format("{0:000}-{1:0000}", day, year))));
+                        new XElement("lastPaid", String.Format("{0:000}/{1:0000}", day, year))));
 
             ns.Element("ShipData").Add(
                 new XElement("Cargo"));
@@ -1579,19 +1426,6 @@ namespace Traveller
                 XElement tradeDMNode = systemNode.Element("tradeDM");
                 int.TryParse(cargoIDNode.Value, out this.tradedm);
                 this.sectorname = systemNode.Element("sectorName").Value;
-
-                // see if there is an illegals allowed flag; if not, add it
-                // new feature added 1/5/2010
-                try
-                {
-                    this.illegals = Convert.ToBoolean(systemNode.Element("illegals").Value);
-                }
-                catch
-                {
-                    this.illegals = false;
-                    systemNode.Add(new XElement("illegals", false));
-                    shipdoc.Save(filename);
-                }
             }
             catch (Exception ex)
             {
@@ -1619,7 +1453,6 @@ namespace Traveller
             this.cargoid = 0;
             this.errMsg = "";
             this.tradedm = 0;
-            this.illegals = false;
         }
 
         /// <summary>
@@ -1636,149 +1469,44 @@ namespace Traveller
             shipNode.SetElementValue("year", String.Format("{0:0000}", this.year));
             shipNode.SetElementValue("sec", this.sec);
             shipNode.SetElementValue("cargoID", this.cargoid);
-            if (shipNode.Element("tradeDM") != null)
-            {
-                shipNode.SetElementValue("tradeDM", this.tradedm);
-            }
-            else
-            {
-                shipNode.Add(
-                    new XElement("tradeDM", this.tradedm));
-            }
-            if (shipNode.Element("illegals") != null)
-            {
-                shipNode.SetElementValue("illegals", this.illegals);
-            }
-            else
-            {
-                shipNode.Add(
-                    new XElement("illegals", this.illegals));
-            }
 
             // ship data
-            // see if the last paid is > 30 days ago, if so, reset & charge 
-            bool madeMonthlyPayment = makeMonthly();
-            if (madeMonthlyPayment)
-            {
-                this.credits -= this.monthly;
-            }
-
             shipNode = sd.Element("ShipData").Element("Ship");
             shipNode.SetElementValue("CargoHeld", this.cargoHeld.ToString());
             shipNode.SetElementValue("credits", this.credits.ToString());
-            shipNode.SetElementValue("Manuever", this.man.ToString());
-            shipNode.SetElementValue("Power", this.power.ToString());
-            shipNode.SetElementValue("Jump", this.jump.ToString());
-            shipNode.SetElementValue("Cargo", this.cargo.ToString());
 
             // costs node; lastPaid is only thing that can change here
             shipNode = sd.Element("ShipData").Element("Ship").Element("costs");
             shipNode.SetElementValue("lastPaid", this.lastPaid);
-            shipNode.SetElementValue("Monthly", this.monthly.ToString());
-            shipNode.SetElementValue("perJump", this.jumpCost.ToString());
 
             sd.Save(this.filename);
-
-            // and add the note if we've made the monthly payment
-            // yes - we *should* do it here as we've already got the file 
-            //     open, but as we've also already got a routine to do this
-            //     may as well use that
-            if (madeMonthlyPayment)
-            {
-                travelogue(String.Format("Monthly costs (Cr{0}) paid on {1}; remaining balance: Cr{2}",
-                    this.monthly, this.lastPaid, this.credits));
-            }
-        }
-
-        /// <summary>
-        /// see if we need to make the monthly payments
-        /// </summary>
-        /// <returns>true if we need to make the monthly payments</returns>
-        /// <remarks>will also update the last paid date & add note</remarks>
-        private bool makeMonthly()
-        {
-            bool makepayment = false;
-
-            string[] paid = this.lastPaid.Split(new char[] { '-', '/' });
-            int lastDay = 0;
-            int.TryParse(paid[0], out lastDay);
-            if (lastDay > 0)
-            {
-                if (this.day < lastDay)  // end of year wrap
-                {
-                    if ((this.day + 365) > (lastDay + 30))
-                    {
-                        makepayment = true;
-                    }
-                }
-                else
-                {
-                    if (this.day > (lastDay + 30))
-                    {
-                        makepayment = true;
-                    }
-                }
-            }
-
-            // and if we need to update the payment date
-            if (makepayment)
-            {
-                lastDay += 30;
-                if (lastDay > 365)
-                {
-                    lastDay -= 365;
-                }
-                this.lastPaid = String.Format("{0:000}-{1:0000}", lastDay, this.year);
-            }
-
-            return makepayment;
         }
 
         #region public data access
 
-        /// <summary>
-        /// ship name
-        /// </summary>
         public string Name
         {
             get { return this.name; }
-            set { this.name = value; }
         }
 
-        /// <summary>
-        /// maneuver rating
-        /// </summary>
         public int Man
         {
             get { return this.man; }
-            set { this.man = value; }
         }
 
-        /// <summary>
-        /// power rating
-        /// </summary>
         public int Power
         {
             get { return this.power; }
-            set { this.power = value; }
         }
 
-        /// <summary>
-        /// jump rating
-        /// </summary>
         public int Jump
         {
             get { return this.jump; }
-            set { this.jump = value; }
         }
 
-        /// <summary>
-        /// cargo capacity in dTon
-        /// </summary>
         public int Cargo
         {
             get { return this.cargo; }
-            set { this.cargo = value; }
         }
 
         public int CargoHeld
@@ -1797,9 +1525,6 @@ namespace Traveller
             get { return this.sold; }
         }
 
-        /// <summary>
-        /// current Cr
-        /// </summary>
         public int Credits
         {
             get { return this.credits; }
@@ -1855,22 +1580,14 @@ namespace Traveller
             get { return this.tradedm; }
         }
 
-        /// <summary>
-        /// monthly costs
-        /// </summary>
         public int MonthlyCosts
         {
             get { return this.monthly; }
-            set { this.monthly = value; }        
         }
 
-        /// <summary>
-        /// cost per jump
-        /// </summary>
         public int PerJumpCost
         {
             get { return this.jumpCost; }
-            set { this.jumpCost = value; }
         }
 
         public string ErrMessage
@@ -1898,11 +1615,6 @@ namespace Traveller
             get { return this.sectorname; }
         }
 
-        public bool IllegalCargoAllowed
-        {
-            get { return this.illegals; }
-        }
-
         #endregion
 
         #region ship utilities
@@ -1918,11 +1630,12 @@ namespace Traveller
             try
             {
                 XDocument xmlDoc = XDocument.Load(this.filename);
-            
+
                 XElement sn = xmlDoc.Root.Elements("Travelogue").Elements("system").Where(r => (string)r.Attribute("system") == this.sec & (string)r.Attribute("date") == this.Date).FirstOrDefault();
                 if (sn != null)
                 {
                     sn.Add(new XElement("note", note));
+                    //sn.SetElementValue("note", sn.Element("note").Value + Environment.NewLine + note);
                 }
                 else
                 {
@@ -2288,7 +2001,6 @@ namespace Traveller
         private Traveller.World world;
         private Traveller.Starship ship;
         private string version;
-        public bool useExpandedTradeTables = false;     // use expanded trade tables
 
         /// <summary>
         /// trade instantiation
@@ -2562,9 +2274,6 @@ namespace Traveller
                 case "CT":
                     cargo = CTSell(cargo, world, DM);
                     break;
-                case "MT":
-                    cargo = MTSell(cargo, world, DM);
-                    break;
                 default:
                     break;
             }
@@ -2607,9 +2316,7 @@ namespace Traveller
             }
 
             // and the TL mod: 10% (source TL - selling world TL)
-            int tlDiff = origTL - util.HexToInt(world.TechLevel.ToString());    // difference in TL
-            int tlPriceMod = (int)((double)baseprice * 0.10 * (double)tlDiff);
-            baseprice += tlPriceMod;
+            baseprice  += (int)(0.10 * ((double)origTL - (double)util.HexToInt(world.TechLevel.ToString())));
 
             // and now our actual value roll
             // make sure we're within range; if not, reset
@@ -2632,11 +2339,8 @@ namespace Traveller
                     break;
                 }
             }
-            if (avMod == 0)
-                avMod = 1;
-
-            cargo.basecostsell = baseprice;
-            cargo.sellingPrice = (int)((double)baseprice * avMod) * cargo.dtons;
+            baseprice = (int)((double)baseprice * avMod);
+            cargo.sellingPrice = baseprice * cargo.dtons;
             cargo.avSell = avMod;
             return cargo;
         }
@@ -2814,11 +2518,6 @@ namespace Traveller
             // 1. load our goods table, and our actual value table
             List<string> MTGoods = util.loadCSV("MTGoods.csv");
             List<string> avTable = util.loadCSV("MTValue.csv");
-            List<string> expandedGoods = new List<string>();
-            if (useExpandedTradeTables)
-            {
-                expandedGoods = util.loadCSV("MTGoodsExp.csv");
-            }
 
             // 2. all common & trade class goods are available, so generate those lots
             foreach (string lot in MTGoods)
@@ -2827,54 +2526,11 @@ namespace Traveller
                 string available = item[4];
                 if (available.ToLower() == "all")
                 {
-                    Traveller.Starship.cargoDesc cargo = MTCreateCargo(item, avTable, expandedGoods);
+                    Traveller.Starship.cargoDesc cargo = MTCreateCargo(item, avTable);
                     this.cargoes.Add(cargo);
                 }
                 else
                 {
-                    string[] availTC = available.Split(new char[] { ' ' });     // not all, get individual valid codes
-                    foreach (string aTC in availTC)                             // for each of the item's valid trade codes
-                    {
-                        foreach (Traveller.World.stTrade wtc in this.world.TradeClass)  // for each of the world's trade codes
-                        {
-                            if (wtc.code == aTC)                                        // we have a match!
-                            {
-                                Traveller.Starship.cargoDesc cargo = MTCreateCargo(item, avTable, expandedGoods);
-                                this.cargoes.Add(cargo);
-                            }
-                        }
-                    }
-                }
-            }
-
-            // 3. and now 1d6 of additional goods
-            int randomGoods = util.rollDx(6);
-            for (int i = 0; i < randomGoods; i++)
-            {
-                int d1 = util.rollDx(6);
-                int d2 = util.rollDx(6);
-
-                // check to see if illegals are allowed
-                if (!this.ship.IllegalCargoAllowed)
-                {
-                    if (d1 == 6 & d2 < 6)
-                        do
-                        {
-                            d1 = util.rollDx(6);
-                        } while (d1 == 6);
-                }
-
-                // ok, we have a valid d66
-                string d66 = String.Format("{0}{1}", d1, d2);
-
-                foreach (string lot in MTGoods)
-                {
-                    string[] item = lot.Split(new char[] { ',' });
-                    if (item[0] == d66)
-                    {
-                        Traveller.Starship.cargoDesc cargo = MTCreateCargo(item, avTable, expandedGoods);
-                        this.cargoes.Add(cargo);
-                    }
                 }
             }
         }
@@ -2884,7 +2540,7 @@ namespace Traveller
         /// </summary>
         /// <param name="lot"></param>
         /// <returns></returns>
-        private Traveller.Starship.cargoDesc MTCreateCargo(string[] lot, List<string> avTable, List<string> expandedGoods)
+        private Traveller.Starship.cargoDesc MTCreateCargo(string[] lot, List<string> avTable)
         {
             Traveller.Starship.cargoDesc cargo = new Starship.cargoDesc();
             cargo.desc = lot[1];
@@ -2929,136 +2585,17 @@ namespace Traveller
             }
             mods += buyMax;
             
-            // if we're using the expanded trade tables, we'll need to replace
-            // the description, base cost & tonnage
-            if (this.useExpandedTradeTables)
-            {
-                List<string> myGoods = new List<string>();
-                // 1st find the matching cargo
-                foreach (string expanded in expandedGoods)
-                {
-                    string[] exp = expanded.Split(new char[] { ',' });
-                    if (exp[0] == lot[0])
-                    {
-                        myGoods.Add(expanded);
-                    }
-                }
-
-                // myGoods now has the list of expanded items; roll 2d6 and get the appropriate range
-                // assuming we've actually found anything
-                if (myGoods.Count > 0)
-                {
-                    int myroll = util.rollDx(6);
-                    myroll += util.rollDx(6);
-                    foreach (string exp in myGoods)
-                    {
-                        string[] good = exp.Split(new char[] { ',' });
-                        int low = 0;
-                        int high = 0;
-                        int.TryParse(good[1], out low);
-                        int.TryParse(good[2], out high);
-                        if (myroll >= low & myroll <= high)
-                        {
-                            cargo.desc = good[3];
-
-                            // tonnage
-                            int baseDie = 0;
-                            int mult = 0;
-                            int tonnage = 0;
-                            string[] sTonnage = good[4].Split(new char[] {'*'});
-                            int.TryParse(sTonnage[0], out baseDie);
-                            int.TryParse(sTonnage[1], out mult);
-                            for (int i = 0; i < baseDie; i++)
-                            {
-                                tonnage += util.rollDx(6);
-                            }
-                            tonnage *= mult;
-                            if (tonnage > 0)
-                                cargo.dtons = tonnage;
-
-                            // base cost
-                            int myBase = cargo.basecostbuy;
-                            int.TryParse(good[5], out myBase);
-                            if (myBase > 0)
-                                cargo.basecostbuy = myBase;
-                            break;
-                        }
-                    }
-                }
-            }
-
             // and now roll on our actual value buy table;
             // this table allows for -1, so -1 = 0 position, 0 = 1 position; so we add 1 to compensate
             int roll = util.rollDx(6) + util.rollDx(6) + util.rollDx(6) + mods + 1;
             string[] av = avTable[roll].Split(new char[] { ',' });
             cargo.avBuy = Convert.ToDouble(av[1]);
-            cargo.purchasePrice = (int)((double)cargo.basecostbuy * (double)cargo.dtons * cargo.avBuy);
+            cargo.basecostbuy = (int)((double)cargo.basecostbuy * cargo.avBuy);
+            cargo.purchasePrice = cargo.basecostbuy * cargo.dtons;
 
             // and finalize our origCode
             cargo.origCode += "Cr" + cargo.basecostbuy.ToString();
 
-            return cargo;
-        }
-
-        /// <summary>
-        /// sell Mongoose Traveller cargo item
-        /// </summary>
-        /// <param name="cargo">cargo item to sell</param>
-        /// <param name="world">world we are selling on</param>
-        /// <param name="DM">int - DM for actual price</param>
-        /// <returns>cargo - updated cargo (selling price updated)</returns>
-        private Traveller.Starship.cargoDesc MTSell(Traveller.Starship.cargoDesc cargo, Traveller.World world, int DM)
-        {
-            // 1. load our goods table, and our actual value table
-            List<string> MTGoods = util.loadCSV("MTGoods.csv");
-            List<string> avTable = util.loadCSV("MTValue.csv");
-
-            // 2. find our cargo in that list
-            int sellDM = 0;
-            bool foundit = false;
-
-            foreach (string lot in MTGoods)
-            {
-                string[] item = lot.Split(new char[] { ',' });
-                if (item[1] == cargo.desc)          // found the item
-                {
-                    int.TryParse(item[2], out cargo.basecostsell);
-                    string[] sellmods = item[5].Split(new char[] { ' ' });
-                    foreach (string sellmod in sellmods)
-                    {
-                        foreach (Traveller.World.stTrade wtc in world.TradeClass)
-                        {
-                            if (sellmod.StartsWith(wtc.code))
-                            {
-                                int dm = 0;
-                                int.TryParse(sellmod[3].ToString(), out dm);
-                                if (sellmod[2] == '+')
-                                    sellDM += dm;
-                                else
-                                    sellDM -= dm;
-                            }
-                        }
-                    }
-                    foundit = true;
-                    break;
-                }
-            }
-
-            if (foundit)
-            {
-                // and now roll on our actual value buy table;
-                // this table allows for -1, so -1 = 0 position, 0 = 1 position; so we add 1 to compensate
-                int roll = util.rollDx(6) + util.rollDx(6) + util.rollDx(6) + sellDM + DM + 1;
-                string[] av = avTable[roll].Split(new char[] { ',' });
-                cargo.avSell = Convert.ToDouble(av[2]);
-                cargo.sellingPrice = (int)((double)cargo.basecostsell * (double)cargo.dtons * cargo.avSell);
-            }
-            else
-            {
-                cargo.avSell = 0;
-                cargo.basecostsell = cargo.basecostbuy;
-                cargo.sellingPrice = cargo.basecostbuy * cargo.dtons;
-            }
 
             return cargo;
         }

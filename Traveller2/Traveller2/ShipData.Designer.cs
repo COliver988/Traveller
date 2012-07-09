@@ -68,8 +68,6 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.edSectorName = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.ckIllegal = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.edTradeDM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edMan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edPower)).BeginInit();
@@ -130,7 +128,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(123, 591);
+            this.btnAdd.Location = new System.Drawing.Point(123, 552);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(134, 23);
             this.btnAdd.TabIndex = 999;
@@ -159,7 +157,7 @@
             // edMonthly
             // 
             this.edMonthly.Location = new System.Drawing.Point(126, 164);
-            this.edMonthly.Mask = "0000000";
+            this.edMonthly.Mask = "00000";
             this.edMonthly.Name = "edMonthly";
             this.edMonthly.Size = new System.Drawing.Size(50, 20);
             this.edMonthly.TabIndex = 60;
@@ -282,7 +280,7 @@
             // edPerJump
             // 
             this.edPerJump.Location = new System.Drawing.Point(126, 197);
-            this.edPerJump.Mask = "0000000";
+            this.edPerJump.Mask = "00000";
             this.edPerJump.Name = "edPerJump";
             this.edPerJump.Size = new System.Drawing.Size(50, 20);
             this.edPerJump.TabIndex = 65;
@@ -436,32 +434,11 @@
             this.edSectorName.Size = new System.Drawing.Size(253, 20);
             this.edSectorName.TabIndex = 1009;
             // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(2, 558);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(125, 13);
-            this.label19.TabIndex = 1010;
-            this.label19.Text = "Allow illegals (Mongoose)";
-            // 
-            // ckIllegal
-            // 
-            this.ckIllegal.AutoSize = true;
-            this.ckIllegal.Location = new System.Drawing.Point(126, 557);
-            this.ckIllegal.Name = "ckIllegal";
-            this.ckIllegal.Size = new System.Drawing.Size(169, 17);
-            this.ckIllegal.TabIndex = 1011;
-            this.ckIllegal.Text = "(checked means do not re-roll)";
-            this.ckIllegal.UseVisualStyleBackColor = true;
-            // 
             // ShipData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(382, 617);
-            this.Controls.Add(this.ckIllegal);
-            this.Controls.Add(this.label19);
+            this.ClientSize = new System.Drawing.Size(382, 587);
             this.Controls.Add(this.edSectorName);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label17);
@@ -554,7 +531,5 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox edSectorName;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.CheckBox ckIllegal;
     }
 }

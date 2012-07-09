@@ -449,18 +449,6 @@ namespace Traveller2
 
         #endregion
 
-        #region utility
-
-        private void verifyCurrentVersionFilesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Traveller.TravUtils util = new Traveller.TravUtils();
-            List<string> results = util.verifyFiles(ship.Version);
-            LogForm lf = new LogForm(results);
-            lf.ShowDialog();
-        }
-
-        #endregion
-
         #region Report
         // print the current cargo manifest; summary
         private void summaryToolStripMenuItem_Click(object sender, EventArgs e)
@@ -487,14 +475,10 @@ namespace Traveller2
             Help.ShowHelp(this, url);
         }
 
-        private void generateOriginCodesForAllInWorldDropdownToolStripMenuItem_Click(object sender, EventArgs e)
+
+        private void generateOriginCodesForAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
             reportAllCodes();
-        }
-
-        private void j6TradeReportToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            reportJ6Trade();
         }
 
         /// <summary>
@@ -526,43 +510,6 @@ namespace Traveller2
             }
         }
 
-        /// <summary>
-        /// generate the list of J6 worlds and their expected base value
-        /// </summary>
-        private void reportJ6Trade()
-        {
-            // 1st, we need a cargo code from the current world
-            Traveller.Trade trade = new Traveller.Trade(ship, world);
-            Traveller.Starship.cargoDesc origCargo = trade.findCargo()[0];
-
-            List<string> codes = new List<string>();
-            codes.Add(String.Format("Selling from {0} [{1}] Cargo Origin Code: {2}",
-                world.Name, world.Hex, origCargo.origCode));
-            codes.Add(" ");
-
-            foreach (ListViewItem lvi in lvJ6.Items)
-            {
-                try
-                {
-                    Traveller.World tw = new Traveller.World(lvi.Text, ship.Version);
-                    trade = new Traveller.Trade(ship, tw);
-                    origCargo = trade.sell(origCargo, tw, 0);
-                    string cc = String.Format("{0,-20} {1} [{2}] Cr{3}",
-                        tw.Name, tw.UWP, tw.Hex, origCargo.basecostsell);
-                    codes.Add(cc);
-                }
-                catch (Exception ex)
-                {
-                    codes.Add("Error on line: " + lvi.Text + ": " + ex.Message);
-                }
-            }
-            SaveFileDialog sv = new SaveFileDialog();
-            if (sv.ShowDialog() == DialogResult.OK)
-            {
-                File.WriteAllLines(sv.FileName, codes.ToArray());
-            }
-        }
-
         #endregion
 
         #region about
@@ -572,32 +519,6 @@ namespace Traveller2
         {
             AboutBox ab = new AboutBox();
             ab.ShowDialog();
-        }
-
-        #endregion
-
-        #region status bar options
-        /// <summary>
-        /// tool strip - add days
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void toolStripDropDownButton1_Click(object sender, EventArgs e)
-        {
-            ship.addDays(1);
-            showDate();
-        }
-
-        private void add2DaysToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ship.addDays(2);
-            showDate();
-        }
-
-        private void add3DaysToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ship.addDays(3);
-            showDate();
         }
 
         #endregion
@@ -751,7 +672,6 @@ namespace Traveller2
             }
 
             Traveller.Trade trade = new Traveller.Trade(ship, world);
-            trade.useExpandedTradeTables = ckMTExpanded.Checked;
             List<Traveller.Starship.cargoDesc> cargoes = trade.findCargo();
 
             foreach (Traveller.Starship.cargoDesc cargo in cargoes)
@@ -968,5 +888,6 @@ namespace Traveller2
         }
 
         #endregion
+
     }
 }
