@@ -1,0 +1,24 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Traveller2" GeneratedClassName="Traveller2">
+  <Profiles />
+  <Settings>
+    <Setting Name="CTTradeCodes" Type="System.String" Scope="User">
+      <Value Profile="(Default)">CTTradeCodes.txt</Value>
+    </Setting>
+    <Setting Name="MTTradeCodes" Type="System.String" Scope="User">
+      <Value Profile="(Default)">MTTradeCodes.txt</Value>
+    </Setting>
+    <Setting Name="T5TradeCodes" Type="System.String" Scope="User">
+      <Value Profile="(Default)">T5TradeCodes.txt</Value>
+    </Setting>
+    <Setting Name="PortModifier" Type="System.String" Scope="User">
+      <Value Profile="(Default)">PortModifier.txt</Value>
+    </Setting>
+    <Setting Name="TLModifier" Type="System.String" Scope="User">
+      <Value Profile="(Default)">TLModifier.txt</Value>
+    </Setting>
+    <Setting Name="CurrentSector" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Spinward.sec</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
