@@ -13,10 +13,13 @@ namespace Traveller2
     public partial class ShipData : Form
     {
         public Form1 frm1;
+        private bool isNew = true;      // default to a new ship
+        private Traveller.Starship myShip = null;
 
         public ShipData()
         {
             InitializeComponent();
+            this.isNew = false;
         }
 
         public ShipData(Traveller.Starship ship)
@@ -24,7 +27,9 @@ namespace Traveller2
             InitializeComponent();
 
             loadShip(ship);
+            this.myShip = ship;
             btnAdd.Text = "update current ship";
+            this.isNew = true;
         }
 
         private void loadShip(Traveller.Starship ship)
@@ -54,7 +59,18 @@ namespace Traveller2
                 default:
                     break;
             }
+
+            rbCT.Enabled = false;
+            rbT5.Enabled = false;
+            rbMongoose.Enabled = false;
+            rbCustom.Enabled = false;
+            edName.Enabled = false;
+
+            edDay.Text = ship.Day.ToString();
+            edYear.Text = ship.Year.ToString();
+
             lblDataFile.Text = ship.SECDataFile;
+            edSectorName.Text = ship.SectorName;
             edTradeDM.Value = ship.TradeDM;           
             loadDataFile(ship.SECDataFile);
             cbWorld.SelectedIndex = cbWorld.FindString(ship.SEC, 0);
@@ -67,7 +83,16 @@ namespace Traveller2
                 return;
             }
 
-            addNewShip();
+            if (this.isNew)
+            {
+                loadData();
+                this.myShip.save();
+                MessageBox.Show("Successfully updated " + this.myShip.Name);
+            }
+            else
+            {
+                addNewShip();
+            }
 
             this.DialogResult = DialogResult.OK;
             this.Close();
@@ -93,7 +118,7 @@ namespace Traveller2
             Traveller.Starship ship = new Traveller.Starship(edName.Text, (int)edMan.Value,
                 (int)edPower.Value, (int)edJump.Value, cargo, monthly, perjump,
                 Convert.ToInt32(edDay.Text), Convert.ToInt32(edYear.Text), credits, version, lblDataFile.Text,
-                cbWorld.SelectedItem.ToString(), edSectorName.Text, (int)edTradeDM.Value);
+                cbWorld.SelectedItem.ToString(), edSectorName.Text, (int)edTradeDM.Value, ckIllegal.Checked);
             Properties.Settings.Default.ShipDataFile = edName.Text + ".xml";
             Properties.Settings.Default.Save();
         }
@@ -168,7 +193,7 @@ namespace Traveller2
             if (of.ShowDialog() != DialogResult.Cancel)
             {
                 lblDataFile.Text = of.SafeFileName;
-                loadDataFile(of.SafeFileName);
+                loadDataFile(of.FileName);
             }
         }
 
@@ -188,6 +213,28 @@ namespace Traveller2
                     cbWorld.Items.Add(line);
                 }
             }
+        }
+
+        /// <summary>
+        /// get the data off the screen that we are allwoed to save
+        /// </summary>
+        private void loadData()
+        {
+            this.myShip.Name = edName.Text;
+            int intVal = 0;
+            int.TryParse(edCargo.Text, out intVal);
+            if (intVal > 0)
+                this.myShip.Cargo = intVal;
+            int.TryParse(edDay.Text, out intVal);
+            this.myShip.Day = intVal;
+            int.TryParse(edYear.Text, out intVal);
+            this.myShip.Year = intVal;
+            int.TryParse(edCredits.Text, out intVal);
+            this.myShip.Credits = intVal;
+            int.TryParse(edMonthly.Text, out intVal);
+            this.myShip.MonthlyCosts = intVal;
+            int.TryParse(edPerJump.Text, out intVal);
+            this.myShip.PerJumpCost = intVal;
         }
     }
 }
