@@ -220,17 +220,17 @@ namespace Traveller
         {
             try
             {
-                stAtmosphere = File.ReadAllLines("Atmospheres.txt");
+                stAtmosphere = File.ReadAllLines("Assets/Atmospheres.txt");
             }
             catch (Exception ex) { this.errmsg = ex.Message; }
             try
             {
-                stGovernment = File.ReadAllLines("Governments.txt");
+                stGovernment = File.ReadAllLines("Assets/Governments.txt");
             }
             catch (Exception ex) { this.errmsg = ex.Message; }
             try
             {
-                stAllianceCodes = File.ReadAllLines("AllianceCodes.txt");
+                stAllianceCodes = File.ReadAllLines("Assets/AllianceCodes.txt");
             }
             catch (Exception ex) { this.errmsg = ex.Message; }
         }
@@ -848,7 +848,7 @@ namespace Traveller
         {
             this.tradeclass = new ArrayList();              // create a valid array list
 
-            StreamReader rd = new StreamReader(prefix + "TradeCodes.txt");
+            StreamReader rd = new StreamReader("Assets/" + prefix + "TradeCodes.txt");
             string line = "";
 
             while ((line = rd.ReadLine()) != null)

@@ -1,0 +1,21 @@
+# port modifier table
+# UWTN, A, B, C, D, E, X
+# where UWTN = unmodified world trade number
+# (TLModifier + pop code / 2)
+
+# read using > first, so if the UWTN > the value
+# use that to create WTN (WTN = UWTN + port modifier)
+# use 7 if number > 6.5 (check for last item...)
+# example: UWTN = 3.2: looping through:
+# 1 is not > 3.2, 1.5 is not, 2.5 is not, 3.5 IS
+# so use the 3.5 row (it covers 2.51 - 3.5 essentially)
+
+#UWTN A     B     C     D     E     X
+1,   1.5,  1.0,  1.0,  0.5,  0.5,  0.0
+1.5, 1.0,  1.0,  0.5,  0.5,  0.0,  0.0
+2.5, 1.0,  0.5,  0.5,  0,0,  0.0, -2.5
+3.5, 0.5,  0.5,  0.0,  0.0, -0.5, -3.0
+4.5, 0.5,  0.0,  0.0,  0.5, -1.0, -3.5
+5.5, 0.0,  0.0,  0.5, -1.0, -2.0, -4.5
+6.5, 0.0, -1.0, -1.5, -2.0. -2.5, -5.0
+7,   0.0, -1.0, -1.5, -2.0, -2.5, -5.0

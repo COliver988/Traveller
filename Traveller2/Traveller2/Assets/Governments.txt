@@ -1,0 +1,16 @@
+﻿None
+Company/Corporation
+Participating Democracy
+Self-Perpetuating Oligarchy
+Representative Democracy
+Feudal Technocracy
+Captive Government/Colony
+Balkanization
+Civil Service Bureaucracy
+Impersonal Bureaucracy
+Charismatic Dictatorship
+Non-Charismatic Dictatorship
+Charismatic Oligarchy
+Religious Dictatorship
+Religious Autocracy
+Totalitarion Oligarchy
