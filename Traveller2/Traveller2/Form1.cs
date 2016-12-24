@@ -248,7 +248,7 @@ namespace Traveller2
                 sectorName, world.Hex);
             //string url = String.Format("http://www.travellermap.com/JumpMap.aspx?Sector={0}&hex={1}&jump={2}&scale=48&options=48",
             //    sectorName, world.Hex, ship.Jump);
-            webBrowser1.Navigate(url);
+            webView1.Url = url;
 
             loadImages();
         }
@@ -310,7 +310,7 @@ namespace Traveller2
         // get the worlds within a J6 jump
         private void showJ6()
         {
-            tabInfo.TabPages["tabPageJumpRange"].Text = String.Format("Jump {0} systems", ship.Jump);       
+            tabInfo.TabPages["tabPageJumpRange"].Text = String.Format("Jump {0} systems", ship.Jump);
             List<string> systems = world.jumpRange(Properties.Settings.Default.Sector, ship.Jump);
             foreach (string sys in systems)
             {
@@ -330,7 +330,7 @@ namespace Traveller2
             {
                 pictureBox1.Load(imageName);
             }
-            catch 
+            catch
             {
             }
         }
@@ -389,9 +389,9 @@ namespace Traveller2
         }
 
         private void addTravelogueNoteToolStripMenuItem_Click(object sender, EventArgs e)
-        {           
+        {
             Travelogue f = new Travelogue(ship.Date, ship.SEC);
-            f.frm1 = this; 
+            f.frm1 = this;
             f.ShowDialog(this);
             showTravelogue();
         }
@@ -503,7 +503,7 @@ namespace Traveller2
         private void reportAllCodes()
         {
             List<string> codes = new List<string>();
-            foreach (string  line in cbWorlds.Items)
+            foreach (string line in cbWorlds.Items)
             {
                 try
                 {
@@ -686,7 +686,7 @@ namespace Traveller2
             cbWorlds.Items.Clear();
 
             // and load the sector file
-            StreamReader rd = new StreamReader(ship.SECDataFile);
+            StreamReader rd = new StreamReader("Assets/" + ship.SECDataFile);
             string line = "";
             Traveller.World tw = new Traveller.World();
 
@@ -839,7 +839,7 @@ namespace Traveller2
                     {
                         MessageBox.Show("Unable to purchase " + li.Text);
                     }
-                }          
+                }
             }
             ship.save();
             showShip(ship.Filename);
@@ -913,7 +913,7 @@ namespace Traveller2
                     "",
                     lognote, ship.Name, DateTime.Now, "Travelogue", "Traveller");
                 lognote = "";
-            }           
+            }
 
             rss.WriteEndChannel();
             rss.WriteEndDocument();
@@ -932,7 +932,7 @@ namespace Traveller2
                 List<string> inRange = world.jumpRange(ship.SECDataFile, ship.Jump);
                 foreach (string line in inRange)
                 {
-                    cbWorlds.Items.Add(line);                   
+                    cbWorlds.Items.Add(line);
                 }
             }
             else

@@ -673,7 +673,7 @@ namespace Traveller
             // read through the file, ignore white space & leading #
             // increment a counter for each valid line, since each line
             // matches a tech level (0-based)
-            StreamReader rd = new StreamReader("TLModifier.txt");
+            StreamReader rd = new StreamReader("Assets/TLModifier.txt");
             string line = "";
             while ((line = rd.ReadLine()) != null)
             {
@@ -702,7 +702,7 @@ namespace Traveller
             try
             {
                 // read through the file, ignore white space & leading #
-                rd = new StreamReader("PortModifier.txt");
+                rd = new StreamReader("Assets/PortModifier.txt");
                 while ((line = rd.ReadLine()) != null)
                 {
                     if (line.Length > 0)
@@ -952,7 +952,7 @@ namespace Traveller
         public List<string> jumpRange(string filename, int jump)
         {
             List<string> range = new List<string>();
-            string[] systems = File.ReadAllLines(filename);
+            string[] systems = File.ReadAllLines("Assets/" + filename);
 
             // figure the max/min ranges for our hex positions
             // 1st two are horizontal, 2nd pair vertical

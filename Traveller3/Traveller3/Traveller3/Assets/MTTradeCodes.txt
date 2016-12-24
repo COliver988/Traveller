@@ -1,0 +1,27 @@
+# Mongoose trade classifications
+
+# 2 character code<space>description,size,Atm,Hyd,Pop,Gov,Law,TL,cost effect (purchase)
+# to figure it out, just read through the list
+# and and that match ('-' means not applicable)
+# the criteria are valid
+
+# if an additional field is given, it is tech
+
+Ag agricultural,-,456789,45678,567,-,-,-,0
+As Asteroid,0,0,0,-,-,-,-,0
+Ba Barren,-,-,-,0,0,0,0,-,0
+De Desert,-,23456789A,0,-,-,-,-,0
+Fl Fluid,-,ABC,123456789A,-,-,-,-,0
+Ga Garden world,6789A,456789,45678,-,-,-,-,0
+Hi high population,-,-,-,9ABC,-,-,-,0
+Ht High Technology,-,-,-,-,-,-,CDEF,0
+Ic Ice capped,-,01,123456789A,-,-,-,-,0
+In Industrial,-,012479,-,9ABC,-,-,-,0
+Lo low population,-,-,-,123,-,-,-,0
+Lt Low Technology,-,-,-,-,-,-,012345,0
+Na non-agricultural,-,0123,0123,6789ABC,-,-,-,0
+Ni non-industrial,-,-,-,456,-,-,-,0
+Po poor,-,2345,0123,-,-,-,-,0
+Ri rich,-,68,-,678,-,-,-,0
+Va vacuum,-,0,-,-,-,-,-,0
+Wa Water world,-,-,A,-,-,-,-,0

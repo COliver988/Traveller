@@ -78,20 +78,20 @@
             this.lblAlliance = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lvData = new System.Windows.Forms.ListView();
-            this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.edNotes = new System.Windows.Forms.TextBox();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.edNPC = new System.Windows.Forms.TextBox();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.lvAvailableCargo = new System.Windows.Forms.ListView();
-            this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader6 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader5 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader20 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader22 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader20 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader22 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnBuy = new System.Windows.Forms.Button();
             this.btnPassengers = new System.Windows.Forms.Button();
@@ -102,24 +102,24 @@
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this.lvShipCargo = new System.Windows.Forms.ListView();
-            this.columnHeader10 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader7 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader8 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader9 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader15 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader16 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader19 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader16 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader19 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cmShipCargo = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.sellCheckedCargosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.detaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.detailedManifestReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage10 = new System.Windows.Forms.TabPage();
             this.lvSold = new System.Windows.Forms.ListView();
-            this.columnHeader11 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader12 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader13 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader17 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader14 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader17 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label13 = new System.Windows.Forms.Label();
             this.lblShipName = new System.Windows.Forms.Label();
@@ -133,9 +133,8 @@
             this.label12 = new System.Windows.Forms.Label();
             this.tabPageJumpRange = new System.Windows.Forms.TabPage();
             this.lvJ6 = new System.Windows.Forms.ListView();
-            this.columnHeader18 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader18 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPage11 = new System.Windows.Forms.TabPage();
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblSEC = new System.Windows.Forms.Label();
             this.ckLimit = new System.Windows.Forms.CheckBox();
@@ -145,6 +144,8 @@
             this.showSystemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.jumpToThisSystemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.ckMTExpanded = new System.Windows.Forms.CheckBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.lblShipData = new System.Windows.Forms.Label();
@@ -163,8 +164,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.ckMTExpanded = new System.Windows.Forms.CheckBox();
+            this.webControl1 = new EO.WebBrowser.WinForm.WebControl();
+            this.webControl2 = new EO.WebBrowser.WinForm.WebControl();
+            this.webView1 = new EO.WebBrowser.WebView();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -172,6 +174,7 @@
             this.groupBox2.SuspendLayout();
             this.tabInfo.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -193,11 +196,11 @@
             this.groupBox1.SuspendLayout();
             this.cmWorld.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox9.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -227,70 +230,70 @@
             this.toolStripMenuItem1,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(35, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // addTravelogueNoteToolStripMenuItem
             // 
             this.addTravelogueNoteToolStripMenuItem.Name = "addTravelogueNoteToolStripMenuItem";
-            this.addTravelogueNoteToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
+            this.addTravelogueNoteToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
             this.addTravelogueNoteToolStripMenuItem.Text = "add travelogue note";
             this.addTravelogueNoteToolStripMenuItem.Click += new System.EventHandler(this.addTravelogueNoteToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(209, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(210, 6);
             // 
             // openExistingShipFileToolStripMenuItem
             // 
             this.openExistingShipFileToolStripMenuItem.Name = "openExistingShipFileToolStripMenuItem";
-            this.openExistingShipFileToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
+            this.openExistingShipFileToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
             this.openExistingShipFileToolStripMenuItem.Text = "open existing ship file";
             this.openExistingShipFileToolStripMenuItem.Click += new System.EventHandler(this.openExistingShipFileToolStripMenuItem_Click);
             // 
             // createNewShipDataFileToolStripMenuItem
             // 
             this.createNewShipDataFileToolStripMenuItem.Name = "createNewShipDataFileToolStripMenuItem";
-            this.createNewShipDataFileToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
+            this.createNewShipDataFileToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
             this.createNewShipDataFileToolStripMenuItem.Text = "create new ship data file";
             this.createNewShipDataFileToolStripMenuItem.Click += new System.EventHandler(this.createNewShipDataFileToolStripMenuItem_Click);
             // 
             // editCurrentShipsDataFileToolStripMenuItem
             // 
             this.editCurrentShipsDataFileToolStripMenuItem.Name = "editCurrentShipsDataFileToolStripMenuItem";
-            this.editCurrentShipsDataFileToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
+            this.editCurrentShipsDataFileToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
             this.editCurrentShipsDataFileToolStripMenuItem.Text = "edit current ship\'s data file";
             this.editCurrentShipsDataFileToolStripMenuItem.Click += new System.EventHandler(this.editCurrentShipsDataFileToolStripMenuItem_Click);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(209, 6);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(210, 6);
             // 
             // addWorldImageToolStripMenuItem
             // 
             this.addWorldImageToolStripMenuItem.Name = "addWorldImageToolStripMenuItem";
-            this.addWorldImageToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
+            this.addWorldImageToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
             this.addWorldImageToolStripMenuItem.Text = "add world image";
             this.addWorldImageToolStripMenuItem.Click += new System.EventHandler(this.addWorldImageToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(209, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(210, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // tbImages
             // 
             this.tbImages.Name = "tbImages";
-            this.tbImages.Size = new System.Drawing.Size(54, 20);
+            this.tbImages.Size = new System.Drawing.Size(57, 20);
             this.tbImages.Text = "Images";
             // 
             // utilitiesToolStripMenuItem
@@ -298,13 +301,13 @@
             this.utilitiesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.verifyCurrentVersionFilesToolStripMenuItem});
             this.utilitiesToolStripMenuItem.Name = "utilitiesToolStripMenuItem";
-            this.utilitiesToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
+            this.utilitiesToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
             this.utilitiesToolStripMenuItem.Text = "Utilities";
             // 
             // verifyCurrentVersionFilesToolStripMenuItem
             // 
             this.verifyCurrentVersionFilesToolStripMenuItem.Name = "verifyCurrentVersionFilesToolStripMenuItem";
-            this.verifyCurrentVersionFilesToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.verifyCurrentVersionFilesToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
             this.verifyCurrentVersionFilesToolStripMenuItem.Text = "verify current version files";
             this.verifyCurrentVersionFilesToolStripMenuItem.Click += new System.EventHandler(this.verifyCurrentVersionFilesToolStripMenuItem_Click);
             // 
@@ -317,7 +320,7 @@
             this.showJumpMapToolStripMenuItem,
             this.generateOriginCodesForAllToolStripMenuItem});
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
-            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.reportsToolStripMenuItem.Text = "Reports";
             // 
             // cargoManifestToolStripMenuItem
@@ -326,41 +329,41 @@
             this.summaryToolStripMenuItem,
             this.detailToolStripMenuItem});
             this.cargoManifestToolStripMenuItem.Name = "cargoManifestToolStripMenuItem";
-            this.cargoManifestToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.cargoManifestToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.cargoManifestToolStripMenuItem.Text = "Cargo manifest";
             // 
             // summaryToolStripMenuItem
             // 
             this.summaryToolStripMenuItem.Name = "summaryToolStripMenuItem";
-            this.summaryToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.summaryToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.summaryToolStripMenuItem.Text = "Summary";
             this.summaryToolStripMenuItem.Click += new System.EventHandler(this.summaryToolStripMenuItem_Click);
             // 
             // detailToolStripMenuItem
             // 
             this.detailToolStripMenuItem.Name = "detailToolStripMenuItem";
-            this.detailToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.detailToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.detailToolStripMenuItem.Text = "Detail";
             this.detailToolStripMenuItem.Click += new System.EventHandler(this.detailToolStripMenuItem_Click);
             // 
             // cargoHistoryToolStripMenuItem
             // 
             this.cargoHistoryToolStripMenuItem.Name = "cargoHistoryToolStripMenuItem";
-            this.cargoHistoryToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.cargoHistoryToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.cargoHistoryToolStripMenuItem.Text = "Cargo history";
             this.cargoHistoryToolStripMenuItem.Click += new System.EventHandler(this.cargoHistoryToolStripMenuItem_Click);
             // 
             // travelogueRSSFeedToolStripMenuItem
             // 
             this.travelogueRSSFeedToolStripMenuItem.Name = "travelogueRSSFeedToolStripMenuItem";
-            this.travelogueRSSFeedToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.travelogueRSSFeedToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.travelogueRSSFeedToolStripMenuItem.Text = "Travelogue RSS Feed";
             this.travelogueRSSFeedToolStripMenuItem.Click += new System.EventHandler(this.travelogueRSSFeedToolStripMenuItem_Click);
             // 
             // showJumpMapToolStripMenuItem
             // 
             this.showJumpMapToolStripMenuItem.Name = "showJumpMapToolStripMenuItem";
-            this.showJumpMapToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.showJumpMapToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.showJumpMapToolStripMenuItem.Text = "show jump map";
             this.showJumpMapToolStripMenuItem.Click += new System.EventHandler(this.showJumpMapToolStripMenuItem_Click);
             // 
@@ -370,27 +373,27 @@
             this.generateOriginCodesForAllInWorldDropdownToolStripMenuItem,
             this.j6TradeReportToolStripMenuItem});
             this.generateOriginCodesForAllToolStripMenuItem.Name = "generateOriginCodesForAllToolStripMenuItem";
-            this.generateOriginCodesForAllToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.generateOriginCodesForAllToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.generateOriginCodesForAllToolStripMenuItem.Text = "Trade reports";
             // 
             // generateOriginCodesForAllInWorldDropdownToolStripMenuItem
             // 
             this.generateOriginCodesForAllInWorldDropdownToolStripMenuItem.Name = "generateOriginCodesForAllInWorldDropdownToolStripMenuItem";
-            this.generateOriginCodesForAllInWorldDropdownToolStripMenuItem.Size = new System.Drawing.Size(314, 22);
+            this.generateOriginCodesForAllInWorldDropdownToolStripMenuItem.Size = new System.Drawing.Size(330, 22);
             this.generateOriginCodesForAllInWorldDropdownToolStripMenuItem.Text = "generate origin codes for all in world drop-down";
             this.generateOriginCodesForAllInWorldDropdownToolStripMenuItem.Click += new System.EventHandler(this.generateOriginCodesForAllInWorldDropdownToolStripMenuItem_Click);
             // 
             // j6TradeReportToolStripMenuItem
             // 
             this.j6TradeReportToolStripMenuItem.Name = "j6TradeReportToolStripMenuItem";
-            this.j6TradeReportToolStripMenuItem.Size = new System.Drawing.Size(314, 22);
+            this.j6TradeReportToolStripMenuItem.Size = new System.Drawing.Size(330, 22);
             this.j6TradeReportToolStripMenuItem.Text = "Jump range trade report";
             this.j6TradeReportToolStripMenuItem.Click += new System.EventHandler(this.j6TradeReportToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -412,13 +415,13 @@
             // stStatus
             // 
             this.stStatus.Name = "stStatus";
-            this.stStatus.Size = new System.Drawing.Size(101, 17);
+            this.stStatus.Size = new System.Drawing.Size(110, 17);
             this.stStatus.Text = "initializing system...";
             // 
             // sbImperialDate
             // 
             this.sbImperialDate.Name = "sbImperialDate";
-            this.sbImperialDate.Size = new System.Drawing.Size(75, 17);
+            this.sbImperialDate.Size = new System.Drawing.Size(80, 17);
             this.sbImperialDate.Text = "Imperial Date:";
             // 
             // toolStripDropDownButton1
@@ -431,46 +434,46 @@
             this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
             this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-            this.toolStripDropDownButton1.Size = new System.Drawing.Size(68, 20);
+            this.toolStripDropDownButton1.Size = new System.Drawing.Size(71, 20);
             this.toolStripDropDownButton1.Text = "add a day";
             this.toolStripDropDownButton1.Click += new System.EventHandler(this.toolStripDropDownButton1_Click);
             // 
             // add3DaysToolStripMenuItem
             // 
             this.add3DaysToolStripMenuItem.Name = "add3DaysToolStripMenuItem";
-            this.add3DaysToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.add3DaysToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.add3DaysToolStripMenuItem.Text = "add 3 days";
             this.add3DaysToolStripMenuItem.Click += new System.EventHandler(this.add3DaysToolStripMenuItem_Click);
             // 
             // add2DaysToolStripMenuItem
             // 
             this.add2DaysToolStripMenuItem.Name = "add2DaysToolStripMenuItem";
-            this.add2DaysToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.add2DaysToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.add2DaysToolStripMenuItem.Text = "add 2 days";
             this.add2DaysToolStripMenuItem.Click += new System.EventHandler(this.add2DaysToolStripMenuItem_Click);
             // 
             // addADayToolStripMenuItem
             // 
             this.addADayToolStripMenuItem.Name = "addADayToolStripMenuItem";
-            this.addADayToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.addADayToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.addADayToolStripMenuItem.Text = "add 1 day";
             // 
             // sbCredits
             // 
             this.sbCredits.Name = "sbCredits";
-            this.sbCredits.Size = new System.Drawing.Size(18, 17);
+            this.sbCredits.Size = new System.Drawing.Size(19, 17);
             this.sbCredits.Text = "Cr";
             // 
             // sbCurrentWorld
             // 
             this.sbCurrentWorld.Name = "sbCurrentWorld";
-            this.sbCurrentWorld.Size = new System.Drawing.Size(53, 17);
+            this.sbCurrentWorld.Size = new System.Drawing.Size(56, 17);
             this.sbCurrentWorld.Text = "nowhere!";
             // 
             // sbVersion
             // 
             this.sbVersion.Name = "sbVersion";
-            this.sbVersion.Size = new System.Drawing.Size(58, 17);
+            this.sbVersion.Size = new System.Drawing.Size(61, 17);
             this.sbVersion.Text = "<version>";
             // 
             // tabControl1
@@ -580,7 +583,7 @@
             this.lbTradeCodes.FormattingEnabled = true;
             this.lbTradeCodes.Location = new System.Drawing.Point(3, 3);
             this.lbTradeCodes.Name = "lbTradeCodes";
-            this.lbTradeCodes.Size = new System.Drawing.Size(184, 43);
+            this.lbTradeCodes.Size = new System.Drawing.Size(184, 53);
             this.lbTradeCodes.TabIndex = 1;
             // 
             // label7
@@ -598,7 +601,7 @@
             this.lbBases.FormattingEnabled = true;
             this.lbBases.Location = new System.Drawing.Point(3, 82);
             this.lbBases.Name = "lbBases";
-            this.lbBases.Size = new System.Drawing.Size(184, 30);
+            this.lbBases.Size = new System.Drawing.Size(184, 33);
             this.lbBases.TabIndex = 3;
             // 
             // lblAlliance
@@ -613,9 +616,9 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.BackgroundImage = global::Traveller2.Properties.Resources.spback;
             this.pictureBox1.Location = new System.Drawing.Point(3, 151);
             this.pictureBox1.Name = "pictureBox1";
@@ -904,26 +907,26 @@
             this.detaToolStripMenuItem,
             this.detailedManifestReportToolStripMenuItem});
             this.cmShipCargo.Name = "cmShipCargo";
-            this.cmShipCargo.Size = new System.Drawing.Size(206, 70);
+            this.cmShipCargo.Size = new System.Drawing.Size(209, 70);
             // 
             // sellCheckedCargosToolStripMenuItem
             // 
             this.sellCheckedCargosToolStripMenuItem.Name = "sellCheckedCargosToolStripMenuItem";
-            this.sellCheckedCargosToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
+            this.sellCheckedCargosToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
             this.sellCheckedCargosToolStripMenuItem.Text = "sell checked cargos";
             this.sellCheckedCargosToolStripMenuItem.Click += new System.EventHandler(this.sellCheckedCargosToolStripMenuItem_Click);
             // 
             // detaToolStripMenuItem
             // 
             this.detaToolStripMenuItem.Name = "detaToolStripMenuItem";
-            this.detaToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
+            this.detaToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
             this.detaToolStripMenuItem.Text = "summary manifest report";
             this.detaToolStripMenuItem.Click += new System.EventHandler(this.detaToolStripMenuItem_Click);
             // 
             // detailedManifestReportToolStripMenuItem
             // 
             this.detailedManifestReportToolStripMenuItem.Name = "detailedManifestReportToolStripMenuItem";
-            this.detailedManifestReportToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
+            this.detailedManifestReportToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
             this.detailedManifestReportToolStripMenuItem.Text = "detailed manifest report";
             this.detailedManifestReportToolStripMenuItem.Click += new System.EventHandler(this.detailedManifestReportToolStripMenuItem_Click);
             // 
@@ -1122,7 +1125,8 @@
             // 
             // tabPage11
             // 
-            this.tabPage11.Controls.Add(this.webBrowser1);
+            this.tabPage11.Controls.Add(this.webControl2);
+            this.tabPage11.Controls.Add(this.webControl1);
             this.tabPage11.Location = new System.Drawing.Point(4, 22);
             this.tabPage11.Name = "tabPage11";
             this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
@@ -1130,15 +1134,6 @@
             this.tabPage11.TabIndex = 7;
             this.tabPage11.Text = "TravellerMap";
             this.tabPage11.UseVisualStyleBackColor = true;
-            // 
-            // webBrowser1
-            // 
-            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.webBrowser1.Location = new System.Drawing.Point(3, 3);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(571, 349);
-            this.webBrowser1.TabIndex = 0;
             // 
             // groupBox1
             // 
@@ -1232,6 +1227,27 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Settings/File Info";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.ckMTExpanded);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox3.Location = new System.Drawing.Point(3, 281);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(591, 100);
+            this.groupBox3.TabIndex = 9;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Optional Settings";
+            // 
+            // ckMTExpanded
+            // 
+            this.ckMTExpanded.AutoSize = true;
+            this.ckMTExpanded.Location = new System.Drawing.Point(11, 19);
+            this.ckMTExpanded.Name = "ckMTExpanded";
+            this.ckMTExpanded.Size = new System.Drawing.Size(304, 17);
+            this.ckMTExpanded.TabIndex = 0;
+            this.ckMTExpanded.Text = "used Mongoose expanded trade tables (MTGoodsExp.csv)";
+            this.ckMTExpanded.UseVisualStyleBackColor = true;
             // 
             // groupBox4
             // 
@@ -1405,26 +1421,25 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Classic Traveller:";
             // 
-            // groupBox3
+            // webControl1
             // 
-            this.groupBox3.Controls.Add(this.ckMTExpanded);
-            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox3.Location = new System.Drawing.Point(3, 281);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(591, 100);
-            this.groupBox3.TabIndex = 9;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Optional Settings";
+            this.webControl1.BackColor = System.Drawing.Color.White;
+            this.webControl1.Location = new System.Drawing.Point(-37, -248);
+            this.webControl1.Name = "webControl1";
+            this.webControl1.Size = new System.Drawing.Size(250, 250);
+            this.webControl1.TabIndex = 0;
+            this.webControl1.Text = "webControl1";
             // 
-            // ckMTExpanded
+            // webControl2
             // 
-            this.ckMTExpanded.AutoSize = true;
-            this.ckMTExpanded.Location = new System.Drawing.Point(11, 19);
-            this.ckMTExpanded.Name = "ckMTExpanded";
-            this.ckMTExpanded.Size = new System.Drawing.Size(304, 17);
-            this.ckMTExpanded.TabIndex = 0;
-            this.ckMTExpanded.Text = "used Mongoose expanded trade tables (MTGoodsExp.csv)";
-            this.ckMTExpanded.UseVisualStyleBackColor = true;
+            this.webControl2.BackColor = System.Drawing.Color.White;
+            this.webControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webControl2.Location = new System.Drawing.Point(3, 3);
+            this.webControl2.Name = "webControl2";
+            this.webControl2.Size = new System.Drawing.Size(571, 349);
+            this.webControl2.TabIndex = 1;
+            this.webControl2.Text = "webControl2";
+            this.webControl2.WebView = this.webView1;
             // 
             // Form1
             // 
@@ -1448,6 +1463,7 @@
             this.tabPage3.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
@@ -1473,6 +1489,8 @@
             this.groupBox1.PerformLayout();
             this.cmWorld.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();
@@ -1480,8 +1498,6 @@
             this.groupBox6.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1597,7 +1613,6 @@
         private System.Windows.Forms.ToolStripMenuItem showSystemToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem jumpToThisSystemToolStripMenuItem;
         private System.Windows.Forms.TabPage tabPage11;
-        private System.Windows.Forms.WebBrowser webBrowser1;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.ListBox lbTradeCodes;
@@ -1624,6 +1639,9 @@
         private System.Windows.Forms.ToolStripMenuItem add2DaysToolStripMenuItem;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.CheckBox ckMTExpanded;
+        private EO.WebBrowser.WinForm.WebControl webControl2;
+        private EO.WebBrowser.WebView webView1;
+        private EO.WebBrowser.WinForm.WebControl webControl1;
     }
 }
 

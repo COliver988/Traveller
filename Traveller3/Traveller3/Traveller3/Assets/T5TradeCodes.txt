@@ -1,0 +1,58 @@
+# T5 trade classifications
+
+# 2 character code<space>description,size,Atm,Hyd,Pop,Gov,Law,TL,cost effect (purchase)
+# to figure it out, just read through the list
+# and and that match ('-' means not applicable)
+# the criteria are valid
+
+# if an additional field is given, it is tech
+# level; '+' means > 0; 0 = 0
+
+# have not figured a way to deal with habital
+# zone stuff, as that is not in the SEC or my
+# xml files
+
+Ag agricultural,-,456789,45678,567,-,-,-,-1000
+As Asteroid,0,0,0,-,-,-,-,-1000
+Ba Barren,-,-,-,0,0,0,0,-,1000
+De Desert,-,23456789,0,-,-,-,-,1000
+Di Dieback,-,-,-,0,0,0,-,0
+Fl Fluid,-,ABC,123456789A,-,-,-,-,1000
+Ga Garden world,678,568,567,-,-,-,-,0
+He Hellworld,3456789A,2479ABC,012,-,-,-,-,0
+Hi high population,-,-,-,9ABC,-,-,-,-1000
+Ic Ice capped,-,01,123456789A,-,-,-,-,0
+In Industrial,-,012479,-,9ABC,-,-,-,-1000
+Lo low population,-,-,-,123,-,-,-,1000
+Na non-agricultural,-,0123,0123,6789ABC,-,-,-,0
+Ni non-industrial,-,-,-,456,-,-,-,1000
+Oc Ocean world,ABC,-,A,-,-,-,-,0
+Pa pre-agricultural,-,456789,45678,48,-,-,-,0
+Ph pre-high,-,-,-,8,-,-,-,0
+Pi pre-industrial,-,012479,0,78,0,0,-,0
+Po poor,-,2345,0123,-,-,-,-,-1000
+Pr pre-rich,0,68,0,59,-,-,-0
+Ri rich,-,68,-,678,-,-,-,1000
+Va vacuum,-,0,-,-,-,-,-,1000
+Wa Water world,56789,-,A,-,-,-,-,0
+#Fr frozen,23456789,-,123456789A,-,-,-
+#Ho hot,-,-,-,-,-,-
+#Co cold,-,-,-,-,-,-
+#Lk locked,-,-,-,-,-,-
+#Tr tropic
+#Tu tundra
+#Tz twilight zone
+#Fa farming
+#Mi mining
+#Co colony
+#Pe penal
+#Re Reserve
+#Cp subsector capital
+#Cs sector captital
+#Cx capital
+#An ancient site
+#Ab data repository
+#Sa satelite
+#Fo forbidden (red zone)
+#Pz puzzle (amber zone)
+#Da danger (amber zone)
