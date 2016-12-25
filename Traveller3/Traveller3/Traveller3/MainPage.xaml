@@ -9,10 +9,8 @@
     Width="600"
     mc:Ignorable="d">
 
+
     <Grid Margin="2,2,2,2" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Grid.DataContext>
-            <Models:Ship />
-        </Grid.DataContext>
         <Grid.RowDefinitions>
             <RowDefinition Height="35" />
             <RowDefinition Height="25" />
@@ -21,7 +19,7 @@
             <RowDefinition Height="45" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="65" />
+            <ColumnDefinition Width="85" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <TextBlock
@@ -40,22 +38,87 @@
         <TextBlock
             Grid.Row="1"
             Grid.Column="1"
-            Text="{Binding Name}" />
+            Text="{Binding ship.Name}" />
         <TextBlock
             Grid.Row="2"
             Grid.Column="0"
             HorizontalAlignment="Right"
             VerticalAlignment="Center"
+            FontSize="18"
             Text="World" />
         <TextBlock
             Grid.Row="1"
             Grid.RowSpan="2"
             Grid.Column="1"
             Margin="0,19,0,6"
-            Text="{Binding Location.Name}" />
+            Text="{Binding ship.Location.Name}" />
         <Pivot Grid.Row="3" Grid.Column="1">
             <PivotItem Header="Ship Info">
-                <Grid />
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="85" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="35" />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <TextBlock
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Text="Name" />
+                    <TextBox
+                        Grid.Column="1"
+                        Style="{StaticResource DataEntry}"
+                        Text="{Binding ship.Name}" />
+                    <TextBlock
+                        Grid.Row="1"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Text="Tonnage" />
+                    <TextBox
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Style="{StaticResource DataEntry}"
+                        Text="{Binding ship.dTons}" />
+                    <TextBlock
+                        Grid.Row="2"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Text="Cargo" />
+                    <TextBox
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        Style="{StaticResource DataEntry}"
+                        Text="{Binding ship.CargoCapacity}" />
+                    <TextBlock
+                        Grid.Row="3"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Text="Avl" />
+                    <TextBox
+                        Grid.Row="3"
+                        Grid.Column="1"
+                        Style="{StaticResource DataEntry}"
+                        Text="{Binding ship.AvailableCargoSpace}" />
+                    <Button
+                        Grid.Row="11"
+                        Grid.Column="0"
+                        Height="30"
+                        HorizontalAlignment="Center"
+                        Click="btnSave"
+                        Content="Save" />
+                </Grid>
             </PivotItem>
             <PivotItem Header="World Info">
                 <Grid />

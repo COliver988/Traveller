@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Traveller3.Models;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -22,9 +23,18 @@ namespace Traveller3
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        public Ship ship { get; set; }
+
         public MainPage()
         {
             this.InitializeComponent();
+            ship = new Ship();
+            this.DataContext = ship;
+        }
+
+        private void btnSave(object sender, RoutedEventArgs e)
+        {
+            ship.Save();
         }
     }
 }

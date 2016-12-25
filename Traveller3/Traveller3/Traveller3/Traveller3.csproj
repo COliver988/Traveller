@@ -89,7 +89,7 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
-    <None Include="Assets\SPINWARD.SEC" />
+    <None Include="Data\SPINWARD.SEC" />
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
@@ -111,14 +111,14 @@
     <None Include="Traveller3_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\AllianceCodes.txt" />
-    <Content Include="Assets\Atmospheres.txt" />
-    <Content Include="Assets\CTTradeCodes.txt" />
-    <Content Include="Assets\Governments.txt" />
-    <Content Include="Assets\MTTradeCodes.txt" />
-    <Content Include="Assets\PortModifier.txt" />
-    <Content Include="Assets\T5TradeCodes.txt" />
-    <Content Include="Assets\TLModifier.txt" />
+    <Content Include="Data\AllianceCodes.txt" />
+    <Content Include="Data\Atmospheres.txt" />
+    <Content Include="Data\CTTradeCodes.txt" />
+    <Content Include="Data\Governments.txt" />
+    <Content Include="Data\MTTradeCodes.txt" />
+    <Content Include="Data\PortModifier.txt" />
+    <Content Include="Data\T5TradeCodes.txt" />
+    <Content Include="Data\TLModifier.txt" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -138,6 +138,7 @@
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
