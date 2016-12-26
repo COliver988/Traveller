@@ -36,5 +36,11 @@ namespace Traveller3
         {
             ship.Save();
         }
+
+        private async void btnLoad(object sender, RoutedEventArgs e)
+        {
+            ship = await ship.load();
+            this.DataContext = ship;
+        }
     }
 }

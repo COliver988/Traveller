@@ -143,6 +143,7 @@
                 Grid.Row="0"
                 Grid.Column="0"
                 Margin="3"
+                Click="btnLoad"
                 HorizontalAlignment="Center"
                 Content="Load Ship" />
             <TextBlock Grid.Column="1" Text="{Binding ShipDate.Date}" />
