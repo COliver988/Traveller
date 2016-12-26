@@ -23,12 +23,12 @@ namespace Traveller3
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        public Ship ship { get; set; }
+        public Ship ship = new Ship();
 
         public MainPage()
         {
             this.InitializeComponent();
-            ship = new Ship();
+            ship.Name = "test";
             this.DataContext = ship;
         }
 
