@@ -1,3 +1,16 @@
 ﻿Vacuum
 Trace
 Very Thin, Tainted
+Very Thin
+Thin, Tainted
+Thin
+Standard
+Standard, Tainted
+Dense
+Dense, Tainted
+Exotic
+Corrosive
+Insidious
+Very Dense
+Low
+Unusual

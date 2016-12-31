@@ -11,7 +11,8 @@
 
     <Grid
         Margin="2,2,2,2"
-        Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" DataContext="{Binding}">
+        Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+        DataContext="{Binding}">
         <Grid.RowDefinitions>
             <RowDefinition Height="35" />
             <RowDefinition Height="25" />
@@ -41,6 +42,7 @@
             Grid.Column="1"
             Margin="3"
             VerticalAlignment="Center"
+            FontSize="18"
             Text="{Binding Name, Mode=TwoWay}" />
         <TextBlock
             Grid.Row="2"
@@ -55,10 +57,9 @@
             Grid.Column="1"
             Margin="3"
             VerticalAlignment="Center"
+            FontSize="18"
             Text="{Binding Location.Name}" />
-        <Pivot
-            Grid.Row="3"
-            Grid.Column="1">
+        <Pivot Grid.Row="3" Grid.Column="1">
             <PivotItem Header="Ship Info">
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -117,6 +118,41 @@
                         Grid.Column="1"
                         Style="{StaticResource DataEntry}"
                         Text="{Binding AvailableCargoSpace, Mode=TwoWay}" />
+                    <TextBlock
+                        Grid.Row="9"
+                        Grid.Column="0"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Text="Sector File" />
+                    <StackPanel
+                        Grid.Row="9"
+                        Grid.Column="1"
+                        Orientation="Horizontal">
+                        <TextBox
+                            Width="200"
+                            Margin="3, 1, 3, 1"
+                            Text="{Binding SectorFile}" />
+                        <Button
+                            Margin="3"
+                            Click="btnLoadSector"
+                            Content="Load file" />
+                    </StackPanel>
+                    <TextBlock
+                        Grid.Row="10"
+                        Grid.Column="0"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Text="Version" />
+                    <ComboBox
+                        Name="comboVersion"
+                        Grid.Row="10"
+                        Grid.Column="1"
+                        Width="Auto"
+                        Margin="3">
+                        <ComboBoxItem Tag="CT">Classic</ComboBoxItem>
+                        <ComboBoxItem Tag="T5">Traveller 5</ComboBoxItem>
+                        <ComboBoxItem Tag="MT">Mongoose</ComboBoxItem>
+                    </ComboBox>
                     <Button
                         Grid.Row="11"
                         Grid.Column="0"
@@ -143,10 +179,15 @@
                 Grid.Row="0"
                 Grid.Column="0"
                 Margin="3"
-                Click="btnLoad"
                 HorizontalAlignment="Center"
+                Click="btnLoad"
                 Content="Load Ship" />
-            <TextBlock Grid.Column="1" Text="{Binding ShipDate.Date}" />
+            <TextBlock
+                Grid.Column="1"
+                Margin="3"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Text="{Binding ShipDate.Date}" />
         </Grid>
     </Grid>
 </Page>

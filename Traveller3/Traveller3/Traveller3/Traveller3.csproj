@@ -102,6 +102,7 @@
     <Compile Include="Models\ImperialCalendar.cs" />
     <Compile Include="Models\MainPageData.cs" />
     <Compile Include="Models\Ship.cs" />
+    <Compile Include="Models\Support.cs" />
     <Compile Include="Models\World.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

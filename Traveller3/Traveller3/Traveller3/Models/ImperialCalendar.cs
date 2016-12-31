@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Newtonsoft.Json;
 
 namespace Traveller3.Models
 {
+    [JsonObject(MemberSerialization.OptIn)]
     public class ImperialCalendar
     {
         public ImperialCalendar ( int vday, int vyear)
@@ -14,10 +11,13 @@ namespace Traveller3.Models
             day = vday;
             year = vyear;
         }
-        private int day;
-        private int year;
 
-        public string Date {  get { return string.Format("Imperial Date: {day:000}-{year}");  } }
+        [JsonProperty]
+        public int day;
+        [JsonProperty]
+        public int year;
+
+        public string Date {  get { return string.Format("Imperial Date: {0:000}-{1}", day, year);  } }
 
         // add days to the date; check for year end
         public void AddDays (int days)

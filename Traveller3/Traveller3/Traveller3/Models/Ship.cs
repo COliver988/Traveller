@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Windows.Storage;
 using Windows.Storage.Pickers;
+using static Traveller3.Models.Support;
 
 namespace Traveller3.Models
 {
@@ -19,11 +20,16 @@ namespace Traveller3.Models
         public int CargoCarried { get; set; }
         public int AvailableCargoSpace { get { return CargoCapacity - CargoCarried;  }  }
         public int FuelPerJump { get; set; }                // fuel per jump
-        public World Location { get; set; }                 // current world location
-        public ImperialCalendar ShipDate { get; set; }      // current date 
+        public Versions Version { get; set; }                 // version: CT / T5 / MT (Mongoose)
+        public ImperialCalendar ShipDate { get; set; }
+        public string SectorFile { get; set; }
+        public string SectorFilePath { get; set; }
+        public string CurrentSystem { get; set; }
 
         public async void Save()
         {
+            if (ShipDate == null)
+                ShipDate = new ImperialCalendar(1, 1105);
             string json = JsonConvert.SerializeObject(this);
             FileSavePicker picker = new FileSavePicker();
             picker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;

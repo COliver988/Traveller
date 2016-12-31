@@ -53,12 +53,6 @@ namespace Traveller3.Models
             public int buymod;      // purchase price mod (based on trade codes)
         }
 
-        private string[] stAtmosphere;
-        private string[] stGovernment;
-        private string[] stAllianceCodes;
-        private string systemNotes;
-        private string npcNotes;
-
         public Regex worldRegex = new Regex(@"^" +
             @"( \s*             (?<name>        [^\s.](.*?[^\+\s.])?  ) )? \+?\.* " +    // Name
             @"( \s*             (?<hex>         \d\d\d\d              ) )      " +    // Hex
