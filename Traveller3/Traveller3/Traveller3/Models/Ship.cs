@@ -23,7 +23,6 @@ namespace Traveller3.Models
         public Versions Version { get; set; }                 // version: CT / T5 / MT (Mongoose)
         public ImperialCalendar ShipDate { get; set; }
         public string SectorFile { get; set; }
-        public string SectorFilePath { get; set; }
         public string CurrentSystem { get; set; }
 
         public async void Save()

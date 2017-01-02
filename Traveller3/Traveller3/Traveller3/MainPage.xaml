@@ -20,45 +20,37 @@
             <RowDefinition />
             <RowDefinition Height="45" />
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="85" />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
         <TextBlock
             Grid.Row="0"
-            Grid.ColumnSpan="2"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             FontSize="24"
             Text="Traveller Log" />
-        <TextBlock
-            Grid.Row="1"
-            HorizontalAlignment="Right"
-            VerticalAlignment="Center"
-            FontSize="18"
-            Text="Ship " />
-        <TextBlock
-            Grid.Row="1"
-            Grid.Column="1"
-            Margin="3"
-            VerticalAlignment="Center"
-            FontSize="18"
-            Text="{Binding Name, Mode=TwoWay}" />
-        <TextBlock
-            Grid.Row="2"
-            Grid.Column="0"
-            HorizontalAlignment="Right"
-            VerticalAlignment="Center"
-            FontSize="18"
-            Text="World" />
-        <TextBlock
-            Grid.Row="1"
-            Grid.RowSpan="2"
-            Grid.Column="1"
-            Margin="3"
-            VerticalAlignment="Center"
-            FontSize="18"
-            Text="{Binding Location.Name}" />
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <TextBlock
+                Margin="3"
+                VerticalAlignment="Center"
+                FontSize="18"
+                Text="Ship " />
+            <TextBlock
+                Margin="3"
+                VerticalAlignment="Center"
+                FontSize="18"
+                Text="{Binding Name, Mode=TwoWay}" />
+        </StackPanel>
+        <StackPanel Grid.Row="2" Orientation="Horizontal">
+            <TextBlock
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                FontSize="18"
+                Margin="3"
+                Text="World" />
+            <TextBlock
+                Margin="3"
+                VerticalAlignment="Center"
+                FontSize="18"
+                Text="{Binding Location.Name}" />
+        </StackPanel>
         <Pivot Grid.Row="3" Grid.Column="1">
             <PivotItem Header="Ship Info">
                 <Grid>
@@ -130,7 +122,7 @@
                         Orientation="Horizontal">
                         <TextBox
                             Width="200"
-                            Margin="3, 1, 3, 1"
+                            Margin="3,1,3,1"
                             Text="{Binding SectorFile}" />
                         <Button
                             Margin="3"
@@ -165,13 +157,19 @@
             <PivotItem Header="World Info">
                 <Grid />
             </PivotItem>
+            <PivotItem Header="Systems">
+                <ListBox
+                    Name="listSystems"
+                    Margin="3"
+                    ItemsSource="{Binding Mode=OneWay}" />
+            </PivotItem>
         </Pivot>
         <Grid
             Grid.Row="4"
             Grid.Column="0"
             Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition />
+                <ColumnDefinition Width=".7*" />
                 <ColumnDefinition />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
@@ -188,6 +186,14 @@
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 Text="{Binding ShipDate.Date}" />
+            <StackPanel Grid.Column="2" Orientation="Horizontal">
+                <ComboBox Margin="3">
+                    <ComboBoxItem>Add 1 day</ComboBoxItem>
+                    <ComboBoxItem>Add 7 days</ComboBoxItem>
+                </ComboBox>
+                <TextBox Margin="3" Text="{Binding ShipDate.Day, Mode=TwoWay}" />
+                <TextBox Margin="3" Text="{Binding ShipDate.Year, Mode=TwoWay}" />
+            </StackPanel>
         </Grid>
     </Grid>
 </Page>

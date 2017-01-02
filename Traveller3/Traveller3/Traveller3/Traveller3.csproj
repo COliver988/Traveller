@@ -89,7 +89,6 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
-    <None Include="Data\SPINWARD.SEC" />
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
@@ -100,7 +99,6 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\ImperialCalendar.cs" />
-    <Compile Include="Models\MainPageData.cs" />
     <Compile Include="Models\Ship.cs" />
     <Compile Include="Models\Support.cs" />
     <Compile Include="Models\World.cs" />

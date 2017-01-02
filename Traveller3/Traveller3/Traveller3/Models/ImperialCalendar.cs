@@ -5,28 +5,28 @@ namespace Traveller3.Models
     [JsonObject(MemberSerialization.OptIn)]
     public class ImperialCalendar
     {
-        public ImperialCalendar ( int vday, int vyear)
+        public ImperialCalendar ( int day, int year)
         {
-            if (vday > 356 || vday < 0) vday = 160;
-            day = vday;
-            year = vyear;
+            if (day > 356 || day < 0) day = 160;
+            Day = day;
+            Year = year;
         }
 
         [JsonProperty]
-        public int day;
+        public int Day { get; set; }
         [JsonProperty]
-        public int year;
+        public int Year { get; set; }
 
-        public string Date {  get { return string.Format("Imperial Date: {0:000}-{1}", day, year);  } }
+        public string Date {  get { return string.Format("Imperial Date: {0:000}-{1}", Day, Year);  } }
 
         // add days to the date; check for year end
         public void AddDays (int days)
         {
-            day += days;
-            if (day > 365)
+            Day += days;
+            if (Day > 365)
             {
-                day -= 365;
-                year++;
+                Day -= 365;
+                Year++;
             }
         }
     }

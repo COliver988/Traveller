@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -12,8 +14,10 @@ namespace Traveller3.Models
     public class Support
     {
         private static string prefix;
-        public static string[] Atmospheres;
-        public static string[] Governments;
+        public string[] Atmospheres { get; set; }
+        public string[] Governments { get; set; }
+        public string[] Systems { get; set; }
+        public string Errors;
 
         public enum Versions
         {
@@ -22,9 +26,9 @@ namespace Traveller3.Models
             Mongoose
         }
 
-        internal static async void LoadFiles(Versions version)
+        public async void LoadFiles(Ship ship)
         {
-            switch (version)
+            switch (ship.Version)
             {
                 case Versions.Classic:
                     prefix = "CT";
@@ -39,10 +43,10 @@ namespace Traveller3.Models
                     break;
             }
             Atmospheres = await loadFile(@"Data\Atmospheres.txt");
-            Governments = await loadFile( @"Data\Governments.txt");
+            Governments = await loadFile(@"Data\Governments.txt");
         }
 
-        private static async Task<string[]> loadFile(string fname)
+        private async Task<string[]> loadFile(string fname)
         {
             StorageFolder installFolder = Windows.ApplicationModel.Package.Current.InstalledLocation;
             StorageFile file = await installFolder.GetFileAsync(fname);
@@ -50,6 +54,23 @@ namespace Traveller3.Models
                 return File.ReadAllLines(file.Path);
             else
                 return new string[] { "Error loading " + fname };
+        }
+
+        public async Task<string[]> loadFileRoaming(string filename)
+        {
+            try
+            {
+                Windows.Storage.StorageFolder roamingFolder = Windows.Storage.ApplicationData.Current.RoamingFolder;
+                StorageFile file = await roamingFolder.GetFileAsync(filename);
+                if (File.Exists(file.Path))
+                    return File.ReadAllLines(file.Path);
+            }
+            catch (Exception)
+            {
+                Errors += "Sector file error. ";
+                throw;
+            }
+            return new string[] { "Error loading: " + filename };
         }
     }
 }

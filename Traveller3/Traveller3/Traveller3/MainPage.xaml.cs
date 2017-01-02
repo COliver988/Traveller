@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Navigation;
 using Traveller3.Models;
 using Windows.Storage;
 using Windows.Storage.Pickers;
+using System.ComponentModel;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -26,6 +27,9 @@ namespace Traveller3
     public sealed partial class MainPage : Page
     {
         public Ship ship = new Ship();
+        public Support support;
+
+        Windows.Storage.StorageFolder roamingFolder = Windows.Storage.ApplicationData.Current.RoamingFolder;
 
         public MainPage()
         {
@@ -52,10 +56,13 @@ namespace Traveller3
 
         private async void btnLoad(object sender, RoutedEventArgs e)
         {
+            support = new Support();
             ship = await ship.load();
             comboVersion.SelectedIndex = (int)ship.Version;
             this.DataContext = ship;
-            Support.LoadFiles(ship.Version);
+            support.LoadFiles(ship);
+            support.Systems = await support.loadFileRoaming(ship.SectorFile);
+            listSystems.DataContext = support.Systems;
         }
 
         private async void btnLoadSector(object sender, RoutedEventArgs e)
@@ -67,8 +74,8 @@ namespace Traveller3
             StorageFile file = await picker.PickSingleFileAsync();
             if (file != null)
             {
+                await file.CopyAsync(roamingFolder);
                 ship.SectorFile = file.Name;
-                ship.SectorFilePath = file.Path;
             }
         }
     }
