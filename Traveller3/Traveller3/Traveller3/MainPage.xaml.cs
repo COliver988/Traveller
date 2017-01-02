@@ -62,7 +62,8 @@ namespace Traveller3
             this.DataContext = ship;
             support.LoadFiles(ship);
             support.Systems = await support.loadFileRoaming(ship.SectorFile);
-            listSystems.DataContext = support.Systems;
+            support.Worlds = await support.loadWorlds();
+            listSystems.ItemsSource = support.Worlds;
         }
 
         private async void btnLoadSector(object sender, RoutedEventArgs e)

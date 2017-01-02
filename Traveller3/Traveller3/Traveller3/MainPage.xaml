@@ -9,6 +9,10 @@
     Width="600"
     mc:Ignorable="d">
 
+    <Page.Resources>
+        <ResourceDictionary Source="Assets/Traveller.xaml"></ResourceDictionary>
+    </Page.Resources>
+
     <Grid
         Margin="2,2,2,2"
         Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
@@ -161,6 +165,7 @@
                 <ListBox
                     Name="listSystems"
                     Margin="3"
+                    ItemTemplate="{StaticResource WorldList}"
                     ItemsSource="{Binding Mode=OneWay}" />
             </PivotItem>
         </Pivot>

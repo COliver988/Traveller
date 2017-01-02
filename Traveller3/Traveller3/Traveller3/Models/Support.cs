@@ -17,6 +17,7 @@ namespace Traveller3.Models
         public string[] Atmospheres { get; set; }
         public string[] Governments { get; set; }
         public string[] Systems { get; set; }
+        public List<World> Worlds { get; set; }
         public string Errors;
 
         public enum Versions
@@ -24,6 +25,11 @@ namespace Traveller3.Models
             Classic,
             Traveller5,
             Mongoose
+        }
+        public static string HexValues = "0123456789ABCDEFGHJK";
+        public static int HexToInt(char hexvalue)
+        {
+            return HexValues.IndexOf(hexvalue);
         }
 
         public async void LoadFiles(Ship ship)
@@ -71,6 +77,17 @@ namespace Traveller3.Models
                 throw;
             }
             return new string[] { "Error loading: " + filename };
+        }
+
+        internal async Task<List<World>> loadWorlds()
+        {
+            await Task.Run(() => {
+                Worlds = new List<World>();
+                foreach (var item in Systems)
+                    if (item.Length > 0 && Char.IsNumber(item[0]))
+                        Worlds.Add(new World(item, Versions.Classic));
+            });
+            return Worlds;
         }
     }
 }

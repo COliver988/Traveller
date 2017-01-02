@@ -10,28 +10,56 @@ namespace Traveller3.Models
 {
     public class World
     {
-        public string Sector;           // Sector map (SEC file)
-        public string SubSector;        // subsector name
-        public string name;            // name of system
-        public string hex;             // map position
-        public char starport;          // star port
-        public int size;               // size (decimal)
-        public int atmo;
-        public int hydro;
-        public int pop;
-        public int gov;
-        public int law;
-        public int tech;
-        public string travelclass;     // travel class: red, amber, green
-        public string bases;           // bases
-        public string alliance;        // political alliance
-        public int gasGiant;           // gas giant? count
-        public string stellar;         // stellar info
-        public ArrayList tradeclass;    // trade classifications (1 per line, uses structure stTrade)
-        public int popModifier;        // population modifier
-        public int belts;              // asteroid belts
-        public string secstring;       // saved off SEC string
-        public string berka;           // Berka-style planetary descriptions
+        public World(string sec, Support.Versions version)
+        {
+            try
+            {
+                // establish UWP parameters
+                UWP = sec.Substring(26, 9);
+                this.name = sec.Substring(5, 20);
+                this.starport = UWP[0];
+                this.size = Support.HexToInt(UWP[1]);
+                this.atmo = Support.HexToInt(UWP[2]);
+                this.hydro = Support.HexToInt(UWP[3]);
+                this.pop = Support.HexToInt(UWP[4]);
+                this.gov = Support.HexToInt(UWP[5]);
+                this.law = Support.HexToInt(UWP[6]);
+                this.tech = Support.HexToInt(UWP[8]);
+
+                this.hex = sec.Substring(0, 4);
+                this.bases = sec.Substring(105, 2);
+                this.travelclass = sec.Substring(108, 1);
+
+            }
+            catch (Exception ex)
+            {
+                string hi = ex.Message;
+            }
+        }
+
+        public string Sector { get; set; }           // Sector map (SEC file)
+        public string SubSector { get; set; }       // subsector name
+        public string UWP { get; set; }
+        public string name { get; set; }           // name of system
+        public string hex { get; set; }             // map position
+        public char starport { get; set; }          // star port
+        public int size { get; set; }               // size (decimal)
+        public int atmo { get; set; }
+        public int hydro { get; set; }
+        public int pop { get; set; }
+        public int gov { get; set; }
+        public int law { get; set; }
+        public int tech { get; set; }
+        public string travelclass { get; set; }     // travel class: red, amber, green
+        public string bases { get; set; }           // bases
+        public string alliance { get; set; }        // political alliance
+        public int gasGiant { get; set; }           // gas giant? count
+        public string stellar { get; set; }         // stellar info
+        public ArrayList tradeclass { get; set; }    // trade classifications (1 per line, uses structure stTrade)
+        public int popModifier { get; set; }        // population modifier
+        public int belts { get; set; }              // asteroid belts
+        public string secstring { get; set; }       // saved off SEC string
+        public string berka { get; set; }           // Berka-style planetary descriptions
 
         public List<string> misc;      // miscellaneous info, depending on version
         public List<string> images;    // any attached images
