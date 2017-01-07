@@ -22,6 +22,7 @@ namespace Traveller3.Models
         public string[] TLModifier { get; set; }
         public string[] PortModifier { get; set; }
         public List<World> Worlds { get; set; }
+        public Dictionary<string, string> Allegiances;
         public string Errors;
 
         public enum Versions
@@ -87,9 +88,15 @@ namespace Traveller3.Models
         {
             await Task.Run(() => {
                 Worlds = new List<World>();
+                Allegiances = new Dictionary<string, string>();
                 foreach (var item in Systems)
+                {
                     if (item.Length > 0 && Char.IsNumber(item[0]))
                         Worlds.Add(new World(item, Versions.Classic));
+                    else
+                        if (item.Length > 0 && item.Substring(2, 5) == "Alleg")
+                        Allegiances.Add(item.Substring(9, 4), item.Substring(16).Replace("\"", ""));
+                }
             });
             return Worlds;
         }

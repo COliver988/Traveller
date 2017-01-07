@@ -37,12 +37,16 @@ namespace Traveller3.Models
         public string CurrentSystem { get { if (Location != null) return string.Format("{0} {1}", Location.hex, Location.name); else return "";  } }
         [JsonProperty]
         public string CurrentSEC { get; set; }
+        [JsonProperty]
+        public List<string> Log { get; set; }
         public World Location { get; set; }
 
         public async void Save()
         {
             if (ShipDate == null)
                 ShipDate = new ImperialCalendar(1, 1105);
+            if (Log == null)
+                Log = new List<string>() { string.Format("Initializing log for {0}", Name) };
             string json = JsonConvert.SerializeObject(this);
             FileSavePicker picker = new FileSavePicker();
             picker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;

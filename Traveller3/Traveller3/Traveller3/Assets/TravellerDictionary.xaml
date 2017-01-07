@@ -29,4 +29,16 @@
                 Text="{Binding bases}" />
         </Grid>
     </DataTemplate>
+
+    <Style x:Name="label1" TargetType="TextBlock">
+        <Setter Property="HorizontalAlignment" Value="Right"></Setter>
+        <Setter Property="VerticalAlignment" Value="Center"></Setter>
+        <Setter Property="Margin" Value="3"></Setter>
+    </Style>
+
+    <Style x:Name="data1" TargetType="TextBlock">
+        <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+        <Setter Property="VerticalAlignment" Value="Center"></Setter>
+        <Setter Property="Margin" Value="3"></Setter>
+    </Style>
 </ResourceDictionary>

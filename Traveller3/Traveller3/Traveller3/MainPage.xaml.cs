@@ -68,6 +68,8 @@ namespace Traveller3
             if (ship.CurrentSEC != null)
                 ship.Location = new World(ship.CurrentSEC, ship.Version);
             this.DataContext = ship;
+            gridWorld.DataContext = ship.Location;
+            itemLog.ItemsSource = ship.Log;
         }
 
         private async void btnLoadSector(object sender, RoutedEventArgs e)
