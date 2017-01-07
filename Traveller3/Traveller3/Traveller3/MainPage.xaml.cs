@@ -27,7 +27,6 @@ namespace Traveller3
     public sealed partial class MainPage : Page
     {
         public Ship ship = new Ship();
-        public Support support;
 
         Windows.Storage.StorageFolder roamingFolder = Windows.Storage.ApplicationData.Current.RoamingFolder;
 
@@ -54,16 +53,21 @@ namespace Traveller3
             ship.Save();
         }
 
+        // load up a ship profile
         private async void btnLoad(object sender, RoutedEventArgs e)
         {
-            support = new Support();
+            ((App)Application.Current).support = new Support();
             ship = await ship.load();
             comboVersion.SelectedIndex = (int)ship.Version;
+            ((App)Application.Current).support.TLModifier = await ((App)Application.Current).support.loadFile(@"Data\TLModifier.txt");
+            ((App)Application.Current).support.PortModifier = await ((App)Application.Current).support.loadFile(@"Data\PortModifier.txt");
+            ((App)Application.Current).support.LoadFiles(ship);
+            ((App)Application.Current).support.Systems = await ((App)Application.Current).support.loadFileRoaming(ship.SectorFile);
+            ((App)Application.Current).support.Worlds = await ((App)Application.Current).support.loadWorlds();
+            listSystems.ItemsSource = ((App)Application.Current).support.Worlds;
+            if (ship.CurrentSEC != null)
+                ship.Location = new World(ship.CurrentSEC, ship.Version);
             this.DataContext = ship;
-            support.LoadFiles(ship);
-            support.Systems = await support.loadFileRoaming(ship.SectorFile);
-            support.Worlds = await support.loadWorlds();
-            listSystems.ItemsSource = support.Worlds;
         }
 
         private async void btnLoadSector(object sender, RoutedEventArgs e)
@@ -77,6 +81,17 @@ namespace Traveller3
             {
                 await file.CopyAsync(roamingFolder);
                 ship.SectorFile = file.Name;
+            }
+        }
+
+        private void listSystems_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
+        {
+            if (ship.CurrentSystem == null || ship.CurrentSystem.Length < 5)
+            {
+                ListBox lb = sender as ListBox;
+                World w = lb.SelectedItem as World;
+                ship.CurrentSEC = w.SEC;
+                ship.Location = w;
             }
         }
     }

@@ -10,7 +10,7 @@
     mc:Ignorable="d">
 
     <Page.Resources>
-        <ResourceDictionary Source="Assets/Traveller.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="Assets/TravellerDictionary.xaml"></ResourceDictionary>
     </Page.Resources>
 
     <Grid
@@ -53,7 +53,7 @@
                 Margin="3"
                 VerticalAlignment="Center"
                 FontSize="18"
-                Text="{Binding Location.Name}" />
+                Text="{Binding CurrentSystem, Mode=TwoWay}" />
         </StackPanel>
         <Pivot Grid.Row="3" Grid.Column="1">
             <PivotItem Header="Ship Info">
@@ -165,6 +165,7 @@
                 <ListBox
                     Name="listSystems"
                     Margin="3"
+                    DoubleTapped="listSystems_DoubleTapped"
                     ItemTemplate="{StaticResource WorldList}"
                     ItemsSource="{Binding Mode=OneWay}" />
             </PivotItem>

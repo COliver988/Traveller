@@ -10,20 +10,34 @@ using static Traveller3.Models.Support;
 
 namespace Traveller3.Models
 {
+    [JsonObject(MemberSerialization.OptIn)]
     public class Ship
     {
         public Ship() { }
 
+        [JsonProperty]
         public string Name { get; set; }
+        [JsonProperty]
         public int dTons { get; set; }
+        [JsonProperty]
         public int CargoCapacity { get; set; }
+        [JsonProperty]
         public int CargoCarried { get; set; }
+        [JsonProperty]
         public int AvailableCargoSpace { get { return CargoCapacity - CargoCarried;  }  }
+        [JsonProperty]
         public int FuelPerJump { get; set; }                // fuel per jump
+        [JsonProperty]
         public Versions Version { get; set; }                 // version: CT / T5 / MT (Mongoose)
+        [JsonProperty]
         public ImperialCalendar ShipDate { get; set; }
+        [JsonProperty]
         public string SectorFile { get; set; }
-        public string CurrentSystem { get; set; }
+        [JsonProperty]
+        public string CurrentSystem { get { if (Location != null) return string.Format("{0} {1}", Location.hex, Location.name); else return "";  } }
+        [JsonProperty]
+        public string CurrentSEC { get; set; }
+        public World Location { get; set; }
 
         public async void Save()
         {

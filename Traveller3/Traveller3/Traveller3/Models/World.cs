@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using Windows.UI.Xaml;
 
 namespace Traveller3.Models
 {
@@ -16,6 +18,7 @@ namespace Traveller3.Models
             {
                 // establish UWP parameters
                 UWP = sec.Substring(26, 9);
+                SEC = sec;
                 this.name = sec.Substring(5, 20);
                 this.starport = UWP[0];
                 this.size = Support.HexToInt(UWP[1]);
@@ -29,6 +32,7 @@ namespace Traveller3.Models
                 this.hex = sec.Substring(0, 4);
                 this.bases = sec.Substring(105, 2);
                 this.travelclass = sec.Substring(108, 1);
+                calcWTN();
 
             }
             catch (Exception ex)
@@ -36,6 +40,86 @@ namespace Traveller3.Models
                 string hi = ex.Message;
             }
         }
+
+        private void calcWTN()
+        {
+            // 1st, unmodified WTN = pop digit / 2 + tech mod
+            decimal WTN = this.pop / 2;
+            int TL = this.tech;                 // tech level
+
+            // find the tech level for this via TLModifier file
+            int level = -1;
+            decimal tmod = 0;
+
+            // read through the file, ignore white space & leading #
+            // increment a counter for each valid line, since each line
+            // matches a tech level (0-based)
+            foreach (var line in ((App)Application.Current).support.TLModifier)
+            {
+                if (line.Length > 0)
+                {
+                    if (line.Substring(0, 1) != "#")
+                    {
+                        if (++level == TL)  // at our tech level
+                        {
+                            try
+                            {
+                                tmod = Convert.ToDecimal(line);
+                            }
+                            catch
+                            {
+                            }
+                        }
+                    }
+                }
+            }
+            WTN += (decimal)tmod;
+
+            // and now for the port modifier
+            double portmod = 0;
+
+            try
+            {
+                // read through the file, ignore white space & leading #
+                foreach (string line in ((App)Application.Current).support.PortModifier)
+                    if (line.Length > 0)
+                        if (line.Substring(0, 1) != "#")
+                        {
+                            string[] dMods = line.Split(new char[] { ',' });
+                            decimal mod = Convert.ToDecimal(dMods[0]);
+                            if (WTN < mod)
+                            {
+                                switch (this.starport)
+                                {
+                                    case 'A':
+                                        portmod = Convert.ToDouble(dMods[1]);
+                                        break;
+                                    case 'B':
+                                        portmod = Convert.ToDouble(dMods[2]);
+                                        break;
+                                    case 'C':
+                                        portmod = Convert.ToDouble(dMods[3]);
+                                        break;
+                                    case 'D':
+                                        portmod = Convert.ToDouble(dMods[4]);
+                                        break;
+                                    case 'E':
+                                        portmod = Convert.ToDouble(dMods[5]);
+                                        break;
+                                    default:
+                                        portmod = Convert.ToDouble(dMods[6]);
+                                        break;
+                                }
+                            }
+                        }
+            }
+            catch { }
+
+            if (WTN < 0)
+                WTN = 0;
+
+        }
+
 
         public string Sector { get; set; }           // Sector map (SEC file)
         public string SubSector { get; set; }       // subsector name
@@ -60,6 +144,9 @@ namespace Traveller3.Models
         public int belts { get; set; }              // asteroid belts
         public string secstring { get; set; }       // saved off SEC string
         public string berka { get; set; }           // Berka-style planetary descriptions
+        private string wtn;
+        public string WTN { get { return wtn; } }
+        public string SEC { get;  }
 
         public List<string> misc;      // miscellaneous info, depending on version
         public List<string> images;    // any attached images

@@ -13,10 +13,14 @@ namespace Traveller3.Models
 {
     public class Support
     {
+        public Support() { }
+
         private static string prefix;
         public string[] Atmospheres { get; set; }
         public string[] Governments { get; set; }
         public string[] Systems { get; set; }
+        public string[] TLModifier { get; set; }
+        public string[] PortModifier { get; set; }
         public List<World> Worlds { get; set; }
         public string Errors;
 
@@ -52,7 +56,7 @@ namespace Traveller3.Models
             Governments = await loadFile(@"Data\Governments.txt");
         }
 
-        private async Task<string[]> loadFile(string fname)
+        public async Task<string[]> loadFile(string fname)
         {
             StorageFolder installFolder = Windows.ApplicationModel.Package.Current.InstalledLocation;
             StorageFile file = await installFolder.GetFileAsync(fname);

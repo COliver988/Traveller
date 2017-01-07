@@ -6,7 +6,7 @@
     <DataTemplate x:Key="WorldList">
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width=".4*" />
+                <ColumnDefinition />
                 <ColumnDefinition />
                 <ColumnDefinition />
                 <ColumnDefinition />
