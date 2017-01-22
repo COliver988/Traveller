@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Traveller4.Views;
+using Microsoft.EntityFrameworkCore;
 
 namespace Traveller4
 {
@@ -31,6 +32,11 @@ namespace Traveller4
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+
+            using (var db = new Traveller4.Models.TravellerDB())
+            {
+                db.Database.Migrate();
+            }
         }
 
         /// <summary>
