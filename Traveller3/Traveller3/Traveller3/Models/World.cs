@@ -162,6 +162,7 @@ namespace Traveller3.Models
                 return "unknown";
             }
         }
+        public string Notes { get; set; }
 
         public List<string> misc;      // miscellaneous info, depending on version
         public List<string> images;    // any attached images

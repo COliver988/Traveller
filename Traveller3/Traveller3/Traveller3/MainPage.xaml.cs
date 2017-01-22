@@ -94,6 +94,7 @@ namespace Traveller3
                 World w = lb.SelectedItem as World;
                 ship.CurrentSEC = w.SEC;
                 ship.Location = w;
+                gridWorld.DataContext = w;
             }
         }
     }

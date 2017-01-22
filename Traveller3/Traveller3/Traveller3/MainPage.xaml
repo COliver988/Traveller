@@ -177,10 +177,13 @@
             <PivotItem Header="World Info">
                 <Grid Name="gridWorld">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width=".3*"></ColumnDefinition>
+                        <ColumnDefinition Width=".2*"></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="30"></RowDefinition>
+                        <RowDefinition Height="30"></RowDefinition>
+                        <RowDefinition Height="30"></RowDefinition>
                         <RowDefinition Height="30"></RowDefinition>
                         <RowDefinition Height="30"></RowDefinition>
                         <RowDefinition Height="30"></RowDefinition>
@@ -194,8 +197,10 @@
                     <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding UWP}" Style="{StaticResource data1}"></TextBlock>
                     <TextBlock Grid.Column="0" Grid.Row="2" Text="Allegience" Style="{StaticResource label1}"></TextBlock>
                     <TextBlock Grid.Column="1" Grid.Row="2" Text="{Binding Allegience}" Style="{StaticResource data1}"></TextBlock>
-                    <TextBlock Grid.Column="0" Grid.Row="10" Text="WTN" Style="{StaticResource label1}"></TextBlock>
-                    <TextBlock Grid.Column="1" Grid.Row="10" Text="{Binding WTN}" Style="{StaticResource data1}"></TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="7" Text="WTN" Style="{StaticResource label1}"></TextBlock>
+                    <TextBlock Grid.Column="1" Grid.Row="7" Text="{Binding WTN}" Style="{StaticResource data1}"></TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="11" Text="Notes" Style="{StaticResource label1}"></TextBlock>
+                    <TextBox Grid.Column="1" Grid.Row="11" Text="{Binding Notes}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ></TextBox>
                 </Grid>
             </PivotItem>
             <PivotItem Header="Systems">
