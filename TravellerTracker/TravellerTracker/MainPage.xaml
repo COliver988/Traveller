@@ -1,0 +1,38 @@
+﻿<Page
+    x:Class="TravellerTracker.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TravellerTracker"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Loaded="Page_Loaded">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+        <StackPanel Orientation="Vertical">
+            <ListView Name="lvShips" Margin="3">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition> </ColumnDefinition>
+                                <ColumnDefinition> </ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Column="0" Text="Ship Name"></TextBlock>
+                            <TextBlock Grid.Column="1" Text="{Binding Name}"></TextBlock>
+                            <TextBlock Grid.Column="0" Grid.Row="1" Text="Ship Class"></TextBlock>
+                            <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding Class}"></TextBlock>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Margin="3" Click="btnNew">New Ship
+           </Button>
+        </StackPanel>
+    </Grid>
+</Page>

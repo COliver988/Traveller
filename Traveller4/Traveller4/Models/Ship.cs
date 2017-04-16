@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Windows.Storage;
 using Windows.Storage.Pickers;
-using static Traveller4.Models.Support;
+using Traveller4.Support;
 using Microsoft.EntityFrameworkCore;
+using static Traveller4.Support.Support;
 
 namespace Traveller4.Models
 {

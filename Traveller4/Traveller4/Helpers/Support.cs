@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 using Windows.Storage;
 using Windows.UI.Xaml.Data;
 
-namespace Traveller4.Models
+namespace Traveller4.Support
 {
-    public class Support
+    public static class Support
     {
         public enum Versions
         {

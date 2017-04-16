@@ -1,4 +1,4 @@
-﻿namespace Traveller4.Models
+﻿namespace Traveller4.Support
 {
     public class ImperialCalendar
     {
