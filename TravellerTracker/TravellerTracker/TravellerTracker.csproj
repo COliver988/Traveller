@@ -103,10 +103,21 @@
     <Compile Include="Migrations\20170416155153_initialShip.designer.cs">
       <DependentUpon>20170416155153_initialShip.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20170423122027_newShipClass.cs" />
+    <Compile Include="Migrations\20170423122027_newShipClass.designer.cs">
+      <DependentUpon>20170423122027_newShipClass.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\TravellerContextModelSnapshot.cs" />
+    <Compile Include="Models\ShipClass.cs" />
     <Compile Include="Models\TravellerContext.cs" />
     <Compile Include="Models\Ship.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\ShipList.xaml.cs">
+      <DependentUpon>ShipList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ShipView.xaml.cs">
+      <DependentUpon>ShipView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -132,6 +143,14 @@
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ShipList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ShipView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

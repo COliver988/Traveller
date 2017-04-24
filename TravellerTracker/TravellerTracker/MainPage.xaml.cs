@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using TravellerTracker.Models;
+using TravellerTracker.Views;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -45,6 +46,13 @@ namespace TravellerTracker
                 db.Ships.Add(ship);
                 db.SaveChangesAsync();
             }
+        }
+
+        private void btnLoadShip(object sender, RoutedEventArgs e)
+        {
+            var btn = sender as Button;
+            Page p = new ShipView((int) btn.Tag);
+            mainFrame.Content = p;
         }
     }
 }

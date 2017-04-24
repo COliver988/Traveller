@@ -6,6 +6,7 @@ namespace TravellerTracker.Models
     public class TravellerContext : DbContext
     {
         public DbSet<Ship> Ships { get; set; }
+        public DbSet<ShipClass> ShipClasses { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

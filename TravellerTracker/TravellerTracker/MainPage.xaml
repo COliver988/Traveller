@@ -9,6 +9,12 @@
     Loaded="Page_Loaded">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Frame x:Name="mainFrame" Grid.Column="1"></Frame>
+
 
         <StackPanel Orientation="Vertical">
             <ListView Name="lvShips" Margin="3">
@@ -23,10 +29,13 @@
                                 <RowDefinition></RowDefinition>
                                 <RowDefinition></RowDefinition>
                             </Grid.RowDefinitions>
-                            <TextBlock Grid.Column="0" Text="Ship Name"></TextBlock>
-                            <TextBlock Grid.Column="1" Text="{Binding Name}"></TextBlock>
-                            <TextBlock Grid.Column="0" Grid.Row="1" Text="Ship Class"></TextBlock>
-                            <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding Class}"></TextBlock>
+                            <TextBlock Grid.Column="0" Text="Ship Name" Margin="3"></TextBlock>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Margin="3" Tag="{Binding ShipId}" Click="btnLoadShip">Edit</Button>
+                                <TextBlock Grid.Column="1" Text="{Binding Name}" Margin="3"></TextBlock>
+                            </StackPanel>
+                            <TextBlock Grid.Column="0" Grid.Row="1" Text="Ship Class" Margin="3"></TextBlock>
+                            <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding Class}" Margin="3"></TextBlock>
                         </Grid>
                     </DataTemplate>
                 </ListView.ItemTemplate>

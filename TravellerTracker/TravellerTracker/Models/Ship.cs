@@ -1,4 +1,6 @@
-﻿namespace Traveller.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Traveller.Models
 {
     public class Ship
     {
@@ -12,5 +14,7 @@
         public int AvailableCargoSpace { get { return CargoCapacity - CargoCarried;  }  }
         public int FuelPerJump { get; set; }                // fuel per jump
 
+        public int ShipClassID { get; set; }
+        public ShipClass Class { get; set; }
     }
 }
