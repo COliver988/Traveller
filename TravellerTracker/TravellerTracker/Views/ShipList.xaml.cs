@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using TravellerTracker.Models;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -25,6 +26,17 @@ namespace TravellerTracker.Views
         public ShipList()
         {
             this.InitializeComponent();
+            using (var db = new TravellerContext())
+            {
+                lvShips.ItemsSource = db.Ships.ToList();
+            }
+        }
+
+        private void btnLoadShip(object sender, RoutedEventArgs e)
+        {
+            var btn = sender as Button;
+            Page p = new ShipView((int) btn.Tag);
+            App.mainFrame.Content = p;
         }
     }
 }

@@ -34,6 +34,7 @@ namespace TravellerTracker.Views
                 ship = db.Ships.Where(x => x.ShipId == shipID).FirstOrDefault();
             }
             this.DataContext = ship;
+            App.ship = ship;
         }
     }
 }

@@ -13,35 +13,14 @@
             <ColumnDefinition Width="150"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Frame x:Name="mainFrame" Grid.Column="1"></Frame>
-
-
-        <StackPanel Orientation="Vertical">
-            <ListView Name="lvShips" Margin="3">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition> </ColumnDefinition>
-                                <ColumnDefinition> </ColumnDefinition>
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition></RowDefinition>
-                                <RowDefinition></RowDefinition>
-                            </Grid.RowDefinitions>
-                            <TextBlock Grid.Column="0" Text="Ship Name" Margin="3"></TextBlock>
-                            <StackPanel Orientation="Horizontal">
-                                <Button Margin="3" Tag="{Binding ShipId}" Click="btnLoadShip">Edit</Button>
-                                <TextBlock Grid.Column="1" Text="{Binding Name}" Margin="3"></TextBlock>
-                            </StackPanel>
-                            <TextBlock Grid.Column="0" Grid.Row="1" Text="Ship Class" Margin="3"></TextBlock>
-                            <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding Class}" Margin="3"></TextBlock>
-                        </Grid>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-            <Button Margin="3" Click="btnNew">New Ship
-           </Button>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Frame x:Name="mainFrame" Grid.Column="1" Grid.Row="1"></Frame>
+        <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="1">
+            <Button Click="btnList" Margin="3" HorizontalAlignment="Center" Width="100">Ship List</Button>
+            <Button Click="btnNew" Margin="3" HorizontalAlignment="Center" Width="100">New Ship</Button>
         </StackPanel>
     </Grid>
 </Page>

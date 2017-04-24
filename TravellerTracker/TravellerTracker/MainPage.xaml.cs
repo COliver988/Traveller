@@ -27,14 +27,12 @@ namespace TravellerTracker
         public MainPage()
         {
             this.InitializeComponent();
+            App.mainFrame = this.mainFrame;
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            using (var db = new TravellerContext())
-            {
-                lvShips.ItemsSource = db.Ships.ToList();
-            }
+            mainFrame.Content = new ShipList();
         }
 
         private void btnNew(object sender, RoutedEventArgs e)
@@ -45,14 +43,13 @@ namespace TravellerTracker
                 ship.Name = "A New Day";
                 db.Ships.Add(ship);
                 db.SaveChangesAsync();
+                mainFrame.Content = new ShipView(ship.ShipId);
             }
         }
 
-        private void btnLoadShip(object sender, RoutedEventArgs e)
+        private void btnList(object sender, RoutedEventArgs e)
         {
-            var btn = sender as Button;
-            Page p = new ShipView((int) btn.Tag);
-            mainFrame.Content = p;
+            mainFrame.Content = new ShipList();
         }
     }
 }
