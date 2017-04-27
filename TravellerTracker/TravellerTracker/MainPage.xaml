@@ -18,9 +18,16 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <Frame x:Name="mainFrame" Grid.Column="1" Grid.Row="1"></Frame>
-        <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="1">
+        <Grid Grid.Column="0" Grid.Row="1">
+          <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height=30></RowDefinition>
+          <Grid.RowDefinitions>
+          <StackPanel Orientation="Vertical" >
             <Button Click="btnList" Margin="3" HorizontalAlignment="Center" Width="100">Ship List</Button>
             <Button Click="btnNew" Margin="3" HorizontalAlignment="Center" Width="100">New Ship</Button>
-        </StackPanel>
+          </StackPanel>
+          <Button Grid.Row="2">Options</Button>
+        </Grid>
     </Grid>
 </Page>
