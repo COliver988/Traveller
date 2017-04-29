@@ -8,6 +8,14 @@
     mc:Ignorable="d"
     Loaded="Page_Loaded">
 
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/TravDictionary.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>   
+    </Page.Resources>
+
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="150"></ColumnDefinition>
@@ -19,15 +27,14 @@
         </Grid.RowDefinitions>
         <Frame x:Name="mainFrame" Grid.Column="1" Grid.Row="1"></Frame>
         <Grid Grid.Column="0" Grid.Row="1">
-          <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition Height=30></RowDefinition>
-          <Grid.RowDefinitions>
-          <StackPanel Orientation="Vertical" >
-            <Button Click="btnList" Margin="3" HorizontalAlignment="Center" Width="100">Ship List</Button>
-            <Button Click="btnNew" Margin="3" HorizontalAlignment="Center" Width="100">New Ship</Button>
-          </StackPanel>
-          <Button Grid.Row="2">Options</Button>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Vertical" >
+                <Button Click="btnList" Style="{StaticResource btnMenu}" >Ship List</Button>
+                <Button Click="btnNew"  Style="{StaticResource btnMenu}">New Ship</Button>
+            </StackPanel>
+            <Button Grid.Row="1" Style="{StaticResource btnMenu}">Options</Button>
         </Grid>
     </Grid>
 </Page>
