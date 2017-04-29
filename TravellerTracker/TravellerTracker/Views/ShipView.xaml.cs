@@ -25,6 +25,7 @@ namespace TravellerTracker.Views
     public sealed partial class ShipView : Page
     {
         private Ship ship;
+        private List<ShipClass> classes;
 
         public ShipView(int shipID)
         {
@@ -32,8 +33,10 @@ namespace TravellerTracker.Views
             using (var db = new TravellerContext())
             {
                 ship = db.Ships.Where(x => x.ShipId == shipID).FirstOrDefault();
+                classes = db.ShipClasses.ToList();
+                ship.Class = classes.Where(x => x.ShipClassID == ship.ShipClassID).FirstOrDefault();
             }
-            this.DataContext = ship;
+            this.DataContext = this;
             App.ship = ship;
         }
     }

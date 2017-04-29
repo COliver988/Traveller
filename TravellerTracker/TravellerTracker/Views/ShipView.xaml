@@ -7,6 +7,14 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/TravDictionary.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>   
+    </Page.Resources>
+
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -20,8 +28,28 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Column="0" Grid.RowSpan="2" Text="{Binding Name}" FontSize="22"></TextBlock>
+        <TextBlock Grid.Column="0" Grid.RowSpan="2" Text="{Binding ship.Name}" FontSize="22"></TextBlock>
         <TextBlock Grid.Row="1" Grid.Column="0" Margin="3" Text="Ship Name"></TextBlock>
-        <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding Name}" Margin="3"></TextBlock>
+        <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding ship.Name}" Margin="3"></TextBlock>
+        <TextBlock Grid.Row="2" Grid.Column="0" Margin="3" Text="Ship Class"></TextBlock>
+        <Grid Grid.Row="2" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+        <TextBlock Grid.Column="0" Text="{Binding Class.Name}" Margin="3"></TextBlock>
+            <ComboBox Name="cbClasses" Header="Choose Ship Class" ItemsSource="{x:Bind classes}" ></ComboBox>
+        </Grid>
+        <TextBlock Grid.Row="3" Grid.Column="0" Margin="3" Text="Jump / Maneuver / Power"></TextBlock>
+        <Grid Grid.Row="3" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+        <TextBlock Grid.Column="0"  Text="{Binding Class.Jump}" Margin="3"></TextBlock>
+        <TextBlock Grid.Column="1"  Text="{Binding Class.Man}" Margin="3"></TextBlock>
+        <TextBlock Grid.Column="2"  Text="{Binding Class.Power}" Margin="3"></TextBlock>
+        </Grid>
     </Grid>
 </Page>
