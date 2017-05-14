@@ -12,7 +12,7 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/Resources/TravDictionary.xaml"></ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>   
+        </ResourceDictionary>
     </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -23,20 +23,13 @@
                     <DataTemplate>
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition> </ColumnDefinition>
-                                <ColumnDefinition> </ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
                             </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition></RowDefinition>
-                                <RowDefinition></RowDefinition>
-                            </Grid.RowDefinitions>
-                            <TextBlock Grid.Column="0" Text="Ship Name" Margin="3"></TextBlock>
-                            <StackPanel Orientation="Horizontal">
-                                <Button Margin="3" Tag="{Binding ShipId}" Click="btnLoadShip">Edit</Button>
-                                <TextBlock Grid.Column="1" Text="{Binding Name}" Margin="3"></TextBlock>
-                            </StackPanel>
-                            <TextBlock Grid.Column="0" Grid.Row="1" Text="Ship Class" Margin="3"></TextBlock>
-                            <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding Class}" Margin="3"></TextBlock>
+                            <Button Margin="3" Tag="{Binding ShipId}" Click="btnLoadShip">Edit</Button>
+                            <TextBlock Grid.Column="1" Text="{Binding Name}" Margin="3"></TextBlock>
+                            <TextBlock Grid.Column="2" Text="{Binding Class}" Margin="3"></TextBlock>
                         </Grid>
                     </DataTemplate>
                 </ListView.ItemTemplate>

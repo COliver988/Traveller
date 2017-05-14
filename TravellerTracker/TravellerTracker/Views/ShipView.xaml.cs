@@ -1,19 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 using Traveller.Models;
 using TravellerTracker.Models;
+using Windows.UI.Xaml.Controls;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -24,8 +13,8 @@ namespace TravellerTracker.Views
     /// </summary>
     public sealed partial class ShipView : Page
     {
-        private Ship ship;
-        private List<ShipClass> classes;
+        public Ship ship { get; set; }
+        public List<ShipClass> classes;
 
         public ShipView(int shipID)
         {
@@ -35,8 +24,8 @@ namespace TravellerTracker.Views
                 ship = db.Ships.Where(x => x.ShipId == shipID).FirstOrDefault();
                 classes = db.ShipClasses.ToList();
                 ship.Class = classes.Where(x => x.ShipClassID == ship.ShipClassID).FirstOrDefault();
+                this.DataContext = ship;
             }
-            this.DataContext = this;
             App.ship = ship;
         }
     }

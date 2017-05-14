@@ -28,6 +28,7 @@ namespace TravellerTracker
         {
             this.InitializeComponent();
             App.mainFrame = this.mainFrame;
+            this.DataContext = App.ship;
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -47,6 +48,7 @@ namespace TravellerTracker
             }
         }
 
+        // list of available ships
         private void btnList(object sender, RoutedEventArgs e)
         {
             mainFrame.Content = new ShipList();

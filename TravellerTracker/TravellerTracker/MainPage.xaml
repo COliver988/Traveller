@@ -26,6 +26,7 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <Frame x:Name="mainFrame" Grid.Column="1" Grid.Row="1"></Frame>
+        <TextBlock Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" FontSize="22" Text="{x:Bind Name}"></TextBlock>
         <Grid Grid.Column="0" Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>

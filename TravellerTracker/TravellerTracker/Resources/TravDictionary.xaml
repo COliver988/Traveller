@@ -9,4 +9,17 @@
         <Setter Property="Margin" Value="3"></Setter>
         <Setter Property="Width" Value="100"></Setter>
     </Style>
+
+    <Style TargetType="TextBox" x:Name="txtBox">
+        <Setter Property="Height" Value="28"></Setter>
+        <Setter Property="Margin" Value="3"></Setter>
+        <Setter Property="VerticalAlignment" Value="Center"></Setter>
+    </Style>
+
+    <Style TargetType="TextBlock" x:Name="txtBlock">
+        <Setter Property="Height" Value="28"></Setter>
+        <Setter Property="Margin" Value="3"></Setter>
+        <Setter Property="VerticalAlignment" Value="Center"></Setter>
+    </Style>
+
 </ResourceDictionary>
