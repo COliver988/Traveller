@@ -17,6 +17,7 @@ namespace TravellerTracker
     {
         public static Frame mainFrame;
         public static Ship ship;
+        public static TravellerContext DB = new TravellerContext();
 
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code

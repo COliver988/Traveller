@@ -38,14 +38,11 @@ namespace TravellerTracker
 
         private void btnNew(object sender, RoutedEventArgs e)
         {
-            using (var db = new TravellerContext())
-            {
-                Traveller.Models.Ship ship = new Traveller.Models.Ship();
-                ship.Name = "A New Day";
-                db.Ships.Add(ship);
-                db.SaveChangesAsync();
-                mainFrame.Content = new ShipView(ship.ShipId);
-            }
+            Traveller.Models.Ship ship = new Traveller.Models.Ship();
+            ship.Name = "A New Day";
+            App.DB.Ships.Add(ship);
+            App.DB.SaveChangesAsync();
+            mainFrame.Content = new ShipView(ship.ShipId);
         }
 
         // list of available ships

@@ -19,14 +19,16 @@ namespace TravellerTracker.Views
         public ShipView(int shipID)
         {
             this.InitializeComponent();
-            using (var db = new TravellerContext())
-            {
-                ship = db.Ships.Where(x => x.ShipId == shipID).FirstOrDefault();
-                classes = db.ShipClasses.ToList();
-                ship.Class = classes.Where(x => x.ShipClassID == ship.ShipClassID).FirstOrDefault();
-                this.DataContext = ship;
-            }
+            ship = App.DB.Ships.Where(x => x.ShipId == shipID).FirstOrDefault();
+            classes = App.DB.ShipClasses.ToList();
+            ship.Class = classes.Where(x => x.ShipClassID == ship.ShipClassID).FirstOrDefault();
+            this.DataContext = ship;
             App.ship = ship;
+        }
+
+        private void btnSave(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            App.DB.SaveChangesAsync();
         }
     }
 }
