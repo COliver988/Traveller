@@ -108,10 +108,14 @@
       <DependentUpon>20170423122027_newShipClass.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\TravellerContextModelSnapshot.cs" />
+    <Compile Include="Models\ErrorHandling.cs" />
     <Compile Include="Models\ShipClass.cs" />
     <Compile Include="Models\TravellerContext.cs" />
     <Compile Include="Models\Ship.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\ShipClassView.xaml.cs">
+      <DependentUpon>ShipClassView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ShipList.xaml.cs">
       <DependentUpon>ShipList.xaml</DependentUpon>
     </Compile>
@@ -148,6 +152,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Views\ShipClassView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ShipList.xaml">
       <SubType>Designer</SubType>

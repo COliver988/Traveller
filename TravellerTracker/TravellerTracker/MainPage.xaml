@@ -34,6 +34,7 @@
             <StackPanel Orientation="Vertical" >
                 <Button Click="btnList" Style="{StaticResource btnMenu}" >Ship List</Button>
                 <Button Click="btnNew"  Style="{StaticResource btnMenu}">New Ship</Button>
+                <Button Click="btnNewClass"  Style="{StaticResource btnMenu}">Ship Classes</Button>
             </StackPanel>
             <Button Grid.Row="1" Style="{StaticResource btnMenu}">Options</Button>
         </Grid>

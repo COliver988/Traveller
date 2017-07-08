@@ -50,5 +50,10 @@ namespace TravellerTracker
         {
             mainFrame.Content = new ShipList();
         }
+
+        private void btnNewClass(object sender, RoutedEventArgs e)
+        {
+            mainFrame.Content = new ShipClassView();
+        }
     }
 }

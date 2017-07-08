@@ -2,6 +2,7 @@
 using System.Linq;
 using Traveller.Models;
 using TravellerTracker.Models;
+using Windows.UI.Popups;
 using Windows.UI.Xaml.Controls;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -20,8 +21,16 @@ namespace TravellerTracker.Views
         {
             this.InitializeComponent();
             ship = App.DB.Ships.Where(x => x.ShipId == shipID).FirstOrDefault();
+            try
+            {
             classes = App.DB.ShipClasses.ToList();
             ship.Class = classes.Where(x => x.ShipClassID == ship.ShipClassID).FirstOrDefault();
+            }
+            catch (System.Exception)
+            {
+                ErrorHandling e = new ErrorHandling();
+                e.showError("Ship class does not exist - please add a class");
+            }
             this.DataContext = ship;
             App.ship = ship;
         }
