@@ -18,7 +18,7 @@ namespace Traveller.Models
 
         public string Description
         {
-            get { return string.Format("{dTons} tons, {Jump}/{Man}/{Power} jump/man/power"); }
+            get { return string.Format("{0} tons, {1}/{2}/{3} jump/man/power", dTons, Jump, Man, Power); }
         }
     }
 }

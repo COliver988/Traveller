@@ -38,8 +38,10 @@ namespace TravellerTracker
 
         private void btnNew(object sender, RoutedEventArgs e)
         {
-            Traveller.Models.Ship ship = new Traveller.Models.Ship();
-            ship.Name = "A New Day";
+            Traveller.Models.Ship ship = new Traveller.Models.Ship()
+            {
+                Name = "A New Day"
+            };
             App.DB.Ships.Add(ship);
             App.DB.SaveChangesAsync();
             mainFrame.Content = new ShipView(ship.ShipId);

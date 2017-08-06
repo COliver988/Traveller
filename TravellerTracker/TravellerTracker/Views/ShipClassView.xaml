@@ -18,7 +18,7 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
         </Grid.RowDefinitions>
 
             <ListView Name="lvClasses" Margin="3">
@@ -37,6 +37,9 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="0,4,0,-4">
+            <Button Content="New Class" Margin="3" Click="btnNewClass"></Button>
+            <Button Content="Save" Margin="3" Click="btnSave"></Button>
+        </StackPanel>
     </Grid>
 </Page>
