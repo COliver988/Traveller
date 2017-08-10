@@ -18,7 +18,7 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
-            <ColumnDefinition />
+            <ColumnDefinition Width="2*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="35" />
@@ -68,11 +68,17 @@
             <TextBlock
                 Grid.Column="0"
                 Margin="3"
-                Text="{Binding Class.Name}" />
-            <ComboBox
-                Name="cbClasses"
-                Header="Choose Ship Class"
-                ItemsSource="{Binding classes}" />
+                Text="{x:Bind ship.Class.Name}" />
+            <ComboBox Name="cbClasses" Margin="3" SelectionChanged="cbClasses_SelectionChanged">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="{Binding Description}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+
         </Grid>
         <TextBlock
             Grid.Row="3"
@@ -81,22 +87,22 @@
             Text="Jump / Maneuver / Power" />
         <Grid Grid.Row="3" Grid.Column="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
+                <ColumnDefinition Width="20" />
+                <ColumnDefinition Width="20" />
+                <ColumnDefinition Width="20" />
             </Grid.ColumnDefinitions>
             <TextBlock
                 Grid.Column="0"
                 Margin="3"
-                Text="{Binding Class.Jump}" />
+                Text="{x:Bind ship.Class.Jump}" />
             <TextBlock
                 Grid.Column="1"
                 Margin="3"
-                Text="{Binding Class.Man}" />
+                Text="{x:Bind ship.Class.Man}" />
             <TextBlock
                 Grid.Column="2"
                 Margin="3"
-                Text="{Binding Class.Power}" />
+                Text="{x:Bind ship.Class.Power}" />
         </Grid>
     </Grid>
 </Page>

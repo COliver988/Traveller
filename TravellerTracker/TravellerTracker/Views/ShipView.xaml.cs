@@ -23,8 +23,9 @@ namespace TravellerTracker.Views
             ship = App.DB.Ships.Where(x => x.ShipId == shipID).FirstOrDefault();
             try
             {
-            classes = App.DB.ShipClasses.ToList();
-            ship.Class = classes.Where(x => x.ShipClassID == ship.ShipClassID).FirstOrDefault();
+                classes = App.DB.ShipClasses.ToList();
+                cbClasses.ItemsSource = classes;
+                ship.Class = classes.Where(x => x.ShipClassID == ship.ShipClassID).FirstOrDefault();
             }
             catch (System.Exception)
             {
@@ -38,6 +39,12 @@ namespace TravellerTracker.Views
         private void btnSave(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             App.DB.SaveChangesAsync();
+        }
+
+        private void cbClasses_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ShipClass c = cbClasses.SelectedItem as ShipClass;
+            ship.ShipClassID = c.ShipClassID;
         }
     }
 }
