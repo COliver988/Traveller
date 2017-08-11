@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Traveller.Models;
+using Traveller.Support;
 using TravellerTracker.Models;
 using Windows.UI.Popups;
 using Windows.UI.Xaml.Controls;
@@ -16,11 +17,13 @@ namespace TravellerTracker.Views
     {
         public Ship ship { get; set; }
         public List<ShipClass> classes;
+        public ImperialDates date;
 
         public ShipView(int shipID)
         {
             this.InitializeComponent();
             ship = App.DB.Ships.Where(x => x.ShipId == shipID).FirstOrDefault();
+            date = new ImperialDates(ship.Day, ship.Year);
             try
             {
                 classes = App.DB.ShipClasses.ToList();
@@ -45,6 +48,20 @@ namespace TravellerTracker.Views
         {
             ShipClass c = cbClasses.SelectedItem as ShipClass;
             ship.ShipClassID = c.ShipClassID;
+        }
+
+        private void btn_AddDay(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            date.addDays(1);
+            ship.Day = date.Day;
+            ship.Year = date.Year;
+        }
+
+        private void btn_AddWeek(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            date.addDays(7);
+            ship.Day = date.Day;
+            ship.Year = date.Year;
         }
     }
 }

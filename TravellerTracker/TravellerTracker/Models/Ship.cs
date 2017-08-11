@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using Traveller.Support;
 
 namespace Traveller.Models
 {
@@ -16,5 +17,7 @@ namespace Traveller.Models
 
         public int ShipClassID { get; set; }
         public ShipClass Class { get; set; }
+        public int Day { get; set; }
+        public int Year { get; set; }
     }
 }

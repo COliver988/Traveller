@@ -69,7 +69,11 @@
                 Grid.Column="0"
                 Margin="3"
                 Text="{x:Bind ship.Class.Name}" />
-            <ComboBox Name="cbClasses" Margin="3" SelectionChanged="cbClasses_SelectionChanged">
+            <ComboBox
+                Name="cbClasses"
+                Grid.Column="1"
+                Margin="3"
+                SelectionChanged="cbClasses_SelectionChanged">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Vertical">
@@ -104,5 +108,25 @@
                 Margin="3"
                 Text="{x:Bind ship.Class.Power}" />
         </Grid>
+        <TextBlock
+            Grid.Row="5"
+            Grid.Column="0"
+            Text="Imperial Date" />
+        <StackPanel
+            Grid.Row="5"
+            Grid.Column="1"
+            Orientation="Horizontal">
+            <TextBox Margin="3" Text="{x:Bind ship.Day, Mode=TwoWay}" />
+            <TextBlock Margin="3" Text=" / " />
+            <TextBox Margin="3" Text="{x:Bind ship.Year, Mode=TwoWay}" />
+            <Button
+                Margin="3"
+                Click="btn_AddDay"
+                Content="Add Day" />
+            <Button
+                Margin="3"
+                Click="btn_AddWeek"
+                Content="Add Week" />
+        </StackPanel>
     </Grid>
 </Page>
