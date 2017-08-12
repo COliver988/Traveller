@@ -115,8 +115,14 @@
     <Compile Include="Migrations\20170811233102_shipdates.designer.cs">
       <DependentUpon>20170811233102_shipdates.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20170812212720_logAndCargo.cs" />
+    <Compile Include="Migrations\20170812212720_logAndCargo.designer.cs">
+      <DependentUpon>20170812212720_logAndCargo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\TravellerContextModelSnapshot.cs" />
+    <Compile Include="Models\Cargos.cs" />
     <Compile Include="Models\ErrorHandling.cs" />
+    <Compile Include="Models\ShipLog.cs" />
     <Compile Include="Support\ImperialDates.cs" />
     <Compile Include="Models\ShipClass.cs" />
     <Compile Include="Models\TravellerContext.cs" />

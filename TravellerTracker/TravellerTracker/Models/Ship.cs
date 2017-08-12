@@ -1,7 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using Traveller.Support;
-
-namespace Traveller.Models
+﻿namespace Traveller.Models
 {
     public class Ship
     {

@@ -17,6 +17,7 @@ namespace TravellerTracker.Views
     {
         public Ship ship { get; set; }
         public List<ShipClass> classes;
+        public List<ShipLog> logs;
         public ImperialDates date;
 
         public ShipView(int shipID)
@@ -34,6 +35,13 @@ namespace TravellerTracker.Views
             {
                 ErrorHandling e = new ErrorHandling();
                 e.showError("Ship class does not exist - please add a class");
+            }
+            try
+            {
+                logs = App.DB.Logs.Where(x => x.ShipId == ship.ShipId).OrderBy(x => x.Year).OrderBy(x => x.Day).ToList();
+            }
+            catch (System.Exception)
+            {
             }
             this.DataContext = ship;
             App.ship = ship;
@@ -55,6 +63,7 @@ namespace TravellerTracker.Views
             date.addDays(1);
             ship.Day = date.Day;
             ship.Year = date.Year;
+            App.DB.SaveChangesAsync();
         }
 
         private void btn_AddWeek(object sender, Windows.UI.Xaml.RoutedEventArgs e)
@@ -62,6 +71,13 @@ namespace TravellerTracker.Views
             date.addDays(7);
             ship.Day = date.Day;
             ship.Year = date.Year;
+            App.DB.SaveChangesAsync();
+        }
+
+        private void btnNewLog(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            ShipLog l = new ShipLog(ship);
+
         }
     }
 }

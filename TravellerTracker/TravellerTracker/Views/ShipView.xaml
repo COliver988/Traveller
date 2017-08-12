@@ -21,13 +21,13 @@
             <ColumnDefinition Width="2*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="35" />
-            <RowDefinition Height="35" />
-            <RowDefinition Height="55" />
-            <RowDefinition Height="35" />
-            <RowDefinition Height="35" />
-            <RowDefinition Height="35" />
-            <RowDefinition Height="35" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
         </Grid.RowDefinitions>
         <TextBlock
             Grid.RowSpan="2"
@@ -36,14 +36,10 @@
             VerticalAlignment="Top"
             FontSize="22"
             Text="{x:Bind ship.Name, Mode=TwoWay}" />
-        <Button
-            Grid.Column="1"
-            Width="100"
-            Height="30"
-            Margin="3"
-            Click="btnSave">
-            Save
-        </Button>
+        <StackPanel Grid.Column="1" Orientation="Horizontal">
+            <Button Click="btnSave" Style="{StaticResource btnMenu}">Save</Button>
+            <Button Click="btnNewLog" Style="{StaticResource btnMenu}">Add Log</Button>
+        </StackPanel>
         <TextBlock
             Grid.Row="1"
             Grid.Column="0"
@@ -116,9 +112,15 @@
             Grid.Row="5"
             Grid.Column="1"
             Orientation="Horizontal">
-            <TextBox Margin="3" Text="{x:Bind ship.Day, Mode=TwoWay}" />
+            <TextBox
+                Margin="3"
+                Style="{StaticResource txtBox}"
+                Text="{x:Bind ship.Day, Mode=TwoWay}" />
             <TextBlock Margin="3" Text=" / " />
-            <TextBox Margin="3" Text="{x:Bind ship.Year, Mode=TwoWay}" />
+            <TextBox
+                Margin="3"
+                Style="{StaticResource txtBox}"
+                Text="{x:Bind ship.Year, Mode=TwoWay}" />
             <Button
                 Margin="3"
                 Click="btn_AddDay"
