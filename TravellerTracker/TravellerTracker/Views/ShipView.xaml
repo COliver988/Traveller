@@ -28,6 +28,8 @@
             <RowDefinition Height="40" />
             <RowDefinition Height="40" />
             <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
         </Grid.RowDefinitions>
         <TextBlock
             Grid.RowSpan="2"
@@ -130,5 +132,6 @@
                 Click="btn_AddWeek"
                 Content="Add Week" />
         </StackPanel>
+        <TextBlock Grid.Row="6" Style="{StaticResource txtBlock}" Grid.Column="0" Text="Add log"></TextBlock>
     </Grid>
 </Page>

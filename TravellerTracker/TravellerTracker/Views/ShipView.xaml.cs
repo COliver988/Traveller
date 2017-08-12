@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Traveller.Models;
 using Traveller.Support;
@@ -74,10 +75,28 @@ namespace TravellerTracker.Views
             App.DB.SaveChangesAsync();
         }
 
-        private void btnNewLog(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        private async void btnNewLog(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            ShipLog l = new ShipLog(ship);
-
+            TextBox txt = new TextBox { Width = 200 };
+            var conDlg = new Windows.UI.Xaml.Controls.ContentDialog
+            {
+                Title = string.Format("Enter new log for {0}-{1}", ship.Day, ship.Year),
+                PrimaryButtonText = "Add Log",
+                SecondaryButtonText = "Cancel",
+                Content = txt
+            };
+            var content = await conDlg.ShowAsync();
+            switch (content)
+            {
+                case ContentDialogResult.None:
+                    break;
+                case ContentDialogResult.Primary:
+                    break;
+                case ContentDialogResult.Secondary:
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }
