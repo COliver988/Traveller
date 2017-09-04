@@ -119,15 +119,21 @@
     <Compile Include="Migrations\20170812212720_logAndCargo.designer.cs">
       <DependentUpon>20170812212720_logAndCargo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20170904212958_Location.cs" />
+    <Compile Include="Migrations\20170904212958_Location.designer.cs">
+      <DependentUpon>20170904212958_Location.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\TravellerContextModelSnapshot.cs" />
     <Compile Include="Models\Cargos.cs" />
     <Compile Include="Models\ErrorHandling.cs" />
     <Compile Include="Models\ShipLog.cs" />
+    <Compile Include="Models\TravellerMapUniverse.cs" />
     <Compile Include="Support\ImperialDates.cs" />
     <Compile Include="Models\ShipClass.cs" />
     <Compile Include="Models\TravellerContext.cs" />
     <Compile Include="Models\Ship.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Support\TravellerMapAPI.cs" />
     <Compile Include="Views\ShipClassEdit.xaml.cs">
       <DependentUpon>ShipClassEdit.xaml</DependentUpon>
     </Compile>

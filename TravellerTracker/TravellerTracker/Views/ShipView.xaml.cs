@@ -114,5 +114,15 @@ namespace TravellerTracker.Views
                     break;
             }
         }
+
+        private void TextBlock_SelectionChanged(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnSector(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+
+        }
     }
 }

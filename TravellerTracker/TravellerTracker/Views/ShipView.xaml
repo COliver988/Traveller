@@ -30,6 +30,8 @@
             <RowDefinition Height="40" />
             <RowDefinition Height="40" />
             <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
         </Grid.RowDefinitions>
         <TextBlock
             Grid.RowSpan="2"
@@ -41,6 +43,7 @@
         <StackPanel Grid.Column="1" Orientation="Horizontal">
             <Button Click="btnSave" Style="{StaticResource btnMenu}">Save</Button>
             <Button Click="btnNewLog" Style="{StaticResource btnMenu}">Add Log</Button>
+            <Button Click="btnSector" Style="{StaticResource btnMenu}">Load Sectors</Button>
         </StackPanel>
         <TextBlock
             Grid.Row="1"
@@ -66,7 +69,7 @@
             <TextBlock
                 Grid.Column="0"
                 Margin="3"
-                Text="{x:Bind ship.Class.Name}" />
+                Text="{x:Bind ship.Class.Description}" />
             <ComboBox
                 Name="cbClasses"
                 Grid.Column="1"
@@ -106,6 +109,19 @@
                 Margin="3"
                 Text="{x:Bind ship.Class.Power}" />
         </Grid>
+        <TextBlock Grid.Column="0" Grid.Row="4" Style="{StaticResource txtBlock}">Location</TextBlock>
+        <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="1">
+            <TextBlock Style="{StaticResource txtBlock}">Sector</TextBlock>
+            <ComboBox DataContext="{Binding}" Name="comboSectors">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="{Binding Sector.FirstName}"></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        </StackPanel>
         <TextBlock
             Grid.Row="5"
             Grid.Column="0"
@@ -132,21 +148,42 @@
                 Click="btn_AddWeek"
                 Content="Add Week" />
         </StackPanel>
-        <TextBlock Grid.Row="6" Style="{StaticResource txtBlock}" Grid.Column="0" Text="Ship's Log"></TextBlock>
-        <ListBox Grid.Row="6" Grid.Column="1" Grid.RowSpan="3" Name="lstLog" ItemsSource="{Binding}">
+        <TextBlock
+            Grid.Row="6"
+            Grid.Column="0"
+            Style="{StaticResource txtBlock}">
+            Location
+        </TextBlock>
+        <TextBlock
+            Grid.Row="7"
+            Grid.Column="0"
+            SelectionChanged="TextBlock_SelectionChanged"
+            Style="{StaticResource txtBlock}"
+            Text="Ship's Log" />
+        <ListBox
+            Name="lstLog"
+            Grid.Row="7"
+            Grid.RowSpan="3"
+            Grid.Column="1"
+            ItemsSource="{Binding}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="50"> </ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition />
                         </Grid.ColumnDefinitions>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding Day}" Margin="3"></TextBlock>
+                            <TextBlock Margin="3" Text="{Binding Day}" />
                             <TextBlock Margin="3">-</TextBlock>
-                            <TextBlock Text="{Binding Year}" Margin="3"></TextBlock>
+                            <TextBlock Margin="3" Text="{Binding Year}" />
                         </StackPanel>
-                        <TextBlock Grid.Column="1" Margin="3" Height="Auto" Text="{Binding Log}"></TextBlock>
+                        <TextBlock
+                            Grid.Column="1"
+                            Height="Auto"
+                            Margin="3"
+                            Text="{Binding Log}"
+                            TextWrapping="Wrap" />
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>

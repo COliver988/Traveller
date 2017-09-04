@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Traveller.Models;
+using Traveller.Support;
 using TravellerTracker.Models;
 using TravellerTracker.Views;
 using Windows.Foundation;
@@ -31,9 +33,11 @@ namespace TravellerTracker
             this.DataContext = App.ship;
         }
 
-        private void Page_Loaded(object sender, RoutedEventArgs e)
+        private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
             mainFrame.Content = new ShipList();
+            TravellerMapAPI tu = new TravellerMapAPI();
+            App.tmUniverse = await tu.loadUnivrerse(); 
         }
 
         private void btnNew(object sender, RoutedEventArgs e)

@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.Generic;
 using Traveller.Models;
 using TravellerTracker.Models;
 using Windows.ApplicationModel;
@@ -18,6 +19,7 @@ namespace TravellerTracker
         public static Frame mainFrame;
         public static Ship ship;
         public static TravellerContext DB = new TravellerContext();
+        public static TravellerMapUniverse.SectorList tmUniverse = new TravellerMapUniverse.SectorList();
 
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
