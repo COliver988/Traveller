@@ -1,9 +1,11 @@
 ﻿using Traveller.Models;
 
-namespace TravellerTracker.Models
+namespace Traveller.Models
 {
     public class ShipLog
     {
+        public ShipLog() { }
+
         public ShipLog (Ship ship)
         {
             ShipId = ship.ShipId;

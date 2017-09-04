@@ -132,6 +132,24 @@
                 Click="btn_AddWeek"
                 Content="Add Week" />
         </StackPanel>
-        <TextBlock Grid.Row="6" Style="{StaticResource txtBlock}" Grid.Column="0" Text="Add log"></TextBlock>
+        <TextBlock Grid.Row="6" Style="{StaticResource txtBlock}" Grid.Column="0" Text="Ship's Log"></TextBlock>
+        <ListBox Grid.Row="6" Grid.Column="1" Grid.RowSpan="3" Name="lstLog" ItemsSource="{Binding}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50"> </ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Day}" Margin="3"></TextBlock>
+                            <TextBlock Margin="3">-</TextBlock>
+                            <TextBlock Text="{Binding Year}" Margin="3"></TextBlock>
+                        </StackPanel>
+                        <TextBlock Grid.Column="1" Margin="3" Height="Auto" Text="{Binding Log}"></TextBlock>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </Page>

@@ -37,15 +37,23 @@ namespace TravellerTracker.Views
                 ErrorHandling e = new ErrorHandling();
                 e.showError("Ship class does not exist - please add a class");
             }
+            refresh();
+
+            this.DataContext = ship;
+            App.ship = ship;
+        }
+
+        private void refresh()
+        {
             try
             {
                 logs = App.DB.Logs.Where(x => x.ShipId == ship.ShipId).OrderBy(x => x.Year).OrderBy(x => x.Day).ToList();
+                lstLog.DataContext = logs;
             }
-            catch (System.Exception)
+            catch (Exception ex)
             {
+                var x = ex;
             }
-            this.DataContext = ship;
-            App.ship = ship;
         }
 
         private void btnSave(object sender, Windows.UI.Xaml.RoutedEventArgs e)
@@ -77,7 +85,7 @@ namespace TravellerTracker.Views
 
         private async void btnNewLog(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            TextBox txt = new TextBox { Width = 200 };
+            TextBox txt = new TextBox { Width = 400, Height= 200 };
             var conDlg = new Windows.UI.Xaml.Controls.ContentDialog
             {
                 Title = string.Format("Enter new log for {0}-{1}", ship.Day, ship.Year),
@@ -91,6 +99,14 @@ namespace TravellerTracker.Views
                 case ContentDialogResult.None:
                     break;
                 case ContentDialogResult.Primary:
+                    using (TravellerContext db = new TravellerContext())
+                    {
+                        ShipLog log = new ShipLog(ship);
+                        log.Log = txt.Text;
+                        db.Add(log);
+                        await db.SaveChangesAsync();
+                        refresh();
+                    }
                     break;
                 case ContentDialogResult.Secondary:
                     break;

@@ -1,4 +1,6 @@
-﻿namespace Traveller.Models
+﻿using System.Collections.Generic;
+
+namespace Traveller.Models
 {
     public class Ship
     {
@@ -14,6 +16,7 @@
 
         public int ShipClassID { get; set; }
         public ShipClass Class { get; set; }
+
         public int Day { get; set; }
         public int Year { get; set; }
     }
