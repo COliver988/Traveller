@@ -49,6 +49,7 @@ namespace TravellerTracker.Views
             {
                 logs = App.DB.Logs.Where(x => x.ShipId == ship.ShipId).OrderBy(x => x.Year).OrderBy(x => x.Day).ToList();
                 lstLog.DataContext = logs;
+                comboSectors.ItemsSource = App.tmUniverse.Sectors.OrderBy(x => x.FirstName);
             }
             catch (Exception ex)
             {

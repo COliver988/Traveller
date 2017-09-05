@@ -110,13 +110,13 @@
                 Text="{x:Bind ship.Class.Power}" />
         </Grid>
         <TextBlock Grid.Column="0" Grid.Row="4" Style="{StaticResource txtBlock}">Location</TextBlock>
-        <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="1">
+        <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1" Margin="0,38,0,2" Grid.RowSpan="2">
             <TextBlock Style="{StaticResource txtBlock}">Sector</TextBlock>
-            <ComboBox DataContext="{Binding}" Name="comboSectors">
+            <ComboBox Name="comboSectors">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Vertical">
-                            <TextBlock Text="{Binding Sector.FirstName}"></TextBlock>
+                            <TextBlock Text="{Binding FirstName}"></TextBlock>
                         </StackPanel>
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
