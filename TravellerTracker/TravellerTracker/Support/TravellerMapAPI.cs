@@ -11,7 +11,7 @@ namespace Traveller.Support
 {
     public class TravellerMapAPI
     {
-        Uri uriUniverse = new Uri("https://travellermap.com/data");
+        Uri uriUniverse = new Uri("https://travellermap.com/data?era=M1105");
 
         public async Task<TravellerMapUniverse.SectorList> loadUnivrerse()
         {

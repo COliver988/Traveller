@@ -23,7 +23,7 @@ namespace Traveller.Models
             public string Abbreviation { get; set; }
             public string Tags { get; set; }
             public IList<Name> Names { get; set; }
-            public string FirstName { get { return string.Format("{0} [{1}]", Names[0].Text, Names[0].Lang); } }
+            public string FirstName { get { return string.Format("{0} [{1}]", Names[0].Text, Tags); } }
         }
 
         public class SectorList

@@ -123,6 +123,10 @@
     <Compile Include="Migrations\20170904212958_Location.designer.cs">
       <DependentUpon>20170904212958_Location.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20170908005506_ShipEra.cs" />
+    <Compile Include="Migrations\20170908005506_ShipEra.designer.cs">
+      <DependentUpon>20170908005506_ShipEra.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\TravellerContextModelSnapshot.cs" />
     <Compile Include="Models\Cargos.cs" />
     <Compile Include="Models\ErrorHandling.cs" />
