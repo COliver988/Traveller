@@ -8,7 +8,6 @@ namespace Traveller.Models
         public int ShipId { get; set; }
 
         public string Name { get; set; }
-        public int dTons { get; set; }
         public int CargoCapacity { get; set; }
         public int CargoCarried { get; set; }
         public int AvailableCargoSpace { get { return CargoCapacity - CargoCarried;  }  }
