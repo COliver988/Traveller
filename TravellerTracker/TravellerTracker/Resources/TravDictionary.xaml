@@ -20,6 +20,7 @@
         <Setter Property="Height" Value="28" />
         <Setter Property="Margin" Value="3" />
         <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Right"></Setter>
     </Style>
 
 </ResourceDictionary>

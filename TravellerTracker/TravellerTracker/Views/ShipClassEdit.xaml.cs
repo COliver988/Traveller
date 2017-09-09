@@ -1,18 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 using Traveller.Models;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -29,6 +19,8 @@ namespace TravellerTracker.Views
         {
             this.InitializeComponent();
             shipClass = App.DB.ShipClasses.Where(x => x.ShipClassID == shipClassID).FirstOrDefault();
+            txtTypePrimary.Text = File.ReadAllText("Resources/ShipTypeCodesPrimary.txt");
+            txtTypeSecondary.Text = File.ReadAllText("Resources/ShipTypeCodesSecondary.txt");
         }
 
         private void btnSave(object sender, RoutedEventArgs e)

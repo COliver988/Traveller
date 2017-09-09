@@ -18,7 +18,10 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
-            <ColumnDefinition />
+            <ColumnDefinition Width="1.5*" />
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width=".5*" />
+            <ColumnDefinition Width=".5*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="35" />
@@ -30,13 +33,36 @@
             <RowDefinition Height="35" />
             <RowDefinition Height="35" />
         </Grid.RowDefinitions>
-        <Button
+        <StackPanel
             Grid.Row="0"
             Grid.Column="1"
-            Margin="3"
             HorizontalAlignment="Right"
-            Click="btnSave"
-            Content="Save" />
+            Orientation="Horizontal">
+            <Button
+                Margin="3"
+                HorizontalAlignment="Right"
+                Click="btnSave"
+                Content="Save" />
+        </StackPanel>
+        <TextBlock
+            Grid.Row="0"
+            Grid.Column="2"
+            Grid.ColumnSpan="2"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Text="Ship Type Codes" />
+        <TextBlock
+            Name="txtTypePrimary"
+            Grid.Row="1"
+            Grid.RowSpan="24"
+            Grid.Column="3"
+            VerticalAlignment="Top" />
+        <TextBlock
+            Name="txtTypeSecondary"
+            Grid.Row="1"
+            Grid.RowSpan="24"
+            Grid.Column="4"
+            VerticalAlignment="Top" />
         <TextBlock
             Grid.RowSpan="2"
             Grid.Column="0"
@@ -98,6 +124,16 @@
             Grid.Column="1"
             Style="{StaticResource txtBox}"
             Text="{x:Bind shipClass.dTons, Mode=TwoWay}" />
+        <TextBlock
+            Grid.Row="7"
+            Grid.Column="0"
+            Text="Ship Type" />
+        <TextBox
+            Grid.Row="7"
+            Grid.Column="1"
+            Style="{StaticResource txtBox}"
+            Text="{x:Bind shipClass.HGClass, Mode=TwoWay}" />
+
 
     </Grid>
 </Page>

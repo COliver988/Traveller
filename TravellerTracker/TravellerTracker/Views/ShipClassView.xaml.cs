@@ -48,6 +48,7 @@ namespace TravellerTracker.Views
         private void btnNewClass(object sender, RoutedEventArgs e)
         {
             shipclass = new ShipClass();
+            shipclass.Name = "new class";
             App.DB.Add(shipclass);
             App.DB.SaveChangesAsync();
             showClasses();

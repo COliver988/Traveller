@@ -1,0 +1,24 @@
+﻿A Merchant
+B Battle
+C Cruiser, Carrier
+D Destroyer
+E Escort
+F Frigate, Fighter
+G Gig, Refinery
+H
+I,J Intruder
+K Pinnace
+L Corvette, Lab
+M Merchant
+N
+P Planetoid
+Q Auxiliary
+R Liner
+S Scout, Station
+T Tanker, Tender
+U
+V
+W Barge
+X Express
+Y Yacht
+Z

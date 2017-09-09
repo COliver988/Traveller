@@ -127,6 +127,14 @@
     <Compile Include="Migrations\20170908005506_ShipEra.designer.cs">
       <DependentUpon>20170908005506_ShipEra.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20170909012345_ShipUpdate1.cs" />
+    <Compile Include="Migrations\20170909012345_ShipUpdate1.designer.cs">
+      <DependentUpon>20170909012345_ShipUpdate1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20170909133232_HGClass.cs" />
+    <Compile Include="Migrations\20170909133232_HGClass.designer.cs">
+      <DependentUpon>20170909133232_HGClass.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\TravellerContextModelSnapshot.cs" />
     <Compile Include="Models\Cargos.cs" />
     <Compile Include="Models\ErrorHandling.cs" />
@@ -166,6 +174,8 @@
     <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
     <Content Include="Assets\StoreLogo.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+    <Content Include="Resources\ShipTypeCodesPrimary.txt" />
+    <Content Include="Resources\ShipTypeCodesSecondary.txt" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">

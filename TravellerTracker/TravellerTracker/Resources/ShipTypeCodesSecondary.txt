@@ -1,0 +1,24 @@
+﻿A Armored
+B Battle, Boat
+C Cruiser, Close
+D Destroyer
+E Escort
+F Fast, Fleet
+G Gunned
+H Heavy
+I,J 
+K 
+L Leader, Light
+M Missile
+N Non-Standard
+P Provincial
+Q Decoy
+R Raider
+S Strike
+T Troop, Transport
+U Unpowered
+V Vehicle
+W 
+X
+Y Shuttle, Cutter
+Z Experimental

@@ -8,9 +8,10 @@ using TravellerTracker.Models;
 namespace TravellerTracker.Migrations
 {
     [DbContext(typeof(TravellerContext))]
-    partial class TravellerContextModelSnapshot : ModelSnapshot
+    [Migration("20170909012345_ShipUpdate1")]
+    partial class ShipUpdate1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.1");
@@ -55,8 +56,6 @@ namespace TravellerTracker.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<int>("Cargo");
-
-                    b.Property<string>("HGClass");
 
                     b.Property<int>("Jump");
 
