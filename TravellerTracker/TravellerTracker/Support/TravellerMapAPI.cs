@@ -11,10 +11,10 @@ namespace Traveller.Support
 {
     public class TravellerMapAPI
     {
-        Uri uriUniverse = new Uri("https://travellermap.com/data?era=M1105");
 
-        public async Task<TravellerMapUniverse.SectorList> loadUnivrerse()
+        public async Task<TravellerMapUniverse.SectorList> loadUnivrerse(string milieu)
         {
+            Uri uriUniverse = new Uri(string.Format("https://travellermap.com/data?era={0}&requireData=1", milieu));
             TravellerMapUniverse.SectorList results = new TravellerMapUniverse.SectorList();
             using (HttpClient client = new HttpClient())
             {
