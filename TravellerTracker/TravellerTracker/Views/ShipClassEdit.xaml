@@ -32,6 +32,7 @@
             <RowDefinition Height="35" />
             <RowDefinition Height="35" />
             <RowDefinition Height="35" />
+            <RowDefinition Height="35" />
         </Grid.RowDefinitions>
         <StackPanel
             Grid.Row="0"
@@ -46,11 +47,11 @@
         </StackPanel>
         <TextBlock
             Grid.Row="0"
-            Grid.Column="2"
-            Grid.ColumnSpan="2"
+            Grid.Column="3"
             HorizontalAlignment="Center"
+            TextAlignment="Center"
             VerticalAlignment="Center"
-            Text="Ship Type Codes" />
+            Text="Ship Type Codes" Margin="8.333,5,18,2.333" />
         <TextBlock
             Name="txtTypePrimary"
             Grid.Row="1"
@@ -133,7 +134,6 @@
             Grid.Column="1"
             Style="{StaticResource txtBox}"
             Text="{x:Bind shipClass.HGClass, Mode=TwoWay}" />
-
 
     </Grid>
 </Page>

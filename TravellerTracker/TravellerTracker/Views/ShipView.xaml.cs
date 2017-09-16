@@ -37,10 +37,17 @@ namespace TravellerTracker.Views
                 ErrorHandling e = new ErrorHandling();
                 e.showError("Ship class does not exist - please add a class");
             }
+            loadEra();
             refresh();
 
             this.DataContext = ship;
             App.ship = ship;
+        }
+
+        private async void loadEra()
+        {
+            TravellerMapAPI tu = new TravellerMapAPI();
+            App.tmUniverse = await tu.loadUniverse(ship.Era);
         }
 
         private void refresh()
@@ -60,6 +67,7 @@ namespace TravellerTracker.Views
         private void btnSave(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             App.DB.SaveChangesAsync();
+            refresh();
         }
 
         private void cbClasses_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -121,9 +129,19 @@ namespace TravellerTracker.Views
 
         }
 
-        private void btnSector(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        private void cbSetMilieu(object sender, SelectionChangedEventArgs e)
         {
+            ComboBox cb = (ComboBox) sender;
+            var era = (cb.SelectedItem as ComboBoxItem).Content;
+            ship.Era = (string)era;
+            loadEra();
+        }
 
+        private void cbSetSector(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox cb = (ComboBox) sender;
+            TravellerMapUniverse.Sector tu = (TravellerMapUniverse.Sector)cb.SelectedItem;
+            ship.Sector = tu.Names[0].Text;
         }
     }
 }

@@ -40,10 +40,9 @@
             VerticalAlignment="Top"
             FontSize="22"
             Text="{x:Bind ship.Name, Mode=TwoWay}" />
-        <StackPanel Grid.Column="1" Orientation="Horizontal">
+        <StackPanel Grid.Column="1" Orientation="Horizontal" Margin="0,-15,0,15">
             <Button Click="btnSave" Style="{StaticResource btnMenu}">Save</Button>
             <Button Click="btnNewLog" Style="{StaticResource btnMenu}">Add Log</Button>
-            <Button Click="btnSector" Style="{StaticResource btnMenu}">Load Sectors</Button>
         </StackPanel>
         <TextBlock
             Grid.Row="1"
@@ -111,8 +110,15 @@
         </Grid>
         <TextBlock Grid.Column="0" Grid.Row="4" Style="{StaticResource txtBlock}">Location</TextBlock>
         <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1" Margin="0,38,0,2" Grid.RowSpan="2">
+            <TextBlock Style="{StaticResource txtBlock}">Milieu</TextBlock>
+            <ComboBox Margin="3" SelectionChanged="cbSetMilieu">
+                    <ComboBoxItem Content="M0"></ComboBoxItem>
+                    <ComboBoxItem Content="M1105"></ComboBoxItem>
+                    <ComboBoxItem Content="M1248"></ComboBoxItem>
+                    <ComboBoxItem Content="M1900"></ComboBoxItem>
+            </ComboBox>
             <TextBlock Style="{StaticResource txtBlock}">Sector</TextBlock>
-            <ComboBox Name="comboSectors">
+            <ComboBox Name="comboSectors" SelectionChanged="cbSetSector">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Vertical">

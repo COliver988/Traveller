@@ -12,7 +12,7 @@ namespace Traveller.Support
     public class TravellerMapAPI
     {
 
-        public async Task<TravellerMapUniverse.SectorList> loadUnivrerse(string milieu)
+        public async Task<TravellerMapUniverse.SectorList> loadUniverse(string milieu)
         {
             Uri uriUniverse = new Uri(string.Format("https://travellermap.com/data?era={0}&requireData=1", milieu));
             TravellerMapUniverse.SectorList results = new TravellerMapUniverse.SectorList();
