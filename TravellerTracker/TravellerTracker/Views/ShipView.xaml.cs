@@ -48,6 +48,7 @@ namespace TravellerTracker.Views
         {
             TravellerMapAPI tu = new TravellerMapAPI();
             App.tmUniverse = await tu.loadUniverse(ship.Era);
+            refresh();
         }
 
         private void refresh()
@@ -57,6 +58,22 @@ namespace TravellerTracker.Views
                 logs = App.DB.Logs.Where(x => x.ShipId == ship.ShipId).OrderBy(x => x.Year).OrderBy(x => x.Day).ToList();
                 lstLog.DataContext = logs;
                 comboSectors.ItemsSource = App.tmUniverse.Sectors.OrderBy(x => x.FirstName);
+                foreach (TravellerMapUniverse.Sector item in comboSectors.Items)
+                {
+                    if (item.FirstName == ship.Sector)
+                    {
+                        comboSectors.SelectedItem = item;
+                        break;
+                    }
+                }
+                foreach (ComboBoxItem item in comboEra.Items)
+                {
+                    if (item.Content.ToString() == ship.Era)
+                    {
+                        comboEra.SelectedItem = item;
+                        break;
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -94,7 +111,7 @@ namespace TravellerTracker.Views
 
         private async void btnNewLog(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            TextBox txt = new TextBox { Width = 400, Height= 200 };
+            TextBox txt = new TextBox { Width = 400, Height = 200 };
             var conDlg = new Windows.UI.Xaml.Controls.ContentDialog
             {
                 Title = string.Format("Enter new log for {0}-{1}", ship.Day, ship.Year),
@@ -131,17 +148,23 @@ namespace TravellerTracker.Views
 
         private void cbSetMilieu(object sender, SelectionChangedEventArgs e)
         {
-            ComboBox cb = (ComboBox) sender;
+            ComboBox cb = (ComboBox)sender;
             var era = (cb.SelectedItem as ComboBoxItem).Content;
-            ship.Era = (string)era;
-            loadEra();
+            if (era.ToString() != ship.Era)
+            {
+                ship.Era = (string)era;
+                loadEra();
+            }
         }
 
         private void cbSetSector(object sender, SelectionChangedEventArgs e)
         {
-            ComboBox cb = (ComboBox) sender;
+            ComboBox cb = (ComboBox)sender;
             TravellerMapUniverse.Sector tu = (TravellerMapUniverse.Sector)cb.SelectedItem;
-            ship.Sector = tu.Names[0].Text;
+            if (tu != null)
+            {
+                ship.Sector = tu.FirstName;
+            }
         }
     }
 }

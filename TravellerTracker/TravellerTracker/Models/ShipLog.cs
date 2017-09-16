@@ -1,4 +1,5 @@
-﻿using Traveller.Models;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using Traveller.Models;
 
 namespace Traveller.Models
 {
@@ -17,5 +18,8 @@ namespace Traveller.Models
         public int Year { get; set; }
         public int Day { get; set; }
         public string Log { get; set; }
+
+        [NotMapped]
+        public string DayDisplay {  get { return string.Format("{0:000}", Day);  } }
     }
 }

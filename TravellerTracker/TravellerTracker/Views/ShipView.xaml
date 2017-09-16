@@ -40,7 +40,10 @@
             VerticalAlignment="Top"
             FontSize="22"
             Text="{x:Bind ship.Name, Mode=TwoWay}" />
-        <StackPanel Grid.Column="1" Orientation="Horizontal" Margin="0,-15,0,15">
+        <StackPanel
+            Grid.Column="1"
+            Margin="0,-15,0,15"
+            Orientation="Horizontal">
             <Button Click="btnSave" Style="{StaticResource btnMenu}">Save</Button>
             <Button Click="btnNewLog" Style="{StaticResource btnMenu}">Add Log</Button>
         </StackPanel>
@@ -108,21 +111,35 @@
                 Margin="3"
                 Text="{x:Bind ship.Class.Power}" />
         </Grid>
-        <TextBlock Grid.Column="0" Grid.Row="4" Style="{StaticResource txtBlock}">Location</TextBlock>
-        <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1" Margin="0,38,0,2" Grid.RowSpan="2">
+        <TextBlock
+            Grid.Row="4"
+            Grid.Column="0"
+            Style="{StaticResource txtBlock}">
+            Location
+        </TextBlock>
+        <StackPanel
+            Grid.Row="4"
+            Grid.Column="1"
+            Orientation="Horizontal">
             <TextBlock Style="{StaticResource txtBlock}">Milieu</TextBlock>
-            <ComboBox Margin="3" SelectionChanged="cbSetMilieu">
-                    <ComboBoxItem Content="M0"></ComboBoxItem>
-                    <ComboBoxItem Content="M1105"></ComboBoxItem>
-                    <ComboBoxItem Content="M1248"></ComboBoxItem>
-                    <ComboBoxItem Content="M1900"></ComboBoxItem>
+            <ComboBox
+                Name="comboEra"
+                Margin="3"
+                SelectionChanged="cbSetMilieu">
+                <ComboBoxItem Content="M0" />
+                <ComboBoxItem Content="M1105" />
+                <ComboBoxItem Content="M1248" />
+                <ComboBoxItem Content="M1900" />
             </ComboBox>
             <TextBlock Style="{StaticResource txtBlock}">Sector</TextBlock>
-            <ComboBox Name="comboSectors" SelectionChanged="cbSetSector">
+            <ComboBox
+                Name="comboSectors"
+                Margin="0,2,0,0"
+                SelectionChanged="cbSetSector">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Vertical">
-                            <TextBlock Text="{Binding FirstName}"></TextBlock>
+                            <TextBlock Text="{Binding FirstName}" />
                         </StackPanel>
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
@@ -155,12 +172,6 @@
                 Content="Add Week" />
         </StackPanel>
         <TextBlock
-            Grid.Row="6"
-            Grid.Column="0"
-            Style="{StaticResource txtBlock}">
-            Location
-        </TextBlock>
-        <TextBlock
             Grid.Row="7"
             Grid.Column="0"
             SelectionChanged="TextBlock_SelectionChanged"
@@ -169,8 +180,9 @@
         <ListBox
             Name="lstLog"
             Grid.Row="7"
-            Grid.RowSpan="3"
+            Grid.RowSpan="4"
             Grid.Column="1"
+            Margin="0,2,0,38"
             ItemsSource="{Binding}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
@@ -180,7 +192,7 @@
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Margin="3" Text="{Binding Day}" />
+                            <TextBlock Margin="3" Text="{Binding DayDisplay}" />
                             <TextBlock Margin="3">-</TextBlock>
                             <TextBlock Margin="3" Text="{Binding Year}" />
                         </StackPanel>
