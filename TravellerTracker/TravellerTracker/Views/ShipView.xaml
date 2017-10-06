@@ -42,7 +42,7 @@
             Text="{x:Bind ship.Name, Mode=TwoWay}" />
         <StackPanel
             Grid.Column="1"
-            Margin="0,-15,0,15"
+            Margin="3"
             Orientation="Horizontal">
             <Button Click="btnSave" Style="{StaticResource btnMenu}">Save</Button>
             <Button Click="btnNewLog" Style="{StaticResource btnMenu}">Add Log</Button>
@@ -140,6 +140,20 @@
                     <DataTemplate>
                         <StackPanel Orientation="Vertical">
                             <TextBlock Text="{Binding FirstName}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <TextBlock Style="{StaticResource txtBlock}">World</TextBlock>
+            <ComboBox
+                Name="comboWorlds"
+                Margin="0,2,0,0"
+                SelectionChanged="cbSetWorld" Width="Auto">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Style="{StaticResource txtBlock}" Text="{Binding Name}" />
+                            <TextBlock Style="{StaticResource txtBlock}" Text="{Binding UWP}" />
                         </StackPanel>
                     </DataTemplate>
                 </ComboBox.ItemTemplate>

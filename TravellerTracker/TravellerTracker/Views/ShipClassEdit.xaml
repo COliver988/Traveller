@@ -48,10 +48,11 @@
         <TextBlock
             Grid.Row="0"
             Grid.Column="3"
+            Margin="8.333,5,18,2.333"
             HorizontalAlignment="Center"
-            TextAlignment="Center"
             VerticalAlignment="Center"
-            Text="Ship Type Codes" Margin="8.333,5,18,2.333" />
+            Text="Ship Type Codes"
+            TextAlignment="Center" />
         <TextBlock
             Name="txtTypePrimary"
             Grid.Row="1"

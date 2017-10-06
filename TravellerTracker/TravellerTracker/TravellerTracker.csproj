@@ -140,6 +140,7 @@
     <Compile Include="Models\ErrorHandling.cs" />
     <Compile Include="Models\ShipLog.cs" />
     <Compile Include="Models\TravellerMapUniverse.cs" />
+    <Compile Include="Models\Worlds.cs" />
     <Compile Include="Support\ImperialDates.cs" />
     <Compile Include="Models\ShipClass.cs" />
     <Compile Include="Models\TravellerContext.cs" />

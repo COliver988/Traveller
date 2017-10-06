@@ -30,5 +30,46 @@ namespace Traveller.Models
         {
             public List<Sector> Sectors { get; set; }
         }
+
+        // world API checks
+        public class World
+        {
+            public int HexX { get; set; }
+            public int HexY { get; set; }
+            public string Sector { get; set; }
+            public string Uwp { get; set; }
+            public int SectorX { get; set; }
+            public int SectorY { get; set; }
+            public string Name { get; set; }
+            public string SectorTags { get; set; }
+        }
+
+        public class Subsector
+        {
+            public string Sector { get; set; }
+            public string Index { get; set; }
+            public int SectorX { get; set; }
+            public int SectorY { get; set; }
+            public string Name { get; set; }
+            public string SectorTags { get; set; }
+        }
+
+        public class Item
+        {
+            public World World { get; set; }
+            public Sector Sector { get; set; }
+            public Subsector Subsector { get; set; }
+        }
+
+        public class Results
+        {
+            public int Count { get; set; }
+            public List<Item> Items { get; set; }
+        }
+
+        public class RootObject
+        {
+            public Results Results { get; set; }
+        }
     }
 }

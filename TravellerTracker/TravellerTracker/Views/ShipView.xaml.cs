@@ -39,6 +39,7 @@ namespace TravellerTracker.Views
                 e.showError("Ship class does not exist - please add a class");
             }
             loadEra();
+            loadWorlds();
             refresh();
 
             this.DataContext = ship;
@@ -47,9 +48,22 @@ namespace TravellerTracker.Views
 
         private async void loadEra()
         {
-            TravellerMapAPI tu = new TravellerMapAPI();
-            App.tmUniverse = await tu.loadUniverse(ship.Era);
-            refresh();
+            if (ship.Era != null)
+            {
+                TravellerMapAPI tu = new TravellerMapAPI();
+                App.tmUniverse = await tu.loadUniverse(ship.Era);
+                refresh();
+            }
+        }
+
+        private async void loadWorlds()
+        {
+            if (ship.Era != null && ship.Sector != null)
+            {
+                TravellerMapAPI tu = new TravellerMapAPI();
+                App.tmWorlds = await tu.loadWorlds(ship.Era, ship.Sector);
+                comboWorlds.ItemsSource = App.tmWorlds;
+            }
         }
 
         private void refresh()
@@ -59,6 +73,7 @@ namespace TravellerTracker.Views
                 logs = App.DB.Logs.Where(x => x.ShipId == ship.ShipId).OrderBy(x => x.Year).OrderBy(x => x.Day).ToList();
                 lstLog.DataContext = logs;
                 comboSectors.ItemsSource = App.tmUniverse.Sectors.OrderBy(x => x.FirstName);
+                // comboWorlds.ItemsSource = App.tmWorlds;
                 foreach (ComboBoxItem item in comboEra.Items)
                 {
                     if (item.Content.ToString() == ship.Era)
@@ -69,7 +84,7 @@ namespace TravellerTracker.Views
                 }
                 foreach (TravellerMapUniverse.Sector item in comboSectors.Items)
                 {
-                    if (item.FirstName == ship.Sector)
+                    if (item.Names[0].Text == ship.Sector)
                     {
                         comboSectors.SelectedItem = item;
                         break;
@@ -166,8 +181,13 @@ namespace TravellerTracker.Views
             TravellerMapUniverse.Sector tu = (TravellerMapUniverse.Sector)cb.SelectedItem;
             if (tu != null)
             {
-                ship.Sector = tu.FirstName;
+                ship.Sector = tu.Names[0].Text;
             }
+        }
+
+        private void cbSetWorld(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
