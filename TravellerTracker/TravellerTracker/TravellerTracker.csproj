@@ -99,49 +99,9 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20170416155153_initialShip.cs" />
-    <Compile Include="Migrations\20170416155153_initialShip.designer.cs">
-      <DependentUpon>20170416155153_initialShip.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20170423122027_newShipClass.cs" />
-    <Compile Include="Migrations\20170423122027_newShipClass.designer.cs">
-      <DependentUpon>20170423122027_newShipClass.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20170806193038_shipclassCargo.cs" />
-    <Compile Include="Migrations\20170806193038_shipclassCargo.designer.cs">
-      <DependentUpon>20170806193038_shipclassCargo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20170811233102_shipdates.cs" />
-    <Compile Include="Migrations\20170811233102_shipdates.designer.cs">
-      <DependentUpon>20170811233102_shipdates.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20170812212720_logAndCargo.cs" />
-    <Compile Include="Migrations\20170812212720_logAndCargo.designer.cs">
-      <DependentUpon>20170812212720_logAndCargo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20170904212958_Location.cs" />
-    <Compile Include="Migrations\20170904212958_Location.designer.cs">
-      <DependentUpon>20170904212958_Location.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20170908005506_ShipEra.cs" />
-    <Compile Include="Migrations\20170908005506_ShipEra.designer.cs">
-      <DependentUpon>20170908005506_ShipEra.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20170909012345_ShipUpdate1.cs" />
-    <Compile Include="Migrations\20170909012345_ShipUpdate1.designer.cs">
-      <DependentUpon>20170909012345_ShipUpdate1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20170909133232_HGClass.cs" />
-    <Compile Include="Migrations\20170909133232_HGClass.designer.cs">
-      <DependentUpon>20170909133232_HGClass.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20171007131225_WorldSectorAndCredits.cs" />
-    <Compile Include="Migrations\20171007131225_WorldSectorAndCredits.designer.cs">
-      <DependentUpon>20171007131225_WorldSectorAndCredits.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20171007202205_Sectors.cs" />
-    <Compile Include="Migrations\20171007202205_Sectors.designer.cs">
-      <DependentUpon>20171007202205_Sectors.cs</DependentUpon>
+    <Compile Include="Migrations\20171007213939_Initialize.cs" />
+    <Compile Include="Migrations\20171007213939_Initialize.designer.cs">
+      <DependentUpon>20171007213939_Initialize.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\TravellerContextModelSnapshot.cs" />
     <Compile Include="Models\Cargos.cs" />

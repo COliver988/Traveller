@@ -71,7 +71,7 @@
             <TextBlock
                 Grid.Column="0"
                 Margin="3"
-                Text="{x:Bind ship.Class.Description}" />
+                Text="{x:Bind shipClass.Description}" />
             <ComboBox
                 Name="cbClasses"
                 Grid.Column="1"
@@ -101,15 +101,15 @@
             <TextBlock
                 Grid.Column="0"
                 Margin="3"
-                Text="{x:Bind ship.Class.Jump}" />
+                Text="{x:Bind shipClass.Jump}" />
             <TextBlock
                 Grid.Column="1"
                 Margin="3"
-                Text="{x:Bind ship.Class.Man}" />
+                Text="{x:Bind shipClass.Man}" />
             <TextBlock
                 Grid.Column="2"
                 Margin="3"
-                Text="{x:Bind ship.Class.Power}" />
+                Text="{x:Bind shipClass.Power}" />
         </Grid>
         <TextBlock
             Grid.Row="4"

@@ -48,7 +48,7 @@ namespace Traveller.Support
                     DBsector = new Sector();
                     DBsector.Name = sector;
                     DBsector.Milieu = milieu;
-                    db.SaveChangesAsync();
+                    await db.SaveChangesAsync();
                 }
             }
 
@@ -62,7 +62,7 @@ namespace Traveller.Support
                 {
                     foreach (var line in lines)
                     {
-                        if (line.Length > 0 && Char.IsNumber(line[0] ))
+                        if (line.Length > 0 && Char.IsNumber(line[0]))
                         {
                             results.Add(new World(line));
                         }

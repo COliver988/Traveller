@@ -15,12 +15,24 @@ namespace TravellerTracker.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.1");
 
+            modelBuilder.Entity("Traveller.Models.Sector", b =>
+                {
+                    b.Property<int>("SectorID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Milieu");
+
+                    b.Property<string>("Name");
+
+                    b.HasKey("SectorID");
+
+                    b.ToTable("Sectors");
+                });
+
             modelBuilder.Entity("Traveller.Models.Ship", b =>
                 {
                     b.Property<int>("ShipId")
                         .ValueGeneratedOnAdd();
-
-                    b.Property<int>("CargoCapacity");
 
                     b.Property<int>("CargoCarried");
 
@@ -30,27 +42,17 @@ namespace TravellerTracker.Migrations
 
                     b.Property<string>("Era");
 
-                    b.Property<int>("FuelPerJump");
-
                     b.Property<string>("Name");
 
-                    b.Property<string>("Sector");
+                    b.Property<int>("SectorID");
 
                     b.Property<int>("ShipClassID");
 
-                    b.Property<string>("World");
-
-                    b.Property<int?>("WorldDataWorldID");
+                    b.Property<int>("WorldID");
 
                     b.Property<int>("Year");
 
-                    b.Property<int>("dTons");
-
                     b.HasKey("ShipId");
-
-                    b.HasIndex("ShipClassID");
-
-                    b.HasIndex("WorldDataWorldID");
 
                     b.ToTable("Ships");
                 });
@@ -151,32 +153,6 @@ namespace TravellerTracker.Migrations
                     b.HasKey("CargoesId");
 
                     b.ToTable("Cargoes");
-                });
-
-            modelBuilder.Entity("TravellerTracker.Models.Sector", b =>
-                {
-                    b.Property<int>("SectorID")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Milieu");
-
-                    b.Property<string>("Name");
-
-                    b.HasKey("SectorID");
-
-                    b.ToTable("Sectors");
-                });
-
-            modelBuilder.Entity("Traveller.Models.Ship", b =>
-                {
-                    b.HasOne("Traveller.Models.ShipClass", "Class")
-                        .WithMany()
-                        .HasForeignKey("ShipClassID")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("Traveller.Models.World", "WorldData")
-                        .WithMany()
-                        .HasForeignKey("WorldDataWorldID");
                 });
         }
     }

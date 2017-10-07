@@ -18,6 +18,8 @@ namespace TravellerTracker.Views
     public sealed partial class ShipView : Page
     {
         public Ship ship { get; set; }
+        public ShipClass shipClass { get; set; }
+        public Sector sector { get; set;  }
         public List<ShipClass> classes;
         public List<ShipLog> logs;
         public ImperialDates date;
@@ -31,7 +33,7 @@ namespace TravellerTracker.Views
             {
                 classes = App.DB.ShipClasses.ToList();
                 cbClasses.ItemsSource = classes;
-                ship.Class = classes.Where(x => x.ShipClassID == ship.ShipClassID).FirstOrDefault();
+                shipClass = classes.Where(x => x.ShipClassID == ship.ShipClassID).FirstOrDefault();
             }
             catch (System.Exception)
             {
@@ -42,7 +44,7 @@ namespace TravellerTracker.Views
             loadWorlds();
             refresh();
 
-            this.DataContext = ship;
+            this.DataContext = this;
             App.ship = ship;
         }
 
@@ -58,10 +60,10 @@ namespace TravellerTracker.Views
 
         private async void loadWorlds()
         {
-            if (ship.Era != null && ship.Sector != null)
+            if (ship.SectorID > 0)
             {
                 TravellerMapAPI tu = new TravellerMapAPI();
-                App.tmWorlds = await tu.loadWorlds(ship.Era, ship.Sector);
+                App.tmWorlds = await tu.loadWorlds(sector.Milieu, sector.Name);
                 comboWorlds.ItemsSource = App.tmWorlds;
             }
         }
@@ -84,7 +86,7 @@ namespace TravellerTracker.Views
                 }
                 foreach (TravellerMapUniverse.Sector item in comboSectors.Items)
                 {
-                    if (item.Names[0].Text == ship.Sector)
+                    if (item.Names[0].Text == sector.Name)
                     {
                         comboSectors.SelectedItem = item;
                         break;
@@ -181,7 +183,16 @@ namespace TravellerTracker.Views
             TravellerMapUniverse.Sector tu = (TravellerMapUniverse.Sector)cb.SelectedItem;
             if (tu != null)
             {
-                ship.Sector = tu.Names[0].Text;
+                Sector s = App.DB.Sectors.Where(x => x.Name == tu.FirstName && x.Milieu == ship.Era).First();
+                if (s == null)
+                {
+                    s = new Sector();
+                    s.Name = tu.FirstName;
+                    s.Milieu = ship.Era;
+                    App.DB.Add(s);
+                    App.DB.SaveChangesAsync();
+                }
+                ship.SectorID = s.SectorID;
             }
         }
 
@@ -191,8 +202,7 @@ namespace TravellerTracker.Views
             World w = (World)cb.SelectedItem;
             if (w != null)
             {
-                ship.World = w.Name;
-                ship.WorldData = w;
+                ship.WorldID = w.WorldID;
             }
 
         }
