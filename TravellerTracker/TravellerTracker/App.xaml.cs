@@ -20,7 +20,7 @@ namespace TravellerTracker
         public static Ship ship;
         public static TravellerContext DB = new TravellerContext();
         public static TravellerMapUniverse.SectorList tmUniverse = new TravellerMapUniverse.SectorList();
-        public static List<Worlds> tmWorlds = new List<Worlds>();
+        public static List<World> tmWorlds = new List<World>();
 
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code

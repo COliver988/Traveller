@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Traveller.Models;
 using Newtonsoft.Json;
+using TravellerTracker.Models;
 
 namespace Traveller.Support
 {
@@ -33,9 +34,25 @@ namespace Traveller.Support
             return results;
         }
 
-        public async Task<List<Worlds>> loadWorlds(string milieu, string sector)
+        public async Task<List<World>> loadWorlds(string milieu, string sector)
         {
-            List<Worlds> results = new List<Worlds>();
+            using (var db = new TravellerContext())
+            {
+                Sector DBsector = db.Sectors.Where(x => x.Name == sector && x.Milieu == milieu).First();
+                if (DBsector != null)
+                {
+                    return db.Worlds.Where(x => x.SectorID == DBsector.SectorID).ToList();
+                }
+                else
+                {
+                    DBsector = new Sector();
+                    DBsector.Name = sector;
+                    DBsector.Milieu = milieu;
+                    db.SaveChangesAsync();
+                }
+            }
+
+            List<World> results = new List<World>();
             Uri uriWorlds = new Uri(string.Format("https://travellermap.com/api/sec?sector={0}&type=SecondSurvey&milieu={1}", sector, milieu));
             using (HttpClient client = new HttpClient())
             {
@@ -47,7 +64,7 @@ namespace Traveller.Support
                     {
                         if (line.Length > 0 && Char.IsNumber(line[0] ))
                         {
-                            results.Add(new Worlds(line));
+                            results.Add(new World(line));
                         }
                     }
                 }

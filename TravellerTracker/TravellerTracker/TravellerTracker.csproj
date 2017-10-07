@@ -135,9 +135,18 @@
     <Compile Include="Migrations\20170909133232_HGClass.designer.cs">
       <DependentUpon>20170909133232_HGClass.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20171007131225_WorldSectorAndCredits.cs" />
+    <Compile Include="Migrations\20171007131225_WorldSectorAndCredits.designer.cs">
+      <DependentUpon>20171007131225_WorldSectorAndCredits.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20171007202205_Sectors.cs" />
+    <Compile Include="Migrations\20171007202205_Sectors.designer.cs">
+      <DependentUpon>20171007202205_Sectors.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\TravellerContextModelSnapshot.cs" />
     <Compile Include="Models\Cargos.cs" />
     <Compile Include="Models\ErrorHandling.cs" />
+    <Compile Include="Models\Sector.cs" />
     <Compile Include="Models\ShipLog.cs" />
     <Compile Include="Models\TravellerMapUniverse.cs" />
     <Compile Include="Models\Worlds.cs" />

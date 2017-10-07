@@ -187,6 +187,13 @@ namespace TravellerTracker.Views
 
         private void cbSetWorld(object sender, SelectionChangedEventArgs e)
         {
+            ComboBox cb = (ComboBox)sender;
+            World w = (World)cb.SelectedItem;
+            if (w != null)
+            {
+                ship.World = w.Name;
+                ship.WorldData = w;
+            }
 
         }
     }

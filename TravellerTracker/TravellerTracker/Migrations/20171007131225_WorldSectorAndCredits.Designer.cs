@@ -8,9 +8,10 @@ using TravellerTracker.Models;
 namespace TravellerTracker.Migrations
 {
     [DbContext(typeof(TravellerContext))]
-    partial class TravellerContextModelSnapshot : ModelSnapshot
+    [Migration("20171007131225_WorldSectorAndCredits")]
+    partial class WorldSectorAndCredits
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.1");
@@ -128,7 +129,7 @@ namespace TravellerTracker.Migrations
 
                     b.HasKey("WorldID");
 
-                    b.ToTable("Worlds");
+                    b.ToTable("World");
                 });
 
             modelBuilder.Entity("TravellerTracker.Models.Cargoes", b =>
@@ -151,20 +152,6 @@ namespace TravellerTracker.Migrations
                     b.HasKey("CargoesId");
 
                     b.ToTable("Cargoes");
-                });
-
-            modelBuilder.Entity("TravellerTracker.Models.Sector", b =>
-                {
-                    b.Property<int>("SectorID")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Milieu");
-
-                    b.Property<string>("Name");
-
-                    b.HasKey("SectorID");
-
-                    b.ToTable("Sectors");
                 });
 
             modelBuilder.Entity("Traveller.Models.Ship", b =>

@@ -147,8 +147,9 @@
             <TextBlock Style="{StaticResource txtBlock}">World</TextBlock>
             <ComboBox
                 Name="comboWorlds"
+                Width="Auto"
                 Margin="0,2,0,0"
-                SelectionChanged="cbSetWorld" Width="Auto">
+                SelectionChanged="cbSetWorld">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
