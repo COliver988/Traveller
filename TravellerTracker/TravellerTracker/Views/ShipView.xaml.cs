@@ -35,6 +35,7 @@ namespace TravellerTracker.Views
                 classes = App.DB.ShipClasses.ToList();
                 cbClasses.ItemsSource = classes;
                 shipClass = classes.Where(x => x.ShipClassID == ship.ShipClassID).FirstOrDefault();
+                cbClasses.SelectedItem = classes.Where(x => x.ShipClassID == ship.ShipClassID).FirstOrDefault();
             }
             catch (System.Exception)
             {

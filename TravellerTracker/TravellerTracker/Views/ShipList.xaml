@@ -24,7 +24,7 @@
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition />
-                                <ColumnDefinition />
+                                <ColumnDefinition  Width="150"/>
                                 <ColumnDefinition />
                             </Grid.ColumnDefinitions>
                             <Button
@@ -36,11 +36,12 @@
                             <TextBlock
                                 Grid.Column="1"
                                 Margin="3"
+                                FontWeight="Bold"
                                 Text="{Binding Name}" />
                             <TextBlock
                                 Grid.Column="2"
                                 Margin="3"
-                                Text="{Binding Class}" />
+                                Text="{Binding theclass.Description}" />
                         </Grid>
                     </DataTemplate>
                 </ListView.ItemTemplate>

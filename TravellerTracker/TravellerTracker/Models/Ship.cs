@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
 
 namespace Traveller.Models
 {
@@ -19,5 +21,8 @@ namespace Traveller.Models
 
         public int Day { get; set; }
         public int Year { get; set; }
+
+        [NotMapped]
+        public ShipClass theclass => TravellerTracker.App.DB.ShipClasses.Where(x => x.ShipClassID == this.ShipClassID).FirstOrDefault();
     }
 }

@@ -19,6 +19,7 @@
     <Style x:Name="txtBlock" TargetType="TextBlock">
         <Setter Property="Height" Value="28" />
         <Setter Property="Margin" Value="3" />
+        <Setter Property="FontWeight" Value="Bold"></Setter>
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="HorizontalAlignment" Value="Right" />
     </Style>

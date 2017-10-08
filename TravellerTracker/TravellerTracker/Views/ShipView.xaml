@@ -51,6 +51,7 @@
             Grid.Row="1"
             Grid.Column="0"
             Margin="3"
+            Style="{StaticResource txtBlock}"
             Text="Ship Name" />
         <TextBox
             Grid.Row="1"
@@ -62,35 +63,28 @@
             Grid.Row="2"
             Grid.Column="0"
             Margin="3"
+            Style="{StaticResource txtBlock}"
             Text="Ship Class" />
-        <Grid Grid.Row="2" Grid.Column="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-            <TextBlock
-                Grid.Column="0"
-                Margin="3"
-                Text="{x:Bind shipClass.Description}" />
-            <ComboBox
-                Name="cbClasses"
-                Grid.Column="1"
-                Margin="3"
-                SelectionChanged="cbClasses_SelectionChanged">
-                <ComboBox.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Vertical">
-                            <TextBlock Text="{Binding Description}" />
-                        </StackPanel>
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>
-            </ComboBox>
+        <ComboBox
+            Name="cbClasses"
+            Grid.Row="2"
+            Grid.Column="1"
+            Margin="3"
+            SelectionChanged="cbClasses_SelectionChanged">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="{Binding Description}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
 
-        </Grid>
         <TextBlock
             Grid.Row="3"
             Grid.Column="0"
             Margin="3"
+            Style="{StaticResource txtBlock}"
             Text="Jump / Maneuver / Power" />
         <Grid Grid.Row="3" Grid.Column="1">
             <Grid.ColumnDefinitions>
@@ -163,6 +157,7 @@
         <TextBlock
             Grid.Row="5"
             Grid.Column="0"
+            Style="{StaticResource txtBlock}"
             Text="Imperial Date" />
         <StackPanel
             Grid.Row="5"
@@ -186,6 +181,16 @@
                 Click="btn_AddWeek"
                 Content="Add Week" />
         </StackPanel>
+        <TextBlock
+            Grid.Row="6"
+            Grid.Column="0"
+            Style="{StaticResource txtBlock}">
+            Credits
+        </TextBlock>
+        <TextBox
+            Grid.Row="6"
+            Grid.Column="1"
+            Text="{x:Bind ship.Credits, Mode=TwoWay}" />
         <TextBlock
             Grid.Row="7"
             Grid.Column="0"
