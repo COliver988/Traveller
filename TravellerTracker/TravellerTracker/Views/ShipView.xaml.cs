@@ -87,26 +87,12 @@ namespace TravellerTracker.Views
                 if (App.tmUniverse.Sectors != null)
                 {
                     comboSectors.ItemsSource = App.tmUniverse.Sectors.OrderBy(x => x.FirstName);
-                    foreach (TravellerMapUniverse.Sector item in comboSectors.Items)
-                    {
-                        if (item.Names[0].Text == sector.Name)
-                        {
-                            comboSectors.SelectedItem = item;
-                            break;
-                        }
-                    }
+                    comboSectors.SelectedItem = App.tmUniverse.Sectors.Where(x => x.FirstName == sector.Name).First();
                 }
                 if (App.tmWorlds != null)
                 {
                     comboWorlds.ItemsSource = App.tmWorlds.OrderBy(x => x.Name);
-                    foreach (World w in comboWorlds.Items)
-                    {
-                        if (w.WorldID == ship.WorldID)
-                        {
-                            comboWorlds.SelectedItem = w;
-                            break;
-                        }
-                    }
+                    comboWorlds.SelectedItem = App.tmWorlds.Where(x => x.WorldID == ship.WorldID).First();
                 }
             }
             catch (Exception ex)
