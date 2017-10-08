@@ -39,14 +39,8 @@ namespace Traveller.Models
             this.Bases = line.Substring(106, 2);
             this.Zone = line[109];
             this.Alliance = line.Substring(118, 4);
-            this.Stellar = line.Substring(122, 14);
+            this.Stellar = line.Substring(122);
 
-            using (var db = new TravellerContext())
-            {
-                this.SectorID = sectorID;
-                db.Add(this);
-                db.SaveChangesAsync();
-            }
         }
     }
 }

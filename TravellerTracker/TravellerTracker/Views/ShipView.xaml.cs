@@ -28,6 +28,7 @@ namespace TravellerTracker.Views
         {
             this.InitializeComponent();
             ship = App.DB.Ships.Where(x => x.ShipId == shipID).FirstOrDefault();
+            sector = App.DB.Sectors.Where(x => x.SectorID == ship.SectorID).FirstOrDefault();
             date = new ImperialDates(ship.Day, ship.Year);
             try
             {
@@ -40,8 +41,6 @@ namespace TravellerTracker.Views
                 ErrorHandling e = new ErrorHandling();
                 e.showError("Ship class does not exist - please add a class");
             }
-            loadEra();
-            loadWorlds();
             refresh();
 
             this.DataContext = this;
@@ -58,13 +57,14 @@ namespace TravellerTracker.Views
             }
         }
 
+        // load the worlds when the sector changes
         private async void loadWorlds()
         {
             if (ship.SectorID > 0)
             {
                 TravellerMapAPI tu = new TravellerMapAPI();
                 App.tmWorlds = await tu.loadWorlds(sector.Milieu, sector.Name);
-                comboWorlds.ItemsSource = App.tmWorlds;
+                comboWorlds.ItemsSource = App.tmWorlds.OrderBy(x => x.Name);
             }
         }
 
@@ -98,7 +98,15 @@ namespace TravellerTracker.Views
                 }
                 if (App.tmWorlds != null)
                 {
-                    comboWorlds.ItemsSource = App.tmWorlds;
+                    comboWorlds.ItemsSource = App.tmWorlds.OrderBy(x => x.Name);
+                    foreach (World w in comboWorlds.Items)
+                    {
+                        if (w.WorldID == ship.WorldID)
+                        {
+                            comboWorlds.SelectedItem = w;
+                            break;
+                        }
+                    }
                 }
             }
             catch (Exception ex)
@@ -109,6 +117,12 @@ namespace TravellerTracker.Views
 
         private void btnSave(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
+            if (ship.SectorID == 0 || ship.WorldID == 0 || ship.Era is null)
+            {
+                ErrorHandling err = new ErrorHandling();
+                err.showError("Please enter a valid milieu, sector and planet");
+                return;
+            }
             App.DB.SaveChangesAsync();
             refresh();
         }

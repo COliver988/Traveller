@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Traveller.Models;
 using Newtonsoft.Json;
 using TravellerTracker.Models;
+using TravellerTracker;
 
 namespace Traveller.Support
 {
@@ -79,7 +80,18 @@ namespace Traveller.Support
                     throw;
                 }
             }
+            SaveToDB(results, DBsector.SectorID);
             return results;
+        }
+
+        private async void SaveToDB(List<World> results, int sectorID)
+        {
+            foreach (World world in results)
+            {
+                world.SectorID = sectorID;
+                App.DB.Add(world);
+            }
+            await App.DB.SaveChangesAsync();
         }
     }
 }
