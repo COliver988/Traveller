@@ -36,12 +36,16 @@ namespace Traveller.Support
 
         public async Task<List<World>> loadWorlds(string milieu, string sector)
         {
+            // if we've already got this sector we should have loaded the worlds as well
+            Sector DBsector;
             using (var db = new TravellerContext())
             {
-                Sector DBsector = db.Sectors.Where(x => x.Name == sector && x.Milieu == milieu).First();
+                DBsector = db.Sectors.Where(x => x.Name == sector && x.Milieu == milieu).First();
                 if (DBsector != null)
                 {
-                    return db.Worlds.Where(x => x.SectorID == DBsector.SectorID).ToList();
+                    List<World> worlds = db.Worlds.Where(x => x.SectorID == DBsector.SectorID).ToList();
+                    if (worlds.Count > 0)
+                        return worlds;
                 }
                 else
                 {
@@ -51,6 +55,7 @@ namespace Traveller.Support
                     await db.SaveChangesAsync();
                 }
             }
+
 
             List<World> results = new List<World>();
             Uri uriWorlds = new Uri(string.Format("https://travellermap.com/api/sec?sector={0}&type=SecondSurvey&milieu={1}", sector, milieu));
@@ -64,7 +69,7 @@ namespace Traveller.Support
                     {
                         if (line.Length > 0 && Char.IsNumber(line[0]))
                         {
-                            results.Add(new World(line));
+                            results.Add(new World(line, DBsector.SectorID));
                         }
                     }
                 }

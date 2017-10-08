@@ -19,7 +19,7 @@ namespace TravellerTracker.Views
     {
         public Ship ship { get; set; }
         public ShipClass shipClass { get; set; }
-        public Sector sector { get; set;  }
+        public Sector sector { get; set; }
         public List<ShipClass> classes;
         public List<ShipLog> logs;
         public ImperialDates date;
@@ -74,8 +74,8 @@ namespace TravellerTracker.Views
             {
                 logs = App.DB.Logs.Where(x => x.ShipId == ship.ShipId).OrderBy(x => x.Year).OrderBy(x => x.Day).ToList();
                 lstLog.DataContext = logs;
-                comboSectors.ItemsSource = App.tmUniverse.Sectors.OrderBy(x => x.FirstName);
-                // comboWorlds.ItemsSource = App.tmWorlds;
+
+                // set era
                 foreach (ComboBoxItem item in comboEra.Items)
                 {
                     if (item.Content.ToString() == ship.Era)
@@ -84,13 +84,21 @@ namespace TravellerTracker.Views
                         break;
                     }
                 }
-                foreach (TravellerMapUniverse.Sector item in comboSectors.Items)
+                if (App.tmUniverse.Sectors != null)
                 {
-                    if (item.Names[0].Text == sector.Name)
+                    comboSectors.ItemsSource = App.tmUniverse.Sectors.OrderBy(x => x.FirstName);
+                    foreach (TravellerMapUniverse.Sector item in comboSectors.Items)
                     {
-                        comboSectors.SelectedItem = item;
-                        break;
+                        if (item.Names[0].Text == sector.Name)
+                        {
+                            comboSectors.SelectedItem = item;
+                            break;
+                        }
                     }
+                }
+                if (App.tmWorlds != null)
+                {
+                    comboWorlds.ItemsSource = App.tmWorlds;
                 }
             }
             catch (Exception ex)
@@ -179,20 +187,28 @@ namespace TravellerTracker.Views
 
         private void cbSetSector(object sender, SelectionChangedEventArgs e)
         {
+            if (ship.Era == null)
+            {
+                ErrorHandling err = new ErrorHandling();
+                err.showError("You must enter an era before selecting a sector");
+                return;
+            }
             ComboBox cb = (ComboBox)sender;
             TravellerMapUniverse.Sector tu = (TravellerMapUniverse.Sector)cb.SelectedItem;
             if (tu != null)
             {
-                Sector s = App.DB.Sectors.Where(x => x.Name == tu.FirstName && x.Milieu == ship.Era).First();
-                if (s == null)
+                sector = App.DB.Sectors.Where(x => x.Name == tu.FirstName && x.Milieu == ship.Era).FirstOrDefault();
+                if (sector == null)
                 {
-                    s = new Sector();
-                    s.Name = tu.FirstName;
-                    s.Milieu = ship.Era;
-                    App.DB.Add(s);
+                    sector = new Sector();
+                    sector.Name = tu.FirstName;
+                    sector.Milieu = ship.Era;
+                    sector.Tags = tu.Tags;
+                    App.DB.Add(sector);
                     App.DB.SaveChangesAsync();
                 }
-                ship.SectorID = s.SectorID;
+                ship.SectorID = sector.SectorID;
+                loadWorlds();
             }
         }
 

@@ -23,16 +23,27 @@ namespace Traveller.Models
         public string Alliance { get; set; }
         public string Stellar { get; set; }
         public int WorldCount { get; set; }
+        public string Bases { get; set; }
+        public char Zone { get; set; }
         public int SectorID { get; set; }
 
-        public World (string line)
+        public World (string line, int sectorID)
         {
             this.Hex = line.Substring(0, 4);
             this.Name = line.Substring(5, 20);
             this.UWP = line.Substring(26, 9);
+            this.Remarks = line.Substring(36, 40);
+            this.Importance = line.Substring(78, 6);
+            this.Ex = line.Substring(84, 6);
+            this.CulturalExt = line.Substring(93, 6);
+            this.Bases = line.Substring(106, 2);
+            this.Zone = line[109];
+            this.Alliance = line.Substring(118, 4);
+            this.Stellar = line.Substring(122, 14);
 
             using (var db = new TravellerContext())
             {
+                this.SectorID = sectorID;
                 db.Add(this);
                 db.SaveChangesAsync();
             }

@@ -11,5 +11,6 @@ namespace Traveller.Models
         public int SectorID { get; set; }
         public string Name { get; set; }
         public string Milieu { get; set; }
+        public string Tags { get; set; }
     }
 }

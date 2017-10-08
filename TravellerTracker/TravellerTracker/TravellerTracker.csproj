@@ -103,6 +103,14 @@
     <Compile Include="Migrations\20171007213939_Initialize.designer.cs">
       <DependentUpon>20171007213939_Initialize.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20171007233704_worldExdpansion.cs" />
+    <Compile Include="Migrations\20171007233704_worldExdpansion.designer.cs">
+      <DependentUpon>20171007233704_worldExdpansion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20171007235624_SectorTags.cs" />
+    <Compile Include="Migrations\20171007235624_SectorTags.designer.cs">
+      <DependentUpon>20171007235624_SectorTags.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\TravellerContextModelSnapshot.cs" />
     <Compile Include="Models\Cargos.cs" />
     <Compile Include="Models\ErrorHandling.cs" />
