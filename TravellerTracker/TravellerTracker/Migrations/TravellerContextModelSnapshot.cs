@@ -59,6 +59,20 @@ namespace TravellerTracker.Migrations
                     b.ToTable("Ships");
                 });
 
+            modelBuilder.Entity("Traveller.Models.ShipCargo", b =>
+                {
+                    b.Property<int>("ShipCargoID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("CargoID");
+
+                    b.Property<int>("ShipID");
+
+                    b.HasKey("ShipCargoID");
+
+                    b.ToTable("ShipCargo");
+                });
+
             modelBuilder.Entity("Traveller.Models.ShipClass", b =>
                 {
                     b.Property<int>("ShipClassID")
@@ -139,26 +153,20 @@ namespace TravellerTracker.Migrations
                     b.ToTable("Worlds");
                 });
 
-            modelBuilder.Entity("TravellerTracker.Models.Cargoes", b =>
+            modelBuilder.Entity("TravellerTracker.Models.Cargo", b =>
                 {
-                    b.Property<int>("CargoesId")
+                    b.Property<int>("CargoID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Cargo");
+                    b.Property<int>("BasePurchasePrice");
 
                     b.Property<string>("CargoCode");
 
-                    b.Property<string>("OriginationSystem");
-
-                    b.Property<int>("PurchasePrice");
-
-                    b.Property<int>("ShipID");
-
                     b.Property<int>("dTons");
 
-                    b.HasKey("CargoesId");
+                    b.HasKey("CargoID");
 
-                    b.ToTable("Cargoes");
+                    b.ToTable("Cargo");
                 });
         }
     }

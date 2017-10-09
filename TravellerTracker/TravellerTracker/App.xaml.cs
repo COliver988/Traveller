@@ -33,7 +33,7 @@ namespace TravellerTracker
 
             using (var db = new TravellerContext())
             {
-             //   db.Database.EnsureDeleted();
+                //db.Database.EnsureDeleted();
                 db.Database.Migrate();
             }
         }

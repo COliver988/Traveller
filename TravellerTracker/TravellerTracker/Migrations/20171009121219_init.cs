@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TravellerTracker.Migrations
 {
-    public partial class Initialize : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -15,7 +15,8 @@ namespace TravellerTracker.Migrations
                     SectorID = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Milieu = table.Column<string>(nullable: true),
-                    Name = table.Column<string>(nullable: true)
+                    Name = table.Column<string>(nullable: true),
+                    Tags = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -41,6 +42,20 @@ namespace TravellerTracker.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Ships", x => x.ShipId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ShipCargo",
+                columns: table => new
+                {
+                    ShipCargoID = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    CargoID = table.Column<int>(nullable: false),
+                    ShipID = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ShipCargo", x => x.ShipCargoID);
                 });
 
             migrationBuilder.CreateTable(
@@ -85,6 +100,7 @@ namespace TravellerTracker.Migrations
                     WorldID = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Alliance = table.Column<string>(nullable: true),
+                    Bases = table.Column<string>(nullable: true),
                     CulturalExt = table.Column<string>(nullable: true),
                     Ex = table.Column<string>(nullable: true),
                     Hex = table.Column<string>(nullable: true),
@@ -95,7 +111,8 @@ namespace TravellerTracker.Migrations
                     SectorID = table.Column<int>(nullable: false),
                     Stellar = table.Column<string>(nullable: true),
                     UWP = table.Column<string>(nullable: true),
-                    WorldCount = table.Column<int>(nullable: false)
+                    WorldCount = table.Column<int>(nullable: false),
+                    Zone = table.Column<char>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -103,21 +120,18 @@ namespace TravellerTracker.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Cargoes",
+                name: "Cargo",
                 columns: table => new
                 {
-                    CargoesId = table.Column<int>(nullable: false)
+                    CargoID = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Cargo = table.Column<string>(nullable: true),
+                    BasePurchasePrice = table.Column<int>(nullable: false),
                     CargoCode = table.Column<string>(nullable: true),
-                    OriginationSystem = table.Column<string>(nullable: true),
-                    PurchasePrice = table.Column<int>(nullable: false),
-                    ShipID = table.Column<int>(nullable: false),
                     dTons = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Cargoes", x => x.CargoesId);
+                    table.PrimaryKey("PK_Cargo", x => x.CargoID);
                 });
         }
 
@@ -130,6 +144,9 @@ namespace TravellerTracker.Migrations
                 name: "Ships");
 
             migrationBuilder.DropTable(
+                name: "ShipCargo");
+
+            migrationBuilder.DropTable(
                 name: "ShipClasses");
 
             migrationBuilder.DropTable(
@@ -139,7 +156,7 @@ namespace TravellerTracker.Migrations
                 name: "Worlds");
 
             migrationBuilder.DropTable(
-                name: "Cargoes");
+                name: "Cargo");
         }
     }
 }

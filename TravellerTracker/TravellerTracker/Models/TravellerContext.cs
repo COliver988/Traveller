@@ -7,8 +7,9 @@ namespace TravellerTracker.Models
     {
         public DbSet<Ship> Ships { get; set; }
         public DbSet<ShipClass> ShipClasses { get; set; }
-        public DbSet<Cargoes> Cargoes { get; set; }
+        public DbSet<Cargo> Cargo { get; set; }
         public DbSet<ShipLog> Logs { get; set; }
+        public DbSet<ShipCargo> ShipCargo { get; set; }
         public DbSet<World> Worlds { get; set; }
         public DbSet<Sector> Sectors { get; set; }
 
