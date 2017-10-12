@@ -38,5 +38,12 @@ namespace TravellerTracker.Views
             Page p = new ShipView((int) btn.Tag);
             App.mainFrame.Content = p;
         }
+
+        private void btnLoadShipInfo(object sender, RoutedEventArgs e)
+        {
+            var btn = sender as Button;
+            Page p = new ShipTracker((int) btn.Tag);
+            App.mainFrame.Content = p;
+        }
     }
 }

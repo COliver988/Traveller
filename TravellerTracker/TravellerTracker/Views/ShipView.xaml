@@ -36,9 +36,7 @@
         <TextBlock
             Grid.RowSpan="2"
             Grid.Column="0"
-            Margin="3"
-            VerticalAlignment="Top"
-            FontSize="22"
+            Style="{StaticResource txtBlockTitle}"
             Text="{x:Bind ship.Name, Mode=TwoWay}" />
         <StackPanel
             Grid.Column="1"

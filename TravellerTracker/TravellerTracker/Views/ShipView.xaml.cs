@@ -4,7 +4,6 @@ using System.Linq;
 using Traveller.Models;
 using Traveller.Support;
 using TravellerTracker.Models;
-using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -12,9 +11,6 @@ using Windows.UI.Xaml.Controls;
 
 namespace TravellerTracker.Views
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class ShipView : Page
     {
         public Ship ship { get; set; }
@@ -42,10 +38,10 @@ namespace TravellerTracker.Views
                 ErrorHandling e = new ErrorHandling();
                 e.showError("Ship class does not exist - please add a class");
             }
-            refresh();
 
             this.DataContext = this;
             App.ship = ship;
+            refresh();
         }
 
         private async void loadEra()

@@ -24,4 +24,11 @@
         <Setter Property="HorizontalAlignment" Value="Right" />
     </Style>
 
+    <Style x:Name="txtBlockTitle" TargetType="TextBlock" x:Key="txtBlockTitle">
+        <Setter Property="FontSize" Value="22"></Setter>
+        <Setter Property="HorizontalAlignment" Value="Right" />
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Setter Property="Margin" Value="3" />
+    </Style>
+
 </ResourceDictionary>
