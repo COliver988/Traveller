@@ -17,8 +17,8 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
+            <ColumnDefinition Width="350" />
+            <ColumnDefinition Width="350" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition />
@@ -35,5 +35,68 @@
             Grid.Column="0"
             Style="{StaticResource txtBlockTitle}"
             Text="{x:Bind ship.Name}" />
+        <TextBlock
+            Grid.Row="1"
+            Grid.Column="0"
+            Style="{StaticResource txtBlockNormal}"
+            Text="{x:Bind ship.theclass.Description}" />
+        <TextBlock
+            Grid.Row="1"
+            Grid.Column="1"
+            Style="{StaticResource txtBlockNormal}"
+            Text="{x:Bind ship.theWorld.Description}" />
+        <TextBlock
+            Grid.Row="2"
+            Grid.Column="0"
+            Style="{StaticResource txtBlockNormal}"
+            Text="Cargo Carried / Available" />
+        <StackPanel
+            Grid.Row="2"
+            Grid.Column="1"
+            Orientation="Horizontal">
+            <TextBox Style="{StaticResource txtBoxNum}" Text="{x:Bind ship.CargoCarried}" />
+            <TextBox Style="{StaticResource txtBoxNum}" Text="{x:Bind ship.AvailableCargo}" />
+        </StackPanel>
+        <Pivot
+            Grid.Row="5"
+            Grid.Column="0"
+            Grid.ColumnSpan="2">
+            <PivotItem Header="Log">
+                <ListBox
+                    Name="lstLog"
+                    Grid.Row="7"
+                    Grid.RowSpan="4"
+                    Grid.Column="1"
+                    Margin="3"
+                    ItemsSource="{Binding}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Margin="3" Text="{Binding DayDisplay}" />
+                                    <TextBlock Margin="3">-</TextBlock>
+                                    <TextBlock Margin="3" Text="{Binding Year}" />
+                                </StackPanel>
+                                <TextBlock
+                                    Grid.Column="1"
+                                    Height="Auto"
+                                    Margin="3"
+                                    Text="{Binding Log}"
+                                    TextWrapping="Wrap" />
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </PivotItem>
+            <PivotItem Header="Cargo Manifest" />
+            <PivotItem Header="Jump Map" />
+            <PivotItem Header="Jump List" />
+            <PivotItem Header="Ship Details" />
+            <PivotItem Header="World Details" />
+        </Pivot>
     </Grid>
 </Page>

@@ -16,6 +16,20 @@
         <Setter Property="VerticalAlignment" Value="Center" />
     </Style>
 
+    <Style x:Name="txtBoxNum" TargetType="TextBox" x:Key="txtBoxNum">
+        <Setter Property="Height" Value="28" />
+        <Setter Property="Margin" Value="3" />
+        <Setter Property="Width" Value="50"></Setter>
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+
+    <Style x:Name="txtBlockNormal" TargetType="TextBlock" x:Key="txtBlockNormal">
+        <Setter Property="Height" Value="28" />
+        <Setter Property="Margin" Value="3" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Right" />
+    </Style>
+
     <Style x:Name="txtBlock" TargetType="TextBlock">
         <Setter Property="Height" Value="28" />
         <Setter Property="Margin" Value="3" />

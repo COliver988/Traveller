@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,7 +41,9 @@ namespace Traveller.Models
             this.Zone = line[109];
             this.Alliance = line.Substring(118, 4);
             this.Stellar = line.Substring(122);
-
         }
+
+        [NotMapped]
+        public string Description {  get { return string.Format("{0} {1} {2}", Hex, Name, UWP); } }
     }
 }
