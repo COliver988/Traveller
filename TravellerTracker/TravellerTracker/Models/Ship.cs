@@ -12,6 +12,7 @@ namespace Traveller.Models
         public string Name { get; set; }
         public int CargoCarried { get; set; }
         public int Credits { get; set; }
+        public int Fuel { get; set; }  // available fuel
 
         public int ShipClassID { get; set; }
         public int WorldID { get; set; }

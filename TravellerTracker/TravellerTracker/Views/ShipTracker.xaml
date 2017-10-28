@@ -21,12 +21,11 @@
             <ColumnDefinition Width="350" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
             <RowDefinition />
         </Grid.RowDefinitions>
 
@@ -57,6 +56,21 @@
             <TextBox Style="{StaticResource txtBoxNum}" Text="{x:Bind ship.CargoCarried}" />
             <TextBox Style="{StaticResource txtBoxNum}" Text="{x:Bind ship.AvailableCargo}" />
         </StackPanel>
+        <TextBlock
+            Grid.Row="3"
+            Grid.Column="0"
+            Style="{StaticResource txtBlockNormal}"
+            Text="Available Passengers: Low/Mid/High" />
+        <TextBlock
+            Grid.Row="4"
+            Grid.Column="0"
+            Style="{StaticResource txtBlockNormal}"
+            Text="Current Fuel" />
+        <TextBox
+            Grid.Row="4"
+            Grid.Column="1"
+            Style="{StaticResource txtBoxNum}"
+            Text="{x:Bind ship.Fuel}" />
         <Pivot
             Grid.Row="5"
             Grid.Column="0"

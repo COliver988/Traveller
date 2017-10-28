@@ -77,6 +77,9 @@ ipch/
 *.psess
 *.vsp
 
+# .vs directory
+*.vs 
+
 # ReSharper is a .NET coding add-in
 _ReSharper*
 

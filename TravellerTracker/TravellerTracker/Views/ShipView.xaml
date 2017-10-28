@@ -163,12 +163,12 @@
             Orientation="Horizontal">
             <TextBox
                 Margin="3"
-                Style="{StaticResource txtBox}"
+                Style="{StaticResource txtBoxNum}"
                 Text="{x:Bind ship.Day, Mode=TwoWay}" />
             <TextBlock Margin="3" Text=" / " />
             <TextBox
                 Margin="3"
-                Style="{StaticResource txtBox}"
+                Style="{StaticResource txtBoxNum}"
                 Text="{x:Bind ship.Year, Mode=TwoWay}" />
             <Button
                 Margin="3"
@@ -188,16 +188,28 @@
         <TextBox
             Grid.Row="6"
             Grid.Column="1"
-            Text="{x:Bind ship.Credits, Mode=TwoWay}" />
+            Style="{StaticResource txtBoxNum}"
+            Text="{x:Bind ship.Credits, Mode=TwoWay}"
+            TextChanged="TextBox_TextChanged" />
         <TextBlock
             Grid.Row="7"
+            Grid.Column="0"
+            Style="{StaticResource txtBlock}"
+            Text="Current Fuel" />
+        <TextBox
+            Grid.Row="7"
+            Grid.Column="1"
+            Style="{StaticResource txtBoxNum}"
+            Text="{x:Bind ship.Fuel}" />
+        <TextBlock
+            Grid.Row="8"
             Grid.Column="0"
             SelectionChanged="TextBlock_SelectionChanged"
             Style="{StaticResource txtBlock}"
             Text="Ship's Log" />
         <ListBox
             Name="lstLog"
-            Grid.Row="7"
+            Grid.Row="8"
             Grid.RowSpan="4"
             Grid.Column="1"
             Margin="0,2,0,38"

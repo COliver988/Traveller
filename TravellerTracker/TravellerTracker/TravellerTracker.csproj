@@ -103,6 +103,10 @@
     <Compile Include="Migrations\20171009121219_init.designer.cs">
       <DependentUpon>20171009121219_init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20171028230044_shipFuel.cs" />
+    <Compile Include="Migrations\20171028230044_shipFuel.designer.cs">
+      <DependentUpon>20171028230044_shipFuel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\TravellerContextModelSnapshot.cs" />
     <Compile Include="Models\Cargo.cs" />
     <Compile Include="Models\ErrorHandling.cs" />
