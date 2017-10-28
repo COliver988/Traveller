@@ -200,7 +200,7 @@
             Grid.Row="7"
             Grid.Column="1"
             Style="{StaticResource txtBoxNum}"
-            Text="{x:Bind ship.Fuel}" />
+            Text="{x:Bind ship.Fuel, Mode=TwoWay}" />
         <TextBlock
             Grid.Row="8"
             Grid.Column="0"

@@ -18,7 +18,8 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="350" />
-            <ColumnDefinition Width="350" />
+            <ColumnDefinition Width="250" />
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="40" />
@@ -29,6 +30,20 @@
             <RowDefinition />
         </Grid.RowDefinitions>
 
+        <Button
+            Grid.Row="2"
+            Grid.RowSpan="2"
+            Grid.Column="2"
+            Width="100"
+            Height="100">
+            <TextBlock Text="Search for Cargo and Passengers" TextWrapping="WrapWholeWords" />
+        </Button>
+        <Button
+            Grid.Row="4"
+            Grid.Column="2"
+            Width="100">
+            Refuel
+        </Button>
         <TextBlock
             Grid.Row="0"
             Grid.Column="0"
@@ -61,20 +76,39 @@
             Grid.Column="0"
             Style="{StaticResource txtBlockNormal}"
             Text="Available Passengers: Low/Mid/High" />
+        <StackPanel
+            Grid.Row="3"
+            Grid.Column="1"
+            Orientation="Horizontal">
+            <TextBox
+                Name="txtLow"
+                PlaceholderText="none"
+                Style="{StaticResource txtBoxNum}" />
+            <TextBox
+                Name="txtMid"
+                PlaceholderText="none"
+                Style="{StaticResource txtBoxNum}" />
+            <TextBox
+                Name="txtHigh"
+                PlaceholderText="none"
+                Style="{StaticResource txtBoxNum}" />
+        </StackPanel>
         <TextBlock
             Grid.Row="4"
             Grid.Column="0"
             Style="{StaticResource txtBlockNormal}"
-            Text="Current Fuel" />
-        <TextBox
+            Text="Current Fuel / Credits Available" />
+        <StackPanel
             Grid.Row="4"
             Grid.Column="1"
-            Style="{StaticResource txtBoxNum}"
-            Text="{x:Bind ship.Fuel}" />
+            Orientation="Horizontal">
+            <TextBox Style="{StaticResource txtBoxNum}" Text="{x:Bind ship.Fuel}" />
+            <TextBox Style="{StaticResource txtBoxNumCr}" Text="{x:Bind ship.Credits}" />
+        </StackPanel>
         <Pivot
             Grid.Row="5"
             Grid.Column="0"
-            Grid.ColumnSpan="2">
+            Grid.ColumnSpan="3">
             <PivotItem Header="Log">
                 <ListBox
                     Name="lstLog"

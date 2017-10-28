@@ -15,6 +15,7 @@ namespace Traveller.Models
         public int Man { get; set; }
         public int Power { get; set; }
         public int Cargo { get; set; }
+        public int Fuel { get; set; }
         public string HGClass { get; set; } // see High Guard
 
         public string Description
