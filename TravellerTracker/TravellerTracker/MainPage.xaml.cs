@@ -61,5 +61,10 @@ namespace TravellerTracker
         {
             mainFrame.Content = new ShipClassView();
         }
+
+        private void btnTradeCodes(object sender, RoutedEventArgs e)
+        {
+            mainFrame.Content = new TradeCodeList();
+        }
     }
 }

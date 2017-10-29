@@ -8,6 +8,7 @@ using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using TravellerTracker.Support;
 
 namespace TravellerTracker
 {
@@ -35,6 +36,9 @@ namespace TravellerTracker
             {
                 //db.Database.EnsureDeleted();
                 db.Database.Migrate();
+
+                Seed s = new Seed();
+                s.SeedDB(db);
             }
         }
 

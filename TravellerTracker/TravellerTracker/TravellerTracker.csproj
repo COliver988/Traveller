@@ -111,12 +111,17 @@
     <Compile Include="Migrations\20171028234326_shipclassfuel.designer.cs">
       <DependentUpon>20171028234326_shipclassfuel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20171029181923_tradeCodes.cs" />
+    <Compile Include="Migrations\20171029181923_tradeCodes.designer.cs">
+      <DependentUpon>20171029181923_tradeCodes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\TravellerContextModelSnapshot.cs" />
     <Compile Include="Models\Cargo.cs" />
     <Compile Include="Models\ErrorHandling.cs" />
     <Compile Include="Models\Sector.cs" />
     <Compile Include="Models\ShipCargo.cs" />
     <Compile Include="Models\ShipLog.cs" />
+    <Compile Include="Models\TradeClassification.cs" />
     <Compile Include="Models\TravellerMapUniverse.cs" />
     <Compile Include="Models\Worlds.cs" />
     <Compile Include="Support\ImperialDates.cs" />
@@ -124,6 +129,7 @@
     <Compile Include="Models\TravellerContext.cs" />
     <Compile Include="Models\Ship.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Support\Seed.cs" />
     <Compile Include="Support\TravellerMapAPI.cs" />
     <Compile Include="Views\ShipClassEdit.xaml.cs">
       <DependentUpon>ShipClassEdit.xaml</DependentUpon>
@@ -139,6 +145,9 @@
     </Compile>
     <Compile Include="Views\ShipView.xaml.cs">
       <DependentUpon>ShipView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TradeCodeList.xaml.cs">
+      <DependentUpon>TradeCodeList.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -190,6 +199,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ShipView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TradeCodeList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
