@@ -146,6 +146,9 @@
     <Compile Include="Views\ShipView.xaml.cs">
       <DependentUpon>ShipView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\TradeClassificationEdit.xaml.cs">
+      <DependentUpon>TradeClassificationEdit.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\TradeCodeList.xaml.cs">
       <DependentUpon>TradeCodeList.xaml</DependentUpon>
     </Compile>
@@ -199,6 +202,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ShipView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TradeClassificationEdit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
