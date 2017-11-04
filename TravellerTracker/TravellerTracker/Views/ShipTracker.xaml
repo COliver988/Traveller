@@ -112,9 +112,6 @@
             <PivotItem Header="Log">
                 <ListBox
                     Name="lstLog"
-                    Grid.Row="7"
-                    Grid.RowSpan="4"
-                    Grid.Column="1"
                     Margin="3"
                     ItemsSource="{Binding}">
                     <ListBox.ItemTemplate>
@@ -142,9 +139,12 @@
             </PivotItem>
             <PivotItem Header="Cargo Manifest" />
             <PivotItem Header="Jump Map">
-                <StackPanel>
-                    <WebView Source="{Binding theJumpMapURL}" />
-                </StackPanel>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <WebView x:Name="webView" />
+                </Grid>
             </PivotItem>
             <PivotItem Header="Jump List" />
             <PivotItem Header="Ship Details" />

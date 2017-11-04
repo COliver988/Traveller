@@ -14,6 +14,7 @@ namespace TravellerTracker.Views
             this.InitializeComponent();
             ship = App.DB.Ships.Where(x => x.ShipId == shipID).FirstOrDefault();
             this.DataContext = this;
+            webView.Navigate (ship.theJumpMapURL );
             refresh();
         }
 

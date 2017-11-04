@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using Traveller.Support;
@@ -36,7 +37,7 @@ namespace Traveller.Models
         public List<ShipLog> theLog => TravellerTracker.App.DB.Logs.Where(x => x.ShipId == this.ShipId).ToList();
 
         [NotMapped]
-        public string theJumpMapURL
+        public Uri theJumpMapURL
         {
             get
             {

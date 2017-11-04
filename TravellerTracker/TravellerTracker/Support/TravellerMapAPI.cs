@@ -92,10 +92,10 @@ namespace Traveller.Support
             await App.DB.SaveChangesAsync();
         }
 
-        public string JumpMapURL(World w, int jump)
+        public Uri JumpMapURL(World w, int jump)
         {
-            string sector = App.DB.Sectors.Where(x => x.SectorID == w.SectorID).FirstOrDefault().Name;
-            return  string.Format("Https://travellermap.com/api/jumpmap?sector={0}&hex={1}&jump={2}", sector, w.Hex, jump);
+            string sector = App.DB.Sectors.Where(x => x.SectorID == w.SectorID).FirstOrDefault().Name.Replace(" ", "%20");
+            return new Uri( string.Format("Https://travellermap.com/api/jumpmap?sector={0}&hex={1}&jump={2}", sector, w.Hex, jump));
         }
     }
 }

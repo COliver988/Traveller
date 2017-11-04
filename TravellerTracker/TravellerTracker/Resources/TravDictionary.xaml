@@ -16,23 +16,32 @@
         <Setter Property="VerticalAlignment" Value="Center" />
     </Style>
 
-    <Style x:Name="txtBoxNumCr" TargetType="TextBox" x:Key="txtBoxNumCr">
+    <Style
+        x:Key="txtBoxNumCr"
+        x:Name="txtBoxNumCr"
+        TargetType="TextBox">
         <Setter Property="Height" Value="28" />
         <Setter Property="Margin" Value="3" />
-        <Setter Property="Width" Value="90"></Setter>
+        <Setter Property="Width" Value="90" />
         <Setter Property="VerticalAlignment" Value="Center" />
-        <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+        <Setter Property="HorizontalAlignment" Value="Left" />
     </Style>
 
-    <Style x:Name="txtBoxNum" TargetType="TextBox" x:Key="txtBoxNum">
+    <Style
+        x:Key="txtBoxNum"
+        x:Name="txtBoxNum"
+        TargetType="TextBox">
         <Setter Property="Height" Value="28" />
         <Setter Property="Margin" Value="3" />
-        <Setter Property="Width" Value="50"></Setter>
+        <Setter Property="Width" Value="50" />
         <Setter Property="VerticalAlignment" Value="Center" />
-        <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+        <Setter Property="HorizontalAlignment" Value="Left" />
     </Style>
 
-    <Style x:Name="txtBlockNormal" TargetType="TextBlock" x:Key="txtBlockNormal">
+    <Style
+        x:Key="txtBlockNormal"
+        x:Name="txtBlockNormal"
+        TargetType="TextBlock">
         <Setter Property="Height" Value="28" />
         <Setter Property="Margin" Value="3" />
         <Setter Property="VerticalAlignment" Value="Center" />
@@ -42,15 +51,18 @@
     <Style x:Name="txtBlock" TargetType="TextBlock">
         <Setter Property="Height" Value="28" />
         <Setter Property="Margin" Value="3" />
-        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Setter Property="FontWeight" Value="Bold" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="HorizontalAlignment" Value="Right" />
     </Style>
 
-    <Style x:Name="txtBlockTitle" TargetType="TextBlock" x:Key="txtBlockTitle">
-        <Setter Property="FontSize" Value="22"></Setter>
+    <Style
+        x:Key="txtBlockTitle"
+        x:Name="txtBlockTitle"
+        TargetType="TextBlock">
+        <Setter Property="FontSize" Value="22" />
         <Setter Property="HorizontalAlignment" Value="Right" />
-        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Setter Property="FontWeight" Value="Bold" />
         <Setter Property="Margin" Value="3" />
     </Style>
 
