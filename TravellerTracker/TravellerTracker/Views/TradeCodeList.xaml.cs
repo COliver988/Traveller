@@ -14,7 +14,7 @@ namespace TravellerTracker.Views
         public TradeCodeList()
         {
             this.InitializeComponent();
-            lstTradeCodes.ItemsSource = TravellerTracker.App.DB.TradeClassifications.ToList();
+            lstTradeCodes.ItemsSource = TravellerTracker.App.DB.TradeClassifications.ToList().OrderBy(x => x.Classification);
         }
 
         private void btnLoadTrade(object sender, RoutedEventArgs e)

@@ -22,10 +22,10 @@
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="150"></ColumnDefinition>
+                            <ColumnDefinition Width="60"></ColumnDefinition>
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        <Button Grid.Column="0" Click="btnLoadTrade" Tag="{Binding TradeClassificationID}">Edit</Button>
+                        <Button Grid.Column="0" Click="btnLoadTrade" Tag="{Binding TradeClassificationID}" VerticalAlignment="Center">Edit</Button>
                         <TextBlock Grid.Column="1" Text="{Binding ShortDescription}"></TextBlock>
                     </Grid>
                 </DataTemplate>
