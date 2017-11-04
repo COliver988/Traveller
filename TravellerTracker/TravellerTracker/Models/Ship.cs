@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using Traveller.Support;
 
 namespace Traveller.Models
 {
@@ -24,7 +25,7 @@ namespace Traveller.Models
         public int Year { get; set; }
 
         [NotMapped]
-        public int AvailableCargo {  get { return theclass.Cargo - this.CargoCarried; } }
+        public int AvailableCargo { get { return theclass.Cargo - this.CargoCarried; } }
 
         [NotMapped]
         public ShipClass theclass => TravellerTracker.App.DB.ShipClasses.Where(x => x.ShipClassID == this.ShipClassID).FirstOrDefault();
@@ -33,5 +34,15 @@ namespace Traveller.Models
 
         [NotMapped]
         public List<ShipLog> theLog => TravellerTracker.App.DB.Logs.Where(x => x.ShipId == this.ShipId).ToList();
+
+        [NotMapped]
+        public string theJumpMapURL
+        {
+            get
+            {
+                TravellerMapAPI api = new TravellerMapAPI();
+                return api.JumpMapURL(theWorld, theclass.Jump);
+            }
+        }
     }
 }

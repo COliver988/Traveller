@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 using Traveller.Models;
-using Newtonsoft.Json;
-using TravellerTracker.Models;
 using TravellerTracker;
+using TravellerTracker.Models;
 
 namespace Traveller.Support
 {
@@ -92,6 +90,12 @@ namespace Traveller.Support
                 App.DB.Add(world);
             }
             await App.DB.SaveChangesAsync();
+        }
+
+        public string JumpMapURL(World w, int jump)
+        {
+            string sector = App.DB.Sectors.Where(x => x.SectorID == w.SectorID).FirstOrDefault().Name;
+            return  string.Format("Https://travellermap.com/api/jumpmap?sector={0}&hex={1}&jump={2}", sector, w.Hex, jump);
         }
     }
 }

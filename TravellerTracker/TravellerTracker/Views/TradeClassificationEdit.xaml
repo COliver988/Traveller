@@ -50,6 +50,9 @@
             <Button Margin="3" Click="btnSave">
                 Save
             </Button>
+            <Button Margin="3" Click="btnDelete">
+                Delete
+            </Button>
         </StackPanel>
         <TextBlock
             Grid.Row="1"
@@ -130,6 +133,7 @@
         <TextBox
             Grid.Row="9"
             Grid.Column="1"
+            Margin="3"
             Text="{x:Bind tc.Description, Mode=TwoWay}"
             TextWrapping="Wrap" />
     </Grid>

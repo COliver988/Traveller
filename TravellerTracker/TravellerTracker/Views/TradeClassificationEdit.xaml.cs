@@ -33,5 +33,13 @@ namespace TravellerTracker.Views
             TradeClassificationEdit p = new TradeClassificationEdit(tc.TradeClassificationID);
             App.mainFrame.Content = p;
         }
+
+        private void btnDelete(object sender, RoutedEventArgs e)
+        {
+            App.DB.Remove(tc);
+            App.DB.SaveChangesAsync();
+            TradeCodeList p = new TradeCodeList();
+            App.mainFrame.Content = p;
+        }
     }
 }

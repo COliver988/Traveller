@@ -141,7 +141,11 @@
                 </ListBox>
             </PivotItem>
             <PivotItem Header="Cargo Manifest" />
-            <PivotItem Header="Jump Map" />
+            <PivotItem Header="Jump Map">
+                <StackPanel>
+                    <WebView Source="{Binding theJumpMapURL}" />
+                </StackPanel>
+            </PivotItem>
             <PivotItem Header="Jump List" />
             <PivotItem Header="Ship Details" />
             <PivotItem Header="World Details" />
