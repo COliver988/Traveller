@@ -26,6 +26,7 @@ namespace TravellerTracker.Views
             ship = App.DB.Ships.Where(x => x.ShipId == shipID).FirstOrDefault();
             sector = App.DB.Sectors.Where(x => x.SectorID == ship.SectorID).FirstOrDefault();
             date = new ImperialDates(ship.Day, ship.Year);
+            comboVersions.ItemsSource = App.DB.TravellerVersions.ToList();
             try
             {
                 classes = App.DB.ShipClasses.ToList();
@@ -90,6 +91,10 @@ namespace TravellerTracker.Views
                 {
                     comboWorlds.ItemsSource = App.tmWorlds.OrderBy(x => x.Name);
                     comboWorlds.SelectedItem = App.tmWorlds.Where(x => x.WorldID == ship.WorldID).First();
+                }
+                if (ship.theVersion != null)
+                {
+                    comboVersions.SelectedItem = ship.theVersion;
                 }
             }
             catch (Exception ex)
@@ -223,6 +228,16 @@ namespace TravellerTracker.Views
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
+        }
+
+        private void comboVersions_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox cb = (ComboBox)sender;
+            TravellerVersion tv = (TravellerVersion)cb.SelectedItem;
+            if (tv != null)
+            {
+                ship.TravellerVersionID = tv.TravellerVersionId;
+            }
         }
     }
 }

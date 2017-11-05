@@ -22,8 +22,16 @@ namespace TravellerTracker.Support
                 tc.Law = "";
 
                 db.Add(tc);
-                db.SaveChangesAsync();
             }
+
+            if (db.TravellerVersions.Count() == 0)
+            {
+                db.Add(new TravellerVersion() { Name = "Classic" });
+                db.Add(new TravellerVersion() { Name = "Mongoose Traveller" });
+                db.Add(new TravellerVersion() { Name = "T5" });
+            }
+
+            db.SaveChangesAsync();
         }
     }
 }

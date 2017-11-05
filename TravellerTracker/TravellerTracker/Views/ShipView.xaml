@@ -42,6 +42,15 @@
             Grid.Column="1"
             Margin="3"
             Orientation="Horizontal">
+            <ComboBox Name="comboVersions" Margin="3" SelectionChanged="comboVersions_SelectionChanged">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding Name}"></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
             <Button Click="btnSave" Style="{StaticResource btnMenu}">Save</Button>
             <Button Click="btnNewLog" Style="{StaticResource btnMenu}">Add Log</Button>
         </StackPanel>

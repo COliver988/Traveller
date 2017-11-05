@@ -38,6 +38,9 @@ namespace Traveller.Models
         public List<ShipLog> theLog => TravellerTracker.App.DB.Logs.Where(x => x.ShipId == this.ShipId).ToList();
 
         [NotMapped]
+        public TravellerVersion theVersion => TravellerTracker.App.DB.TravellerVersions.Where(x => x.TravellerVersionId == this.TravellerVersionID).FirstOrDefault();
+
+        [NotMapped]
         public Uri theJumpMapURL
         {
             get
