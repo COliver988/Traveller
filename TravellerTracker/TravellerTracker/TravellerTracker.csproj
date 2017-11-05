@@ -119,8 +119,13 @@
     <Compile Include="Migrations\20171105010342_travellerVersion.designer.cs">
       <DependentUpon>20171105010342_travellerVersion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20171105144130_cargotypes.cs" />
+    <Compile Include="Migrations\20171105144130_cargotypes.designer.cs">
+      <DependentUpon>20171105144130_cargotypes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\TravellerContextModelSnapshot.cs" />
     <Compile Include="Models\Cargo.cs" />
+    <Compile Include="Models\CargoType.cs" />
     <Compile Include="Models\ErrorHandling.cs" />
     <Compile Include="Models\Sector.cs" />
     <Compile Include="Models\ShipCargo.cs" />
