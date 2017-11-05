@@ -19,6 +19,7 @@ namespace Traveller.Models
         public int ShipClassID { get; set; }
         public int WorldID { get; set; }
         public int SectorID { get; set; }
+        public int TravellerVersionID { get; set; }
 
         public string Era { get; set; }
 
