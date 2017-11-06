@@ -12,8 +12,7 @@ namespace Traveller.Models
         public int ShipID { get; set; }
         public int CargoID { get; set; }
 
-        // how many actual tons are carried      
-        public int dTons { get; set;}
+        public int dTons { get; set;}           // how many actual tons are carried      
 
         public string CargoCode { get; set; }  // BITS or other cargo code specific to this
 

@@ -139,6 +139,7 @@
     <Compile Include="Models\TravellerContext.cs" />
     <Compile Include="Models\Ship.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Support\LoadCargo.cs" />
     <Compile Include="Support\Seed.cs" />
     <Compile Include="Support\TravellerMapAPI.cs" />
     <Compile Include="Views\ShipClassEdit.xaml.cs">
