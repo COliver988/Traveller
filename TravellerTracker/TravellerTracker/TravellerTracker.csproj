@@ -167,6 +167,7 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <None Include="Support\T5TradeGoods.csv" />
     <None Include="TravellerTracker_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
@@ -180,6 +181,7 @@
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <Content Include="Resources\ShipTypeCodesPrimary.txt" />
     <Content Include="Resources\ShipTypeCodesSecondary.txt" />
+    <Content Include="Support\ClassicTradeGoods.xml" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">

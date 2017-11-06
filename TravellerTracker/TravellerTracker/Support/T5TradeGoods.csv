@@ -1,0 +1,78 @@
+﻿# T5 random trade goods
+# copyright FFE 2009
+
+# specifications:
+# trade code (2 character code), table, values
+
+# empty slot, re-roll
+
+# allows for expansion beyond 6x6 tables
+#  the program counts the number of rows for the specified
+#  trade class, does a random roll on that, then counts the
+#  number of goods on that, and does a random roll on that
+#  meaning: you don't have to just use a 6x6 grid, and individual
+#  rows can have more or less than other rows
+ 
+# ignore lines starting with '#' or blank
+
+Ag,raws,bulk protein,bulk carbs,bulk fats,bulk pharma,livestock,seedstock
+Ag,rares, fine furs,meat delicacies,fruit delicacies,candies,textiles,exotic sauces
+Ag,consumables,flavored waters,wines,juices,nectars,decoctins,drinkable lymphs
+Ag,pharma,health foods,nutraceuticals,fast drug,pain killers,antiseptic,antibiotics
+Ag,Novelties,incencense,iridescents,reflectives,pigments,noicemakers,soundmakers
+Ag,imbalances,,,,,,
+Ag,raw,bulk woods,bulk pelts,bulk herbs,bulk spices,bulk nitrates,food stuffs
+Ag,rares,spices,organic gems,flavorings,aged meats,fermented fluids,fine aromatics
+Ag,consumables,flowers,aromatics,pheromes,secretions,adhesives,novel flavorings
+Ag,pharma,antifungal,antiviral,panacea,pseudo-hormones,anagathics,slow drug
+Ag,novelties,strage seeds,motile plants,reactive plants,IR emitters,Lem emitters
+Ag,imbalances,,,,,,,
+
+As,raws,bulk nitrates,bulk carbon,bulk iron,bulk copper,radioactive ores,bulk ices
+As,rares,gemstones,alloys,iridium sponge,lanthanum,isotopes,anti-matter
+As,valuta,,platinum,gold,gallium,silver,thorium,radium
+As,samples,ores,ices,carbons,metals,radioactives,silicates
+As,novelties,unusual rocks,fuxed metals,strange crystals,fine dusts,magnetics,light sensitives
+As,imbalances,,,,,,
+
+Na,raws,bulk abrasives,bulk gases,bulk minerals,bulk precipitates,exotic fauna,exotic flora
+Na,rares,hummingsand,masterpieces,fine carpets,isotopes,pelts,seedstocks
+Na,novelties,branded tools,drinkable lymphs,dupe masterpieces,pattern creators,pigments,warml eather
+Na,samples,archeologicals,fauna,flora,minerals,ephermerals,polymers
+Na,uniques,masterpieces,unusual rocks,artifacts,fine arts,replicating clays,ANIFX emitter
+Na,imbalances,,,,,,,
+
+In,manufactereds,electronics,photonics,magnetics,fluidocs,polymerics,gravatics
+In,manufactereds,biologicals,mechanicals,textiles,weapons,armor,robots
+In,scarp/waste,obsoletes,used goods,reparables,radioactives,metals,sludges
+In,pharms,nostrums,restoratives,paliatives,suppressants,antibiotics,antiseptics
+In,data,software,databases,expert systems,upgrades,backups,raw sensings
+In,consumables,disposables,branded drinks,branded foods,branded clothes,parts,improvements
+
+Po,raws,bulk nutrients,bulk fibers,bulk organics,bulk minerals,bulk textiles,exotic flora
+Po,rares,gemstones,antiques,collectibles,allotropes,spices,seedstocks
+Po,novelties,strange crystals,strange seeds,dupe masterpieces,emotion lighting,silanes,flora
+Po,uniques,masterpieces,incomprehensibles,antiques,exotic flora,fossils,VHDUS emitter
+Po,entertainments,art,recordings,writings,tactiles,osmancies,wafers
+Po,imbalances,,,,,,,
+
+Ri,raws,bulk foodstuffs,bulk protein,bulk carbs,bulk fats,exotic flora,exotic fauna
+Ri,rares,delicacies,spices,tisanes,nectars,pelts,seedstock
+Ri,consumables,branded foods,banrded drinks,branded clothes,flavored drinks,flowers,music
+Ri,novelties,echostones,self-defenders,attractants,sophont cruisine,sophant hats,variable tatoos
+Ri,uniques,antique art,masterpieces,artifacts,incomprehensibles,meson barriers,famous wafers
+Ri,entertainments,art,recordings,writings,tactiles,osmancies,wafers
+
+Va,raws,bulk dusts,bulk minerals,bulk metals,radioactive ores,bulk particulates,ephemerals
+Va,rares,vacc-gems,unusual dusts,insulants,crafted devices,rate minerals,catalysts
+Va,consumables,branded oxygen,vacc suit scents,vacc suit patches,branded tools,holo-companions,flavored air
+Va,novelties,branded vacc suits,awareness pinger,strange seeds,musical instruments,unusual minerals,exotic crystals
+Va,samples,archeologicals,fauna,flora,minerals,ephemerals,polymers
+Va,scrap/waste,obsoletes,used goods,reparables,radioactives,metals,sludges
+
+Cp,valuta,coinage,currency,money cards,gold,silver,platinum
+Cp,rares,monumental art,holo scultpure,collectible books,jewelry,museum items,wines
+Cp,consumables,branded clothes,branded devices,flavored drinks,flavorings,decorations,group symbals
+Cp,novelties,incences,contemplatives,cold welders,polymer sheets,hats,skin tones
+Cp,data,software,expert software,databases,upgrades,backups,raw sensings
+Cp,red tape,regulations,synhronizations,expert systems,educationals,mandates,accountings:w
