@@ -142,6 +142,7 @@
     <Compile Include="Support\LoadCargo.cs" />
     <Compile Include="Support\Seed.cs" />
     <Compile Include="Support\TravellerMapAPI.cs" />
+    <Compile Include="Support\Utilities.cs" />
     <Compile Include="Views\ShipClassEdit.xaml.cs">
       <DependentUpon>ShipClassEdit.xaml</DependentUpon>
     </Compile>
@@ -182,7 +183,6 @@
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <Content Include="Resources\ShipTypeCodesPrimary.txt" />
     <Content Include="Resources\ShipTypeCodesSecondary.txt" />
-    <Content Include="Support\ClassicTradeGoods.xml" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">

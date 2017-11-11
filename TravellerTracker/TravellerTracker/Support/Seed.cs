@@ -49,6 +49,52 @@ namespace TravellerTracker.Support
                 db.Add(new CargoType() { Type = "Valuta", Description = "Sometimes shipments between worlds consist of money itself." });
             }
 
+            if (db.Cargo.Count() == 0)
+            {
+                // classic
+                db.Add(new Cargo() { D1 = 1, D2 = 1, BasePurchasePrice = 3000, Desciption = "Textiles", QtyDie = 3, Multiplier = 5 });
+                db.Add(new Cargo() { D1 = 1, D2 = 2, BasePurchasePrice = 7000, Desciption = "Polymers", QtyDie = 4, Multiplier = 5 });
+                db.Add(new Cargo() { D1 = 1, D2 = 3, BasePurchasePrice = 10000, Desciption = "Liquor", QtyDie = 1, Multiplier = 5 });
+                db.Add(new Cargo() { D1 = 1, D2 = 4, BasePurchasePrice = 1000, Desciption = "Wood", QtyDie = 2, Multiplier = 10 });
+                db.Add(new Cargo() { D1 = 1, D2 = 5, BasePurchasePrice = 20000, Desciption = "Crystals", QtyDie = 1, Multiplier = 1 });
+                db.Add(new Cargo() { D1 = 1, D2 = 6, BasePurchasePrice = 1000000, Desciption = "Radioactives", QtyDie = 1, Multiplier = 1 });
+
+                db.Add(new Cargo() { D1 = 2, D2 = 1, BasePurchasePrice = 500, Desciption = "Steel", QtyDie = 4, Multiplier = 10 });
+                db.Add(new Cargo() { D1 = 2, D2 = 2, BasePurchasePrice = 2000, Desciption = "Copper", QtyDie = 2, Multiplier = 10 });
+                db.Add(new Cargo() { D1 = 2, D2 = 3, BasePurchasePrice = 1000, Desciption = "Aluminum", QtyDie = 5, Multiplier = 10 });
+                db.Add(new Cargo() { D1 = 2, D2 = 4, BasePurchasePrice = 9000, Desciption = "Tin", QtyDie = 3, Multiplier = 10 });
+                db.Add(new Cargo() { D1 = 2, D2 = 5, BasePurchasePrice = 70000, Desciption = "Silver", QtyDie = 1, Multiplier = 5 });
+                db.Add(new Cargo() { D1 = 2, D2 = 6, BasePurchasePrice = 200000, Desciption = "Special ALloys", QtyDie = 1, Multiplier = 1 });
+
+                db.Add(new Cargo() { D1 = 3, D2 = 1, BasePurchasePrice = 10000, Desciption = "Petrochemicals", QtyDie = 1, Multiplier = 1 });
+                db.Add(new Cargo() { D1 = 3, D2 = 2, BasePurchasePrice = 300, Desciption = "Grain", QtyDie = 8, Multiplier = 5 });
+                db.Add(new Cargo() { D1 = 3, D2 = 3, BasePurchasePrice = 1500, Desciption = "Meat", QtyDie = 4, Multiplier = 5 });
+                db.Add(new Cargo() { D1 = 3, D2 = 4, BasePurchasePrice = 6000, Desciption = "Spices", QtyDie = 1, Multiplier = 5 });
+                db.Add(new Cargo() { D1 = 3, D2 = 5, BasePurchasePrice = 1000, Desciption = "Fruit", QtyDie = 2, Multiplier = 5 });
+                db.Add(new Cargo() { D1 = 3, D2 = 6, BasePurchasePrice = 100000, Desciption = "Pharmaceuticals", QtyDie = 1, Multiplier = 1 });
+
+                db.Add(new Cargo() { D1 = 4, D2 = 1, BasePurchasePrice = 1000000, Desciption = "Gems", QtyDie = 1, Multiplier = 1 });
+                db.Add(new Cargo() { D1 = 4, D2 = 2, BasePurchasePrice = 30000, Desciption = "Firearms", QtyDie = 2, Multiplier = 1 });
+                db.Add(new Cargo() { D1 = 4, D2 = 3, BasePurchasePrice = 30000, Desciption = "Ammunition", QtyDie = 2, Multiplier = 1 });
+                db.Add(new Cargo() { D1 = 4, D2 = 4, BasePurchasePrice = 10000, Desciption = "Blades", QtyDie = 2, Multiplier = 1 });
+                db.Add(new Cargo() { D1 = 4, D2 = 5, BasePurchasePrice = 10000, Desciption = "Tools", QtyDie = 2, Multiplier = 1 });
+                db.Add(new Cargo() { D1 = 4, D2 = 6, BasePurchasePrice = 50000, Desciption = "Body Armor", QtyDie = 2, Multiplier = 1 });
+
+                db.Add(new Cargo() { D1 = 5, D2 = 1, BasePurchasePrice = 1000000, Desciption = "Aircraft", QtyDie = 1, Multiplier = 1 });
+                db.Add(new Cargo() { D1 = 5, D2 = 2, BasePurchasePrice = 6000000, Desciption = "Air/raft", QtyDie = 2, Multiplier = 1 });
+                db.Add(new Cargo() { D1 = 5, D2 = 3, BasePurchasePrice = 10000000, Desciption = "Computers", QtyDie = 2, Multiplier = 1 });
+                db.Add(new Cargo() { D1 = 5, D2 = 4, BasePurchasePrice = 3000000, Desciption = "All Terrain Vehicles", QtyDie = 2, Multiplier = 1 });
+                db.Add(new Cargo() { D1 = 5, D2 = 5, BasePurchasePrice = 7000000, Desciption = "Armored Vehicles", QtyDie = 2, Multiplier = 1 });
+                db.Add(new Cargo() { D1 = 5, D2 = 6, BasePurchasePrice = 150000, Desciption = "Farm Machinery", QtyDie = 2, Multiplier = 1 });
+
+                db.Add(new Cargo() { D1 = 6, D2 = 1, BasePurchasePrice = 100000, Desciption = "Electronic Parts", QtyDie = 1, Multiplier = 5 });
+                db.Add(new Cargo() { D1 = 6, D2 = 2, BasePurchasePrice = 70000, Desciption = "Mechanical Parts", QtyDie = 1, Multiplier = 5 });
+                db.Add(new Cargo() { D1 = 6, D2 = 3, BasePurchasePrice = 250000, Desciption = "Cybernetic Parts", QtyDie = 1, Multiplier = 5 });
+                db.Add(new Cargo() { D1 = 6, D2 = 4, BasePurchasePrice = 150000, Desciption = "Computer Parts", QtyDie = 1, Multiplier = 5 });
+                db.Add(new Cargo() { D1 = 6, D2 = 5, BasePurchasePrice = 750000, Desciption = "Machine Tools", QtyDie = 1, Multiplier = 5 });
+                db.Add(new Cargo() { D1 = 6, D2 = 6, BasePurchasePrice = 400000, Desciption = "Vacc Suites", QtyDie = 1, Multiplier = 5 });
+            }
+
             db.SaveChangesAsync();
         }
     }

@@ -9,9 +9,11 @@ namespace TravellerTracker.Support
 {
     public class LoadCargo
     {
+            Utilities util = new Utilities();
         public List <Cargo> findCargo(World origin, Ship ship)
         {
             List<Cargo> results = new List<Cargo>();
+
             switch (ship.TravellerVersionID)
             {
                 case 1:
@@ -40,7 +42,17 @@ namespace TravellerTracker.Support
 
         private List<Cargo> findClassicCargo(World origin, Ship ship)
         {
-            throw new NotImplementedException();
+            int d1 = util.d6();
+            if (origin.Pop >= 9) d1 = d1 + 1;
+            if (origin.Pop <= 5) d1 = d1 - 1;
+            if (d1 > 6) d1 = 6;
+            if (d1 < 1) d1 = 1;
+            int d2 = util.d6();
+            List<Cargo> results = new List<Cargo>();
+            results.Add(App.DB.Cargo.Where(x => x.D1 == d1 && x.D2 == d2).First());
+            return results;
+
+            // and
         }
     }
 }

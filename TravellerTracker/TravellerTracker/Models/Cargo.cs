@@ -6,8 +6,16 @@
         public int dTons { get; set; }
         public int BasePurchasePrice { get; set; }
         public string CargoCode { get; set; }
+        public string Desciption { get; set; }
 
         // FK to CargoType
         public int CargoTypeId { get; set; }
+
+        // version specific items
+        // classic d66 table
+        public int D1 { get; set; }
+        public int D2 { get; set; }
+        public int QtyDie { get; set; }
+        public int Multiplier { get; set; }
     }
 }

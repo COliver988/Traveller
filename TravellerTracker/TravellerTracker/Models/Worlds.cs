@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TravellerTracker.Models;
+using TravellerTracker.Support;
 
 namespace Traveller.Models
 {
@@ -45,5 +46,23 @@ namespace Traveller.Models
 
         [NotMapped]
         public string Description {  get { return string.Format("{0} {1} {2}", Hex, Name, UWP); } }
+
+        // UWP in A-1234567 format
+        [NotMapped]
+        public char Starport {  get { return UWP[0]; } }
+        [NotMapped]
+        public int Size { get { return Utilities.CharToHex(UWP[2]); } }
+        [NotMapped]
+        public int Atmosphere { get { return Utilities.CharToHex(UWP[3]); } }
+        [NotMapped]
+        public int Hydro { get { return Utilities.CharToHex(UWP[4]); } }
+        [NotMapped]
+        public int Pop { get { return Utilities.CharToHex(UWP[5]); } }
+        [NotMapped]
+        public int Gov { get { return Utilities.CharToHex(UWP[6]); } }
+        [NotMapped]
+        public int Law { get { return Utilities.CharToHex(UWP[7]); } }
+        [NotMapped]
+        public int Tech { get { return Utilities.CharToHex(UWP[8]); } }
     }
 }
