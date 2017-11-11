@@ -11,6 +11,8 @@
         // FK to CargoType
         public int CargoTypeId { get; set; }
 
+        public int TravellerVersionId { get; set; }  // which version of Traveller this belongs to; 0 = all
+
         // version specific items
         // classic d66 table
         public int D1 { get; set; }
