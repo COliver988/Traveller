@@ -33,5 +33,26 @@ namespace Traveller.Models
 
         [NotMapped]
         public string ListDesc => string.Format("[{0} {1}] {2}", D1, D2, Description);
+
+        // list of things we need to generate an available list of cargos when searching
+        // isSpeculative indicates this is a speculative trade = must pay for
+        // the Major, Minor, etc fields are per the destination world
+
+        [NotMapped]
+        public World Destination { get; set; }
+        [NotMapped]
+        public bool isSpeculative { get; set; }
+        [NotMapped]
+        public int Major { get; set; }
+        [NotMapped]
+        public int Minor { get; set; }
+        [NotMapped]
+        public int Incidental { get; set; }
+        [NotMapped]
+        public int HighPassage { get; set; }
+        [NotMapped]
+        public int MidPassage { get; set; }
+        [NotMapped]
+        public int LowPassage { get; set; }
     }
 }

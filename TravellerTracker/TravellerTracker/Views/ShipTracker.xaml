@@ -34,6 +34,7 @@
             Grid.Row="2"
             Grid.RowSpan="2"
             Grid.Column="2"
+            Click="btnLoadCargo"
             Width="100"
             Height="100">
             <TextBlock Text="Search for Cargo and Passengers" TextWrapping="WrapWholeWords" />
@@ -147,7 +148,36 @@
                     </ListBox.ItemTemplate>
                 </ListBox>
             </PivotItem>
-            <PivotItem Header="Cargo Manifest" />
+            <PivotItem Header="Cargo Manifest">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="220"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="45"></RowDefinition>
+                        <RowDefinition Height="45"></RowDefinition>
+                        <RowDefinition Height="45"></RowDefinition>
+                        <RowDefinition Height="45"></RowDefinition>
+                        <RowDefinition Height="45"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.ColumnSpan="2" Orientation="Horizontal" Margin="3" Name="spSpecTrade">
+                        <TextBox Text="{Binding Description}" Style="{StaticResource txtBox}"></TextBox>
+                        <TextBox Text="{Binding BasePurchasePrice}" Style="{StaticResource txtBox}"></TextBox>
+                        <TextBox Text="{Binding dTons}" Style="{StaticResource txtBox}"></TextBox>
+                        <Button Click="btnPrice" Style="{StaticResource btnMenu}">Get Price</Button>
+                        <RadioButton Name="rbBroker0">No Broker</RadioButton>
+                        <RadioButton Name="rbBroker1">Broker 1</RadioButton>
+                        <RadioButton Name="rbBroker2">Broker 2</RadioButton>
+                        <RadioButton Name="rbBroker3">Broker 3</RadioButton>
+                    </StackPanel>
+                    <TextBlock Grid.Row="1" Grid.Column="0"  Grid.ColumnSpan="2" Style="{StaticResource txtBlockTitleCenter}" Text="Cargo and Passengers By Destination"></TextBlock>
+                    <TextBlock Grid.Row="2" Grid.Column="0" Style="{StaticResource txtBlockTitle}">High Passage</TextBlock>
+                    <TextBlock Grid.Row="3" Grid.Column="0" Style="{StaticResource txtBlockTitle}">Mid Passage</TextBlock>
+                    <TextBlock Grid.Row="4" Grid.Column="0" Style="{StaticResource txtBlockTitle}">Low Passage</TextBlock>
+                </Grid>
+            </PivotItem>
             <PivotItem Header="Jump Map">
                 <Grid>
                     <Grid.RowDefinitions>

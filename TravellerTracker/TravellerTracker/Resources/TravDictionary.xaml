@@ -65,5 +65,14 @@
         <Setter Property="FontWeight" Value="Bold" />
         <Setter Property="Margin" Value="3" />
     </Style>
+    <Style
+        x:Key="txtBlockTitleCenter"
+        x:Name="txtBlockTitleCenter"
+        TargetType="TextBlock">
+        <Setter Property="FontSize" Value="22" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="Margin" Value="3" />
+    </Style>
 
 </ResourceDictionary>

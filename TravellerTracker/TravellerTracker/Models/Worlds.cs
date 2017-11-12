@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TravellerTracker.Models;
-using TravellerTracker.Support;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using Traveller.Support;
 
 namespace Traveller.Models
 {
