@@ -30,7 +30,7 @@ namespace TravellerTracker.Migrations
 
                     b.Property<int>("D2");
 
-                    b.Property<string>("Desciption");
+                    b.Property<string>("Description");
 
                     b.Property<int>("Multiplier");
 

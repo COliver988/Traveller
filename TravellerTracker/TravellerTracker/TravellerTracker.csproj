@@ -99,33 +99,9 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20171009121219_init.cs" />
-    <Compile Include="Migrations\20171009121219_init.designer.cs">
-      <DependentUpon>20171009121219_init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20171028230044_shipFuel.cs" />
-    <Compile Include="Migrations\20171028230044_shipFuel.designer.cs">
-      <DependentUpon>20171028230044_shipFuel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20171028234326_shipclassfuel.cs" />
-    <Compile Include="Migrations\20171028234326_shipclassfuel.designer.cs">
-      <DependentUpon>20171028234326_shipclassfuel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20171029181923_tradeCodes.cs" />
-    <Compile Include="Migrations\20171029181923_tradeCodes.designer.cs">
-      <DependentUpon>20171029181923_tradeCodes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20171105010342_travellerVersion.cs" />
-    <Compile Include="Migrations\20171105010342_travellerVersion.designer.cs">
-      <DependentUpon>20171105010342_travellerVersion.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20171105144130_cargotypes.cs" />
-    <Compile Include="Migrations\20171105144130_cargotypes.designer.cs">
-      <DependentUpon>20171105144130_cargotypes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20171111164628_cargoVersions.cs" />
-    <Compile Include="Migrations\20171111164628_cargoVersions.designer.cs">
-      <DependentUpon>20171111164628_cargoVersions.cs</DependentUpon>
+    <Compile Include="Migrations\20171112115512_intitialize.cs" />
+    <Compile Include="Migrations\20171112115512_intitialize.designer.cs">
+      <DependentUpon>20171112115512_intitialize.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\TravellerContextModelSnapshot.cs" />
     <Compile Include="Models\Cargo.cs" />
@@ -147,6 +123,12 @@
     <Compile Include="Support\Seed.cs" />
     <Compile Include="Support\TravellerMapAPI.cs" />
     <Compile Include="Support\Utilities.cs" />
+    <Compile Include="Views\CargoList.xaml.cs">
+      <DependentUpon>CargoList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CargoEditor.xaml.cs">
+      <DependentUpon>CargoEditor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ShipClassEdit.xaml.cs">
       <DependentUpon>ShipClassEdit.xaml</DependentUpon>
     </Compile>
@@ -201,6 +183,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Views\CargoList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CargoEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ShipClassEdit.xaml">
       <SubType>Designer</SubType>

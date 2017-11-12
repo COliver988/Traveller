@@ -8,13 +8,57 @@ using TravellerTracker.Models;
 namespace TravellerTracker.Migrations
 {
     [DbContext(typeof(TravellerContext))]
-    [Migration("20171009121219_init")]
-    partial class init
+    [Migration("20171112115512_intitialize")]
+    partial class intitialize
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.1");
+
+            modelBuilder.Entity("Traveller.Models.Cargo", b =>
+                {
+                    b.Property<int>("CargoID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("BasePurchasePrice");
+
+                    b.Property<string>("CargoCode");
+
+                    b.Property<int>("CargoTypeId");
+
+                    b.Property<int>("D1");
+
+                    b.Property<int>("D2");
+
+                    b.Property<string>("Description");
+
+                    b.Property<int>("Multiplier");
+
+                    b.Property<int>("QtyDie");
+
+                    b.Property<int>("TravellerVersionId");
+
+                    b.Property<int>("dTons");
+
+                    b.HasKey("CargoID");
+
+                    b.ToTable("Cargo");
+                });
+
+            modelBuilder.Entity("Traveller.Models.CargoType", b =>
+                {
+                    b.Property<int>("CargoTypeId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Description");
+
+                    b.Property<string>("Type");
+
+                    b.HasKey("CargoTypeId");
+
+                    b.ToTable("CargoTypes");
+                });
 
             modelBuilder.Entity("Traveller.Models.Sector", b =>
                 {
@@ -45,11 +89,15 @@ namespace TravellerTracker.Migrations
 
                     b.Property<string>("Era");
 
+                    b.Property<int>("Fuel");
+
                     b.Property<string>("Name");
 
                     b.Property<int>("SectorID");
 
                     b.Property<int>("ShipClassID");
+
+                    b.Property<int>("TravellerVersionID");
 
                     b.Property<int>("WorldID");
 
@@ -65,9 +113,15 @@ namespace TravellerTracker.Migrations
                     b.Property<int>("ShipCargoID")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<string>("CargoCode");
+
                     b.Property<int>("CargoID");
 
+                    b.Property<int>("OriginWorldID");
+
                     b.Property<int>("ShipID");
+
+                    b.Property<int>("dTons");
 
                     b.HasKey("ShipCargoID");
 
@@ -80,6 +134,8 @@ namespace TravellerTracker.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<int>("Cargo");
+
+                    b.Property<int>("Fuel");
 
                     b.Property<string>("HGClass");
 
@@ -114,6 +170,46 @@ namespace TravellerTracker.Migrations
                     b.HasKey("ShipLogId");
 
                     b.ToTable("Logs");
+                });
+
+            modelBuilder.Entity("Traveller.Models.TradeClassification", b =>
+                {
+                    b.Property<int>("TradeClassificationID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Atmospheres");
+
+                    b.Property<string>("Classification");
+
+                    b.Property<string>("Description");
+
+                    b.Property<string>("Gov");
+
+                    b.Property<string>("Hydro");
+
+                    b.Property<string>("Law");
+
+                    b.Property<string>("Name");
+
+                    b.Property<string>("Pop");
+
+                    b.Property<string>("Sizes");
+
+                    b.HasKey("TradeClassificationID");
+
+                    b.ToTable("TradeClassifications");
+                });
+
+            modelBuilder.Entity("Traveller.Models.TravellerVersion", b =>
+                {
+                    b.Property<int>("TravellerVersionId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Name");
+
+                    b.HasKey("TravellerVersionId");
+
+                    b.ToTable("TravellerVersions");
                 });
 
             modelBuilder.Entity("Traveller.Models.World", b =>
@@ -152,22 +248,6 @@ namespace TravellerTracker.Migrations
                     b.HasKey("WorldID");
 
                     b.ToTable("Worlds");
-                });
-
-            modelBuilder.Entity("TravellerTracker.Models.Cargo", b =>
-                {
-                    b.Property<int>("CargoID")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("BasePurchasePrice");
-
-                    b.Property<string>("CargoCode");
-
-                    b.Property<int>("dTons");
-
-                    b.HasKey("CargoID");
-
-                    b.ToTable("Cargo");
                 });
         }
     }

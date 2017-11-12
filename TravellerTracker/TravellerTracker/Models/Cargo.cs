@@ -1,4 +1,7 @@
-﻿namespace Traveller.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+
+namespace Traveller.Models
 {
     public class Cargo
     {
@@ -6,7 +9,7 @@
         public int dTons { get; set; }
         public int BasePurchasePrice { get; set; }
         public string CargoCode { get; set; }
-        public string Desciption { get; set; }
+        public string Description { get; set; }
 
         // FK to CargoType
         public int CargoTypeId { get; set; }
@@ -19,5 +22,16 @@
         public int D2 { get; set; }
         public int QtyDie { get; set; }
         public int Multiplier { get; set; }
+
+        public string GetCargoType()
+        {
+            if (CargoTypeId > 0)
+                return TravellerTracker.App.DB.CargoTypes.Where(x => x.CargoTypeId == CargoTypeId).FirstOrDefault().Description;
+            else
+                return "n/a";
+        }
+
+        [NotMapped]
+        public string ListDesc => string.Format("[{0} {1}] {2}", D1, D2, Description);
     }
 }

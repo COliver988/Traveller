@@ -44,6 +44,7 @@
                 <Button Click="btnNew" Style="{StaticResource btnMenu}">New Ship</Button>
                 <Button Click="btnNewClass" Style="{StaticResource btnMenu}">Ship Classes</Button>
                 <Button Click="btnTradeCodes" Style="{StaticResource btnMenu}">Trade Codes</Button>
+                <Button Click="btnCargoList" Style="{StaticResource btnMenu}">Cargo List</Button>
             </StackPanel>
             <Button Grid.Row="1" Style="{StaticResource btnMenu}">Options</Button>
         </Grid>

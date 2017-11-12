@@ -66,5 +66,10 @@ namespace TravellerTracker
         {
             mainFrame.Content = new TradeCodeList();
         }
+
+        private void btnCargoList(object sender, RoutedEventArgs e)
+        {
+            mainFrame.Content = new CargoList();
+        }
     }
 }
