@@ -18,6 +18,9 @@ namespace TravellerTracker.Views
 
         private void btnLoadTrade(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
+            var btn = sender as Button;
+            Page p = new CargoEditor((int) btn.Tag);
+            App.mainFrame.Content = p;
 
         }
     }

@@ -1,17 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
+﻿using System.Linq;
+using Traveller.Models;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -22,9 +12,26 @@ namespace TravellerTracker.Views
     /// </summary>
     public sealed partial class CargoEditor : Page
     {
-        public CargoEditor()
+        public Cargo cargo;
+        public CargoEditor(int cargoID)
         {
             this.InitializeComponent();
+            cargo = TravellerTracker.App.DB.Cargo.Where(x => x.CargoID == cargoID).First();
+        }
+
+        private void btnNew(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnSave(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnDelete(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
