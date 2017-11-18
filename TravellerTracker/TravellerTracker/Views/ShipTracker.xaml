@@ -126,8 +126,7 @@
                     Margin="3"
                     ItemsSource="{Binding}">
                     <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <Grid>
+                        <DataTemplate> <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto" />
                                     <ColumnDefinition />
@@ -186,7 +185,22 @@
                     <WebView x:Name="webView" />
                 </Grid>
             </PivotItem>
-            <PivotItem Header="Jump List" />
+            <PivotItem Header="Jump List">
+                <ListBox Name="lstJumpList" ItemsSource="{Binding}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Margin="3" Text="{Binding Description}" />
+                                </StackPanel>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </PivotItem>
             <PivotItem Header="Ship Details" />
             <PivotItem Header="World Details" />
         </Pivot>

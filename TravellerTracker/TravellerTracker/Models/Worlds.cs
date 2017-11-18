@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
 using Traveller.Support;
 
 namespace Traveller.Models
@@ -23,7 +25,7 @@ namespace Traveller.Models
         public char Zone { get; set; }
         public int SectorID { get; set; }
 
-        public World (string line, int sectorID)
+        public World(string line, int sectorID)
         {
             this.Hex = line.Substring(0, 4);
             this.Name = line.Substring(5, 20);
@@ -39,11 +41,11 @@ namespace Traveller.Models
         }
 
         [NotMapped]
-        public string Description {  get { return string.Format("{0} {1} {2}", Hex, Name, UWP); } }
+        public string Description { get { return string.Format("{0} {1} {2}", Hex, Name, UWP); } }
 
         // UWP in A-1234567 format
         [NotMapped]
-        public char Starport {  get { return UWP[0]; } }
+        public char Starport { get { return UWP[0]; } }
         [NotMapped]
         public int Size { get { return Utilities.CharToHex(UWP[2]); } }
         [NotMapped]
@@ -58,5 +60,19 @@ namespace Traveller.Models
         public int Law { get { return Utilities.CharToHex(UWP[7]); } }
         [NotMapped]
         public int Tech { get { return Utilities.CharToHex(UWP[8]); } }
+
+        public List<World> JumpRange(int jump)
+        {
+            Utilities util = new Utilities();
+            List<World> results = new List<World>();
+            foreach (World world in TravellerTracker.App.DB.Worlds.Where(x => x.SectorID == this.SectorID))
+            {
+                if (this.Hex != world.Hex)
+                    if (util.calcDistance(this.Hex, world.Hex) <= jump)
+                        results.Add(world);
+            }
+
+            return results;
+        }
     }
 }
