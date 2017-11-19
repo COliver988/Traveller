@@ -105,6 +105,7 @@
     </Compile>
     <Compile Include="Migrations\TravellerContextModelSnapshot.cs" />
     <Compile Include="Models\Cargo.cs" />
+    <Compile Include="Models\CargoAvailable.cs" />
     <Compile Include="Models\CargoType.cs" />
     <Compile Include="Models\ErrorHandling.cs" />
     <Compile Include="Models\Sector.cs" />

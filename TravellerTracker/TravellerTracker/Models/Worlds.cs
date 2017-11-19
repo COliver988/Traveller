@@ -43,23 +43,23 @@ namespace Traveller.Models
         [NotMapped]
         public string Description { get { return string.Format("{0} {1} {2}", Hex, Name, UWP); } }
 
-        // UWP in A-1234567 format
+        // UWP in A123456-7 format
         [NotMapped]
         public char Starport { get { return UWP[0]; } }
         [NotMapped]
-        public int Size { get { return Utilities.CharToHex(UWP[2]); } }
+        public int Size { get { return Utilities.HexToInt(UWP[1]); } }
         [NotMapped]
-        public int Atmosphere { get { return Utilities.CharToHex(UWP[3]); } }
+        public int Atmosphere { get { return Utilities.HexToInt(UWP[2]); } }
         [NotMapped]
-        public int Hydro { get { return Utilities.CharToHex(UWP[4]); } }
+        public int Hydro { get { return Utilities.HexToInt(UWP[3]); } }
         [NotMapped]
-        public int Pop { get { return Utilities.CharToHex(UWP[5]); } }
+        public int Pop { get { return Utilities.HexToInt(UWP[4]); } }
         [NotMapped]
-        public int Gov { get { return Utilities.CharToHex(UWP[6]); } }
+        public int Gov { get { return Utilities.HexToInt(UWP[5]); } }
         [NotMapped]
-        public int Law { get { return Utilities.CharToHex(UWP[7]); } }
+        public int Law { get { return Utilities.HexToInt(UWP[6]); } }
         [NotMapped]
-        public int Tech { get { return Utilities.CharToHex(UWP[8]); } }
+        public int Tech { get { return Utilities.HexToInt(UWP[8]); } }
 
         public List<World> JumpRange(int jump)
         {

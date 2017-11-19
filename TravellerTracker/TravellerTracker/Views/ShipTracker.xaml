@@ -15,7 +15,7 @@
         </ResourceDictionary>
     </Page.Resources>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="0,-4,0,4">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="350" />
             <ColumnDefinition Width="250" />
@@ -42,6 +42,7 @@
         <Button
             Grid.Row="4"
             Grid.Column="2"
+            Click="btnRefuel"
             Width="100">
             Refuel
         </Button>
@@ -156,9 +157,7 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="45"></RowDefinition>
                         <RowDefinition Height="45"></RowDefinition>
-                        <RowDefinition Height="45"></RowDefinition>
-                        <RowDefinition Height="45"></RowDefinition>
-                        <RowDefinition Height="45"></RowDefinition>
+                        <RowDefinition ></RowDefinition>
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
                     <StackPanel Grid.ColumnSpan="2" Orientation="Horizontal" Margin="3" Name="spSpecTrade">
@@ -172,9 +171,45 @@
                         <RadioButton Name="rbBroker3">Broker 3</RadioButton>
                     </StackPanel>
                     <TextBlock Grid.Row="1" Grid.Column="0"  Grid.ColumnSpan="2" Style="{StaticResource txtBlockTitleCenter}" Text="Cargo and Passengers By Destination"></TextBlock>
-                    <TextBlock Grid.Row="2" Grid.Column="0" Style="{StaticResource txtBlockTitle}">High Passage</TextBlock>
-                    <TextBlock Grid.Row="3" Grid.Column="0" Style="{StaticResource txtBlockTitle}">Mid Passage</TextBlock>
-                    <TextBlock Grid.Row="4" Grid.Column="0" Style="{StaticResource txtBlockTitle}">Low Passage</TextBlock>
+                    <ListBox Grid.Column="0" Grid.Row="2" ItemsSource="{Binding}" Grid.ColumnSpan="2" Name="lstPax">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="200"></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Text="{Binding world.Name}"></TextBlock>
+                                    <Grid Grid.Column="1">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition></ColumnDefinition>
+                                            <ColumnDefinition></ColumnDefinition>
+                                            <ColumnDefinition></ColumnDefinition>
+                                            <ColumnDefinition></ColumnDefinition>
+                                            <ColumnDefinition></ColumnDefinition>
+                                            <ColumnDefinition></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <StackPanel Orientation="Horizontal" Grid.Column="0">
+                                            <TextBlock Text="High"></TextBlock>
+                                            <TextBox Style="{StaticResource txtBoxNum}" Text="{Binding HighPassage}"></TextBox>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal" Grid.Column="1">
+                                            <TextBlock Text="Mid"></TextBlock>
+                                            <TextBox Style="{StaticResource txtBoxNum}" Text="{Binding MidPassage}"></TextBox>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal" Grid.Column="2">
+                                            <TextBlock Text="Low"></TextBlock>
+                                            <TextBox Style="{StaticResource txtBoxNum}" Text="{Binding LowPassage}"></TextBox>
+                                        </StackPanel>
+                                    </Grid>
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
                 </Grid>
             </PivotItem>
             <PivotItem Header="Jump Map">

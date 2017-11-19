@@ -6,7 +6,7 @@ namespace Traveller.Support
     {
         private Random die = new Random();
 
-        static public int CharToHex(char c)
+        static public int HexToInt(char c)
         {
             return int.Parse(c.ToString(), System.Globalization.NumberStyles.HexNumber);
         }
@@ -14,6 +14,16 @@ namespace Traveller.Support
         public int d6()
         {
             return (die.Next(1, 7));
+        }
+
+        public int d6(int dice)
+        {
+            int result = 0;
+            for (int i = 0; i < dice; i++)
+            {
+                result += d6();
+            }
+            return result;
         }
 
         /// <summary>
