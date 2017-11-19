@@ -1,26 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Traveller.Support;
 
 namespace Traveller.Models
 {
     public class CargoAvailable
     {
-        Utilities util = new Utilities();
-        World world { get; set; }
-        int HighPassage { get; set; }
-        int MidPassage { get; set; }
-        int LowPassage { get; set; }
-        List<int> CargoMajor { get; set; }
-        List<int> CargoMinor { get; set; }
-        List<int> CargoIncidental { get; set; }
+        public World world { get; set; }
+        public int HighPassage { get; set; }
+        public int MidPassage { get; set; }
+        public int LowPassage { get; set; }
+        public List<int> CargoMajor { get; set; }
+        public List<int> CargoMinor { get; set; }
+        public List<int> CargoIncidental { get; set; }
 
 
         public CargoAvailable(World origin, World destination)
         {
+            Utilities util = new Utilities();
             world = destination;
             int paxDM = 0;
             if (destination.Pop <= 4) paxDM = -3;

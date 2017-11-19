@@ -15,7 +15,7 @@
         </ResourceDictionary>
     </Page.Resources>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="0,-4,0,4">
+    <Grid Margin="0,-4,0,4" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="350" />
             <ColumnDefinition Width="250" />
@@ -34,16 +34,16 @@
             Grid.Row="2"
             Grid.RowSpan="2"
             Grid.Column="2"
-            Click="btnLoadCargo"
             Width="100"
-            Height="100">
+            Height="100"
+            Click="btnLoadCargo">
             <TextBlock Text="Search for Cargo and Passengers" TextWrapping="WrapWholeWords" />
         </Button>
         <Button
             Grid.Row="4"
             Grid.Column="2"
-            Click="btnRefuel"
-            Width="100">
+            Width="100"
+            Click="btnRefuel">
             Refuel
         </Button>
         <TextBlock
@@ -127,7 +127,8 @@
                     Margin="3"
                     ItemsSource="{Binding}">
                     <ListBox.ItemTemplate>
-                        <DataTemplate> <Grid>
+                        <DataTemplate>
+                            <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto" />
                                     <ColumnDefinition />
@@ -151,60 +152,105 @@
             <PivotItem Header="Cargo Manifest">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="220"></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="220" />
+                        <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="45"></RowDefinition>
-                        <RowDefinition Height="45"></RowDefinition>
-                        <RowDefinition ></RowDefinition>
-                        <RowDefinition></RowDefinition>
+                        <RowDefinition Height="45" />
+                        <RowDefinition Height="45" />
+                        <RowDefinition Height="45" />
+                        <RowDefinition />
+                        <RowDefinition />
                     </Grid.RowDefinitions>
-                    <StackPanel Grid.ColumnSpan="2" Orientation="Horizontal" Margin="3" Name="spSpecTrade">
-                        <TextBox Text="{Binding Description}" Style="{StaticResource txtBox}"></TextBox>
-                        <TextBox Text="{Binding BasePurchasePrice}" Style="{StaticResource txtBox}"></TextBox>
-                        <TextBox Text="{Binding dTons}" Style="{StaticResource txtBox}"></TextBox>
+                    <StackPanel
+                        Name="spSpecTrade"
+                        Grid.ColumnSpan="2"
+                        Margin="3"
+                        Orientation="Horizontal">
+                        <TextBox Style="{StaticResource txtBox}" Text="{Binding Description}" />
+                        <TextBox Style="{StaticResource txtBox}" Text="{Binding BasePurchasePrice}" />
+                        <TextBox Style="{StaticResource txtBox}" Text="{Binding dTons}" />
                         <Button Click="btnPrice" Style="{StaticResource btnMenu}">Get Price</Button>
                         <RadioButton Name="rbBroker0">No Broker</RadioButton>
                         <RadioButton Name="rbBroker1">Broker 1</RadioButton>
                         <RadioButton Name="rbBroker2">Broker 2</RadioButton>
                         <RadioButton Name="rbBroker3">Broker 3</RadioButton>
                     </StackPanel>
-                    <TextBlock Grid.Row="1" Grid.Column="0"  Grid.ColumnSpan="2" Style="{StaticResource txtBlockTitleCenter}" Text="Cargo and Passengers By Destination"></TextBlock>
-                    <ListBox Grid.Column="0" Grid.Row="2" ItemsSource="{Binding}" Grid.ColumnSpan="2" Name="lstPax">
+                    <TextBlock
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Style="{StaticResource txtBlockTitleCenter}"
+                        Text="Cargo and Passengers By Destination" />
+                    <TextBlock
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Style="{StaticResource txtBlockTitleCenter}"
+                        Text="Destination" />
+                    <Grid Grid.Row="2" Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="120" />
+                            <ColumnDefinition Width="120" />
+                            <ColumnDefinition Width="120" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                            Grid.Column="0"
+                            Style="{StaticResource txtBlock}"
+                            Text="High Passage" />
+                        <TextBlock
+                            Grid.Column="1"
+                            Style="{StaticResource txtBlock}"
+                            Text="Mid Passage" />
+                        <TextBlock
+                            Grid.Column="2"
+                            Style="{StaticResource txtBlock}"
+                            Text="Low Passage" />
+                        <TextBlock
+                            Grid.Column="3"
+                            HorizontalAlignment="Center"
+                            Style="{StaticResource txtBlock}"
+                            Text="Bulk Cargo" />
+                    </Grid>
+                    <ListBox
+                        Name="lstPax"
+                        Grid.Row="3"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        ItemsSource="{Binding}">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <Grid>
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="200"></ColumnDefinition>
-                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition Width="200" />
+                                        <ColumnDefinition />
                                     </Grid.ColumnDefinitions>
-                                    <TextBlock Text="{Binding world.Name}"></TextBlock>
+                                    <TextBlock Text="{Binding world.Name}" />
                                     <Grid Grid.Column="1">
                                         <Grid.ColumnDefinitions>
-                                            <ColumnDefinition></ColumnDefinition>
-                                            <ColumnDefinition></ColumnDefinition>
-                                            <ColumnDefinition></ColumnDefinition>
-                                            <ColumnDefinition></ColumnDefinition>
-                                            <ColumnDefinition></ColumnDefinition>
-                                            <ColumnDefinition></ColumnDefinition>
+                                            <ColumnDefinition Width="120" />
+                                            <ColumnDefinition Width="120" />
+                                            <ColumnDefinition Width="120" />
+                                            <ColumnDefinition />
                                         </Grid.ColumnDefinitions>
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition></RowDefinition>
-                                            <RowDefinition></RowDefinition>
-                                        </Grid.RowDefinitions>
-                                        <StackPanel Orientation="Horizontal" Grid.Column="0">
-                                            <TextBlock Text="High"></TextBlock>
-                                            <TextBox Style="{StaticResource txtBoxNum}" Text="{Binding HighPassage}"></TextBox>
+                                        <StackPanel Grid.Column="0" Orientation="Horizontal">
+                                            <TextBlock Style="{StaticResource txtBlockNormal}" Width="40" Text="{Binding HighPassage}" />
+                                            <Button Margin="3">OK</Button>
                                         </StackPanel>
-                                        <StackPanel Orientation="Horizontal" Grid.Column="1">
-                                            <TextBlock Text="Mid"></TextBlock>
-                                            <TextBox Style="{StaticResource txtBoxNum}" Text="{Binding MidPassage}"></TextBox>
+                                        <StackPanel Grid.Column="1" Orientation="Horizontal">
+                                            <TextBlock Style="{StaticResource txtBlockNormal}" Width="40" Text="{Binding MidPassage}" />
+                                            <Button Margin="3">OK</Button>
                                         </StackPanel>
-                                        <StackPanel Orientation="Horizontal" Grid.Column="2">
-                                            <TextBlock Text="Low"></TextBlock>
-                                            <TextBox Style="{StaticResource txtBoxNum}" Text="{Binding LowPassage}"></TextBox>
+                                        <StackPanel Grid.Column="2" Orientation="Horizontal">
+                                            <TextBlock Style="{StaticResource txtBlockNormal}" Width="40" Text="{Binding LowPassage}" />
+                                            <Button Margin="3">OK</Button>
                                         </StackPanel>
+                                        <ListBox Grid.Column="3">
+                                            <ListBox.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Grid></Grid>
+                                                </DataTemplate>
+                                            </ListBox.ItemTemplate>
+                                        </ListBox>
                                     </Grid>
                                 </Grid>
                             </DataTemplate>
@@ -228,9 +274,7 @@
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Margin="3" Text="{Binding Description}" />
-                                </StackPanel>
+                                <TextBlock Margin="3" Text="{Binding Description}" />
                             </Grid>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
