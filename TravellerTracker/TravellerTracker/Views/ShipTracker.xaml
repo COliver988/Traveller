@@ -160,7 +160,6 @@
                         <RowDefinition Height="45" />
                         <RowDefinition Height="45" />
                         <RowDefinition />
-                        <RowDefinition />
                     </Grid.RowDefinitions>
                     <StackPanel
                         Name="spSpecTrade"
@@ -244,13 +243,10 @@
                                             <TextBlock Style="{StaticResource txtBlockNormal}" Width="40" Text="{Binding LowPassage}" />
                                             <Button Margin="3">OK</Button>
                                         </StackPanel>
-                                        <ListBox Grid.Column="3">
-                                            <ListBox.ItemTemplate>
-                                                <DataTemplate>
-                                                    <Grid></Grid>
-                                                </DataTemplate>
-                                            </ListBox.ItemTemplate>
-                                        </ListBox>
+                                        <StackPanel Grid.Column="3" Orientation="Horizontal">
+                                            <TextBlock Style="{StaticResource txtBlockNormal}" Text="{Binding CargoListing}" />
+                                            <Button Margin="3">Inspect</Button>
+                                        </StackPanel>
                                     </Grid>
                                 </Grid>
                             </DataTemplate>
