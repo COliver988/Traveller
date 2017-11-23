@@ -8,9 +8,10 @@ using TravellerTracker.Models;
 namespace TravellerTracker.Migrations
 {
     [DbContext(typeof(TravellerContext))]
-    partial class TravellerContextModelSnapshot : ModelSnapshot
+    [Migration("20171123221408_classPassengers")]
+    partial class classPassengers
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.1");
@@ -89,12 +90,6 @@ namespace TravellerTracker.Migrations
                     b.Property<string>("Era");
 
                     b.Property<int>("Fuel");
-
-                    b.Property<int>("HighPaxCarried");
-
-                    b.Property<int>("LowPaxCarried");
-
-                    b.Property<int>("MidPaxCarried");
 
                     b.Property<string>("Name");
 

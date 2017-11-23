@@ -94,15 +94,15 @@
             Orientation="Horizontal">
             <TextBox
                 Name="txtLow"
-                PlaceholderText="none"
+                PlaceholderText="{x:Bind ship.LowPaxAvail}"
                 Style="{StaticResource txtBoxNum}" />
             <TextBox
                 Name="txtMid"
-                PlaceholderText="none"
+                PlaceholderText="{x:Bind ship.MidPaxAvail}"
                 Style="{StaticResource txtBoxNum}" />
             <TextBox
                 Name="txtHigh"
-                PlaceholderText="none"
+                PlaceholderText="{x:Bind ship.HighPaxAvail}"
                 Style="{StaticResource txtBoxNum}" />
         </StackPanel>
         <TextBlock
@@ -233,7 +233,7 @@
                                         </Grid.ColumnDefinitions>
                                         <StackPanel Grid.Column="0" Orientation="Horizontal">
                                             <TextBlock Style="{StaticResource txtBlockNormal}" Width="40" Text="{Binding HighPassage}" />
-                                            <Button Margin="3">OK</Button>
+                                            <Button Margin="3" Click="btnHighPax" >OK</Button>
                                         </StackPanel>
                                         <StackPanel Grid.Column="1" Orientation="Horizontal">
                                             <TextBlock Style="{StaticResource txtBlockNormal}" Width="40" Text="{Binding MidPassage}" />

@@ -26,6 +26,10 @@ namespace Traveller.Models
         public int Day { get; set; }
         public int Year { get; set; }
 
+        public int HighPaxCarried { get; set; }
+        public int MidPaxCarried { get; set; }
+        public int LowPaxCarried { get; set; }
+
         [NotMapped]
         public int AvailableCargo { get { return theclass.Cargo - this.CargoCarried; } }
 
@@ -39,6 +43,15 @@ namespace Traveller.Models
 
         [NotMapped]
         public TravellerVersion theVersion => TravellerTracker.App.DB.TravellerVersions.Where(x => x.TravellerVersionId == this.TravellerVersionID).FirstOrDefault();
+
+        [NotMapped]
+        public int HighPaxAvail { get { return theclass.HighPassage - HighPaxCarried; } }
+
+        [NotMapped]
+        public int MidPaxAvail { get { return theclass.MidPassage - MidPaxCarried; } }
+
+        [NotMapped]
+        public int LowPaxAvail { get { return theclass.LowPassage - LowPaxCarried; } }
 
         [NotMapped]
         public Uri theJumpMapURL

@@ -49,9 +49,10 @@
         <TextBlock
             Grid.Row="0"
             Grid.Column="3"
-            Margin="8.333,5,18,2.333"
+            Margin="3"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
+            FontWeight="Bold"
             Text="Ship Type Codes"
             TextAlignment="Center" />
         <TextBlock
@@ -145,6 +146,21 @@
             Grid.Column="1"
             Style="{StaticResource txtBoxNum}"
             Text="{x:Bind shipClass.Fuel, Mode=TwoWay}" />
+        <TextBlock
+            Grid.Row="9"
+            Grid.Column="0"
+            Text="Passenger Capacity" />
+        <StackPanel
+            Grid.Row="9"
+            Grid.Column="1"
+            Orientation="Horizontal">
+            <TextBlock Style="{StaticResource txtBlockNormal}" Text="High: " />
+            <TextBox Style="{StaticResource txtBoxNum}" Text="{x:Bind shipClass.HighPassage, Mode=TwoWay}" />
+            <TextBlock Style="{StaticResource txtBlockNormal}" Text="Mid: " />
+            <TextBox Style="{StaticResource txtBoxNum}" Text="{x:Bind shipClass.MidPassage, Mode=TwoWay}" />
+            <TextBlock Style="{StaticResource txtBlockNormal}" Text="Low: " />
+            <TextBox Style="{StaticResource txtBoxNum}" Text="{x:Bind shipClass.LowPassage, Mode=TwoWay}" />
+        </StackPanel>
 
     </Grid>
 </Page>

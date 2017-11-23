@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Traveller.Models
+﻿namespace Traveller.Models
 {
     public class ShipClass
     {
@@ -16,6 +10,9 @@ namespace Traveller.Models
         public int Power { get; set; }
         public int Cargo { get; set; }
         public int Fuel { get; set; }
+        public int HighPassage { get; set; }
+        public int MidPassage { get; set; }
+        public int LowPassage { get; set; }
         public string HGClass { get; set; } // see High Guard
 
         public string Description

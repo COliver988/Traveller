@@ -103,6 +103,14 @@
     <Compile Include="Migrations\20171112115512_intitialize.designer.cs">
       <DependentUpon>20171112115512_intitialize.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20171123221408_classPassengers.cs" />
+    <Compile Include="Migrations\20171123221408_classPassengers.designer.cs">
+      <DependentUpon>20171123221408_classPassengers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20171123222601_shipPassengers.cs" />
+    <Compile Include="Migrations\20171123222601_shipPassengers.designer.cs">
+      <DependentUpon>20171123222601_shipPassengers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\TravellerContextModelSnapshot.cs" />
     <Compile Include="Models\Cargo.cs" />
     <Compile Include="Models\CargoAvailable.cs" />
