@@ -111,6 +111,10 @@
     <Compile Include="Migrations\20171123222601_shipPassengers.designer.cs">
       <DependentUpon>20171123222601_shipPassengers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20171124212931_classEndurance.cs" />
+    <Compile Include="Migrations\20171124212931_classEndurance.designer.cs">
+      <DependentUpon>20171124212931_classEndurance.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\TravellerContextModelSnapshot.cs" />
     <Compile Include="Models\Cargo.cs" />
     <Compile Include="Models\CargoAvailable.cs" />

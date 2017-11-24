@@ -268,9 +268,11 @@
                         <DataTemplate>
                             <Grid>
                                 <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50"></ColumnDefinition>
                                     <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
-                                <TextBlock Margin="3" Text="{Binding Description}" />
+                                <Button Grid.Column="0" Margin="3" Click="btnJump">Jump</Button>
+                                <TextBlock Margin="3" Grid.Column="1" Text="{Binding Description}" />
                             </Grid>
                         </DataTemplate>
                     </ListBox.ItemTemplate>

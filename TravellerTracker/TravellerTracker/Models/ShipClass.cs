@@ -14,6 +14,8 @@
         public int MidPassage { get; set; }
         public int LowPassage { get; set; }
         public string HGClass { get; set; } // see High Guard
+        public int FuelPerParsec { get; set; }  // fuel per jump (Classic = 10% of dTon)
+        public int WeeksEndurance { get; set; }
 
         public string Description
         {

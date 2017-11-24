@@ -13,6 +13,7 @@ namespace TravellerTracker.Views
         public Ship ship { get; set; }
         List<World> jumpWorlds;
         public List<CargoAvailable> pax { get; set; }
+        Utilities util = new Utilities();
 
         public ShipTracker(int shipID)
         {
@@ -127,6 +128,13 @@ namespace TravellerTracker.Views
                 ship.HighPaxCarried = ship.theclass.HighPassage;
             }
             App.DB.SaveChangesAsync();
+        }
+
+        private void btnJump(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            Button btn = sender as Button;
+            World destination = btn.DataContext as World;
+            int distance = util.calcDistance(ship.theWorld.Hex, destination.Hex);
         }
     }
 }
