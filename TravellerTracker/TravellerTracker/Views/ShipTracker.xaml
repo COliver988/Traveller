@@ -65,7 +65,7 @@
             Grid.Row="1"
             Grid.Column="0"
             Style="{StaticResource txtBlockNormal}"
-            Text="{x:Bind ship.theclass.Description}" />
+            Text="{x:Bind ship.theClass.Description}" />
         <TextBlock
             Grid.Row="1"
             Grid.Column="1"
