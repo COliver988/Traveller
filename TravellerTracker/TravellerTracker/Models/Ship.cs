@@ -31,10 +31,10 @@ namespace Traveller.Models
         public int LowPaxCarried { get; set; }
 
         [NotMapped]
-        public int AvailableCargo { get { return theclass.Cargo - this.CargoCarried; } }
+        public int AvailableCargo { get { return theClass.Cargo - this.CargoCarried; } }
 
         [NotMapped]
-        public ShipClass theclass => TravellerTracker.App.DB.ShipClasses.Where(x => x.ShipClassID == this.ShipClassID).FirstOrDefault();
+        public ShipClass theClass => TravellerTracker.App.DB.ShipClasses.Where(x => x.ShipClassID == this.ShipClassID).FirstOrDefault();
         [NotMapped]
         public World theWorld => TravellerTracker.App.DB.Worlds.Where(x => x.WorldID == this.WorldID).FirstOrDefault();
 
@@ -45,13 +45,13 @@ namespace Traveller.Models
         public TravellerVersion theVersion => TravellerTracker.App.DB.TravellerVersions.Where(x => x.TravellerVersionId == this.TravellerVersionID).FirstOrDefault();
 
         [NotMapped]
-        public int HighPaxAvail { get { return theclass.HighPassage - HighPaxCarried; } }
+        public int HighPaxAvail { get { return theClass.HighPassage - HighPaxCarried; } }
 
         [NotMapped]
-        public int MidPaxAvail { get { return theclass.MidPassage - MidPaxCarried; } }
+        public int MidPaxAvail { get { return theClass.MidPassage - MidPaxCarried; } }
 
         [NotMapped]
-        public int LowPaxAvail { get { return theclass.LowPassage - LowPaxCarried; } }
+        public int LowPaxAvail { get { return theClass.LowPassage - LowPaxCarried; } }
 
         [NotMapped]
         public Uri theJumpMapURL
@@ -59,7 +59,7 @@ namespace Traveller.Models
             get
             {
                 TravellerMapAPI api = new TravellerMapAPI();
-                return api.JumpMapURL(theWorld, theclass.Jump);
+                return api.JumpMapURL(theWorld, theClass.Jump);
             }
         }
     }

@@ -21,7 +21,7 @@ namespace TravellerTracker.Views
             ship = App.DB.Ships.Where(x => x.ShipId == shipID).FirstOrDefault();
             this.DataContext = this;
             webView.Navigate(ship.theJumpMapURL);
-            jumpWorlds = ship.theWorld.JumpRange(ship.theclass.Jump);
+            jumpWorlds = ship.theWorld.JumpRange(ship.theClass.Jump);
             lstJumpList.ItemsSource = jumpWorlds;
             refresh();
         }
@@ -54,7 +54,7 @@ namespace TravellerTracker.Views
 
         private async void btnRefuel(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            int fuelNeeded = ship.theclass.Fuel - ship.Fuel;
+            int fuelNeeded = ship.theClass.Fuel - ship.Fuel;
             int unrefinedCost = fuelNeeded * 100;
             int refinedCost = fuelNeeded * 500;
             if (ship.Credits <= unrefinedCost)
@@ -83,11 +83,11 @@ namespace TravellerTracker.Views
                         break;
                     case ContentDialogResult.Primary:
                         ship.Credits -= refinedCost;
-                        ship.Fuel = ship.theclass.Fuel;
+                        ship.Fuel = ship.theClass.Fuel;
                         break;
                     case ContentDialogResult.Secondary:
                         ship.Credits -= unrefinedCost;
-                        ship.Fuel = ship.theclass.Fuel;
+                        ship.Fuel = ship.theClass.Fuel;
                         break;
                     default:
                         break;
@@ -96,14 +96,14 @@ namespace TravellerTracker.Views
             else
             {
                 ship.Credits -= unrefinedCost;
-                ship.Fuel = ship.theclass.Fuel;
+                ship.Fuel = ship.theClass.Fuel;
             }
             App.DB.SaveChangesAsync();
         }
 
         private void btnHighPax(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            if (ship.theclass.HighPassage == 0 || ship.HighPaxAvail == 0)
+            if (ship.theClass.HighPassage == 0 || ship.HighPaxAvail == 0)
             {
                 ErrorHandling eh = new ErrorHandling();
                 eh.showError("You do not have any high passage capacity.");
@@ -125,7 +125,7 @@ namespace TravellerTracker.Views
             else
             {
                 ship.Credits += ship.HighPaxAvail * 10000;
-                ship.HighPaxCarried = ship.theclass.HighPassage;
+                ship.HighPaxCarried = ship.theClass.HighPassage;
             }
             App.DB.SaveChangesAsync();
         }
@@ -135,6 +135,24 @@ namespace TravellerTracker.Views
             Button btn = sender as Button;
             World destination = btn.DataContext as World;
             int distance = util.calcDistance(ship.theWorld.Hex, destination.Hex);
+            if (ship.Fuel < distance * ship.theClass.FuelPerParsec)
+            {
+                ErrorHandling eh = new ErrorHandling();
+                eh.showError("You do not have sufficient fuel for the jump!");
+                return;
+            }
+            // add a log record
+            App.DB.Add(new ShipLog() { Day = ship.Day, Year = ship.Year, ShipId = ship.ShipId, Log = string.Format("Jumping from {0} to {1}", ship.theWorld.Name, destination.Name) });
+            ImperialDates id = new ImperialDates(ship.Day, ship.Year);
+            id.addDays(7);
+            ship.Day = id.Day;
+            ship.Year = id.Year;
+            ship.WorldID = destination.WorldID;
+            ship.HighPaxCarried = 0;
+            ship.LowPaxCarried = 0;
+            ship.MidPaxCarried = 0;
+            ship.Fuel -= ship.theClass.FuelPerParsec;
+            App.DB.SaveChangesAsync();
         }
     }
 }

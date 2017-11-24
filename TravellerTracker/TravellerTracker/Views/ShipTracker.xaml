@@ -268,7 +268,7 @@
                         <DataTemplate>
                             <Grid>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="50"></ColumnDefinition>
+                                    <ColumnDefinition Width="80"></ColumnDefinition>
                                     <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
                                 <Button Grid.Column="0" Margin="3" Click="btnJump">Jump</Button>
