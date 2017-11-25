@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TravellerTracker.Migrations
 {
-    public partial class intitialize : Migration
+    public partial class intitial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -70,6 +70,9 @@ namespace TravellerTracker.Migrations
                     Day = table.Column<int>(nullable: false),
                     Era = table.Column<string>(nullable: true),
                     Fuel = table.Column<int>(nullable: false),
+                    HighPaxCarried = table.Column<int>(nullable: false),
+                    LowPaxCarried = table.Column<int>(nullable: false),
+                    MidPaxCarried = table.Column<int>(nullable: false),
                     Name = table.Column<string>(nullable: true),
                     SectorID = table.Column<int>(nullable: false),
                     ShipClassID = table.Column<int>(nullable: false),
@@ -107,11 +110,16 @@ namespace TravellerTracker.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Cargo = table.Column<int>(nullable: false),
                     Fuel = table.Column<int>(nullable: false),
+                    FuelPerParsec = table.Column<int>(nullable: false),
                     HGClass = table.Column<string>(nullable: true),
+                    HighPassage = table.Column<int>(nullable: false),
                     Jump = table.Column<int>(nullable: false),
+                    LowPassage = table.Column<int>(nullable: false),
                     Man = table.Column<int>(nullable: false),
+                    MidPassage = table.Column<int>(nullable: false),
                     Name = table.Column<string>(nullable: true),
                     Power = table.Column<int>(nullable: false),
+                    WeeksEndurance = table.Column<int>(nullable: false),
                     dTons = table.Column<int>(nullable: false)
                 },
                 constraints: table =>

@@ -8,8 +8,8 @@ using TravellerTracker.Models;
 namespace TravellerTracker.Migrations
 {
     [DbContext(typeof(TravellerContext))]
-    [Migration("20171123222601_shipPassengers")]
-    partial class shipPassengers
+    [Migration("20171125143556_worldLog")]
+    partial class worldLog
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -143,6 +143,8 @@ namespace TravellerTracker.Migrations
 
                     b.Property<int>("Fuel");
 
+                    b.Property<int>("FuelPerParsec");
+
                     b.Property<string>("HGClass");
 
                     b.Property<int>("HighPassage");
@@ -158,6 +160,8 @@ namespace TravellerTracker.Migrations
                     b.Property<string>("Name");
 
                     b.Property<int>("Power");
+
+                    b.Property<int>("WeeksEndurance");
 
                     b.Property<int>("dTons");
 
@@ -260,6 +264,26 @@ namespace TravellerTracker.Migrations
                     b.HasKey("WorldID");
 
                     b.ToTable("Worlds");
+                });
+
+            modelBuilder.Entity("Traveller.Models.WorldLog", b =>
+                {
+                    b.Property<int>("WorldLogId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("Day");
+
+                    b.Property<string>("Log");
+
+                    b.Property<int>("ShipId");
+
+                    b.Property<int>("WorldId");
+
+                    b.Property<int>("Year");
+
+                    b.HasKey("WorldLogId");
+
+                    b.ToTable("WorldLogs");
                 });
         }
     }

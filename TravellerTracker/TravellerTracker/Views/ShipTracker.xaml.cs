@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using Traveller.Models;
 using Traveller.Support;
 using TravellerTracker.Models;
@@ -142,7 +143,14 @@ namespace TravellerTracker.Views
                 return;
             }
             // add a log record
-            App.DB.Add(new ShipLog() { Day = ship.Day, Year = ship.Year, ShipId = ship.ShipId, Log = string.Format("Jumping from {0} to {1}", ship.theWorld.Name, destination.Name) });
+            StringBuilder sb = new StringBuilder($"Jumping from {ship.theWorld.Name} to {destination.Name} carrying {ship.CargoCarried} tons of cargo.");
+            if (ship.HighPaxCarried > 0)
+                sb.Append($"{ship.HighPaxCarried} high passengers.");
+            if (ship.MidPaxCarried > 0)
+                sb.Append($" {ship.MidPaxCarried} mid passengers.");
+            if (ship.LowPaxCarried > 0)
+                sb.Append($" {ship.LowPaxCarried} low passengers.");
+            App.DB.Add(new ShipLog() { Day = ship.Day, Year = ship.Year, ShipId = ship.ShipId, Log = sb.ToString().Replace("  ", " ") });
             ImperialDates id = new ImperialDates(ship.Day, ship.Year);
             id.addDays(7);
             ship.Day = id.Day;

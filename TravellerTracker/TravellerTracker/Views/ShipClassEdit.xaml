@@ -149,19 +149,16 @@
             Grid.Column="0"
             Style="{StaticResource txtBlockNormal}"
             Text="Fuel" />
-        <StackPanel Grid.Row="8" Grid.Column="1" Orientation="Horizontal">
+        <StackPanel
+            Grid.Row="8"
+            Grid.Column="1"
+            Orientation="Horizontal">
             <TextBlock Style="{StaticResource txtBlockNormal}" Text="Total: " />
-            <TextBox
-            Style="{StaticResource txtBoxNum}"
-            Text="{x:Bind shipClass.Fuel, Mode=TwoWay}" />
+            <TextBox Style="{StaticResource txtBoxNum}" Text="{x:Bind shipClass.Fuel, Mode=TwoWay}" />
             <TextBlock Style="{StaticResource txtBlockNormal}" Text="per parsec: " />
-            <TextBox
-            Style="{StaticResource txtBoxNum}"
-            Text="{x:Bind shipClass.FuelPerParsec, Mode=TwoWay}" />
+            <TextBox Style="{StaticResource txtBoxNum}" Text="{x:Bind shipClass.FuelPerParsec, Mode=TwoWay}" />
             <TextBlock Style="{StaticResource txtBlockNormal}" Text="Weeks endurance: " />
-            <TextBox
-            Style="{StaticResource txtBoxNum}"
-            Text="{x:Bind shipClass.WeeksEndurance, Mode=TwoWay}" />
+            <TextBox Style="{StaticResource txtBoxNum}" Text="{x:Bind shipClass.WeeksEndurance, Mode=TwoWay}" />
         </StackPanel>
         <TextBlock
             Grid.Row="9"

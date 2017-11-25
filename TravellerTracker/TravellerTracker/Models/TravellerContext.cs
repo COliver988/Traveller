@@ -15,6 +15,7 @@ namespace TravellerTracker.Models
         public DbSet<TradeClassification> TradeClassifications { get; set; }
         public DbSet<TravellerVersion> TravellerVersions { get; set; }
         public DbSet<CargoType> CargoTypes { get; set; }
+        public DbSet<WorldLog> WorldLogs { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

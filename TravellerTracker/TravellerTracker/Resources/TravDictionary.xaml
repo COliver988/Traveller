@@ -48,6 +48,27 @@
         <Setter Property="HorizontalAlignment" Value="Right" />
     </Style>
 
+    <Style
+        x:Key="txtBlockRightBold"
+        x:Name="txtBlockRightBold"
+        TargetType="TextBlock">
+        <Setter Property="Height" Value="28" />
+        <Setter Property="Margin" Value="3" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Right" />
+        <Setter Property="FontWeight" Value="Bold" />
+    </Style>
+
+    <Style
+        x:Key="txtBlockLeft"
+        x:Name="txtBlockLeft"
+        TargetType="TextBlock">
+        <Setter Property="Height" Value="28" />
+        <Setter Property="Margin" Value="3" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+    </Style>
+
     <Style x:Name="txtBlock" TargetType="TextBlock">
         <Setter Property="Height" Value="28" />
         <Setter Property="Margin" Value="3" />

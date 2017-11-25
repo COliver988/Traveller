@@ -31,17 +31,28 @@ namespace Traveller.Models
             this.Name = line.Substring(5, 20);
             this.UWP = line.Substring(26, 9);
             this.Remarks = line.Substring(36, 40);
-            this.Importance = line.Substring(78, 6);
+            this.Importance = line.Substring(77, 6);
             this.Ex = line.Substring(84, 6);
-            this.CulturalExt = line.Substring(93, 6);
+            this.CulturalExt = line.Substring(92, 6);
             this.Bases = line.Substring(106, 2);
             this.Zone = line[109];
-            this.Alliance = line.Substring(118, 4);
+            this.PBG = line.Substring(110, 3);
+            this.Alliance = line.Substring(117, 4);
             this.Stellar = line.Substring(122);
         }
 
         [NotMapped]
-        public string Description { get { return string.Format("{0} {1} {2}", Hex, Name, UWP); } }
+        public Sector theSector => TravellerTracker.App.DB.Sectors.Where(x => x.SectorID == this.SectorID).FirstOrDefault();
+
+        [NotMapped]
+        public int PopMultiplier {  get { return  Utilities.HexToInt(PBG[0]); } }
+        [NotMapped]
+        public int Belts {  get { return  Utilities.HexToInt(PBG[1]); } }
+        [NotMapped]
+        public int GasGiants {  get { return  Utilities.HexToInt(PBG[2]); } }
+
+        [NotMapped]
+        public string Description { get { return string.Format("{0} {1} {2}", Hex, Name, UWP).Replace("  ", " "); } }
 
         // UWP in A123456-7 format
         [NotMapped]

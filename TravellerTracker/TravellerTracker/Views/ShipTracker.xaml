@@ -64,7 +64,7 @@
         <TextBlock
             Grid.Row="1"
             Grid.Column="0"
-            Style="{StaticResource txtBlockNormal}"
+            Style="{StaticResource txtBlockRightBold}"
             Text="{x:Bind ship.theClass.Description}" />
         <TextBlock
             Grid.Row="1"
@@ -74,7 +74,7 @@
         <TextBlock
             Grid.Row="2"
             Grid.Column="0"
-            Style="{StaticResource txtBlockNormal}"
+            Style="{StaticResource txtBlockRightBold}"
             Text="Cargo Carried / Available" />
         <StackPanel
             Grid.Row="2"
@@ -86,7 +86,7 @@
         <TextBlock
             Grid.Row="3"
             Grid.Column="0"
-            Style="{StaticResource txtBlockNormal}"
+            Style="{StaticResource txtBlockRightBold}"
             Text="Available Passengers: Low/Mid/High" />
         <StackPanel
             Grid.Row="3"
@@ -108,7 +108,7 @@
         <TextBlock
             Grid.Row="4"
             Grid.Column="0"
-            Style="{StaticResource txtBlockNormal}"
+            Style="{StaticResource txtBlockRightBold}"
             Text="Current Fuel / Credits Available" />
         <StackPanel
             Grid.Row="4"
@@ -232,15 +232,24 @@
                                             <ColumnDefinition />
                                         </Grid.ColumnDefinitions>
                                         <StackPanel Grid.Column="0" Orientation="Horizontal">
-                                            <TextBlock Style="{StaticResource txtBlockNormal}" Width="40" Text="{Binding HighPassage}" />
-                                            <Button Margin="3" Click="btnHighPax" >OK</Button>
+                                            <TextBlock
+                                                Width="40"
+                                                Style="{StaticResource txtBlockNormal}"
+                                                Text="{Binding HighPassage}" />
+                                            <Button Margin="3" Click="btnHighPax">OK</Button>
                                         </StackPanel>
                                         <StackPanel Grid.Column="1" Orientation="Horizontal">
-                                            <TextBlock Style="{StaticResource txtBlockNormal}" Width="40" Text="{Binding MidPassage}" />
+                                            <TextBlock
+                                                Width="40"
+                                                Style="{StaticResource txtBlockNormal}"
+                                                Text="{Binding MidPassage}" />
                                             <Button Margin="3">OK</Button>
                                         </StackPanel>
                                         <StackPanel Grid.Column="2" Orientation="Horizontal">
-                                            <TextBlock Style="{StaticResource txtBlockNormal}" Width="40" Text="{Binding LowPassage}" />
+                                            <TextBlock
+                                                Width="40"
+                                                Style="{StaticResource txtBlockNormal}"
+                                                Text="{Binding LowPassage}" />
                                             <Button Margin="3">OK</Button>
                                         </StackPanel>
                                         <StackPanel Grid.Column="3" Orientation="Horizontal">
@@ -268,18 +277,100 @@
                         <DataTemplate>
                             <Grid>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="80"></ColumnDefinition>
+                                    <ColumnDefinition Width="80" />
                                     <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
-                                <Button Grid.Column="0" Margin="3" Click="btnJump">Jump</Button>
-                                <TextBlock Margin="3" Grid.Column="1" Text="{Binding Description}" />
+                                <Button
+                                    Grid.Column="0"
+                                    Margin="3"
+                                    Click="btnJump">
+                                    Jump
+                                </Button>
+                                <TextBlock
+                                    Grid.Column="1"
+                                    Margin="3"
+                                    Text="{Binding Description}" />
                             </Grid>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
             </PivotItem>
             <PivotItem Header="Ship Details" />
-            <PivotItem Header="World Details" />
+            <PivotItem Header="World Details">
+                <Grid Name="gridWorld">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="45" />
+                        <RowDefinition Height="45" />
+                        <RowDefinition Height="45" />
+                        <RowDefinition Height="45" />
+                        <RowDefinition Height="45" />
+                        <RowDefinition Height="45" />
+                        <RowDefinition Height="45" />
+                        <RowDefinition Height="45" />
+                        <RowDefinition Height="45" />
+                        <RowDefinition Height="45" />
+                        <RowDefinition Height="45" />
+                    </Grid.RowDefinitions>
+                    <TextBlock
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        HorizontalAlignment="Center"
+                        Style="{StaticResource txtBlockTitle}"
+                        Text="{x:Bind ship.theWorld.Name}" />
+                    <TextBlock
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Style="{StaticResource txtBlockRightBold}"
+                        Text="UWP" />
+                    <StackPanel
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource txtBlockLeft}" Text="{x:Bind ship.theWorld.UWP}" />
+                        <TextBlock Style="{StaticResource txtBlockLeft}" Text="{x:Bind ship.theWorld.Hex}" />
+                        <TextBlock Style="{StaticResource txtBlockLeft}" Text="{x:Bind ship.theWorld.theSector.Name}" />
+                    </StackPanel>
+                    <TextBlock
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Style="{StaticResource txtBlockRightBold}"
+                        Text="Remarks" />
+                    <TextBlock
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        Style="{StaticResource txtBlockLeft}"
+                        Text="{x:Bind ship.theWorld.Remarks}" />
+                    <TextBlock
+                        Grid.Row="3"
+                        Grid.Column="0"
+                        Style="{StaticResource txtBlockRightBold}"
+                        Text="System" />
+                    <StackPanel
+                        Grid.Row="3"
+                        Grid.Column="1"
+                        Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource txtBlockLeft}" Text="Gas giants: " />
+                        <TextBlock Style="{StaticResource txtBlockLeft}" Text="{x:Bind ship.theWorld.GasGiants}" />
+                        <TextBlock Style="{StaticResource txtBlockLeft}" Text="Planetoid belts: " />
+                        <TextBlock Style="{StaticResource txtBlockLeft}" Text="{x:Bind ship.theWorld.Belts}" />
+                    </StackPanel>
+                    <TextBlock
+                        Grid.Row="4"
+                        Grid.Column="0"
+                        Style="{StaticResource txtBlockRightBold}"
+                        Text="Stellar" />
+                    <TextBlock
+                        Grid.Row="4"
+                        Grid.Column="1"
+                        Style="{StaticResource txtBlockLeft}"
+                        Text="{x:Bind ship.theWorld.Stellar}" />
+                </Grid>
+            </PivotItem>
         </Pivot>
     </Grid>
 </Page>

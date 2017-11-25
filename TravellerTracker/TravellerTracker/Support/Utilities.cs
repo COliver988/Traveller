@@ -8,7 +8,14 @@ namespace Traveller.Support
 
         static public int HexToInt(char c)
         {
+            try
+            {
             return int.Parse(c.ToString(), System.Globalization.NumberStyles.HexNumber);
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
         }
 
         public int d6()

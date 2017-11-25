@@ -264,6 +264,26 @@ namespace TravellerTracker.Migrations
 
                     b.ToTable("Worlds");
                 });
+
+            modelBuilder.Entity("Traveller.Models.WorldLog", b =>
+                {
+                    b.Property<int>("WorldLogId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("Day");
+
+                    b.Property<string>("Log");
+
+                    b.Property<int>("ShipId");
+
+                    b.Property<int>("WorldId");
+
+                    b.Property<int>("Year");
+
+                    b.HasKey("WorldLogId");
+
+                    b.ToTable("WorldLogs");
+                });
         }
     }
 }

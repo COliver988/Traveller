@@ -42,11 +42,14 @@
             Grid.Column="1"
             Margin="3"
             Orientation="Horizontal">
-            <ComboBox Name="comboVersions" Margin="3" SelectionChanged="comboVersions_SelectionChanged">
+            <ComboBox
+                Name="comboVersions"
+                Margin="3"
+                SelectionChanged="comboVersions_SelectionChanged">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
-                            <TextBlock Text="{Binding Name}"></TextBlock>
+                            <TextBlock Text="{Binding Name}" />
                         </StackPanel>
                     </DataTemplate>
                 </ComboBox.ItemTemplate>

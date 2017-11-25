@@ -8,8 +8,8 @@ using TravellerTracker.Models;
 namespace TravellerTracker.Migrations
 {
     [DbContext(typeof(TravellerContext))]
-    [Migration("20171112115512_intitialize")]
-    partial class intitialize
+    [Migration("20171125140716_intitial")]
+    partial class intitial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -91,6 +91,12 @@ namespace TravellerTracker.Migrations
 
                     b.Property<int>("Fuel");
 
+                    b.Property<int>("HighPaxCarried");
+
+                    b.Property<int>("LowPaxCarried");
+
+                    b.Property<int>("MidPaxCarried");
+
                     b.Property<string>("Name");
 
                     b.Property<int>("SectorID");
@@ -137,15 +143,25 @@ namespace TravellerTracker.Migrations
 
                     b.Property<int>("Fuel");
 
+                    b.Property<int>("FuelPerParsec");
+
                     b.Property<string>("HGClass");
+
+                    b.Property<int>("HighPassage");
 
                     b.Property<int>("Jump");
 
+                    b.Property<int>("LowPassage");
+
                     b.Property<int>("Man");
+
+                    b.Property<int>("MidPassage");
 
                     b.Property<string>("Name");
 
                     b.Property<int>("Power");
+
+                    b.Property<int>("WeeksEndurance");
 
                     b.Property<int>("dTons");
 

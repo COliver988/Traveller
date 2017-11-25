@@ -99,21 +99,13 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20171112115512_intitialize.cs" />
-    <Compile Include="Migrations\20171112115512_intitialize.designer.cs">
-      <DependentUpon>20171112115512_intitialize.cs</DependentUpon>
+    <Compile Include="Migrations\20171125140716_intitial.cs" />
+    <Compile Include="Migrations\20171125140716_intitial.designer.cs">
+      <DependentUpon>20171125140716_intitial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20171123221408_classPassengers.cs" />
-    <Compile Include="Migrations\20171123221408_classPassengers.designer.cs">
-      <DependentUpon>20171123221408_classPassengers.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20171123222601_shipPassengers.cs" />
-    <Compile Include="Migrations\20171123222601_shipPassengers.designer.cs">
-      <DependentUpon>20171123222601_shipPassengers.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20171124212931_classEndurance.cs" />
-    <Compile Include="Migrations\20171124212931_classEndurance.designer.cs">
-      <DependentUpon>20171124212931_classEndurance.cs</DependentUpon>
+    <Compile Include="Migrations\20171125143556_worldLog.cs" />
+    <Compile Include="Migrations\20171125143556_worldLog.designer.cs">
+      <DependentUpon>20171125143556_worldLog.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\TravellerContextModelSnapshot.cs" />
     <Compile Include="Models\Cargo.cs" />
@@ -126,6 +118,7 @@
     <Compile Include="Models\TradeClassification.cs" />
     <Compile Include="Models\TravellerMapUniverse.cs" />
     <Compile Include="Models\TravellerVersion.cs" />
+    <Compile Include="Models\WorldLog.cs" />
     <Compile Include="Models\Worlds.cs" />
     <Compile Include="Support\ImperialDates.cs" />
     <Compile Include="Models\ShipClass.cs" />

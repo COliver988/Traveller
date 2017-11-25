@@ -49,23 +49,68 @@
                 Delete
             </Button>
         </StackPanel>
-        <TextBlock Style="{StaticResource txtBlock}" Grid.Column="0" Grid.Row="1">Description</TextBlock>
-        <TextBox Style="{StaticResource txtBox}" Text="{x:Bind cargo.Description, Mode=TwoWay}" Grid.Row="1" Grid.Column="1"></TextBox>
-        <TextBlock Style="{StaticResource txtBlock}" Grid.Column="0" Grid.Row="2">Base Cost</TextBlock>
-        <TextBox Style="{StaticResource txtBoxNumCr}" Text="{x:Bind cargo.BasePurchasePrice, Mode=TwoWay}" Grid.Row="2" Grid.Column="1"></TextBox>
-        <TextBlock Style="{StaticResource txtBlock}" Grid.Column="0" Grid.Row="3">D1 / D2</TextBlock>
-        <StackPanel Grid.Column="1" Grid.Row="3" Orientation="Horizontal" Margin="3">
-            <TextBox Style="{StaticResource txtBoxNum}" Text="{x:Bind cargo.D1, Mode=TwoWay}"></TextBox>
-            <TextBlock Margin="3" Text=" / "></TextBlock>
-            <TextBox Style="{StaticResource txtBoxNum}" Text="{x:Bind cargo.D2, Mode=TwoWay}"></TextBox>
+        <TextBlock
+            Grid.Row="1"
+            Grid.Column="0"
+            Style="{StaticResource txtBlock}">
+            Description
+        </TextBlock>
+        <TextBox
+            Grid.Row="1"
+            Grid.Column="1"
+            Style="{StaticResource txtBox}"
+            Text="{x:Bind cargo.Description, Mode=TwoWay}" />
+        <TextBlock
+            Grid.Row="2"
+            Grid.Column="0"
+            Style="{StaticResource txtBlock}">
+            Base Cost
+        </TextBlock>
+        <TextBox
+            Grid.Row="2"
+            Grid.Column="1"
+            Style="{StaticResource txtBoxNumCr}"
+            Text="{x:Bind cargo.BasePurchasePrice, Mode=TwoWay}" />
+        <TextBlock
+            Grid.Row="3"
+            Grid.Column="0"
+            Style="{StaticResource txtBlock}">
+            D1 / D2
+        </TextBlock>
+        <StackPanel
+            Grid.Row="3"
+            Grid.Column="1"
+            Margin="3"
+            Orientation="Horizontal">
+            <TextBox Style="{StaticResource txtBoxNum}" Text="{x:Bind cargo.D1, Mode=TwoWay}" />
+            <TextBlock Margin="3" Text=" / " />
+            <TextBox Style="{StaticResource txtBoxNum}" Text="{x:Bind cargo.D2, Mode=TwoWay}" />
         </StackPanel>
-        <TextBlock Style="{StaticResource txtBlock}" Grid.Column="0" Grid.Row="4">Qty Dice / Multiplier</TextBlock>
-        <StackPanel Grid.Column="1" Grid.Row="4" Orientation="Horizontal" Margin="3">
-            <TextBox Style="{StaticResource txtBoxNum}" Text="{x:Bind cargo.QtyDie, Mode=TwoWay}"></TextBox>
-            <TextBlock Margin="3" Text=" / "></TextBlock>
-            <TextBox Style="{StaticResource txtBoxNum}" Text="{x:Bind cargo.Multiplier, Mode=TwoWay}"></TextBox>
+        <TextBlock
+            Grid.Row="4"
+            Grid.Column="0"
+            Style="{StaticResource txtBlock}">
+            Qty Dice / Multiplier
+        </TextBlock>
+        <StackPanel
+            Grid.Row="4"
+            Grid.Column="1"
+            Margin="3"
+            Orientation="Horizontal">
+            <TextBox Style="{StaticResource txtBoxNum}" Text="{x:Bind cargo.QtyDie, Mode=TwoWay}" />
+            <TextBlock Margin="3" Text=" / " />
+            <TextBox Style="{StaticResource txtBoxNum}" Text="{x:Bind cargo.Multiplier, Mode=TwoWay}" />
         </StackPanel>
-        <TextBlock Style="{StaticResource txtBlock}" Grid.Column="0" Grid.Row="5">Cargo code</TextBlock>
-        <TextBox Style="{StaticResource txtBoxNumCr}" Text="{x:Bind cargo.CargoCode, Mode=TwoWay}" Grid.Row="5" Grid.Column="1"></TextBox>
+        <TextBlock
+            Grid.Row="5"
+            Grid.Column="0"
+            Style="{StaticResource txtBlock}">
+            Cargo code
+        </TextBlock>
+        <TextBox
+            Grid.Row="5"
+            Grid.Column="1"
+            Style="{StaticResource txtBoxNumCr}"
+            Text="{x:Bind cargo.CargoCode, Mode=TwoWay}" />
     </Grid>
 </Page>
