@@ -71,5 +71,10 @@ namespace TravellerTracker
         {
             mainFrame.Content = new CargoList();
         }
+
+        private void btnStarports(object sender, RoutedEventArgs e)
+        {
+            mainFrame.Content = new StarportList();
+        }
     }
 }
