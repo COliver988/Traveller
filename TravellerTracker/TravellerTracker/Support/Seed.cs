@@ -103,6 +103,19 @@ namespace TravellerTracker.Support
                 db.Add(new ShipClass() { Cargo = 82, dTons = 200, Fuel = 42, HGClass = "A1", HighPassage = 0, Jump = 1, LowPassage = 10, Man = 1, MidPassage = 6, Name = "Beowulf", Power = 1 });
             }
 
+            if (db.Starports.Count() == 0)
+            {
+                db.Add(new Starport() { Class = 'A', Quality = "Excellent", Repairs = "Overhaul", hasRefinedFuel = true, hasUnrefinedFuel = true, Downport = "Yes", Yards = "Can build starships", isStarport = true });
+                db.Add(new Starport() { Class = 'B', Quality = "Good", Repairs = "Overhaul", hasRefinedFuel = true, hasUnrefinedFuel = true, Downport = "Yes", Yards = "Can build spaceships", isStarport = true });
+                db.Add(new Starport() { Class = 'C', Quality = "Routine", Repairs = "Major Damage", hasRefinedFuel = false, hasUnrefinedFuel = true, Downport = "Yes", Yards = "None", isStarport = true });
+                db.Add(new Starport() { Class = 'D', Quality = "Poor", Repairs = "Minor Damage", hasRefinedFuel = false, hasUnrefinedFuel = true, Downport = "Yes", Yards = "None", isStarport = true });
+                db.Add(new Starport() { Class = 'E', Quality = "Frontier", Repairs = "No", hasRefinedFuel = false, hasUnrefinedFuel = false, Downport = "Beacon", Yards = "None", isStarport = true });
+                db.Add(new Starport() { Class = 'X', Quality = "None", Repairs = "No", hasRefinedFuel = false, hasUnrefinedFuel = false, Downport = "No", Yards = "None", isStarport = true });
+                db.Add(new Starport() { Class = 'F', Quality = "Good", Repairs = "Minor Damage", hasRefinedFuel = false, hasUnrefinedFuel = true, Downport = "Yes", Yards = "None", isStarport = false });
+                db.Add(new Starport() { Class = 'G', Quality = "Poor", Repairs = "Superficial Damage", hasRefinedFuel = false, hasUnrefinedFuel = true, Downport = "Yes", Yards = "None", isStarport = false });
+                db.Add(new Starport() { Class = 'H', Quality = "Basic", Repairs = "None", hasRefinedFuel = false, hasUnrefinedFuel = false, Downport = "Beacon", Yards = "None", isStarport = false });
+                db.Add(new Starport() { Class = 'Y', Quality = "None", Repairs = "None", hasRefinedFuel = false, hasUnrefinedFuel = false, Downport = "None", Yards = "None", isStarport = false });
+            }
             db.SaveChangesAsync();
         }
     }

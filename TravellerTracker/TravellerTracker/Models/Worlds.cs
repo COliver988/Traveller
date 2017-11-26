@@ -1,6 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Reflection;
 using Traveller.Support;
 
 namespace Traveller.Models
@@ -43,6 +46,8 @@ namespace Traveller.Models
 
         [NotMapped]
         public Sector theSector => TravellerTracker.App.DB.Sectors.Where(x => x.SectorID == this.SectorID).FirstOrDefault();
+        [NotMapped]
+        public Starport thePort => TravellerTracker.App.DB.Starports.Where(x => x.Class == this.Starport).FirstOrDefault();
 
         [NotMapped]
         public int PopMultiplier {  get { return  Utilities.HexToInt(PBG[0]); } }

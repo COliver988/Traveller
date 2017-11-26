@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 
 namespace Traveller.Support
 {
@@ -10,7 +11,7 @@ namespace Traveller.Support
         {
             try
             {
-            return int.Parse(c.ToString(), System.Globalization.NumberStyles.HexNumber);
+                return int.Parse(c.ToString(), System.Globalization.NumberStyles.HexNumber);
             }
             catch (Exception)
             {
