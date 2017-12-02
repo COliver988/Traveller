@@ -111,6 +111,10 @@
     <Compile Include="Migrations\20171125213404_starports.designer.cs">
       <DependentUpon>20171125213404_starports.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20171202224643_shipLogGeneralizedWorld.cs" />
+    <Compile Include="Migrations\20171202224643_shipLogGeneralizedWorld.designer.cs">
+      <DependentUpon>20171202224643_shipLogGeneralizedWorld.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\TravellerContextModelSnapshot.cs" />
     <Compile Include="Models\Cargo.cs" />
     <Compile Include="Models\CargoAvailable.cs" />
@@ -154,9 +158,6 @@
     </Compile>
     <Compile Include="Views\ShipView.xaml.cs">
       <DependentUpon>ShipView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\StarportEditor.xaml.cs">
-      <DependentUpon>StarportEditor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\StarportList.xaml.cs">
       <DependentUpon>StarportList.xaml</DependentUpon>
@@ -226,10 +227,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ShipView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\StarportEditor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

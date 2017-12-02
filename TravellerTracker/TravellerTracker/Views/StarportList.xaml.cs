@@ -25,5 +25,10 @@ namespace TravellerTracker.Views
         {
 
         }
+
+        private void btnSave(object sender, RoutedEventArgs e)
+        {
+            TravellerTracker.App.DB.SaveChangesAsync();
+        }
     }
 }
