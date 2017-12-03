@@ -5,6 +5,7 @@ using System.Text;
 using Traveller.Models;
 using Traveller.Support;
 using TravellerTracker.Models;
+using TravellerTracker.Support;
 using Windows.UI.Xaml.Controls;
 
 namespace TravellerTracker.Views
@@ -24,6 +25,7 @@ namespace TravellerTracker.Views
             webView.Navigate(ship.theJumpMapURL);
             jumpWorlds = ship.theWorld.JumpRange(ship.theClass.Jump);
             lstJumpList.ItemsSource = jumpWorlds;
+            lstWorldLog.ItemsSource = ship.theWorld.theLog;
             refresh();
         }
 
@@ -69,7 +71,7 @@ namespace TravellerTracker.Views
                 };
                 var x = await dialog.ShowAsync();
             }
-            else if (ship.theWorld.Starport == 'A' || ship.theWorld.Starport == 'B')
+            else if (ship.theWorld.thePort.hasRefinedFuel)
             {
                 var conDlg = new Windows.UI.Xaml.Controls.ContentDialog
                 {
@@ -94,10 +96,15 @@ namespace TravellerTracker.Views
                         break;
                 }
             }
-            else
+            else if (ship.theWorld.thePort.hasUnrefinedFuel)
             {
                 ship.Credits -= unrefinedCost;
                 ship.Fuel = ship.theClass.Fuel;
+            }
+            else
+            {
+                ErrorHandling eh = new ErrorHandling();
+                eh.showError("Fuel is unavailable at this port.");
             }
             App.DB.SaveChangesAsync();
         }
@@ -161,6 +168,13 @@ namespace TravellerTracker.Views
             ship.MidPaxCarried = 0;
             ship.Fuel -= ship.theClass.FuelPerParsec;
             App.DB.SaveChangesAsync();
+        }
+
+        private void btnAddLog(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            AddLog al = new AddLog();
+            al.addLog(ship, ship.theWorld.WorldID);
+            lstWorldLog.ItemsSource = ship.theWorld.theLog;
         }
     }
 }

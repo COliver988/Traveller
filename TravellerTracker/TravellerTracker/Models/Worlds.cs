@@ -48,6 +48,8 @@ namespace Traveller.Models
         public Sector theSector => TravellerTracker.App.DB.Sectors.Where(x => x.SectorID == this.SectorID).FirstOrDefault();
         [NotMapped]
         public Starport thePort => TravellerTracker.App.DB.Starports.Where(x => x.Class == this.Starport).FirstOrDefault();
+        [NotMapped]
+        public List<ShipLog> theLog => TravellerTracker.App.DB.Logs.Where(x => x.WorldID == this.WorldID).ToList();
 
         [NotMapped]
         public int PopMultiplier {  get { return  Utilities.HexToInt(PBG[0]); } }

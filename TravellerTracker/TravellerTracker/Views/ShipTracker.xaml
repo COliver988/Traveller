@@ -369,6 +369,42 @@
                         Grid.Column="1"
                         Style="{StaticResource txtBlockLeft}"
                         Text="{x:Bind ship.theWorld.Stellar}" />
+                    <TextBlock Grid.Row="5" Grid.Column="0" Style="{StaticResource txtBlockRightBold}" Text="Starport"></TextBlock>
+                    <StackPanel Grid.Row="5" Grid.Column="1" Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource txtBlockLeft}" Text="{x:Bind ship.theWorld.thePort.Class}"></TextBlock>
+                        <TextBlock Style="{StaticResource txtBlockLeft}" Text="Quality: "></TextBlock>
+                        <TextBlock Style="{StaticResource txtBlockLeft}" Text="{x:Bind ship.theWorld.thePort.Quality}"></TextBlock>
+                        <TextBlock Style="{StaticResource txtBlockLeft}" Text="Repairs: "></TextBlock>
+                        <TextBlock Style="{StaticResource txtBlockLeft}" Text="{x:Bind ship.theWorld.thePort.Repairs}"></TextBlock>
+                        <TextBlock Style="{StaticResource txtBlockLeft}" Text="Refined: "></TextBlock>
+                        <TextBlock Style="{StaticResource txtBlockLeft}" Text="{x:Bind ship.theWorld.thePort.hasRefinedFuel}"></TextBlock>
+                        <TextBlock Style="{StaticResource txtBlockLeft}" Text="Unrefined: "></TextBlock>
+                        <TextBlock Style="{StaticResource txtBlockLeft}" Text="{x:Bind ship.theWorld.thePort.hasUnrefinedFuel}"></TextBlock>
+                    </StackPanel>
+                    <Button Grid.Row="6" Grid.Column="0" Click="btnAddLog" Margin="3">Add Log</Button>
+                    <ListBox Grid.Column="1" Grid.Row="6" ItemsSource="{Binding}" Name="lstWorldLog">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Margin="3" Text="{Binding DayDisplay}" />
+                                        <TextBlock Margin="3">-</TextBlock>
+                                        <TextBlock Margin="3" Text="{Binding Year}" />
+                                    </StackPanel>
+                                    <TextBlock
+                            Grid.Column="1"
+                            Height="Auto"
+                            Margin="3"
+                            Text="{Binding Log}"
+                            TextWrapping="Wrap" />
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
                 </Grid>
             </PivotItem>
         </Pivot>

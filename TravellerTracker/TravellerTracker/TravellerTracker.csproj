@@ -129,6 +129,7 @@
     <Compile Include="Models\TravellerVersion.cs" />
     <Compile Include="Models\WorldLog.cs" />
     <Compile Include="Models\Worlds.cs" />
+    <Compile Include="Support\AddLog.cs" />
     <Compile Include="Support\ImperialDates.cs" />
     <Compile Include="Models\ShipClass.cs" />
     <Compile Include="Models\TravellerContext.cs" />
