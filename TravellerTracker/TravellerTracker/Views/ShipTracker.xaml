@@ -322,6 +322,21 @@
                         HorizontalAlignment="Center"
                         Style="{StaticResource txtBlockTitle}"
                         Text="{x:Bind ship.theWorld.Name}" />
+                    <Button
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Margin="3"
+                        HorizontalAlignment="Right"
+                        Click="btnAddImage">
+                        Add Image
+                    </Button>
+                    <Image
+                        Name="imageWorld"
+                        Grid.Row="1"
+                        Grid.RowSpan="5"
+                        Grid.Column="1"
+                        Margin="3"
+                        HorizontalAlignment="Right" />
                     <TextBlock
                         Grid.Row="1"
                         Grid.Column="0"
@@ -369,20 +384,38 @@
                         Grid.Column="1"
                         Style="{StaticResource txtBlockLeft}"
                         Text="{x:Bind ship.theWorld.Stellar}" />
-                    <TextBlock Grid.Row="5" Grid.Column="0" Style="{StaticResource txtBlockRightBold}" Text="Starport"></TextBlock>
-                    <StackPanel Grid.Row="5" Grid.Column="1" Orientation="Horizontal">
-                        <TextBlock Style="{StaticResource txtBlockLeft}" Text="{x:Bind ship.theWorld.thePort.Class}"></TextBlock>
-                        <TextBlock Style="{StaticResource txtBlockLeft}" Text="Quality: "></TextBlock>
-                        <TextBlock Style="{StaticResource txtBlockLeft}" Text="{x:Bind ship.theWorld.thePort.Quality}"></TextBlock>
-                        <TextBlock Style="{StaticResource txtBlockLeft}" Text="Repairs: "></TextBlock>
-                        <TextBlock Style="{StaticResource txtBlockLeft}" Text="{x:Bind ship.theWorld.thePort.Repairs}"></TextBlock>
-                        <TextBlock Style="{StaticResource txtBlockLeft}" Text="Refined: "></TextBlock>
-                        <TextBlock Style="{StaticResource txtBlockLeft}" Text="{x:Bind ship.theWorld.thePort.hasRefinedFuel}"></TextBlock>
-                        <TextBlock Style="{StaticResource txtBlockLeft}" Text="Unrefined: "></TextBlock>
-                        <TextBlock Style="{StaticResource txtBlockLeft}" Text="{x:Bind ship.theWorld.thePort.hasUnrefinedFuel}"></TextBlock>
+                    <TextBlock
+                        Grid.Row="5"
+                        Grid.Column="0"
+                        Style="{StaticResource txtBlockRightBold}"
+                        Text="Starport" />
+                    <StackPanel
+                        Grid.Row="5"
+                        Grid.Column="1"
+                        Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource txtBlockLeft}" Text="{x:Bind ship.theWorld.thePort.Class}" />
+                        <TextBlock Style="{StaticResource txtBlockLeft}" Text="Quality: " />
+                        <TextBlock Style="{StaticResource txtBlockLeft}" Text="{x:Bind ship.theWorld.thePort.Quality}" />
+                        <TextBlock Style="{StaticResource txtBlockLeft}" Text="Repairs: " />
+                        <TextBlock Style="{StaticResource txtBlockLeft}" Text="{x:Bind ship.theWorld.thePort.Repairs}" />
+                        <TextBlock Style="{StaticResource txtBlockLeft}" Text="Refined: " />
+                        <TextBlock Style="{StaticResource txtBlockLeft}" Text="{x:Bind ship.theWorld.thePort.hasRefinedFuel}" />
+                        <TextBlock Style="{StaticResource txtBlockLeft}" Text="Unrefined: " />
+                        <TextBlock Style="{StaticResource txtBlockLeft}" Text="{x:Bind ship.theWorld.thePort.hasUnrefinedFuel}" />
                     </StackPanel>
-                    <Button Grid.Row="6" Grid.Column="0" Click="btnAddLog" Margin="3">Add Log</Button>
-                    <ListBox Grid.Column="1" Grid.Row="6" ItemsSource="{Binding}" Name="lstWorldLog">
+                    <Button
+                        Grid.Row="6"
+                        Grid.Column="0"
+                        HorizontalAlignment="Right"
+                        Margin="3"
+                        Click="btnAddLog">
+                        Add Log
+                    </Button>
+                    <ListBox
+                        Name="lstWorldLog"
+                        Grid.Row="5"
+                        Grid.Column="1"
+                        ItemsSource="{Binding}" Margin="0,43,0,2" Grid.RowSpan="2">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <Grid>
@@ -396,11 +429,11 @@
                                         <TextBlock Margin="3" Text="{Binding Year}" />
                                     </StackPanel>
                                     <TextBlock
-                            Grid.Column="1"
-                            Height="Auto"
-                            Margin="3"
-                            Text="{Binding Log}"
-                            TextWrapping="Wrap" />
+                                        Grid.Column="1"
+                                        Height="Auto"
+                                        Margin="3"
+                                        Text="{Binding Log}"
+                                        TextWrapping="Wrap" />
                                 </Grid>
                             </DataTemplate>
                         </ListBox.ItemTemplate>

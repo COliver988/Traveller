@@ -288,31 +288,13 @@ namespace TravellerTracker.Migrations
 
                     b.Property<int>("WorldCount");
 
+                    b.Property<byte[]>("WorldImage");
+
                     b.Property<char>("Zone");
 
                     b.HasKey("WorldID");
 
                     b.ToTable("Worlds");
-                });
-
-            modelBuilder.Entity("Traveller.Models.WorldLog", b =>
-                {
-                    b.Property<int>("WorldLogId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("Day");
-
-                    b.Property<string>("Log");
-
-                    b.Property<int>("ShipId");
-
-                    b.Property<int>("WorldId");
-
-                    b.Property<int>("Year");
-
-                    b.HasKey("WorldLogId");
-
-                    b.ToTable("WorldLogs");
                 });
         }
     }

@@ -103,10 +103,6 @@
     <Compile Include="Migrations\20171125140716_intitial.designer.cs">
       <DependentUpon>20171125140716_intitial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20171125143556_worldLog.cs" />
-    <Compile Include="Migrations\20171125143556_worldLog.designer.cs">
-      <DependentUpon>20171125143556_worldLog.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\20171125213404_starports.cs" />
     <Compile Include="Migrations\20171125213404_starports.designer.cs">
       <DependentUpon>20171125213404_starports.cs</DependentUpon>
@@ -114,6 +110,10 @@
     <Compile Include="Migrations\20171202224643_shipLogGeneralizedWorld.cs" />
     <Compile Include="Migrations\20171202224643_shipLogGeneralizedWorld.designer.cs">
       <DependentUpon>20171202224643_shipLogGeneralizedWorld.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20171203132342_worldImage.cs" />
+    <Compile Include="Migrations\20171203132342_worldImage.designer.cs">
+      <DependentUpon>20171203132342_worldImage.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\TravellerContextModelSnapshot.cs" />
     <Compile Include="Models\Cargo.cs" />

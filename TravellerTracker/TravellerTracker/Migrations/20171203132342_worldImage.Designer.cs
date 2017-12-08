@@ -8,8 +8,8 @@ using TravellerTracker.Models;
 namespace TravellerTracker.Migrations
 {
     [DbContext(typeof(TravellerContext))]
-    [Migration("20171125143556_worldLog")]
-    partial class worldLog
+    [Migration("20171203132342_worldImage")]
+    partial class worldImage
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -177,15 +177,45 @@ namespace TravellerTracker.Migrations
 
                     b.Property<int>("Day");
 
+                    b.Property<byte[]>("Image");
+
                     b.Property<string>("Log");
 
                     b.Property<int>("ShipId");
+
+                    b.Property<int>("WorldID");
 
                     b.Property<int>("Year");
 
                     b.HasKey("ShipLogId");
 
                     b.ToTable("Logs");
+                });
+
+            modelBuilder.Entity("Traveller.Models.Starport", b =>
+                {
+                    b.Property<int>("StarportId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<char>("Class");
+
+                    b.Property<string>("Downport");
+
+                    b.Property<string>("Quality");
+
+                    b.Property<string>("Repairs");
+
+                    b.Property<string>("Yards");
+
+                    b.Property<bool>("hasRefinedFuel");
+
+                    b.Property<bool>("hasUnrefinedFuel");
+
+                    b.Property<bool>("isStarport");
+
+                    b.HasKey("StarportId");
+
+                    b.ToTable("Starports");
                 });
 
             modelBuilder.Entity("Traveller.Models.TradeClassification", b =>
@@ -259,31 +289,13 @@ namespace TravellerTracker.Migrations
 
                     b.Property<int>("WorldCount");
 
+                    b.Property<byte[]>("WorldImage");
+
                     b.Property<char>("Zone");
 
                     b.HasKey("WorldID");
 
                     b.ToTable("Worlds");
-                });
-
-            modelBuilder.Entity("Traveller.Models.WorldLog", b =>
-                {
-                    b.Property<int>("WorldLogId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("Day");
-
-                    b.Property<string>("Log");
-
-                    b.Property<int>("ShipId");
-
-                    b.Property<int>("WorldId");
-
-                    b.Property<int>("Year");
-
-                    b.HasKey("WorldLogId");
-
-                    b.ToTable("WorldLogs");
                 });
         }
     }

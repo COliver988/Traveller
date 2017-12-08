@@ -1,12 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using Traveller.Models;
 using Traveller.Support;
 using TravellerTracker.Models;
 using TravellerTracker.Support;
+using Windows.Graphics.Imaging;
+using Windows.Storage;
+using Windows.Storage.Pickers;
+using Windows.Storage.Streams;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media.Imaging;
 
 namespace TravellerTracker.Views
 {
@@ -32,6 +39,8 @@ namespace TravellerTracker.Views
         private void refresh()
         {
             lstLog.ItemsSource = ship.theLog;
+            if (ship.theWorld.WorldImage != null)
+                showWorldImage(ship.theWorld.WorldImage);
         }
 
         private void btnLoadCargo(object sender, Windows.UI.Xaml.RoutedEventArgs e)
@@ -170,11 +179,50 @@ namespace TravellerTracker.Views
             App.DB.SaveChangesAsync();
         }
 
-        private void btnAddLog(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        private void btnAddLog(object sender, RoutedEventArgs e)
         {
             AddLog al = new AddLog();
             al.addLog(ship, ship.theWorld.WorldID);
             lstWorldLog.ItemsSource = ship.theWorld.theLog;
+        }
+
+        private async void btnAddImage(object sender, RoutedEventArgs e)
+        {
+            FileOpenPicker op = new FileOpenPicker();
+            op.ViewMode = PickerViewMode.Thumbnail;
+            op.SuggestedStartLocation = PickerLocationId.PicturesLibrary;
+            op.FileTypeFilter.Add(".jpg");
+            op.FileTypeFilter.Add(".jpeg");
+            op.FileTypeFilter.Add(".png");
+            op.FileTypeFilter.Add(".bmp");
+            StorageFile file = await op.PickSingleFileAsync();
+            if (file != null)
+            {
+                using (var inputStream = await file.OpenSequentialReadAsync())
+                {
+                    var readStream = inputStream.AsStreamForRead();
+                    var byteArray = new byte[readStream.Length];
+                    await readStream.ReadAsync(byteArray, 0, byteArray.Length);
+                    ship.theWorld.WorldImage = byteArray;
+                }
+                TravellerTracker.App.DB.SaveChanges();
+                showWorldImage(ship.theWorld.WorldImage);
+            }
+        }
+
+        private async void showWorldImage(byte[] image)
+        {
+            BitmapImage returnImage = new BitmapImage();
+            using (InMemoryRandomAccessStream randomAccessStream = new InMemoryRandomAccessStream())
+            {
+                using (DataWriter writer = new DataWriter(randomAccessStream.GetOutputStreamAt(0)))
+                {
+                    writer.WriteBytes(image);
+                    await writer.StoreAsync();
+                    await returnImage.SetSourceAsync(randomAccessStream);
+                }
+            }
+            imageWorld.Source = returnImage;
         }
     }
 }
