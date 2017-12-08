@@ -224,5 +224,13 @@ namespace TravellerTracker.Views
             }
             imageWorld.Source = returnImage;
         }
+
+        private void btnBulkCargo(object sender, RoutedEventArgs e)
+        {
+            Button btn = sender as Button;
+            CargoAvailable cargo = (CargoAvailable)btn.DataContext;
+            SelectBulkCargo sbc = new SelectBulkCargo();
+            sbc.Select(ship, cargo);
+        }
     }
 }

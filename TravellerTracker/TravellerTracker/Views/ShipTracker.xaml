@@ -254,7 +254,7 @@
                                         </StackPanel>
                                         <StackPanel Grid.Column="3" Orientation="Horizontal">
                                             <TextBlock Style="{StaticResource txtBlockNormal}" Text="{Binding CargoListing}" />
-                                            <Button Margin="3">Inspect</Button>
+                                            <Button Margin="3" Click="btnBulkCargo">Inspect</Button>
                                         </StackPanel>
                                     </Grid>
                                 </Grid>

@@ -122,5 +122,45 @@ namespace TravellerTracker.Support
             {'D', "Live fauna" },
             {'E', "Unusual" },
         };
+        Dictionary<char, string> ItemCount = new Dictionary<char, string>()
+        {
+            { '0', "empty" },
+            { '1', "1 - 5" },
+            { '2', "6 - 10" },
+            { '3', "11 - 20" },
+            { '4', "21 - 50" },
+            { '5', "51 - 100" },
+            { '6', "101 - 200" },
+            { '7', "201 - 500" },
+            { '8', "501 - 1000" },
+            { '9', "1001 - 5000" },
+            { 'A', "5001 - 10000" },
+            { 'B', "10000+" },
+        };
+        Dictionary<char, string> MassPerItem = new Dictionary<char, string>()
+        {
+            {'0', "Under 1 kg" },
+            {'1', "1 - 10 kg" },
+            {'2', "10 - 100 kg" },
+            {'3', "100 kg - 1 metric ton" },
+            {'4', "1 - 10 tonnes" },
+            {'5', "10 - 100 tonnes" },
+            {'6', "100 - 200 tonnes" },
+            {'7', "200 - 500 tonnes" },
+            {'8', "500 - 1000 tonnes" },
+            {'9', "1000+ tonnes" }
+        };
+        Dictionary<char, string> EMSRange = new Dictionary<char, string>()
+        {
+            {'0',  "Do not expose to visible light" },
+            {'1',  "Do not expose to UV" },
+            {'2',  "Do not expose to IR" },
+            {'3',  "Do not expose to low EM fields" },
+            {'4',  "Do not expose to RF fields" },
+            {'5',  "Do not expose to X-Rays" },
+            {'6',  "Do not expose to sunlight equivelant" },
+            {'7',  "Do not expose to specific EMS range (supply documentation" },
+            {'8',  "Must expose to specific EMS range (supply documentation" }
+        };
     }
 }

@@ -120,6 +120,7 @@
       <DependentUpon>20171208172441_cargoTypesEnum.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\TravellerContextModelSnapshot.cs" />
+    <Compile Include="Models\BulkCargo.cs" />
     <Compile Include="Models\Cargo.cs" />
     <Compile Include="Models\CargoAvailable.cs" />
     <Compile Include="Models\CargoType.cs" />
@@ -142,8 +143,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Support\LoadCargo.cs" />
     <Compile Include="Support\Seed.cs" />
+    <Compile Include="Support\SelectBulkCargo.cs" />
     <Compile Include="Support\TravellerMapAPI.cs" />
     <Compile Include="Support\Utilities.cs" />
+    <Compile Include="UserControls\BulkCargoSelector.xaml.cs">
+      <DependentUpon>BulkCargoSelector.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\CargoList.xaml.cs">
       <DependentUpon>CargoList.xaml</DependentUpon>
     </Compile>
@@ -207,6 +212,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="UserControls\BulkCargoSelector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CargoList.xaml">
       <SubType>Designer</SubType>
