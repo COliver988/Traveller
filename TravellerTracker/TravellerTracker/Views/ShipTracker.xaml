@@ -117,6 +117,7 @@
             <TextBox Style="{StaticResource txtBoxNum}" Text="{x:Bind ship.Fuel}" />
             <TextBox Style="{StaticResource txtBoxNumCr}" Text="{x:Bind ship.Credits}" />
         </StackPanel>
+        <Popup Name="popCargo" IsOpen="False" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="4"></Popup>
         <Pivot
             Grid.Row="5"
             Grid.Column="0"

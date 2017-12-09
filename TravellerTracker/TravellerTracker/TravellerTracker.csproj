@@ -155,6 +155,9 @@
     <Compile Include="Views\CargoEditor.xaml.cs">
       <DependentUpon>CargoEditor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\SelectCargo.xaml.cs">
+      <DependentUpon>SelectCargo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ShipClassEdit.xaml.cs">
       <DependentUpon>ShipClassEdit.xaml</DependentUpon>
     </Compile>
@@ -222,6 +225,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CargoEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SelectCargo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

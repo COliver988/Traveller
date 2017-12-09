@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Traveller.Models;
+using TravellerTracker.UserControls;
 
 namespace TravellerTracker.Support
 {
     public class SelectBulkCargo
     {
-        public void Select(Ship ship, CargoAvailable cargo)
+        public List<BulkCargo> Select(Ship ship, CargoAvailable cargo)
         {
             List<BulkCargo> bulkCargoes = new List<BulkCargo>();
             if (cargo.CargoMajor.Count > 0)
@@ -18,6 +19,7 @@ namespace TravellerTracker.Support
                 bulkCargoes.AddRange(AddList("Minor", cargo.CargoMinor));
             if (cargo.CargoIncidental.Count > 0)
                 bulkCargoes.AddRange(AddList("Incidental", cargo.CargoIncidental));
+            return bulkCargoes;
         }
 
         private List<BulkCargo> AddList(string type, List<int> tons)

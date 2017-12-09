@@ -1,23 +1,20 @@
-﻿<UserControl
-    x:Class="TravellerTracker.UserControls.BulkCargoSelector"
+﻿<Page
+    x:Class="TravellerTracker.Views.SelectCargo"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:TravellerTracker.UserControls"
+    xmlns:local="using:TravellerTracker.Views"
+    xmlns:ctl="using:TravellerTracker.UserControls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    d:DesignHeight="1000"
-    d:DesignWidth="1000">
+    mc:Ignorable="d">
 
-    <Grid BorderBrush="Black" BorderThickness="2" Background="BlanchedAlmond">
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBox Text="Select Cargo" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBox>
-        <TextBlock  Text="{x:Bind WorldName}" Grid.Row="1"></TextBlock>
-        <ListBox Grid.Row="2" Name="lstCargo" ItemsSource="{Binding}">
+        <TextBlock  Text="{Binding WorldName}"></TextBlock>
+        <ListBox Grid.Row="1" Name="lstCargo">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -37,4 +34,4 @@
         </ListBox>
 
     </Grid>
-</UserControl>
+</Page>

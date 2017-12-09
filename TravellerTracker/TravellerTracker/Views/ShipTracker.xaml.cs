@@ -7,12 +7,14 @@ using Traveller.Models;
 using Traveller.Support;
 using TravellerTracker.Models;
 using TravellerTracker.Support;
+using TravellerTracker.UserControls;
 using Windows.Graphics.Imaging;
 using Windows.Storage;
 using Windows.Storage.Pickers;
 using Windows.Storage.Streams;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Media.Imaging;
 
 namespace TravellerTracker.Views
@@ -230,7 +232,14 @@ namespace TravellerTracker.Views
             Button btn = sender as Button;
             CargoAvailable cargo = (CargoAvailable)btn.DataContext;
             SelectBulkCargo sbc = new SelectBulkCargo();
-            sbc.Select(ship, cargo);
+            BulkCargoSelector bulkCargo = new BulkCargoSelector();
+            bulkCargo.WorldName = cargo.world.Name;
+            bulkCargo.CargoList = sbc.Select(ship, cargo);
+            popCargo.Child = bulkCargo;
+            popCargo.HorizontalOffset = 50;
+            popCargo.VerticalOffset = 50;
+            popCargo.IsLightDismissEnabled = true;
+            popCargo.IsOpen = true;
         }
     }
 }
