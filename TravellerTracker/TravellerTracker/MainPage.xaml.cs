@@ -76,5 +76,10 @@ namespace TravellerTracker
         {
             mainFrame.Content = new StarportList();
         }
+
+        private void btnVersions(object sender, RoutedEventArgs e)
+        {
+            mainFrame.Content = new Versions();
+        }
     }
 }

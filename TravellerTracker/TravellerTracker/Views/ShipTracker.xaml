@@ -152,6 +152,28 @@
             </PivotItem>
             <PivotItem Header="Cargo Manifest">
                 <Grid>
+                    <ListBox Name="lstCargoCarried" Margin="3" ItemsSource="{Binding}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="100"></ColumnDefinition>
+                                        <ColumnDefinition Width="100"></ColumnDefinition>
+                                        <ColumnDefinition Width="400"></ColumnDefinition>
+                                        <ColumnDefinition Width="400"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Text="{Binding CargoType}"></TextBlock>
+                                    <TextBlock Grid.Column="1" Text="{Binding dTons}"></TextBlock>
+                                    <TextBlock Grid.Column="2" Text="{Binding OriginWorld.Name}"></TextBlock>
+                                    <TextBlock Grid.Column="3" Text="{Binding DestinationWorld.Name}"></TextBlock>
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
+            </PivotItem>
+            <PivotItem Header="Available Cargo">
+                <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="220" />
                         <ColumnDefinition />

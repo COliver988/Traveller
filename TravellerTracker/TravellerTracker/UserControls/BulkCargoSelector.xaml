@@ -29,7 +29,7 @@
                 VerticalAlignment="Center"
                 FontSize="20"
                 FontWeight="Bold"
-                Text="{x:Bind WorldName}" />
+                Text="{x:Bind Destination.Name}" />
         </StackPanel>
         <ListBox
             Name="lstCargo"
@@ -63,7 +63,7 @@
                             Grid.Column="2"
                             Margin="3"
                             Text="{Binding CargoCode, Mode=OneTime}" />
-                        <Button Grid.Column="3" Margin="3">Load</Button>
+                        <Button Grid.Column="3" Margin="3" Click="btnLoad">Load</Button>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>

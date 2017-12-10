@@ -9,9 +9,10 @@ using Traveller.Models;
 namespace TravellerTracker.Migrations
 {
     [DbContext(typeof(TravellerContext))]
-    partial class TravellerContextModelSnapshot : ModelSnapshot
+    [Migration("20171210132050_versionCosts")]
+    partial class versionCosts
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.1");
@@ -124,8 +125,6 @@ namespace TravellerTracker.Migrations
                     b.Property<int>("CargoID");
 
                     b.Property<int>("CargoType");
-
-                    b.Property<int>("DestinationID");
 
                     b.Property<int>("OriginWorldID");
 

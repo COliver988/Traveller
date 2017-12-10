@@ -35,6 +35,7 @@ namespace TravellerTracker.Views
             jumpWorlds = ship.theWorld.JumpRange(ship.theClass.Jump);
             lstJumpList.ItemsSource = jumpWorlds;
             lstWorldLog.ItemsSource = ship.theWorld.theLog;
+            lstCargoCarried.ItemsSource = ship.theCargo;
             refresh();
         }
 
@@ -233,8 +234,9 @@ namespace TravellerTracker.Views
             CargoAvailable cargo = (CargoAvailable)btn.DataContext;
             SelectBulkCargo sbc = new SelectBulkCargo();
             BulkCargoSelector bulkCargo = new BulkCargoSelector();
-            bulkCargo.WorldName = cargo.world.Name;
+            bulkCargo.Destination = cargo.world;
             bulkCargo.CargoList = sbc.Select(ship, cargo);
+            bulkCargo.Ship = ship;
             popCargo.Child = bulkCargo;
             popCargo.HorizontalOffset = 50;
             popCargo.VerticalOffset = 50;

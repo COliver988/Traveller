@@ -119,6 +119,14 @@
     <Compile Include="Migrations\20171208172441_cargoTypesEnum.designer.cs">
       <DependentUpon>20171208172441_cargoTypesEnum.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20171210132050_versionCosts.cs" />
+    <Compile Include="Migrations\20171210132050_versionCosts.designer.cs">
+      <DependentUpon>20171210132050_versionCosts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20171210144030_cargoDestinationWorld.cs" />
+    <Compile Include="Migrations\20171210144030_cargoDestinationWorld.designer.cs">
+      <DependentUpon>20171210144030_cargoDestinationWorld.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\TravellerContextModelSnapshot.cs" />
     <Compile Include="Models\BulkCargo.cs" />
     <Compile Include="Models\Cargo.cs" />
@@ -181,6 +189,9 @@
     </Compile>
     <Compile Include="Views\TradeCodeList.xaml.cs">
       <DependentUpon>TradeCodeList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Versions.xaml.cs">
+      <DependentUpon>Versions.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -261,6 +272,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\TradeCodeList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Versions.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
