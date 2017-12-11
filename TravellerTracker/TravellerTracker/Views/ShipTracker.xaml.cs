@@ -58,7 +58,7 @@ namespace TravellerTracker.Views
             spSpecTrade.DataContext = cargo.Where(x => x.isSpeculative == true).FirstOrDefault();
             pax = new List<CargoAvailable>();
             foreach (World dest in jumpWorlds)
-                pax.Add(new CargoAvailable(ship.theWorld, dest));
+                pax.Add(new CargoAvailable(ship, dest));
             lstPax.DataContext = pax;
         }
 

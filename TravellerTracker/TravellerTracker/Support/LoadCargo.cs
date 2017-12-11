@@ -56,8 +56,6 @@ namespace Traveller.Support
             // load up regular cargo; passengers
             // requires the list of planet destinations
             return results;
-
-            // and
         }
     }
 }

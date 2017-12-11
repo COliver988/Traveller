@@ -16,8 +16,9 @@ namespace Traveller.Models
         public string CargoListing {  get { return string.Format("{0} major lots; {1} minor lots; {2} incidental lots", CargoMajor.Count, CargoMinor.Count, CargoIncidental.Count); } }
 
 
-        public CargoAvailable(World origin, World destination)
+        public CargoAvailable(Ship ship, World destination)
         {
+            World origin = ship.theWorld;
             Utilities util = new Utilities();
             world = destination;
             int paxDM = 0;

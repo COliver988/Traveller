@@ -128,6 +128,7 @@
       <DependentUpon>20171210144030_cargoDestinationWorld.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\TravellerContextModelSnapshot.cs" />
+    <Compile Include="Models\BITSCargo.cs" />
     <Compile Include="Models\BulkCargo.cs" />
     <Compile Include="Models\Cargo.cs" />
     <Compile Include="Models\CargoAvailable.cs" />

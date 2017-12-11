@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Traveller.Models;
-using TravellerTracker.UserControls;
 
 namespace TravellerTracker.Support
 {
@@ -24,9 +19,10 @@ namespace TravellerTracker.Support
 
         private List<BulkCargo> AddList(string type, List<int> tons)
         {
+            BITSCargo bc = new BITSCargo();
             List<BulkCargo> results = new List<BulkCargo>();
             for (int i = 0; i < tons.Count; i++)
-                results.Add(new BulkCargo() { CargoType = type, CargoCode = "cargo code", dTons = tons[i] });
+                results.Add(new BulkCargo() { CargoType = type, CargoCode = bc.GenerateBITS(tons[i]), dTons = tons[i] });
             return results;
         }
     }

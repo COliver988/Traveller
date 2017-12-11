@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace TravellerTracker.Support
 {
     public class BITSCargoCode
     {
-        Dictionary<char, string> ContainerType = new Dictionary<char, string>()
+        public Dictionary<char, string> ContainerType = new Dictionary<char, string>()
         {
             {'0', "Open Frame" },
             {'1', "Enclosed, unsecured" },
@@ -16,7 +12,7 @@ namespace TravellerTracker.Support
             {'3', "Hermetically sealed, secure" },
             {'4', "Hermetically sealed, pressurized" }
         };
-        Dictionary<char, string> ContainerSize = new Dictionary<char, string>()
+        public Dictionary<char, string> ContainerSize = new Dictionary<char, string>()
         {
             {'0', "C0 (small container up to 0.5x0.5x05 m" },
             {'1', "C1 (1 cubic meter 1x1x1 meter" },
@@ -29,7 +25,7 @@ namespace TravellerTracker.Support
             {'8', "C162 (162 cubic meter, 3x6x9 meter" },
             {'9', "non-standard configuration" }
         };
-        Dictionary<char, string> ContainerMass = new Dictionary<char, string>()
+        public Dictionary<char, string> ContainerMass = new Dictionary<char, string>()
         {
             {'0', "Under 1 kg" },
             {'1', "1 - 10 kg" },
@@ -42,7 +38,7 @@ namespace TravellerTracker.Support
             {'8', "500 - 1000 tonnes" },
             {'9', "1000+ tonnes" }
         };
-        Dictionary<char, string> AtmosphericRange = new Dictionary<char, string>()
+        public Dictionary<char, string> AtmosphericRange = new Dictionary<char, string>()
         {
             {'0', "Vaccum" },
             {'1', "Trace (0.0 - 0.1 atm)" },
@@ -54,7 +50,7 @@ namespace TravellerTracker.Support
             {'7', "Very High Pressure (5.0 - 25 atm" },
             {'8', "Extreme (25+ atm" }
         };
-        Dictionary<char, string> TemperatureRange = new Dictionary<char, string>()
+        public Dictionary<char, string> TemperatureRange = new Dictionary<char, string>()
         {
             {'X', "Below 50C" },
             {'0', "-50C" },
@@ -75,7 +71,7 @@ namespace TravellerTracker.Support
             {'F', "100C" },
             {'Y', "100+C" }
         };
-        Dictionary<char, string> HumidityRange = new Dictionary<char, string>()
+        public Dictionary<char, string> HumidityRange = new Dictionary<char, string>()
         {
             {'0', "0%" },
             {'1', "1 - 10%" },
@@ -89,7 +85,7 @@ namespace TravellerTracker.Support
             {'9', "81 - 90%" },
             {'A', "Any" },
         };
-        Dictionary<char, string> MaxGravityRange = new Dictionary<char, string>()
+        public Dictionary<char, string> MaxGravityRange = new Dictionary<char, string>()
         {
             {'0', "0G" },
             {'1', "1G" },
@@ -104,7 +100,7 @@ namespace TravellerTracker.Support
             {'A', "9G+" },
             {'X', "Do not store in 0G" }
         };
-        Dictionary<char, string> CargoType = new Dictionary<char, string>()
+        public Dictionary<char, string> CargoType = new Dictionary<char, string>()
         {
             {'0', "Solid" },
             {'1', "Powder" },
@@ -122,7 +118,7 @@ namespace TravellerTracker.Support
             {'D', "Live fauna" },
             {'E', "Unusual" },
         };
-        Dictionary<char, string> ItemCount = new Dictionary<char, string>()
+        public Dictionary<char, string> ItemCount = new Dictionary<char, string>()
         {
             { '0', "empty" },
             { '1', "1 - 5" },
@@ -137,7 +133,7 @@ namespace TravellerTracker.Support
             { 'A', "5001 - 10000" },
             { 'B', "10000+" },
         };
-        Dictionary<char, string> MassPerItem = new Dictionary<char, string>()
+        public Dictionary<char, string> MassPerItem = new Dictionary<char, string>()
         {
             {'0', "Under 1 kg" },
             {'1', "1 - 10 kg" },
@@ -150,7 +146,7 @@ namespace TravellerTracker.Support
             {'8', "500 - 1000 tonnes" },
             {'9', "1000+ tonnes" }
         };
-        Dictionary<char, string> EMSRange = new Dictionary<char, string>()
+        public Dictionary<char, string> EMSRange = new Dictionary<char, string>()
         {
             {'0',  "Do not expose to visible light" },
             {'1',  "Do not expose to UV" },

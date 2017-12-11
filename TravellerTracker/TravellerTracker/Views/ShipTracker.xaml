@@ -192,11 +192,8 @@
                         <TextBox Style="{StaticResource txtBox}" Text="{Binding Description}" />
                         <TextBox Style="{StaticResource txtBox}" Text="{Binding BasePurchasePrice}" />
                         <TextBox Style="{StaticResource txtBox}" Text="{Binding dTons}" />
+                        <TextBlock Style="{StaticResource txtBlock}" Text="Cargo Code: "></TextBlock>
                         <Button Click="btnPrice" Style="{StaticResource btnMenu}">Get Price</Button>
-                        <RadioButton Name="rbBroker0">No Broker</RadioButton>
-                        <RadioButton Name="rbBroker1">Broker 1</RadioButton>
-                        <RadioButton Name="rbBroker2">Broker 2</RadioButton>
-                        <RadioButton Name="rbBroker3">Broker 3</RadioButton>
                     </StackPanel>
                     <TextBlock
                         Grid.Row="1"
