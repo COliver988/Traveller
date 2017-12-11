@@ -11,7 +11,10 @@ namespace Traveller.Models
             Major,
             Minor,
             Incidental,
-            Mail
+            Mail,
+            HighPassage,
+            MidPassage, 
+            LowPassage
         }
 
         public int ShipCargoID { get; set; }
