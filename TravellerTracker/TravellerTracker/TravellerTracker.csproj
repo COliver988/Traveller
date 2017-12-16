@@ -145,6 +145,7 @@
     <Compile Include="Models\Worlds.cs" />
     <Compile Include="Support\AddLog.cs" />
     <Compile Include="Support\BITSCargoCode.cs" />
+    <Compile Include="Support\ImageHandler.cs" />
     <Compile Include="Support\ImperialDates.cs" />
     <Compile Include="Models\ShipClass.cs" />
     <Compile Include="Models\TravellerContext.cs" />
@@ -157,6 +158,9 @@
     <Compile Include="Support\Utilities.cs" />
     <Compile Include="UserControls\BulkCargoSelector.xaml.cs">
       <DependentUpon>BulkCargoSelector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\WorldDisplay.xaml.cs">
+      <DependentUpon>WorldDisplay.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CargoList.xaml.cs">
       <DependentUpon>CargoList.xaml</DependentUpon>
@@ -229,6 +233,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Page>
     <Page Include="UserControls\BulkCargoSelector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\WorldDisplay.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

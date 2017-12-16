@@ -1,0 +1,164 @@
+﻿<UserControl
+    x:Class="TravellerTracker.UserControls.WorldDisplay"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:TravellerTracker.UserControls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="600"
+    d:DesignWidth="900"
+    mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/TravDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid Name="gridWorld">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45" />
+            <RowDefinition Height="45" />
+            <RowDefinition Height="45" />
+            <RowDefinition Height="45" />
+            <RowDefinition Height="45" />
+            <RowDefinition Height="45" />
+            <RowDefinition Height="45" />
+            <RowDefinition Height="45" />
+            <RowDefinition Height="45" />
+            <RowDefinition Height="45" />
+            <RowDefinition Height="45" />
+        </Grid.RowDefinitions>
+        <TextBlock
+            Grid.Row="0"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            HorizontalAlignment="Center"
+            Style="{StaticResource txtBlockTitle}"
+            Text="{Binding Name}" />
+        <Button
+            Grid.Row="0"
+            Grid.Column="1"
+            Margin="3"
+            HorizontalAlignment="Right"
+            Click="btnAddImage">
+            Add Image
+        </Button>
+        <Image
+            Name="imageWorld"
+            Grid.Row="1"
+            Grid.RowSpan="5"
+            Grid.Column="1"
+            Margin="3"
+            HorizontalAlignment="Right" />
+        <TextBlock
+            Grid.Row="1"
+            Grid.Column="0"
+            Style="{StaticResource txtBlockRightBold}"
+            Text="UWP" />
+        <StackPanel
+            Grid.Row="1"
+            Grid.Column="1"
+            Orientation="Horizontal">
+            <TextBlock Style="{StaticResource txtBlockLeft}" Text="{Binding UWP}" />
+            <TextBlock Style="{StaticResource txtBlockLeft}" Text="{Binding Hex}" />
+            <TextBlock Style="{StaticResource txtBlockLeft}" Text="{Binding theSector.Name}" />
+        </StackPanel>
+        <TextBlock
+            Grid.Row="2"
+            Grid.Column="0"
+            Style="{StaticResource txtBlockRightBold}"
+            Text="Remarks" />
+        <TextBlock
+            Grid.Row="2"
+            Grid.Column="1"
+            Style="{StaticResource txtBlockLeft}"
+            Text="{Binding Remarks}" />
+        <TextBlock
+            Grid.Row="3"
+            Grid.Column="0"
+            Style="{StaticResource txtBlockRightBold}"
+            Text="System" />
+        <StackPanel
+            Grid.Row="3"
+            Grid.Column="1"
+            Orientation="Horizontal">
+            <TextBlock Style="{StaticResource txtBlockLeft}" Text="Gas giants: " />
+            <TextBlock Style="{StaticResource txtBlockLeft}" Text="{Binding GasGiants}" />
+            <TextBlock Style="{StaticResource txtBlockLeft}" Text="Planetoid belts: " />
+            <TextBlock Style="{StaticResource txtBlockLeft}" Text="{Binding Belts}" />
+        </StackPanel>
+        <TextBlock
+            Grid.Row="4"
+            Grid.Column="0"
+            Style="{StaticResource txtBlockRightBold}"
+            Text="Stellar" />
+        <TextBlock
+            Grid.Row="4"
+            Grid.Column="1"
+            Style="{StaticResource txtBlockLeft}"
+            Text="{Binding Stellar}" />
+        <TextBlock
+            Grid.Row="5"
+            Grid.Column="0"
+            Style="{StaticResource txtBlockRightBold}"
+            Text="Starport" />
+        <StackPanel
+            Grid.Row="5"
+            Grid.Column="1"
+            Orientation="Horizontal">
+            <TextBlock Style="{StaticResource txtBlockLeft}" Text="{Binding thePort.Class}" />
+            <TextBlock Style="{StaticResource txtBlockLeft}" Text="Quality: " />
+            <TextBlock Style="{StaticResource txtBlockLeft}" Text="{Binding thePort.Quality}" />
+            <TextBlock Style="{StaticResource txtBlockLeft}" Text="Repairs: " />
+            <TextBlock Style="{StaticResource txtBlockLeft}" Text="{Binding thePort.Repairs}" />
+            <TextBlock Style="{StaticResource txtBlockLeft}" Text="Refined: " />
+            <TextBlock Style="{StaticResource txtBlockLeft}" Text="{Binding thePort.hasRefinedFuel}" />
+            <TextBlock Style="{StaticResource txtBlockLeft}" Text="Unrefined: " />
+            <TextBlock Style="{StaticResource txtBlockLeft}" Text="{Binding thePort.hasUnrefinedFuel}" />
+        </StackPanel>
+        <Button
+            Grid.Row="6"
+            Grid.Column="0"
+            Margin="3"
+            HorizontalAlignment="Right"
+            Click="btnAddLog">
+            Add Log
+        </Button>
+        <ListBox
+            Name="lstWorldLog"
+            Grid.Row="5"
+            Grid.RowSpan="2"
+            Grid.Column="1"
+            Margin="0,43,0,2"
+            ItemsSource="{Binding}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Margin="3" Text="{Binding DayDisplay}" />
+                            <TextBlock Margin="3">-</TextBlock>
+                            <TextBlock Margin="3" Text="{Binding Year}" />
+                        </StackPanel>
+                        <TextBlock
+                            Grid.Column="1"
+                            Height="Auto"
+                            Margin="3"
+                            Text="{Binding Log}"
+                            TextWrapping="Wrap" />
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</UserControl>
