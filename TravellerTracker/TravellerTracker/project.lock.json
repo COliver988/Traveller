@@ -29131,7 +29131,8 @@
     "UAP,Version=v10.0.10240": []
   },
   "packageFolders": {
-    "C:\\Users\\Craig\\.nuget\\packages\\": {}
+    "C:\\Users\\Craig\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {}
   },
   "project": {
     "restore": {
@@ -29142,9 +29143,13 @@
       "packagesPath": "C:\\Users\\Craig\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Craig\\Documents\\GitHub\\Traveller\\TravellerTracker\\TravellerTracker\\obj\\",
       "projectStyle": "ProjectJson",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\"
+      ],
       "configFilePaths": [
         "C:\\Users\\Craig\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -29152,10 +29157,10 @@
       }
     },
     "dependencies": {
-      "Microsoft.EntityFrameworkCore.Sqlite": "1.1.1",
-      "Microsoft.EntityFrameworkCore.Tools": "1.1.0",
-      "Microsoft.NetCore.UniversalWindowsPlatform": "5.3.1",
-      "newtonsoft.json": "10.0.3"
+      "Microsoft.EntityFrameworkCore.Sqlite": "[1.1.1, )",
+      "Microsoft.EntityFrameworkCore.Tools": "[1.1.0, )",
+      "Microsoft.NetCore.UniversalWindowsPlatform": "[5.3.1, )",
+      "newtonsoft.json": "[10.0.3, )"
     },
     "frameworks": {
       "uap10.0.10240": {}

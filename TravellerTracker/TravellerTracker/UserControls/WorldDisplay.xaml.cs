@@ -11,12 +11,11 @@ namespace TravellerTracker.UserControls
     {
 
 
-        public World world
+        public World WorldItem
         {
             get { return (World)GetValue(WorldProperty); }
             set { SetValue(WorldProperty, value); }
         }
-        // Using a DependencyProperty as the backing store for MyProperty.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty WorldProperty =
             DependencyProperty.Register("WorldProperty", typeof(World), typeof(WorldDisplay), new PropertyMetadata(0));
 
@@ -26,17 +25,14 @@ namespace TravellerTracker.UserControls
             get { return (int)GetValue(DayProperty); }
             set { SetValue(DayProperty, value); }
         }
-
-        // Using a DependencyProperty as the backing store for Day  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty DayProperty =
             DependencyProperty.Register("Day", typeof(int), typeof(WorldDisplay), new PropertyMetadata(0));
+
         public int Year
         {
             get { return (int)GetValue(YearProperty); }
             set { SetValue(YearProperty, value); }
         }
-
-        // Using a DependencyProperty as the backing store for Year.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty YearProperty =
             DependencyProperty.Register("Year", typeof(int), typeof(WorldDisplay), new PropertyMetadata(0));
 
@@ -46,6 +42,18 @@ namespace TravellerTracker.UserControls
         public WorldDisplay()
         {
             this.InitializeComponent();
+            Loaded += WorldDisplay_Loaded;
+        }
+
+        private async void WorldDisplay_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.DataContext = WorldItem;
+            lstWorldLog.ItemsSource = WorldItem.theLog;
+            if (WorldItem.WorldImage != null)
+            {
+                ImageHandler ih = new ImageHandler();
+                imageWorld.Source = await ih.bytesToImage(WorldItem.WorldImage);
+            }
         }
 
         private void btnAddLog(object sender, RoutedEventArgs e)
@@ -54,14 +62,13 @@ namespace TravellerTracker.UserControls
             ship.Day = Day;
             ship.Year = Year;
             AddLog al = new AddLog();
-            al.addLog(ship, world.WorldID);
-            lstWorldLog.ItemsSource = ship.theWorld.theLog;
+            al.addLog(ship, WorldItem.WorldID);
         }
 
         private async void btnAddImage(object sender, RoutedEventArgs e)
         {
             ImageHandler ih = new ImageHandler();
-            imageWorld.Source = await ih.bytesToImage(world.WorldImage);
+            imageWorld.Source = await ih.bytesToImage(WorldItem.WorldImage);
         }
     }
 }

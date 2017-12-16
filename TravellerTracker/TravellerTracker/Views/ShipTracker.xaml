@@ -16,7 +16,7 @@
         </ResourceDictionary>
     </Page.Resources>
 
-    <Grid Margin="0,-4,0,4" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Margin="3" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="350" />
             <ColumnDefinition Width="250" />
@@ -70,6 +70,7 @@
         <TextBlock
             Grid.Row="1"
             Grid.Column="1"
+            PointerPressed="ptrShowWorld"
             Style="{StaticResource txtBlockNormal}"
             Text="{x:Bind ship.theWorld.Description}" />
         <TextBlock
@@ -122,7 +123,7 @@
             Name="popCargo"
             Grid.Row="5"
             Grid.Column="0"
-            Grid.ColumnSpan="4"
+            Grid.ColumnSpan="3"
             IsOpen="False" />
         <Pivot
             Grid.Row="5"
@@ -318,6 +319,7 @@
                                 <TextBlock
                                     Grid.Column="1"
                                     Margin="3"
+                                    PointerPressed="ptrShowWorldList"
                                     Text="{Binding Description}" />
                             </Grid>
                         </DataTemplate>
@@ -325,14 +327,6 @@
                 </ListBox>
             </PivotItem>
             <PivotItem Header="Ship Details" />
-            <PivotItem Header="World Details">
-                <Grid Name="gridWorld">
-                    <ctl:WorldDisplay
-                        Day="{x:Bind ship.Day}"
-                        Year="{x:Bind ship.Year}"
-                        world="{x:Bind ship.theWorld}" />
-                </Grid>
-            </PivotItem>
         </Pivot>
     </Grid>
 </Page>

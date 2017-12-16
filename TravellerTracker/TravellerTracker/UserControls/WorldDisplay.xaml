@@ -6,7 +6,7 @@
     xmlns:local="using:TravellerTracker.UserControls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DesignHeight="600"
-    d:DesignWidth="900"
+    d:DesignWidth="1800"
     mc:Ignorable="d">
 
     <UserControl.Resources>
@@ -17,15 +17,12 @@
         </ResourceDictionary>
     </UserControl.Resources>
 
-    <Grid Name="gridWorld">
+    <Grid Name="gridWorld" Background="LightBlue" BorderBrush="Black" BorderThickness="2">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="150" />
-            <ColumnDefinition />
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="800" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="45" />
-            <RowDefinition Height="45" />
-            <RowDefinition Height="45" />
             <RowDefinition Height="45" />
             <RowDefinition Height="45" />
             <RowDefinition Height="45" />
@@ -133,10 +130,11 @@
         </Button>
         <ListBox
             Name="lstWorldLog"
-            Grid.Row="5"
+            Grid.Row="6"
             Grid.RowSpan="2"
             Grid.Column="1"
-            Margin="0,43,0,2"
+            Margin="3"
+            ScrollViewer.VerticalScrollBarVisibility="Auto"
             ItemsSource="{Binding}">
             <ListBox.ItemTemplate>
                 <DataTemplate>

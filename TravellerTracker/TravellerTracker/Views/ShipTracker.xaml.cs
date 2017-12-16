@@ -189,10 +189,37 @@ namespace TravellerTracker.Views
             bulkCargo.CargoList = sbc.Select(ship, cargo);
             bulkCargo.Ship = ship;
             popCargo.Child = bulkCargo;
+            showPopup();
+        }
+
+        private void showPopup()
+        {
             popCargo.HorizontalOffset = 50;
             popCargo.VerticalOffset = 50;
             popCargo.IsLightDismissEnabled = true;
             popCargo.IsOpen = true;
+        }
+
+        private void ptrShowWorld(object sender, Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
+        {
+            showWorldPopup(ship.theWorld);
+        }
+
+        private void ptrShowWorldList(object sender, Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
+        {
+            TextBlock lbi = sender as TextBlock;
+            World w = lbi.DataContext as World;
+            showWorldPopup(w);
+        }
+
+        private void showWorldPopup(World w)
+        {
+            WorldDisplay wd = new WorldDisplay();
+            wd.Day = ship.Day;
+            wd.Year = ship.Year;
+            wd.WorldItem = w;
+            popCargo.Child = wd;
+            showPopup();
         }
     }
 }
