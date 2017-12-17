@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text;
 using Traveller.Models;
@@ -8,14 +7,8 @@ using Traveller.Support;
 using TravellerTracker.Models;
 using TravellerTracker.Support;
 using TravellerTracker.UserControls;
-using Windows.Graphics.Imaging;
-using Windows.Storage;
-using Windows.Storage.Pickers;
-using Windows.Storage.Streams;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Media.Imaging;
 
 namespace TravellerTracker.Views
 {
@@ -30,17 +23,17 @@ namespace TravellerTracker.Views
         {
             this.InitializeComponent();
             ship = App.DB.Ships.Where(x => x.ShipId == shipID).FirstOrDefault();
-            this.DataContext = this;
-            webView.Navigate(ship.theJumpMapURL);
-            jumpWorlds = ship.theWorld.JumpRange(ship.theClass.Jump);
-            lstJumpList.ItemsSource = jumpWorlds;
-            lstCargoCarried.ItemsSource = ship.theCargo;
             refresh();
         }
 
         private void refresh()
         {
+            webView.Navigate(ship.theJumpMapURL);
+            jumpWorlds = ship.theWorld.JumpRange(ship.theClass.Jump);
+            lstJumpList.ItemsSource = jumpWorlds;
+            this.DataContext = this;
             lstLog.ItemsSource = ship.theLog;
+            lstCargoCarried.ItemsSource = ship.theCargo;
         }
 
         private void btnLoadCargo(object sender, Windows.UI.Xaml.RoutedEventArgs e)
@@ -148,6 +141,10 @@ namespace TravellerTracker.Views
             ship.LowPaxCarried = 0;
             ship.MidPaxCarried = 0;
             ship.Fuel -= ship.theClass.FuelPerParsec;
+            App.DB.Add(new ShipLog() { Day = ship.Day, Year = ship.Year, ShipId = ship.ShipId, Log = $"Arrived at {destination.Name.Trim()}" });
+            foreach (ShipCargo item in ship.theCargo)
+                if (item.DestinationWorld.WorldID == destination.WorldID)
+                    unloadCargo(item);
             App.DB.SaveChangesAsync();
         }
 
@@ -289,16 +286,49 @@ namespace TravellerTracker.Views
             App.DB.SaveChangesAsync();
         }
 
-        private void AddToShipLog(ShipCargo shipCargo)
+        private async void AddToShipLog(ShipCargo shipCargo)
         {
             AddLog al = new AddLog();
             al.addLog(ship, shipCargo, true);
+            refresh();
         }
 
-        private void btnRemoveCargo(object sender, RoutedEventArgs e)
+        private async void btnRemoveCargo(object sender, RoutedEventArgs e)
         {
-            TextBlock tb = sender as TextBlock;
+            Button tb = sender as Button;
             ShipCargo sc = tb.DataContext as ShipCargo;
+            unloadCargo(sc);
+            await App.DB.SaveChangesAsync();
+            refresh();
+        }
+
+        private async void unloadCargo(ShipCargo sc)
+        {
+            App.DB.Entry(sc).State = Microsoft.EntityFrameworkCore.EntityState.Deleted;
+            switch (sc.CargoType)
+            {
+                case ShipCargo.CargoTypes.Speculative:
+                case ShipCargo.CargoTypes.Major:
+                case ShipCargo.CargoTypes.Minor:
+                case ShipCargo.CargoTypes.Incidental:
+                    ship.CargoCarried -= sc.dTons;
+                    break;
+                case ShipCargo.CargoTypes.Mail:
+                    break;
+                case ShipCargo.CargoTypes.HighPassage:
+                    ship.HighPaxCarried -= sc.dTons;
+                    break;
+                case ShipCargo.CargoTypes.MidPassage:
+                    ship.MidPaxCarried -= sc.dTons;
+                    break;
+                case ShipCargo.CargoTypes.LowPassage:
+                    ship.LowPaxCarried -= sc.dTons;
+                    break;
+                default:
+                    break;
+            }
+            AddLog al = new AddLog();
+            al.addLog(ship, sc, false);
         }
     }
 }
