@@ -160,23 +160,28 @@
             <PivotItem Header="Cargo Manifest">
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="50"></RowDefinition>
-                        <RowDefinition></RowDefinition>
+                        <RowDefinition Height="50" />
+                        <RowDefinition />
                     </Grid.RowDefinitions>
                     <Grid Grid.Row="0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="100" />
                             <ColumnDefinition Width="100" />
-                            <ColumnDefinition Width="400" />
-                            <ColumnDefinition Width="400" />
+                            <ColumnDefinition Width="120" />
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="100" />
                         </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0" Text="CargoType" />
-                        <TextBlock Grid.Column="1" Text="dTons" />
-                        <TextBlock Grid.Column="2" Text="Origin World" />
-                        <TextBlock Grid.Column="3" Text="Destination World" />
+                        <TextBlock Grid.Column="0" Style="{StaticResource txtBlockCenterBold}" Text="CargoType" />
+                        <TextBlock Grid.Column="1" Style="{StaticResource txtBlockCenterBold}" Text="dTons" />
+                        <TextBlock Grid.Column="2" Style="{StaticResource txtBlockCenterBold}" Text="Cargo Code" />
+                        <TextBlock Grid.Column="3" Style="{StaticResource txtBlockCenterBold}" Text="Origin" />
+                        <TextBlock Grid.Column="4" Style="{StaticResource txtBlockCenterBold}" Text="Destination" />
+                        <Button Grid.Column="5" VerticalAlignment="Center" Margin="3">Print</Button>
                     </Grid>
-                    <ListBox Grid.Row="1"
+                    <ListBox
                         Name="lstCargoCarried"
+                        Grid.Row="1"
                         Margin="3"
                         ItemsSource="{Binding}">
                         <ListBox.ItemTemplate>
@@ -185,13 +190,17 @@
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="100" />
                                         <ColumnDefinition Width="100" />
-                                        <ColumnDefinition Width="400" />
-                                        <ColumnDefinition Width="400" />
+                                        <ColumnDefinition Width="120" />
+                                        <ColumnDefinition Width="100" />
+                                        <ColumnDefinition Width="100" />
+                                        <ColumnDefinition Width="100" />
                                     </Grid.ColumnDefinitions>
                                     <TextBlock Grid.Column="0" Text="{Binding CargoType}" />
                                     <TextBlock Grid.Column="1" Text="{Binding dTons}" />
-                                    <TextBlock Grid.Column="2" Text="{Binding OriginWorld.Name}" />
-                                    <TextBlock Grid.Column="3" Text="{Binding DestinationWorld.Name}" />
+                                    <TextBlock Grid.Column="2" Text="{Binding CargoCode}" />
+                                    <TextBlock Grid.Column="3" Text="{Binding OriginWorld.Name}" />
+                                    <TextBlock Grid.Column="4" Text="{Binding DestinationWorld.Name}" />
+                                    <Button Grid.Column="5" Click="btnRemoveCargo" Margin="3" VerticalAlignment="Center">Remove</Button>
                                 </Grid>
                             </DataTemplate>
                         </ListBox.ItemTemplate>

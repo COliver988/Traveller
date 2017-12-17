@@ -217,7 +217,7 @@ namespace TravellerTracker.Views
                 passengers = ship.HighPaxAvail;
             ship.HighPaxCarried += passengers;
             ship.Credits += passengers * ship.theVersion.HighPassageCost;
-            App.DB.Add(new ShipCargo()
+            ShipCargo shipCargo = new ShipCargo()
             {
                 CargoCode = $"High Passage: {passengers}",
                 ShipID = ship.ShipId,
@@ -225,7 +225,9 @@ namespace TravellerTracker.Views
                 OriginWorldID = ship.theWorld.WorldID,
                 DestinationID = ca.world.WorldID,
                 dTons = passengers
-            });
+            };
+            App.DB.Add(shipCargo);
+            AddToShipLog(shipCargo);
             App.DB.SaveChangesAsync();
         }
 
@@ -252,7 +254,9 @@ namespace TravellerTracker.Views
                 passengers = ship.MidPaxAvail;
             ship.Credits += passengers * ship.theVersion.MidPassageCost;
             ship.MidPaxCarried += passengers;
-            App.DB.Add(new ShipCargo() { CargoCode = $"Mid Passage: {passengers}", ShipID = ship.ShipId, CargoType = ShipCargo.CargoTypes.MidPassage, OriginWorldID = ship.theWorld.WorldID, DestinationID = ca.world.WorldID, dTons = passengers });
+            ShipCargo shipCargo = new ShipCargo() { CargoCode = $"Mid Passage: {passengers}", ShipID = ship.ShipId, CargoType = ShipCargo.CargoTypes.MidPassage, OriginWorldID = ship.theWorld.WorldID, DestinationID = ca.world.WorldID, dTons = passengers };
+            App.DB.Add(shipCargo);
+            AddToShipLog(shipCargo);
             App.DB.SaveChangesAsync();
         }
 
@@ -279,8 +283,22 @@ namespace TravellerTracker.Views
                 passengers = ship.LowPaxAvail;
             ship.Credits += passengers * ship.theVersion.LowPassageCost;
             ship.LowPaxCarried += passengers;
-            App.DB.Add(new ShipCargo() { CargoCode = $"Low Passage: {ca.LowPassage}", ShipID = ship.ShipId, CargoType = ShipCargo.CargoTypes.LowPassage, OriginWorldID = ship.theWorld.WorldID, DestinationID = ca.world.WorldID, dTons = passengers });
+            ShipCargo shipCargo = new ShipCargo() { CargoCode = $"Low Passage: {ca.LowPassage}", ShipID = ship.ShipId, CargoType = ShipCargo.CargoTypes.LowPassage, OriginWorldID = ship.theWorld.WorldID, DestinationID = ca.world.WorldID, dTons = passengers };
+            App.DB.Add(shipCargo);
+            AddToShipLog(shipCargo);
             App.DB.SaveChangesAsync();
+        }
+
+        private void AddToShipLog(ShipCargo shipCargo)
+        {
+            AddLog al = new AddLog();
+            al.addLog(ship, shipCargo, true);
+        }
+
+        private void btnRemoveCargo(object sender, RoutedEventArgs e)
+        {
+            TextBlock tb = sender as TextBlock;
+            ShipCargo sc = tb.DataContext as ShipCargo;
         }
     }
 }

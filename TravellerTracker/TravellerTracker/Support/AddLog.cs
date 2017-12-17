@@ -11,6 +11,17 @@ namespace TravellerTracker.Support
 {
     public class AddLog
     {
+        public async void addLog(Ship ship, ShipCargo cargo, bool isLoading)
+        {
+            ShipLog log = new ShipLog(ship);
+            string process = "loaded";
+            if (!isLoading)
+                process = "unloaded";
+            log.Log = $"Cargo {process}: {cargo.CargoCode} at {ship.theWorld.Name}; destination {cargo.DestinationWorld.Name}";
+            TravellerTracker.App.DB.Add(log);
+            await TravellerTracker.App.DB.SaveChangesAsync();
+        }
+
         public async void addLog(Ship ship, int? worldID)
         {
             TextBox txt = new TextBox { Width = 400, Height = 200 };
