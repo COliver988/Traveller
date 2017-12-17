@@ -118,34 +118,6 @@ namespace TravellerTracker.Views
             App.DB.SaveChangesAsync();
         }
 
-        private void btnHighPax(object sender, Windows.UI.Xaml.RoutedEventArgs e)
-        {
-            if (ship.theClass.HighPassage == 0 || ship.HighPaxAvail == 0)
-            {
-                ErrorHandling eh = new ErrorHandling();
-                eh.showError("You do not have any high passage capacity.");
-                return;
-            }
-            Button btn = sender as Button;
-            CargoAvailable ca = btn.DataContext as CargoAvailable;
-            if (ca.HighPassage == 0)
-            {
-                ErrorHandling eh = new ErrorHandling();
-                eh.showError("There are no high passage passengers available.");
-                return;
-            }
-            if (ship.HighPaxAvail >= ca.HighPassage)
-            {
-                ship.HighPaxCarried = ca.HighPassage;
-                ship.Credits += ca.HighPassage * 10000;
-            }
-            else
-            {
-                ship.Credits += ship.HighPaxAvail * 10000;
-                ship.HighPaxCarried = ship.theClass.HighPassage;
-            }
-            App.DB.SaveChangesAsync();
-        }
 
         private void btnJump(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
@@ -220,6 +192,95 @@ namespace TravellerTracker.Views
             wd.WorldItem = w;
             popCargo.Child = wd;
             showPopup();
+        }
+
+        private void btnHighPax(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            if (ship.theClass.HighPassage == 0 || ship.HighPaxAvail == 0)
+            {
+                ErrorHandling eh = new ErrorHandling();
+                eh.showError("You do not have any high passage capacity.");
+                return;
+            }
+            Button btn = sender as Button;
+            CargoAvailable ca = btn.DataContext as CargoAvailable;
+            if (ca.HighPassage == 0)
+            {
+                ErrorHandling eh = new ErrorHandling();
+                eh.showError("There are no high passage passengers available.");
+                return;
+            }
+            int passengers = 0;
+            if (ship.HighPaxAvail >= ca.HighPassage)
+                passengers = ca.HighPassage;
+            else
+                passengers = ship.HighPaxAvail;
+            ship.HighPaxCarried += passengers;
+            ship.Credits += passengers * ship.theVersion.HighPassageCost;
+            App.DB.Add(new ShipCargo()
+            {
+                CargoCode = $"High Passage: {passengers}",
+                ShipID = ship.ShipId,
+                CargoType = ShipCargo.CargoTypes.HighPassage,
+                OriginWorldID = ship.theWorld.WorldID,
+                DestinationID = ca.world.WorldID,
+                dTons = passengers
+            });
+            App.DB.SaveChangesAsync();
+        }
+
+        private void btnMidPax(object sender, RoutedEventArgs e)
+        {
+            if (ship.theClass.MidPassage == 0 || ship.MidPaxAvail == 0)
+            {
+                ErrorHandling eh = new ErrorHandling();
+                eh.showError("You do not have any mid passage capacity.");
+                return;
+            }
+            Button btn = sender as Button;
+            CargoAvailable ca = btn.DataContext as CargoAvailable;
+            if (ca.LowPassage == 0)
+            {
+                ErrorHandling eh = new ErrorHandling();
+                eh.showError("There are no mid passage passengers available.");
+                return;
+            }
+            int passengers = 0;
+            if (ship.MidPaxAvail >= ca.MidPassage)
+                passengers = ca.MidPassage;
+            else
+                passengers = ship.MidPaxAvail;
+            ship.Credits += passengers * ship.theVersion.MidPassageCost;
+            ship.MidPaxCarried += passengers;
+            App.DB.Add(new ShipCargo() { CargoCode = $"Mid Passage: {passengers}", ShipID = ship.ShipId, CargoType = ShipCargo.CargoTypes.MidPassage, OriginWorldID = ship.theWorld.WorldID, DestinationID = ca.world.WorldID, dTons = passengers });
+            App.DB.SaveChangesAsync();
+        }
+
+        private void btnLowPax(object sender, RoutedEventArgs e)
+        {
+            if (ship.theClass.LowPassage == 0 || ship.LowPaxAvail == 0)
+            {
+                ErrorHandling eh = new ErrorHandling();
+                eh.showError("You do not have any low passage capacity.");
+                return;
+            }
+            Button btn = sender as Button;
+            CargoAvailable ca = btn.DataContext as CargoAvailable;
+            if (ca.MidPassage == 0)
+            {
+                ErrorHandling eh = new ErrorHandling();
+                eh.showError("There are no low passage passengers available.");
+                return;
+            }
+            int passengers = 0;
+            if (ship.LowPaxAvail >= ca.LowPassage)
+                passengers = ca.LowPassage;
+            else
+                passengers = ship.LowPaxAvail;
+            ship.Credits += passengers * ship.theVersion.LowPassageCost;
+            ship.LowPaxCarried += passengers;
+            App.DB.Add(new ShipCargo() { CargoCode = $"Low Passage: {ca.LowPassage}", ShipID = ship.ShipId, CargoType = ShipCargo.CargoTypes.LowPassage, OriginWorldID = ship.theWorld.WorldID, DestinationID = ca.world.WorldID, dTons = passengers });
+            App.DB.SaveChangesAsync();
         }
     }
 }

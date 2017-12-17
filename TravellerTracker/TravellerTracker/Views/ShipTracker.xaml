@@ -159,7 +159,23 @@
             </PivotItem>
             <PivotItem Header="Cargo Manifest">
                 <Grid>
-                    <ListBox
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="400" />
+                            <ColumnDefinition Width="400" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="CargoType" />
+                        <TextBlock Grid.Column="1" Text="dTons" />
+                        <TextBlock Grid.Column="2" Text="Origin World" />
+                        <TextBlock Grid.Column="3" Text="Destination World" />
+                    </Grid>
+                    <ListBox Grid.Row="1"
                         Name="lstCargoCarried"
                         Margin="3"
                         ItemsSource="{Binding}">
@@ -273,14 +289,14 @@
                                                 Width="40"
                                                 Style="{StaticResource txtBlockNormal}"
                                                 Text="{Binding MidPassage}" />
-                                            <Button Margin="3">OK</Button>
+                                            <Button Margin="3" Click="btnMidPax">OK</Button>
                                         </StackPanel>
                                         <StackPanel Grid.Column="2" Orientation="Horizontal">
                                             <TextBlock
                                                 Width="40"
                                                 Style="{StaticResource txtBlockNormal}"
                                                 Text="{Binding LowPassage}" />
-                                            <Button Margin="3">OK</Button>
+                                            <Button Margin="3" Click="btnLowPax">OK</Button>
                                         </StackPanel>
                                         <StackPanel Grid.Column="3" Orientation="Horizontal">
                                             <TextBlock Style="{StaticResource txtBlockNormal}" Text="{Binding CargoListing}" />

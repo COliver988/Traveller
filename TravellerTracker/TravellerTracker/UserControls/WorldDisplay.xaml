@@ -133,6 +133,7 @@
             Grid.Row="6"
             Grid.RowSpan="2"
             Grid.Column="1"
+            Background="LightBlue"
             Margin="3"
             ScrollViewer.VerticalScrollBarVisibility="Auto"
             ItemsSource="{Binding}">
