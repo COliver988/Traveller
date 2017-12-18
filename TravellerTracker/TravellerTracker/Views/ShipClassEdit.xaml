@@ -34,6 +34,10 @@
             <RowDefinition Height="35" />
             <RowDefinition Height="35" />
             <RowDefinition Height="35" />
+            <RowDefinition Height="35" />
+            <RowDefinition Height="35" />
+            <RowDefinition Height="35" />
+            <RowDefinition Height="35" />
         </Grid.RowDefinitions>
         <StackPanel
             Grid.Row="0"
@@ -77,7 +81,7 @@
         <TextBlock
             Grid.Row="1"
             Grid.Column="0"
-            Style="{StaticResource txtBlockNormal}"
+            Style="{StaticResource txtBlockRightBold}"
             Text="Class Name" />
         <TextBox
             Grid.Row="1"
@@ -87,7 +91,7 @@
         <TextBlock
             Grid.Row="2"
             Grid.Column="0"
-            Style="{StaticResource txtBlockNormal}"
+            Style="{StaticResource txtBlockRightBold}"
             Text="Jump" />
         <TextBox
             Grid.Row="2"
@@ -97,7 +101,7 @@
         <TextBlock
             Grid.Row="3"
             Grid.Column="0"
-            Style="{StaticResource txtBlockNormal}"
+            Style="{StaticResource txtBlockRightBold}"
             Text="Man" />
         <TextBox
             Grid.Row="3"
@@ -107,7 +111,7 @@
         <TextBlock
             Grid.Row="4"
             Grid.Column="0"
-            Style="{StaticResource txtBlockNormal}"
+            Style="{StaticResource txtBlockRightBold}"
             Text="Power" />
         <TextBox
             Grid.Row="4"
@@ -117,7 +121,7 @@
         <TextBlock
             Grid.Row="5"
             Grid.Column="0"
-            Style="{StaticResource txtBlockNormal}"
+            Style="{StaticResource txtBlockRightBold}"
             Text="Cargo" />
         <TextBox
             Grid.Row="5"
@@ -127,7 +131,7 @@
         <TextBlock
             Grid.Row="6"
             Grid.Column="0"
-            Style="{StaticResource txtBlockNormal}"
+            Style="{StaticResource txtBlockRightBold}"
             Text="Tonnage" />
         <TextBox
             Grid.Row="6"
@@ -137,7 +141,7 @@
         <TextBlock
             Grid.Row="7"
             Grid.Column="0"
-            Style="{StaticResource txtBlockNormal}"
+            Style="{StaticResource txtBlockRightBold}"
             Text="Ship Type" />
         <TextBox
             Grid.Row="7"
@@ -147,7 +151,7 @@
         <TextBlock
             Grid.Row="8"
             Grid.Column="0"
-            Style="{StaticResource txtBlockNormal}"
+            Style="{StaticResource txtBlockRightBold}"
             Text="Fuel" />
         <StackPanel
             Grid.Row="8"
@@ -163,7 +167,7 @@
         <TextBlock
             Grid.Row="9"
             Grid.Column="0"
-            Style="{StaticResource txtBlockNormal}"
+            Style="{StaticResource txtBlockRightBold}"
             Text="Passenger Capacity" />
         <StackPanel
             Grid.Row="9"

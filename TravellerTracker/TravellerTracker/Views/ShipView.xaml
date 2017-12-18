@@ -32,6 +32,8 @@
             <RowDefinition Height="40" />
             <RowDefinition Height="40" />
             <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
         </Grid.RowDefinitions>
         <TextBlock
             Grid.RowSpan="2"
@@ -216,15 +218,38 @@
         <TextBlock
             Grid.Row="8"
             Grid.Column="0"
+            Style="{StaticResource txtBlock}"
+            Text="Cargo Carried " />
+        <TextBox
+            Grid.Row="8"
+            Grid.Column="1"
+            Style="{StaticResource txtBoxNum}"
+            Text="{x:Bind ship.CargoCarried, Mode=TwoWay}" />
+        <TextBlock
+            Grid.Row="10"
+            Grid.Column="0"
             SelectionChanged="TextBlock_SelectionChanged"
             Style="{StaticResource txtBlock}"
             Text="Ship's Log" />
+        <TextBlock
+            Grid.Row="9"
+            Grid.Column="0"
+            Style="{StaticResource txtBlock}"
+            Text="Passengers " />
+        <StackPanel Grid.Row="9" Orientation="Horizontal" Grid.Column="1">
+            <TextBlock Style="{StaticResource txtBlock}" Text="High Passage: "></TextBlock>
+            <TextBox Style="{StaticResource txtBoxNum}" Text="{x:Bind ship.HighPaxCarried, Mode=TwoWay}"></TextBox>
+            <TextBlock Style="{StaticResource txtBlock}" Text="Mid Passage: "></TextBlock>
+            <TextBox Style="{StaticResource txtBoxNum}" Text="{x:Bind ship.MidPaxCarried, Mode=TwoWay}"></TextBox>
+            <TextBlock Style="{StaticResource txtBlock}" Text="Low Passage: "></TextBlock>
+            <TextBox Style="{StaticResource txtBoxNum}" Text="{x:Bind ship.LowPaxCarried, Mode=TwoWay}"></TextBox>
+        </StackPanel>
         <ListBox
             Name="lstLog"
-            Grid.Row="8"
+            Grid.Row="10"
             Grid.RowSpan="4"
             Grid.Column="1"
-            Margin="0,2,0,38"
+            Margin="3"
             ItemsSource="{Binding}">
             <ListBox.ItemTemplate>
                 <DataTemplate>

@@ -18,16 +18,18 @@ namespace TravellerTracker.Views
         List<World> jumpWorlds;
         public List<CargoAvailable> pax { get; set; }
         Utilities util = new Utilities();
+        int ID;
 
         public ShipTracker(int shipID)
         {
             this.InitializeComponent();
-            ship = App.DB.Ships.Where(x => x.ShipId == shipID).FirstOrDefault();
+            ID = shipID;
             refresh();
         }
 
         private void refresh()
         {
+            ship = App.DB.Ships.Where(x => x.ShipId == ID).FirstOrDefault();
             webView.Navigate(ship.theJumpMapURL);
             jumpWorlds = ship.theWorld.JumpRange(ship.theClass.Jump);
             lstJumpList.ItemsSource = jumpWorlds;
@@ -108,7 +110,8 @@ namespace TravellerTracker.Views
                 ErrorHandling eh = new ErrorHandling();
                 eh.showError("Fuel is unavailable at this port.");
             }
-            App.DB.SaveChangesAsync();
+            await App.DB.SaveChangesAsync();
+            refresh();
         }
 
 
@@ -140,7 +143,7 @@ namespace TravellerTracker.Views
             ship.HighPaxCarried = 0;
             ship.LowPaxCarried = 0;
             ship.MidPaxCarried = 0;
-            ship.Fuel -= ship.theClass.FuelPerParsec;
+            ship.Fuel -= ship.theClass.FuelPerParsec * distance;
             App.DB.Add(new ShipLog() { Day = ship.Day, Year = ship.Year, ShipId = ship.ShipId, Log = $"Arrived at {destination.Name.Trim()}" });
             foreach (ShipCargo item in ship.theCargo)
                 if (item.DestinationWorld.WorldID == destination.WorldID)
