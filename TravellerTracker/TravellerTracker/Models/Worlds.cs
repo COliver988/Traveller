@@ -60,7 +60,7 @@ namespace Traveller.Models
         public int GasGiants {  get { return  Utilities.HexToInt(PBG[2]); } }
 
         [NotMapped]
-        public string Description { get { return string.Format("{0} {1} {2}", Hex, Name, UWP).Replace("  ", " "); } }
+        public string Description { get { return string.Format("{0} {1} {2}", Hex, UWP, Name); } }
 
         // UWP in A123456-7 format
         [NotMapped]

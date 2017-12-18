@@ -2,6 +2,7 @@
 using TravellerTracker.Support;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media.Imaging;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
@@ -68,7 +69,11 @@ namespace TravellerTracker.UserControls
         private async void btnAddImage(object sender, RoutedEventArgs e)
         {
             ImageHandler ih = new ImageHandler();
-            imageWorld.Source = await ih.bytesToImage(WorldItem.WorldImage);
+            byte[] image = await ih.openImage();
+            WorldItem.WorldImage = image;
+            App.DB.SaveChangesAsync();
+            BitmapImage img = await ih.bytesToImage(image);
+            imageWorld.Source = img;
         }
     }
 }
