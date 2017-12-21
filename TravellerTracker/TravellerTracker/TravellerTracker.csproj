@@ -127,6 +127,10 @@
     <Compile Include="Migrations\20171210144030_cargoDestinationWorld.designer.cs">
       <DependentUpon>20171210144030_cargoDestinationWorld.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20171221002538_versionDaysToSearch.cs" />
+    <Compile Include="Migrations\20171221002538_versionDaysToSearch.designer.cs">
+      <DependentUpon>20171221002538_versionDaysToSearch.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\TravellerContextModelSnapshot.cs" />
     <Compile Include="Models\BITSCargo.cs" />
     <Compile Include="Models\BulkCargo.cs" />

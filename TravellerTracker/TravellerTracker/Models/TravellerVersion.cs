@@ -13,5 +13,6 @@
         public int Cost4Jump { get; set; }
         public int Cost5Jump { get; set; }
         public int Cost6Jump { get; set; }
+        public int DaysForCargoSearch { get; set; } 
     }
 }

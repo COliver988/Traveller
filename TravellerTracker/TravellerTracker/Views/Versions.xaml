@@ -27,6 +27,7 @@
             <ColumnDefinition Width="100"></ColumnDefinition>
             <ColumnDefinition Width="100"></ColumnDefinition>
             <ColumnDefinition Width="100"></ColumnDefinition>
+            <ColumnDefinition Width="100"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
@@ -42,12 +43,14 @@
         <TextBlock Text="J4" Grid.Column="7" Style="{StaticResource SubheaderTextBlockStyle}"></TextBlock>
         <TextBlock Text="J5" Grid.Column="8" Style="{StaticResource SubheaderTextBlockStyle}"></TextBlock>
         <TextBlock Text="J6" Grid.Column="9" Style="{StaticResource SubheaderTextBlockStyle}"></TextBlock>
-        <ListBox ItemsSource="{Binding}" Grid.Row="1" Grid.ColumnSpan="10">
+        <TextBlock Text="Cargo Days" Grid.Column="10" Style="{StaticResource SubheaderTextBlockStyle}"></TextBlock>
+        <ListBox ItemsSource="{Binding}" Grid.Row="1" Grid.ColumnSpan="11">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="200"></ColumnDefinition>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
                             <ColumnDefinition Width="100"></ColumnDefinition>
                             <ColumnDefinition Width="100"></ColumnDefinition>
                             <ColumnDefinition Width="100"></ColumnDefinition>
@@ -68,6 +71,7 @@
                         <TextBox Grid.Column="7" Text="{Binding Cost4Jump, Mode=TwoWay}" Style="{StaticResource txtBoxNumCr}"></TextBox>
                         <TextBox Grid.Column="8" Text="{Binding Cost5Jump, Mode=TwoWay}" Style="{StaticResource txtBoxNumCr}"></TextBox>
                         <TextBox Grid.Column="9" Text="{Binding Cost6Jump, Mode=TwoWay}" Style="{StaticResource txtBoxNumCr}"></TextBox>
+                        <TextBox Grid.Column="10" Text="{Binding DaysForCargoSearch, Mode=TwoWay}" Style="{StaticResource txtBoxNumCr}"></TextBox>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
