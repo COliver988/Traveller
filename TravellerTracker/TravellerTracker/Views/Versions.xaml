@@ -31,20 +31,24 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBlock Text="Name" Style="{StaticResource SubheaderTextBlockStyle}"></TextBlock>
-        <TextBlock Text="High" Grid.Column="1" Style="{StaticResource SubheaderTextBlockStyle}"></TextBlock>
-        <TextBlock Text="Low" Grid.Column="2" Style="{StaticResource SubheaderTextBlockStyle}"></TextBlock>
-        <TextBlock Text="Mid" Grid.Column="3" Style="{StaticResource SubheaderTextBlockStyle}"></TextBlock>
-        <TextBlock Text="J1" Grid.Column="4" Style="{StaticResource SubheaderTextBlockStyle}"></TextBlock>
-        <TextBlock Text="J2" Grid.Column="5" Style="{StaticResource SubheaderTextBlockStyle}"></TextBlock>
-        <TextBlock Text="J3" Grid.Column="6" Style="{StaticResource SubheaderTextBlockStyle}"></TextBlock>
-        <TextBlock Text="J4" Grid.Column="7" Style="{StaticResource SubheaderTextBlockStyle}"></TextBlock>
-        <TextBlock Text="J5" Grid.Column="8" Style="{StaticResource SubheaderTextBlockStyle}"></TextBlock>
-        <TextBlock Text="J6" Grid.Column="9" Style="{StaticResource SubheaderTextBlockStyle}"></TextBlock>
-        <TextBlock Text="Cargo Days" Grid.Column="10" Style="{StaticResource SubheaderTextBlockStyle}"></TextBlock>
-        <ListBox ItemsSource="{Binding}" Grid.Row="1" Grid.ColumnSpan="11">
+        <TextBlock Text="Passengers" Grid.Column="1" Grid.ColumnSpan="3" Style="{StaticResource SubheaderTextBlockStyle}" HorizontalAlignment="Center"></TextBlock>
+        <TextBlock Text="Cost per ton by jump" Grid.Column="4" Grid.ColumnSpan="6" Style="{StaticResource SubheaderTextBlockStyle}" HorizontalAlignment="Center"></TextBlock>
+        <TextBlock Text="Search" Grid.Column="10" Style="{StaticResource SubheaderTextBlockStyle}" HorizontalAlignment="Center"></TextBlock>
+        <TextBlock Text="Name" Grid.Row="1" Style="{StaticResource SubheaderTextBlockStyle}"></TextBlock>
+        <TextBlock Text="High" Grid.Row="1" Grid.Column="1" Style="{StaticResource SubheaderTextBlockStyle}" HorizontalAlignment="Center"></TextBlock>
+        <TextBlock Text="Low" Grid.Row="1" Grid.Column="2" Style="{StaticResource SubheaderTextBlockStyle}" HorizontalAlignment="Center"></TextBlock>
+        <TextBlock Text="Mid" Grid.Row="1" Grid.Column="3" Style="{StaticResource SubheaderTextBlockStyle}" HorizontalAlignment="Center"></TextBlock>
+        <TextBlock Text="J1" Grid.Row="1" Grid.Column="4" Style="{StaticResource SubheaderTextBlockStyle}" HorizontalAlignment="Center"></TextBlock>
+        <TextBlock Text="J2" Grid.Row="1" Grid.Column="5" Style="{StaticResource SubheaderTextBlockStyle}" HorizontalAlignment="Center"></TextBlock>
+        <TextBlock Text="J3" Grid.Row="1" Grid.Column="6" Style="{StaticResource SubheaderTextBlockStyle}" HorizontalAlignment="Center"></TextBlock>
+        <TextBlock Text="J4" Grid.Row="1" Grid.Column="7" Style="{StaticResource SubheaderTextBlockStyle}" HorizontalAlignment="Center"></TextBlock>
+        <TextBlock Text="J5" Grid.Row="1" Grid.Column="8" Style="{StaticResource SubheaderTextBlockStyle}" HorizontalAlignment="Center"></TextBlock>
+        <TextBlock Text="J6" Grid.Row="1" Grid.Column="9" Style="{StaticResource SubheaderTextBlockStyle}" HorizontalAlignment="Center"></TextBlock>
+        <TextBlock Text="Cargo" Grid.Row="1" Grid.Column="10" Style="{StaticResource SubheaderTextBlockStyle}" HorizontalAlignment="Center"></TextBlock>
+        <ListBox ItemsSource="{Binding}" Grid.Row="2" Grid.ColumnSpan="11">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
