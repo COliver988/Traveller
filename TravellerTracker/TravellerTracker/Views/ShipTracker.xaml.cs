@@ -41,7 +41,7 @@ namespace TravellerTracker.Views
         private void btnLoadCargo(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             ImperialDates id = new ImperialDates(ship.Day, ship.Year);
-            id.addDays(7);
+            id.addDays(ship.theVersion.DaysForCargoSearch);
             ship.Year = id.Year;
             ship.Day = id.Day;
             App.DB.SaveChangesAsync();
