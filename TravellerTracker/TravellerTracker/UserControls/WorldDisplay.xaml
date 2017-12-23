@@ -17,7 +17,11 @@
         </ResourceDictionary>
     </UserControl.Resources>
 
-    <Grid Name="gridWorld" Background="LightBlue" BorderBrush="Black" BorderThickness="2">
+    <Grid
+        Name="gridWorld"
+        Background="LightBlue"
+        BorderBrush="Black"
+        BorderThickness="2">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100" />
             <ColumnDefinition Width="800" />
@@ -133,10 +137,10 @@
             Grid.Row="6"
             Grid.RowSpan="2"
             Grid.Column="1"
-            Background="LightBlue"
             Margin="3"
-            ScrollViewer.VerticalScrollBarVisibility="Auto"
-            ItemsSource="{Binding}">
+            Background="LightBlue"
+            ItemsSource="{Binding}"
+            ScrollViewer.VerticalScrollBarVisibility="Auto">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>

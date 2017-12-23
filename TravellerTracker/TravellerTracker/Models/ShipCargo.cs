@@ -31,5 +31,7 @@ namespace Traveller.Models
         public World OriginWorld => TravellerTracker.App.DB.Worlds.Where(x => x.WorldID == OriginWorldID).FirstOrDefault();
         [NotMapped]
         public World DestinationWorld => TravellerTracker.App.DB.Worlds.Where(x => x.WorldID == DestinationID).FirstOrDefault();
+        [NotMapped]
+        public Cargo theCargo => TravellerTracker.App.DB.Cargo.Where(x => x.CargoID == CargoID).FirstOrDefault();
     }
 }

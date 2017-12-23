@@ -17,7 +17,11 @@ namespace TravellerTracker.Support
             string process = "loaded";
             if (!isLoading)
                 process = "unloaded";
-            log.Log = $"Cargo {process}: {cargo.CargoCode} at {ship.theWorld.Name}; destination {cargo.DestinationWorld.Name}";
+            if (cargo.CargoType == ShipCargo.CargoTypes.Speculative)
+                log.Log = $"Cargo {process}: {cargo.CargoCode} at {ship.theWorld.Name}; speculative trade";
+            else
+                log.Log = $"Cargo {process}: {cargo.CargoCode} at {ship.theWorld.Name}; destination {cargo.DestinationWorld.Name}";
+
             TravellerTracker.App.DB.Add(log);
             await TravellerTracker.App.DB.SaveChangesAsync();
         }

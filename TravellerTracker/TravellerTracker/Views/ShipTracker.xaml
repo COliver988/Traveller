@@ -171,13 +171,38 @@
                             <ColumnDefinition Width="100" />
                             <ColumnDefinition Width="100" />
                             <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="100" />
                         </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0" Style="{StaticResource txtBlockCenterBold}" Text="CargoType" />
-                        <TextBlock Grid.Column="1" Style="{StaticResource txtBlockCenterBold}" Text="dTons" />
-                        <TextBlock Grid.Column="2" Style="{StaticResource txtBlockCenterBold}" Text="Cargo Code" />
-                        <TextBlock Grid.Column="3" Style="{StaticResource txtBlockCenterBold}" Text="Origin" />
-                        <TextBlock Grid.Column="4" Style="{StaticResource txtBlockCenterBold}" Text="Destination" />
-                        <Button Grid.Column="5" VerticalAlignment="Center" Margin="3">Print</Button>
+                        <TextBlock
+                            Grid.Column="0"
+                            Style="{StaticResource txtBlockCenterBold}"
+                            Text="CargoType" />
+                        <TextBlock
+                            Grid.Column="1"
+                            Style="{StaticResource txtBlockCenterBold}"
+                            Text="Description" />
+                        <TextBlock
+                            Grid.Column="2"
+                            Style="{StaticResource txtBlockCenterBold}"
+                            Text="dTons" />
+                        <TextBlock
+                            Grid.Column="3"
+                            Style="{StaticResource txtBlockCenterBold}"
+                            Text="Cargo Code" />
+                        <TextBlock
+                            Grid.Column="4"
+                            Style="{StaticResource txtBlockCenterBold}"
+                            Text="Origin" />
+                        <TextBlock
+                            Grid.Column="5"
+                            Style="{StaticResource txtBlockCenterBold}"
+                            Text="Destination" />
+                        <Button
+                            Grid.Column="6"
+                            Margin="3"
+                            VerticalAlignment="Center">
+                            Print
+                        </Button>
                     </Grid>
                     <ListBox
                         Name="lstCargoCarried"
@@ -190,17 +215,25 @@
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="100" />
                                         <ColumnDefinition Width="100" />
+                                        <ColumnDefinition Width="100" />
                                         <ColumnDefinition Width="120" />
                                         <ColumnDefinition Width="100" />
                                         <ColumnDefinition Width="100" />
                                         <ColumnDefinition Width="100" />
                                     </Grid.ColumnDefinitions>
                                     <TextBlock Grid.Column="0" Text="{Binding CargoType}" />
-                                    <TextBlock Grid.Column="1" Text="{Binding dTons}" />
-                                    <TextBlock Grid.Column="2" Text="{Binding CargoCode}" />
-                                    <TextBlock Grid.Column="3" Text="{Binding OriginWorld.Name}" />
-                                    <TextBlock Grid.Column="4" Text="{Binding DestinationWorld.Name}" />
-                                    <Button Grid.Column="5" Click="btnRemoveCargo" Margin="3" VerticalAlignment="Center">Remove</Button>
+                                    <TextBlock Grid.Column="1" Text="{Binding theCargo.Description}" />
+                                    <TextBlock Grid.Column="2" Text="{Binding dTons}" />
+                                    <TextBlock Grid.Column="3" Text="{Binding CargoCode}" />
+                                    <TextBlock Grid.Column="4" Text="{Binding OriginWorld.Name}" />
+                                    <TextBlock Grid.Column="5" Text="{Binding DestinationWorld.Name}" />
+                                    <Button
+                                        Grid.Column="6"
+                                        Margin="3"
+                                        VerticalAlignment="Center"
+                                        Click="btnRemoveCargo">
+                                        Remove
+                                    </Button>
                                 </Grid>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
@@ -228,7 +261,7 @@
                         <TextBox Style="{StaticResource txtBox}" Text="{Binding BasePurchasePrice}" />
                         <TextBox Style="{StaticResource txtBox}" Text="{Binding dTons}" />
                         <TextBlock Style="{StaticResource txtBlock}" Text="Cargo Code: " />
-                        <Button Click="btnPrice" Style="{StaticResource btnMenu}">Get Price</Button>
+                        <Button Click="btnPrice" Style="{StaticResource btnMenu}">Purchase</Button>
                     </StackPanel>
                     <TextBlock
                         Grid.Row="1"

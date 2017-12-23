@@ -96,6 +96,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\EnumConverter.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -131,11 +132,16 @@
     <Compile Include="Migrations\20171221002538_versionDaysToSearch.designer.cs">
       <DependentUpon>20171221002538_versionDaysToSearch.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20171223122322_versionCargoCodeType.cs" />
+    <Compile Include="Migrations\20171223122322_versionCargoCodeType.designer.cs">
+      <DependentUpon>20171223122322_versionCargoCodeType.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\TravellerContextModelSnapshot.cs" />
     <Compile Include="Models\BITSCargo.cs" />
     <Compile Include="Models\BulkCargo.cs" />
     <Compile Include="Models\Cargo.cs" />
     <Compile Include="Models\CargoAvailable.cs" />
+    <Compile Include="Models\CargoCodeTypeEnums.cs" />
     <Compile Include="Models\CargoType.cs" />
     <Compile Include="Models\ErrorHandling.cs" />
     <Compile Include="Models\Sector.cs" />

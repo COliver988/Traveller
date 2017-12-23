@@ -71,7 +71,12 @@
                             Grid.Column="2"
                             Margin="3"
                             Text="{Binding CargoCode, Mode=OneTime}" />
-                        <Button Grid.Column="3" Margin="3" Click="btnLoad">Load</Button>
+                        <Button
+                            Grid.Column="3"
+                            Margin="3"
+                            Click="btnLoad">
+                            Load
+                        </Button>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>

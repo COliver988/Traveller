@@ -56,7 +56,25 @@ namespace TravellerTracker.Views
 
         private void btnPrice(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-
+            Cargo cargo = spSpecTrade.DataContext as Cargo;
+            if (ship.Credits < cargo.BasePurchasePrice)
+            {
+                ErrorHandling eh = new ErrorHandling();
+                eh.showError("Insufficient credits to purchase!");
+                return;
+            }
+            ship.Credits -= cargo.BasePurchasePrice;
+            ShipCargo shipCargo = new ShipCargo()
+            {
+                CargoCode = cargo.CargoCode,
+                ShipID = ship.ShipId,
+                CargoID = cargo.CargoID,
+                CargoType = ShipCargo.CargoTypes.Speculative,
+                OriginWorldID = ship.theWorld.WorldID,
+                dTons = cargo.dTons
+            };
+            App.DB.Add(shipCargo);
+            AddToShipLog(shipCargo);
         }
 
         private async void btnRefuel(object sender, Windows.UI.Xaml.RoutedEventArgs e)

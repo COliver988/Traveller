@@ -51,6 +51,11 @@ namespace Traveller.Support
             c.dTons = c.QtyDie * util.d6();
             c.dTons *= c.Multiplier;
             c.isSpeculative = true;
+            if (c.CargoCode == null)
+            {
+                BITSCargo bc = new BITSCargo();
+                c.CargoCode = bc.GenerateBITS(c.dTons);
+            }
             results.Add(c);
 
             // load up regular cargo; passengers
