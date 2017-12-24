@@ -318,9 +318,20 @@ namespace TravellerTracker.Views
         {
             Button tb = sender as Button;
             ShipCargo sc = tb.DataContext as ShipCargo;
-            unloadCargo(sc);
+            if (sc.CargoType == ShipCargo.CargoTypes.Speculative)
+                sellSpeculative(sc);
+            else
+                unloadCargo(sc);
             await App.DB.SaveChangesAsync();
             refresh();
+        }
+
+        private void sellSpeculative(ShipCargo sc)
+        {
+            SpecCargoSell spec = new SpecCargoSell();
+            spec.shipCargo = sc;
+            popCargo.Child = spec;
+            showPopup();
         }
 
         private async void unloadCargo(ShipCargo sc)

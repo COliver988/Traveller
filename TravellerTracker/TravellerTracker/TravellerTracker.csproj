@@ -136,7 +136,12 @@
     <Compile Include="Migrations\20171223122322_versionCargoCodeType.designer.cs">
       <DependentUpon>20171223122322_versionCargoCodeType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20171224120135_ActualValues.cs" />
+    <Compile Include="Migrations\20171224120135_ActualValues.designer.cs">
+      <DependentUpon>20171224120135_ActualValues.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\TravellerContextModelSnapshot.cs" />
+    <Compile Include="Models\ActualValue.cs" />
     <Compile Include="Models\BITSCargo.cs" />
     <Compile Include="Models\BulkCargo.cs" />
     <Compile Include="Models\Cargo.cs" />
@@ -168,6 +173,9 @@
     <Compile Include="Support\Utilities.cs" />
     <Compile Include="UserControls\BulkCargoSelector.xaml.cs">
       <DependentUpon>BulkCargoSelector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SpecCargoSell.xaml.cs">
+      <DependentUpon>SpecCargoSell.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\WorldDisplay.xaml.cs">
       <DependentUpon>WorldDisplay.xaml</DependentUpon>
@@ -260,6 +268,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Page>
     <Page Include="UserControls\BulkCargoSelector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\SpecCargoSell.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
