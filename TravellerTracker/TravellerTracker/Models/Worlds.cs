@@ -32,17 +32,17 @@ namespace Traveller.Models
         public World(string line, int sectorID)
         {
             this.Hex = line.Substring(0, 4);
-            this.Name = line.Substring(5, 20);
+            this.Name = line.Substring(5, 20).Trim();
             this.UWP = line.Substring(26, 9);
-            this.Remarks = line.Substring(36, 40);
-            this.Importance = line.Substring(77, 6);
-            this.Ex = line.Substring(84, 6);
-            this.CulturalExt = line.Substring(92, 6);
+            this.Remarks = line.Substring(36, 40).Trim();
+            this.Importance = line.Substring(77, 6).Trim();
+            this.Ex = line.Substring(84, 6).Trim();
+            this.CulturalExt = line.Substring(92, 6).Trim();
             this.Bases = line.Substring(106, 2);
             this.Zone = line[109];
             this.PBG = line.Substring(110, 3);
             this.Alliance = line.Substring(117, 4);
-            this.Stellar = line.Substring(122);
+            this.Stellar = line.Substring(122).Trim();
         }
 
         [NotMapped]

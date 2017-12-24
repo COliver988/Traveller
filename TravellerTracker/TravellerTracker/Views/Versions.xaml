@@ -196,7 +196,7 @@
                             Grid.Column="11"
                             Margin="3"
                             HorizontalAlignment="Center"
-                            ItemsSource="{Binding Source=CargoCodeTypes}"
+                            ItemsSource="{Binding versions.CargoCodeEnums}"
                             SelectedItem="{Binding CargoCodeType, Mode=TwoWay}">
                         </ComboBox>
                     </Grid>

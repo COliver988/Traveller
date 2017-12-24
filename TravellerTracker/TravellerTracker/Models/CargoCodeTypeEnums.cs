@@ -14,6 +14,5 @@
         {
             get { return TravellerVersion.CargoCodeTypes.None; }
         }
-
     }
 }
