@@ -130,6 +130,7 @@
             HorizontalAlignment="Center"
             Style="{StaticResource SubheaderTextBlockStyle}"
             Text="Code" />
+        <Popup Name="popup" Grid.Column="1" Grid.Row="1"></Popup>
         <ListBox
             Grid.Row="2"
             Grid.ColumnSpan="12"
@@ -192,13 +193,12 @@
                             Grid.Column="10"
                             Style="{StaticResource txtBoxNumCr}"
                             Text="{Binding DaysForCargoSearch, Mode=TwoWay}" />
-                        <ComboBox
+                        <Button
                             Grid.Column="11"
                             Margin="3"
-                            HorizontalAlignment="Center"
-                            ItemsSource="{Binding versions.CargoCodeEnums}"
-                            SelectedItem="{Binding CargoCodeType, Mode=TwoWay}">
-                        </ComboBox>
+                            Click="btnMisc">
+                            Actual Value
+                        </Button>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>

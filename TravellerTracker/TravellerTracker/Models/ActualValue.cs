@@ -1,4 +1,4 @@
-﻿namespace TravellerTracker.Models
+﻿namespace Traveller.Models
 {
     public class ActualValue
     {

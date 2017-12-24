@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
 
 namespace Traveller.Models
 {
@@ -26,5 +28,7 @@ namespace Traveller.Models
 
         [NotMapped]
         public CargoCodeTypeEnums CargoTypeEnums => new CargoCodeTypeEnums();
+        [NotMapped]
+        public List<ActualValue> ActualValues => TravellerTracker.App.DB.ActualValues.Where(x => x.TravellerVersionId == TravellerVersionId).ToList();
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Traveller.Models;
+using TravellerTracker.UserControls;
 using Windows.UI.Xaml.Controls;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -17,6 +18,12 @@ namespace TravellerTracker.Views
             this.InitializeComponent();
             versions = TravellerTracker.App.DB.TravellerVersions;
             this.DataContext = versions;
+        }
+
+        private void btnMisc(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+
+            VersionMisc vm = new VersionMisc();
         }
     }
 }

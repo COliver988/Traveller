@@ -1,0 +1,84 @@
+﻿<UserControl
+    x:Class="TravellerTracker.UserControls.VersionMisc"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:TravellerTracker.UserControls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="900"
+    d:DesignWidth="400"
+    mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/TravDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid Background="{StaticResource UserControlBackground}">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="100" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <TextBlock
+            Grid.ColumnSpan="2"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Style="{StaticResource SubtitleTextBlockStyle}"
+            Text="{x:Bind Version.Name}" />
+        <TextBlock
+            Grid.Row="1"
+            Style="{StaticResource txtBlockRightBold}"
+            Text="Cargo Code" />
+        <ComboBox
+            Name="cbCodes"
+            Grid.Row="1"
+            Grid.Column="1"
+            Margin="3"
+            VerticalAlignment="Center"
+            ItemsSource="{Binding}">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding}" />
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <TextBlock
+            Grid.Row="2"
+            Style="{StaticResource txtBlockRightBold}"
+            Text="Actual Value" />
+        <ListBox
+            Name="lstValues"
+            Grid.Row="2"
+            Grid.RowSpan="2"
+            Grid.Column="2"
+            Margin="3"
+            ItemsSource="{Binding}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <TextBox Style="{StaticResource txtBoxNum}" Text="{Binding DiceRoll, Mode=TwoWay}" />
+                        <TextBox
+                            Grid.Column="1"
+                            Style="{StaticResource txtBoxNum}"
+                            Text="{Binding PercentageValue, Mode=TwoWay}" />
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</UserControl>

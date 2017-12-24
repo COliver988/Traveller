@@ -177,6 +177,9 @@
     <Compile Include="UserControls\SpecCargoSell.xaml.cs">
       <DependentUpon>SpecCargoSell.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\VersionMisc.xaml.cs">
+      <DependentUpon>VersionMisc.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\WorldDisplay.xaml.cs">
       <DependentUpon>WorldDisplay.xaml</DependentUpon>
     </Compile>
@@ -272,6 +275,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\SpecCargoSell.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\VersionMisc.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
