@@ -1,18 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
+﻿using System.Linq;
 using Traveller.Models;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
@@ -32,10 +21,22 @@ namespace TravellerTracker.UserControls
         public static readonly DependencyProperty MyPropertyProperty =
             DependencyProperty.Register("MyProperty", typeof(ShipCargo), typeof(SpecCargoSell), new PropertyMetadata(0));
 
+        public Ship theShip { get; set; }
 
         public SpecCargoSell()
         {
             this.InitializeComponent();
+            Loaded += SpecCargoSell_Loaded;
+        }
+
+        private void SpecCargoSell_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (shipCargo != null)
+            {
+                theShip = App.DB.Ships.Where(x => x.ShipId == shipCargo.ShipID).First();
+                lstActualValues.ItemsSource = theShip.theVersion.ActualValues;
+                txtCurrentWorld.Text = theShip.theWorld.Name;
+            }
         }
     }
 }

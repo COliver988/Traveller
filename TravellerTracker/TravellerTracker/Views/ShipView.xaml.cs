@@ -237,6 +237,7 @@ namespace TravellerTracker.Views
             if (tv != null)
             {
                 ship.TravellerVersionID = tv.TravellerVersionId;
+                App.DB.SaveChangesAsync();
             }
         }
     }

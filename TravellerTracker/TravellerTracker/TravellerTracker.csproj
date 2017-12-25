@@ -140,6 +140,10 @@
     <Compile Include="Migrations\20171224120135_ActualValues.designer.cs">
       <DependentUpon>20171224120135_ActualValues.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20171225225027_cargoDMs.cs" />
+    <Compile Include="Migrations\20171225225027_cargoDMs.designer.cs">
+      <DependentUpon>20171225225027_cargoDMs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\TravellerContextModelSnapshot.cs" />
     <Compile Include="Models\ActualValue.cs" />
     <Compile Include="Models\BITSCargo.cs" />

@@ -27,6 +27,10 @@
             <RowDefinition Height="45" />
             <RowDefinition Height="45" />
             <RowDefinition Height="45" />
+            <RowDefinition Height="45" />
+            <RowDefinition Height="45" />
+            <RowDefinition Height="45" />
+            <RowDefinition Height="45" />
         </Grid.RowDefinitions>
         <TextBlock
             Grid.Row="0"
@@ -112,5 +116,28 @@
             Grid.Column="1"
             Style="{StaticResource txtBoxNumCr}"
             Text="{x:Bind cargo.CargoCode, Mode=TwoWay}" />
+        <TextBlock
+            Grid.Row="6"
+            Grid.Column="0"
+            Style="{StaticResource txtBlock}">
+            Purchase DMs
+        </TextBlock>
+        <TextBox
+            Grid.Row="6"
+            Grid.Column="1"
+            Style="{StaticResource txtBox}"
+            Text="{x:Bind cargo.PurchaseDMs, Mode=TwoWay}" />
+        <TextBlock
+            Grid.Row="7"
+            Grid.Column="0"
+            Style="{StaticResource txtBlock}">
+            Resale DMs
+        </TextBlock>
+        <TextBox
+            Grid.Row="7"
+            Grid.Column="1"
+            Style="{StaticResource txtBox}"
+            Text="{x:Bind cargo.ResaleDMs, Mode=TwoWay}" />
+        <TextBlock Grid.Row="8" HorizontalAlignment="Left" Grid.Column="1" Text="Enter codes as trade code +/-DM.  I.e., Ag+5 will add to the actual value roll"></TextBlock>
     </Grid>
 </Page>

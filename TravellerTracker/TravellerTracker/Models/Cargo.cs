@@ -22,6 +22,8 @@ namespace Traveller.Models
         public int D2 { get; set; }
         public int QtyDie { get; set; }
         public int Multiplier { get; set; }
+        public string PurchaseDMs { get; set; }
+        public string ResaleDMs { get; set; }
 
         public string GetCargoType()
         {

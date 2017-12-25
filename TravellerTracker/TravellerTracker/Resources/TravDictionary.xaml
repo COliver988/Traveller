@@ -7,7 +7,7 @@
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="Margin" Value="3" />
-        <Setter Property="Width" Value="100" />
+        <Setter Property="Width" Value="120" />
     </Style>
 
     <Style x:Name="txtBox" TargetType="TextBox">
@@ -52,7 +52,6 @@
         x:Key="txtBlockRightBold"
         x:Name="txtBlockRightBold"
         TargetType="TextBlock">
-        <Setter Property="Height" Value="28" />
         <Setter Property="Margin" Value="3" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="HorizontalAlignment" Value="Right" />
@@ -74,7 +73,6 @@
         x:Key="txtBlockLeft"
         x:Name="txtBlockLeft"
         TargetType="TextBlock">
-        <Setter Property="Height" Value="28" />
         <Setter Property="Margin" Value="3" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="HorizontalAlignment" Value="Left" />

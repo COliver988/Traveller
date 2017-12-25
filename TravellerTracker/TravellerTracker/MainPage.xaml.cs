@@ -36,8 +36,6 @@ namespace TravellerTracker
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
             mainFrame.Content = new ShipList();
-            TravellerMapAPI tu = new TravellerMapAPI();
-            App.tmUniverse = await tu.loadUniverse("M1105"); 
         }
 
         private void btnNew(object sender, RoutedEventArgs e)

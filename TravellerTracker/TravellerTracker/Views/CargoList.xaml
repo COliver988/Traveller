@@ -25,6 +25,8 @@
                             <ColumnDefinition Width="200" />
                             <ColumnDefinition />
                             <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
                         </Grid.ColumnDefinitions>
                         <Button
                             Grid.Column="0"
@@ -36,6 +38,8 @@
                         <TextBlock Grid.Column="1" Text="{Binding ListDesc}" />
                         <TextBlock Grid.Column="2" Text="{Binding BasePurchasePrice}" />
                         <TextBlock Grid.Column="3" Text="{Binding CargoType}" />
+                        <TextBlock Grid.Column="4" Text="{Binding PurchaseDMs}" />
+                        <TextBlock Grid.Column="5" Text="{Binding ResaleDMs}" />
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
