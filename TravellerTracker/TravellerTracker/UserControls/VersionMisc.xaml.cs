@@ -38,20 +38,36 @@ namespace TravellerTracker.UserControls
                     for (int i = 2; i < 16; i++)
                         TravellerTracker.App.DB.Add(new ActualValue() { DiceRoll = i, TravellerVersionId = Version.TravellerVersionId, PercentageValue = 100 });
                 lstValues.ItemsSource = Version.ActualValues;
-                cbCodes.ItemsSource = Enum.GetValues(typeof(TravellerVersion.CargoCodeTypes)).Cast<TravellerVersion.CargoCodeTypes>().ToList();
-                cbCodes.SelectedItem = Version.CargoCodeType;
+                switch (Version.CargoCodeType)
+                {
+                    case TravellerVersion.CargoCodeTypes.BITS:
+                        rbBITS.IsChecked = true;
+                        break;
+                    case TravellerVersion.CargoCodeTypes.T5:
+                        rbT5.IsChecked = true;
+                        break;
+                    case TravellerVersion.CargoCodeTypes.None:
+                        rbNone.IsChecked = true;
+                        break;
+                    default:
+                        break;
+                }
             }
         }
 
-        private void cbCodes_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void rbNone_Click(object sender, RoutedEventArgs e)
         {
-            ComboBox cb = sender as ComboBox;
-            var a = cb.SelectedItem;
-            if (a != null && a.GetType() == typeof(Enum))
-            {
-                Version.CargoCodeType = (TravellerVersion.CargoCodeTypes)a;
-                App.DB.SaveChangesAsync();
-            }
+            Version.CargoCodeType = TravellerVersion.CargoCodeTypes.None;
+        }
+
+        private void rbT5_Click(object sender, RoutedEventArgs e)
+        {
+            Version.CargoCodeType = TravellerVersion.CargoCodeTypes.T5;
+        }
+
+        private void rbBITS_Click(object sender, RoutedEventArgs e)
+        {
+            Version.CargoCodeType = TravellerVersion.CargoCodeTypes.BITS;
         }
     }
 }

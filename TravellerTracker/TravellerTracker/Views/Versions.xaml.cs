@@ -26,6 +26,7 @@ namespace TravellerTracker.Views
             VersionMisc vm = new VersionMisc();
             vm.Version = btn.DataContext as TravellerVersion;
             popup.Child = vm;
+            popup.IsLightDismissEnabled = true;
             popup.IsOpen = true;
         }
     }
