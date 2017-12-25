@@ -5,7 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:TravellerTracker.UserControls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    d:DesignHeight="900"
+    d:DesignHeight="500"
     d:DesignWidth="400"
     mc:Ignorable="d">
 
@@ -21,9 +21,10 @@
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100" />
-            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="200" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
             <RowDefinition Height="50" />
             <RowDefinition Height="50" />
             <RowDefinition Height="50" />
@@ -35,7 +36,7 @@
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             Style="{StaticResource SubtitleTextBlockStyle}"
-            Text="{x:Bind Version.Name}" />
+            Text="{x:Bind Version.Name, Mode=OneWay}" />
         <TextBlock
             Grid.Row="1"
             Style="{StaticResource txtBlockRightBold}"
@@ -44,8 +45,11 @@
             Name="cbCodes"
             Grid.Row="1"
             Grid.Column="1"
+            SelectedValuePath="{x:Bind Version.CargoCodeType, Mode=TwoWay}"
+            SelectionChanged="cbCodes_SelectionChanged"
             Margin="3"
             VerticalAlignment="Center"
+            SelectedItem="{Binding}"
             ItemsSource="{Binding}">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
@@ -54,13 +58,21 @@
             </ComboBox.ItemTemplate>
         </ComboBox>
         <TextBlock
-            Grid.Row="2"
+            Grid.Row="3"
             Style="{StaticResource txtBlockRightBold}"
             Text="Actual Value" />
+        <Grid Grid.Column="1" Grid.Row="2" Margin="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="65"></ColumnDefinition>
+                <ColumnDefinition Width="65"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Dice Roll" FontSize="14"></TextBlock>
+            <TextBlock Grid.Column="1" Text="% Value" FontSize="14"></TextBlock>
+        </Grid>
         <ListBox
             Name="lstValues"
-            Grid.Row="2"
-            Grid.RowSpan="2"
+            Grid.Row="3"
+            Grid.RowSpan="3"
             Grid.Column="2"
             Margin="3"
             ItemsSource="{Binding}">
@@ -68,8 +80,8 @@
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition />
-                            <ColumnDefinition />
+                            <ColumnDefinition Width="65" />
+                            <ColumnDefinition Width="65" />
                         </Grid.ColumnDefinitions>
                         <TextBox Style="{StaticResource txtBoxNum}" Text="{Binding DiceRoll, Mode=TwoWay}" />
                         <TextBox

@@ -22,8 +22,11 @@ namespace TravellerTracker.Views
 
         private void btnMisc(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-
+            Button btn = sender as Button;
             VersionMisc vm = new VersionMisc();
+            vm.Version = btn.DataContext as TravellerVersion;
+            popup.Child = vm;
+            popup.IsOpen = true;
         }
     }
 }

@@ -130,7 +130,7 @@
             HorizontalAlignment="Center"
             Style="{StaticResource SubheaderTextBlockStyle}"
             Text="Code" />
-        <Popup Name="popup" Grid.Column="1" Grid.Row="1"></Popup>
+        <Popup Name="popup" Grid.Column="1" Grid.Row="1" IsOpen="False"></Popup>
         <ListBox
             Grid.Row="2"
             Grid.ColumnSpan="12"

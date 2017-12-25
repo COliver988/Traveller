@@ -1,18 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 using Traveller.Models;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
@@ -37,12 +27,31 @@ namespace TravellerTracker.UserControls
         public VersionMisc()
         {
             this.InitializeComponent();
+            Loaded += VersionMisc_Loaded;
+        }
 
-            if (Version.ActualValues.Count == 0)
-                for (int i = 2; i < 16; i++)
-                    TravellerTracker.App.DB.Add(new ActualValue() { DiceRoll = i, TravellerVersionId = Version.TravellerVersionId, PercentageValue = 100 });
-            lstValues.ItemsSource = Version.ActualValues;
-            cbCodes.ItemsSource = Enum.GetValues(typeof(ShipCargo.CargoTypes)).Cast<ShipCargo.CargoTypes>().ToList();
+        private void VersionMisc_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (Version != null)
+            {
+                if (Version.ActualValues.Count == 0)
+                    for (int i = 2; i < 16; i++)
+                        TravellerTracker.App.DB.Add(new ActualValue() { DiceRoll = i, TravellerVersionId = Version.TravellerVersionId, PercentageValue = 100 });
+                lstValues.ItemsSource = Version.ActualValues;
+                cbCodes.ItemsSource = Enum.GetValues(typeof(TravellerVersion.CargoCodeTypes)).Cast<TravellerVersion.CargoCodeTypes>().ToList();
+                cbCodes.SelectedItem = Version.CargoCodeType;
+            }
+        }
+
+        private void cbCodes_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox cb = sender as ComboBox;
+            var a = cb.SelectedItem;
+            if (a != null && a.GetType() == typeof(Enum))
+            {
+                Version.CargoCodeType = (TravellerVersion.CargoCodeTypes)a;
+                App.DB.SaveChangesAsync();
+            }
         }
     }
 }
