@@ -22,6 +22,7 @@
             <ColumnDefinition Width="200" />
             <ColumnDefinition Width="300" />
             <ColumnDefinition Width="200" />
+            <ColumnDefinition Width="50" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="50" />
@@ -217,6 +218,20 @@
                 Style="{StaticResource txtBoxNumCr}" />
             <Button Style="{StaticResource btnMenu}">Accept price</Button>
         </StackPanel>
+        <TextBlock
+            Name="txtBuyOrSell"
+            Grid.Row="5"
+            Grid.Column="2"
+            Grid.ColumnSpan="5"
+            Grid.RowSpan="2"
+            FontSize="28"
+            Height="Auto"
+            Width="Auto"
+            Text="Hello World!" RenderTransformOrigin="0.5,1.0">
+            <TextBlock.RenderTransform>
+                <CompositeTransform Rotation="90"/>
+            </TextBlock.RenderTransform>
+        </TextBlock>
 
     </Grid>
 </UserControl>

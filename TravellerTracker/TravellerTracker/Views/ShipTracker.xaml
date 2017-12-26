@@ -258,7 +258,9 @@
                         Margin="3"
                         Orientation="Horizontal">
                         <TextBox Style="{StaticResource txtBox}" Text="{Binding Description}" />
+                        <TextBlock Style="{StaticResource txtBlock}" Text="Base price: "></TextBlock>
                         <TextBox Style="{StaticResource txtBox}" Text="{Binding BasePurchasePrice}" />
+                        <TextBlock Style="{StaticResource txtBlock}" Text="dTons: "></TextBlock>
                         <TextBox Style="{StaticResource txtBox}" Text="{Binding dTons}" />
                         <TextBlock Style="{StaticResource txtBlock}" Text="Cargo Code: " />
                         <Button Click="btnPrice" Style="{StaticResource btnMenu}">Purchase</Button>

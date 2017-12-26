@@ -23,6 +23,19 @@ namespace TravellerTracker.UserControls
         public static readonly DependencyProperty MyPropertyProperty =
             DependencyProperty.Register("MyProperty", typeof(ShipCargo), typeof(SpecCargoSell), new PropertyMetadata(0));
 
+
+
+        public bool IsSelling
+        {
+            get { return (bool)GetValue(IsSellingProperty); }
+            set { SetValue(IsSellingProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for IsSelling.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty IsSellingProperty =
+            DependencyProperty.Register("IsSelling", typeof(bool), typeof(SpecCargoSell), new PropertyMetadata(0));
+
+
         public Ship theShip { get; set; }
         public int totalDMS { get; set; }
         public int tradeCodeDMs { get; set; }
@@ -35,6 +48,10 @@ namespace TravellerTracker.UserControls
 
         private void SpecCargoSell_Loaded(object sender, RoutedEventArgs e)
         {
+            if (IsSelling)
+                txtBuyOrSell.Text = "Sell";
+            else
+                txtBuyOrSell.Text = "Buy!";
             if (shipCargo != null)
             {
                 theShip = App.DB.Ships.Where(x => x.ShipId == shipCargo.ShipID).First();
@@ -51,18 +68,29 @@ namespace TravellerTracker.UserControls
         {
             string results = "";
             string[] worldCodes = theShip.theWorld.Remarks.Trim().Split(new char[] { ' ', ',' });
-            string[] cargoCodes = shipCargo.theCargo.ResaleDMs.Trim().Split(new char[] { ' ', ',' });
-            foreach (string wc in worldCodes)
-                foreach (string cs in cargoCodes)
-                    if (wc.ToLower().Substring(0, 2) == cs.ToLower().Substring(0, 2))
-                    {
-                        results += cs + " ";
-                        int dm = Convert.ToInt32(cs.Substring(3));
-                        if (cs.Substring(2, 1) == "+")
-                            tradeCodeDMs += dm;
-                        else
-                            tradeCodeDMs -= dm;
-                    }
+            string[] cargoCodes = new string[] { " " };
+            if (IsSelling)
+            {
+                if (shipCargo.theCargo.ResaleDMs != null)
+                    cargoCodes = shipCargo.theCargo.ResaleDMs.Trim().Split(new char[] { ' ', ',' });
+            }
+            else
+            {
+                if (shipCargo.theCargo.PurchaseDMs != null)
+                    cargoCodes = shipCargo.theCargo.PurchaseDMs.Trim().Split(new char[] { ' ', ',' });
+            }
+            if (cargoCodes[0] != " ")
+                foreach (string wc in worldCodes)
+                    foreach (string cs in cargoCodes)
+                        if (wc.ToLower().Substring(0, 2) == cs.ToLower().Substring(0, 2))
+                        {
+                            results += cs + " ";
+                            int dm = Convert.ToInt32(cs.Substring(3));
+                            if (cs.Substring(2, 1) == "+")
+                                tradeCodeDMs += dm;
+                            else
+                                tradeCodeDMs -= dm;
+                        }
 
             totalDMS += tradeCodeDMs;
             return results;
