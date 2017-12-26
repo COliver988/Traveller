@@ -164,8 +164,9 @@ namespace TravellerTracker.Views
             ship.Fuel -= ship.theClass.FuelPerParsec * distance;
             App.DB.Add(new ShipLog() { Day = ship.Day, Year = ship.Year, ShipId = ship.ShipId, Log = $"Arrived at {destination.Name.Trim()}" });
             foreach (ShipCargo item in ship.theCargo)
-                if (item.DestinationWorld.WorldID == destination.WorldID)
-                    unloadCargo(item);
+                if (item.DestinationWorld != null)
+                    if (item.DestinationWorld.WorldID == destination.WorldID)
+                        unloadCargo(item);
             App.DB.SaveChangesAsync();
         }
 

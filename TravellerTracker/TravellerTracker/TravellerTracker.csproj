@@ -144,6 +144,14 @@
     <Compile Include="Migrations\20171225225027_cargoDMs.designer.cs">
       <DependentUpon>20171225225027_cargoDMs.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20171226131927_shipCargoPrices.cs" />
+    <Compile Include="Migrations\20171226131927_shipCargoPrices.designer.cs">
+      <DependentUpon>20171226131927_shipCargoPrices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20171226150505_shipCargoloadedStat.cs" />
+    <Compile Include="Migrations\20171226150505_shipCargoloadedStat.designer.cs">
+      <DependentUpon>20171226150505_shipCargoloadedStat.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\TravellerContextModelSnapshot.cs" />
     <Compile Include="Models\ActualValue.cs" />
     <Compile Include="Models\BITSCargo.cs" />
