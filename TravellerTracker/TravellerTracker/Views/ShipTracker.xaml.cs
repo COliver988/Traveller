@@ -343,7 +343,10 @@ namespace TravellerTracker.Views
 
         private async void unloadCargo(ShipCargo sc)
         {
-            App.DB.Entry(sc).State = Microsoft.EntityFrameworkCore.EntityState.Deleted;
+            sc.isActive = 0;
+            sc.DayUnloaded = ship.Day;
+            sc.YearUnloaded = ship.Year;
+            sc.DestinationID = ship.theWorld.WorldID;
             switch (sc.CargoType)
             {
                 case ShipCargo.CargoTypes.Speculative:

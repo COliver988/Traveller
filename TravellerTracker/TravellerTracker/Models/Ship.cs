@@ -54,7 +54,7 @@ namespace Traveller.Models
         public int LowPaxAvail { get { return theClass.LowPassage - LowPaxCarried; } }
 
         [NotMapped]
-        public List<ShipCargo> theCargo => TravellerTracker.App.DB.ShipCargo.Where(x => x.ShipID == this.ShipId).ToList();
+        public List<ShipCargo> theCargo => TravellerTracker.App.DB.ShipCargo.Where(x => x.ShipID == this.ShipId && x.isActive == 1).ToList();
 
         [NotMapped]
         public Uri theJumpMapURL

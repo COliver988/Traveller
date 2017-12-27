@@ -39,6 +39,7 @@
             <RowDefinition Height="50" />
             <RowDefinition Height="50" />
             <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
         </Grid.RowDefinitions>
         <TextBlock
             Grid.ColumnSpan="2"
@@ -93,7 +94,7 @@
         <ListBox
             Name="lstActualValues"
             Grid.Row="1"
-            Grid.RowSpan="12"
+            Grid.RowSpan="13"
             Grid.Column="2"
             Width="120"
             Margin="3,0,0,3"
@@ -216,20 +217,28 @@
                 Name="txtPrice"
                 IsReadOnly="True"
                 Style="{StaticResource txtBoxNumCr}" />
-            <Button Style="{StaticResource btnMenu}">Accept price</Button>
         </StackPanel>
+        <Button
+            Grid.Row="13"
+            Grid.Column="1"
+            Width="250"
+            Click="btnTransaction"
+            Style="{StaticResource btnMenu}">
+            Accept price
+        </Button>
         <TextBlock
             Name="txtBuyOrSell"
             Grid.Row="5"
+            Grid.RowSpan="2"
             Grid.Column="2"
             Grid.ColumnSpan="5"
-            Grid.RowSpan="2"
-            FontSize="28"
-            Height="Auto"
             Width="Auto"
-            Text="Hello World!" RenderTransformOrigin="0.5,1.0">
+            Height="Auto"
+            FontSize="28"
+            RenderTransformOrigin="0.5,1.0"
+            Text="Hello World!">
             <TextBlock.RenderTransform>
-                <CompositeTransform Rotation="90"/>
+                <CompositeTransform Rotation="90" />
             </TextBlock.RenderTransform>
         </TextBlock>
 

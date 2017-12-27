@@ -2,6 +2,8 @@
 using System.Linq;
 using Traveller.Models;
 using Traveller.Support;
+using TravellerTracker.Models;
+using TravellerTracker.Support;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -39,6 +41,7 @@ namespace TravellerTracker.UserControls
         public Ship theShip { get; set; }
         public int totalDMS { get; set; }
         public int tradeCodeDMs { get; set; }
+        private int totalPrice;
 
         public SpecCargoSell()
         {
@@ -118,8 +121,47 @@ namespace TravellerTracker.UserControls
             if (roll < 2) roll = 2;
             txtRoll.Text = roll.ToString();
             int price = theShip.theVersion.ActualValues.Where(x => x.DiceRoll == roll).First().PercentageValue;
-            int totalPrice = (price * shipCargo.dTons * shipCargo.theCargo.BasePurchasePrice) / 100;
+            totalPrice = (price * shipCargo.dTons * shipCargo.theCargo.BasePurchasePrice) / 100;
             txtPrice.Text = totalPrice.ToString();
+        }
+
+        private void btnTransaction(object sender, RoutedEventArgs e)
+        {
+            AddLog al = new AddLog();
+            if (IsSelling)
+            {
+                theShip.CargoCarried -= shipCargo.dTons;
+                theShip.Credits += totalPrice;
+                shipCargo.isActive = 0;
+                shipCargo.DayUnloaded = theShip.Day;
+                shipCargo.YearUnloaded = theShip.Year;
+                shipCargo.DestinationID = theShip.theWorld.WorldID;
+                al.addLog(theShip, shipCargo, false);
+            }
+            else
+            {
+                if (theShip.Credits < totalPrice)
+                {
+                    ErrorHandling eh = new ErrorHandling();
+                    eh.showError("You have insufficient credits!");
+                    return;
+                }
+                if (theShip.AvailableCargo <= shipCargo.dTons)
+                {
+                    ErrorHandling eh = new ErrorHandling();
+                    eh.showError("You don't have the cargo space available!");
+                    return;
+                }
+                theShip.Credits -= totalPrice;
+                theShip.CargoCarried += shipCargo.dTons;
+                shipCargo.DayLoaded = theShip.Day;
+                shipCargo.YearLoaded = theShip.Year;
+                shipCargo.OriginWorldID = theShip.theWorld.WorldID;
+                shipCargo.isActive = 1;
+                App.DB.Add(shipCargo);
+                al.addLog(theShip, shipCargo, true);
+                App.DB.SaveChangesAsync();
+            }
         }
     }
 }
