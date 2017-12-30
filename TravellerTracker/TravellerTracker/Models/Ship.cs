@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using Traveller.Support;
+using TravellerTracker;
 
 namespace Traveller.Models
 {
@@ -64,6 +65,18 @@ namespace Traveller.Models
                 TravellerMapAPI api = new TravellerMapAPI();
                 return api.JumpMapURL(theWorld, theClass.Jump);
             }
+        }
+
+        public void DeleteCargos()
+        {
+            App.DB.ShipCargo.RemoveRange(App.DB.ShipCargo.Where(x => x.ShipID == ShipId));
+            CargoCarried = 0;
+            App.DB.SaveChangesAsync();
+        }
+        public void DeleteLogs()
+        {
+            App.DB.Logs.RemoveRange(App.DB.Logs.Where(x => x.ShipId == ShipId));
+            App.DB.SaveChangesAsync();
         }
     }
 }

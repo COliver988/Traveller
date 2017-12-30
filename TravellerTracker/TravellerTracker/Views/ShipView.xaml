@@ -47,6 +47,7 @@
             <ComboBox
                 Name="comboVersions"
                 Margin="3"
+                SelectedItem="{x:Bind ship.theVersion}"
                 SelectionChanged="comboVersions_SelectionChanged">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
@@ -58,6 +59,7 @@
             </ComboBox>
             <Button Click="btnSave" Style="{StaticResource btnMenu}">Save</Button>
             <Button Click="btnNewLog" Style="{StaticResource btnMenu}">Add Log</Button>
+            <Button Click="btnClearLogs" Style="{StaticResource btnMenu}">Clear Logs</Button>
         </StackPanel>
         <TextBlock
             Grid.Row="1"
@@ -220,11 +222,14 @@
             Grid.Column="0"
             Style="{StaticResource txtBlock}"
             Text="Cargo Carried " />
-        <TextBox
-            Grid.Row="8"
-            Grid.Column="1"
-            Style="{StaticResource txtBoxNum}"
-            Text="{x:Bind ship.CargoCarried, Mode=TwoWay}" />
+        <StackPanel Grid.Row="8" Grid.Column="1" Orientation="Horizontal">
+            <TextBox
+                Grid.Row="8"
+                Grid.Column="1"
+                Style="{StaticResource txtBoxNum}"
+                Text="{x:Bind ship.CargoCarried, Mode=TwoWay}" />
+            <Button Click="btnClearCargo">Delete all cargo</Button>
+        </StackPanel>
         <TextBlock
             Grid.Row="10"
             Grid.Column="0"
@@ -250,7 +255,7 @@
         <ListBox
             Name="lstLog"
             Grid.Row="10"
-            Grid.RowSpan="4"
+            Grid.RowSpan="5"
             Grid.Column="1"
             Margin="3"
             ItemsSource="{Binding}">

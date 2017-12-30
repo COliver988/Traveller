@@ -17,6 +17,7 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+        <Popup Name="popup" IsLightDismissEnabled="True"></Popup>
         <StackPanel Orientation="Vertical">
             <ListView Name="lvShips" Margin="3">
                 <ListView.ItemTemplate>
@@ -26,6 +27,9 @@
                                 <ColumnDefinition />
                                 <ColumnDefinition />
                                 <ColumnDefinition Width="150" />
+                                <ColumnDefinition Width="150" />
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="100" />
                                 <ColumnDefinition />
                             </Grid.ColumnDefinitions>
                             <Button
@@ -43,13 +47,31 @@
                             </Button>
                             <TextBlock
                                 Grid.Column="2"
-                                Margin="3"
-                                FontWeight="Bold"
+                                VerticalAlignment="Center"
+                                Style="{StaticResource SubtitleTextBlockStyle}"
                                 Text="{Binding Name}" />
                             <TextBlock
                                 Grid.Column="3"
                                 Margin="3"
+                                VerticalAlignment="Center"
+                                Style="{StaticResource SubtitleTextBlockStyle}"
                                 Text="{Binding theclass.Description}" />
+                            <TextBlock
+                                Grid.Column="4"
+                                VerticalAlignment="Center"
+                                Style="{StaticResource SubtitleTextBlockStyle}"
+                                Text="{Binding theVersion.Name}" />
+                            <TextBlock
+                                Grid.Column="5"
+                                VerticalAlignment="Center"
+                                Style="{StaticResource SubtitleTextBlockStyle}"
+                                Text="{Binding theWorld.Name}" />
+                            <Button
+                                Grid.Column="6"
+                                Margin="3"
+                                Click="btnRemove">
+                                Delete
+                            </Button>
                         </Grid>
                     </DataTemplate>
                 </ListView.ItemTemplate>

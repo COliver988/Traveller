@@ -26,7 +26,7 @@ namespace TravellerTracker.Views
             ship = App.DB.Ships.Where(x => x.ShipId == shipID).FirstOrDefault();
             sector = App.DB.Sectors.Where(x => x.SectorID == ship.SectorID).FirstOrDefault();
             date = new ImperialDates(ship.Day, ship.Year);
-            comboVersions.ItemsSource = App.DB.TravellerVersions.ToList();
+            loadEra();
             try
             {
                 classes = App.DB.ShipClasses.ToList();
@@ -51,6 +51,7 @@ namespace TravellerTracker.Views
             {
                 TravellerMapAPI tu = new TravellerMapAPI();
                 App.tmUniverse = await tu.loadUniverse(ship.Era);
+                comboVersions.ItemsSource = App.DB.TravellerVersions.ToList();
                 refresh();
             }
         }
@@ -81,6 +82,9 @@ namespace TravellerTracker.Views
                         comboEra.SelectedItem = item;
                         break;
                     }
+                }
+                if (App.tmUniverse.Sectors == null)
+                {
                 }
                 if (App.tmUniverse.Sectors != null)
                 {
@@ -239,6 +243,16 @@ namespace TravellerTracker.Views
                 ship.TravellerVersionID = tv.TravellerVersionId;
                 App.DB.SaveChangesAsync();
             }
+        }
+
+        private void btnClearCargo(object sender, RoutedEventArgs e)
+        {
+            ship.DeleteCargos();
+        }
+
+        private void btnClearLogs(object sender, RoutedEventArgs e)
+        {
+            ship.DeleteLogs();
         }
     }
 }

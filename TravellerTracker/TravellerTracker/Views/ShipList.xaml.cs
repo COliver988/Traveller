@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Traveller.Models;
 using TravellerTracker.Models;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -44,6 +45,12 @@ namespace TravellerTracker.Views
             var btn = sender as Button;
             Page p = new ShipTracker((int) btn.Tag);
             App.mainFrame.Content = p;
+        }
+
+        private void btnRemove(object sender, RoutedEventArgs e)
+        {
+            Button btn = sender as Button;
+            Ship ship = btn.DataContext as Ship;
         }
     }
 }
