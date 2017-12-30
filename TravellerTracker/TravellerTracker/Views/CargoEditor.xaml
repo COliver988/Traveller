@@ -32,17 +32,12 @@
             <RowDefinition Height="45" />
             <RowDefinition Height="45" />
         </Grid.RowDefinitions>
-        <TextBlock
-            Grid.Row="0"
-            Grid.Column="0"
-            Style="{StaticResource txtBlockTitle}"
-            Text="{x:Bind cargo.Description, Mode=TwoWay}" />
         <StackPanel
             Grid.Row="0"
-            Grid.Column="1"
-            Margin="3"
-            HorizontalAlignment="Right"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
             Orientation="Horizontal">
+            <TextBlock Style="{StaticResource txtBlockTitle}" Text="{x:Bind cargo.Description, Mode=TwoWay}" />
             <Button Margin="3" Click="btnNew">
                 New
             </Button>
@@ -52,6 +47,8 @@
             <Button Margin="3" Click="btnDelete">
                 Delete
             </Button>
+            <Button Click="btnPrevious" Style="{StaticResource btnMenu}">Previous</Button>
+            <Button Click="btnNext" Style="{StaticResource btnMenu}">Next</Button>
         </StackPanel>
         <TextBlock
             Grid.Row="1"
@@ -138,6 +135,10 @@
             Grid.Column="1"
             Style="{StaticResource txtBox}"
             Text="{x:Bind cargo.ResaleDMs, Mode=TwoWay}" />
-        <TextBlock Grid.Row="8" HorizontalAlignment="Left" Grid.Column="1" Text="Enter codes as trade code +/-DM.  I.e., Ag+5 will add to the actual value roll"></TextBlock>
+        <TextBlock
+            Grid.Row="8"
+            Grid.Column="1"
+            HorizontalAlignment="Left"
+            Text="Enter codes as trade code +/-DM.  I.e., Ag+5 will add to the actual value roll" />
     </Grid>
 </Page>

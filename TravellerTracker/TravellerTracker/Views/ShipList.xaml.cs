@@ -27,23 +27,20 @@ namespace TravellerTracker.Views
         public ShipList()
         {
             this.InitializeComponent();
-            using (var db = new TravellerContext())
-            {
-                lvShips.ItemsSource = db.Ships.ToList();
-            }
+            lvShips.ItemsSource = App.DB.Ships.ToList();
         }
 
         private void btnLoadShip(object sender, RoutedEventArgs e)
         {
             var btn = sender as Button;
-            Page p = new ShipView((int) btn.Tag);
+            Page p = new ShipView((int)btn.Tag);
             App.mainFrame.Content = p;
         }
 
         private void btnLoadShipInfo(object sender, RoutedEventArgs e)
         {
             var btn = sender as Button;
-            Page p = new ShipTracker((int) btn.Tag);
+            Page p = new ShipTracker((int)btn.Tag);
             App.mainFrame.Content = p;
         }
 
@@ -51,6 +48,11 @@ namespace TravellerTracker.Views
         {
             Button btn = sender as Button;
             Ship ship = btn.DataContext as Ship;
+            ship.DeleteCargos();
+            ship.DeleteLogs();
+            App.DB.Ships.Remove(ship);
+            App.DB.SaveChangesAsync();
+            lvShips.ItemsSource = App.DB.Ships.ToList();
         }
     }
 }

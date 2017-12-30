@@ -45,18 +45,34 @@
             Grid.Row="3"
             Style="{StaticResource txtBlockRightBold}"
             Text="Actual Value" />
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1">
+        <StackPanel
+            Grid.Row="1"
+            Grid.Column="1"
+            VerticalAlignment="Center"
+            Orientation="Horizontal">
             <RadioButton Name="rbNone" Click="rbNone_Click">None</RadioButton>
             <RadioButton Name="rbT5" Click="rbT5_Click">T5</RadioButton>
             <RadioButton Name="rbBITS" Click="rbBITS_Click">BITS</RadioButton>
         </StackPanel>
-        <Grid Grid.Column="1" Grid.Row="2" Margin="3" Width="150" VerticalAlignment="Bottom">
+        <Grid
+            Grid.Row="2"
+            Grid.Column="1"
+            Width="150"
+            Margin="3"
+            VerticalAlignment="Bottom">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="65"></ColumnDefinition>
-                <ColumnDefinition Width="65"></ColumnDefinition>
+                <ColumnDefinition Width="65" />
+                <ColumnDefinition Width="65" />
             </Grid.ColumnDefinitions>
-            <TextBlock Text="Dice Roll" FontSize="14" HorizontalAlignment="Right"></TextBlock>
-            <TextBlock Grid.Column="1" Text="% Value" FontSize="14" HorizontalAlignment="Right"></TextBlock>
+            <TextBlock
+                HorizontalAlignment="Right"
+                FontSize="14"
+                Text="Dice Roll" />
+            <TextBlock
+                Grid.Column="1"
+                HorizontalAlignment="Right"
+                FontSize="14"
+                Text="% Value" />
         </Grid>
         <ListBox
             Name="lstValues"
@@ -74,13 +90,19 @@
                             <ColumnDefinition Width="65" />
                             <ColumnDefinition Width="15" />
                         </Grid.ColumnDefinitions>
-                        <TextBox Style="{StaticResource txtBoxNum}" Margin="1" Text="{Binding DiceRoll, Mode=TwoWay}" />
+                        <TextBox
+                            Margin="1"
+                            Style="{StaticResource txtBoxNum}"
+                            Text="{Binding DiceRoll, Mode=TwoWay}" />
                         <TextBox
                             Grid.Column="1"
                             Margin="1"
                             Style="{StaticResource txtBoxNum}"
                             Text="{Binding PercentageValue, Mode=TwoWay}" />
-                        <TextBlock Grid.Column="3" Text="%" VerticalAlignment="Center"></TextBlock>
+                        <TextBlock
+                            Grid.Column="3"
+                            VerticalAlignment="Center"
+                            Text="%" />
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>

@@ -17,7 +17,7 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-        <Popup Name="popup" IsLightDismissEnabled="True"></Popup>
+        <Popup Name="popup" IsLightDismissEnabled="True" />
         <StackPanel Orientation="Vertical">
             <ListView Name="lvShips" Margin="3">
                 <ListView.ItemTemplate>
@@ -70,7 +70,13 @@
                                 Grid.Column="6"
                                 Margin="3"
                                 Click="btnRemove">
-                                Delete
+                                <Button.Content>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Margin="3" Text="Delete [" />
+                                        <TextBlock Margin="0,3,0,3" Text="{Binding ShipId}" />
+                                        <TextBlock Margin="3" Text="]" />
+                                    </StackPanel>
+                                </Button.Content>
                             </Button>
                         </Grid>
                     </DataTemplate>

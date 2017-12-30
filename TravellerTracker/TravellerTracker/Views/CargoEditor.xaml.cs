@@ -26,12 +26,26 @@ namespace TravellerTracker.Views
 
         private void btnSave(object sender, RoutedEventArgs e)
         {
-
+            App.DB.SaveChangesAsync();
         }
 
         private void btnDelete(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void btnPrevious(object sender, RoutedEventArgs e)
+        {
+            cargo = App.DB.Cargo.Where(x => x.CargoID < this.cargo.CargoID).OrderBy(x => x.CargoID).FirstOrDefault();
+            this.DataContext = null;
+            this.DataContext = cargo;
+        }
+
+        private void btnNext(object sender, RoutedEventArgs e)
+        {
+            cargo = App.DB.Cargo.Where(x => x.CargoID > this.cargo.CargoID).OrderBy(x => x.CargoID).FirstOrDefault();
+            this.DataContext = null;
+            this.DataContext = cargo;
         }
     }
 }

@@ -1,9 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Runtime.CompilerServices;
 
 namespace Traveller.Models
 {
-    public class Cargo
+    public class Cargo : INotifyPropertyChanged
     {
         public int CargoID { get; set; }
         public int dTons { get; set; }
@@ -24,6 +26,12 @@ namespace Traveller.Models
         public int Multiplier { get; set; }
         public string PurchaseDMs { get; set; }
         public string ResaleDMs { get; set; }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void RaisePropertyChanged([CallerMemberName]string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         public string GetCargoType()
         {

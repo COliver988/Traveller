@@ -105,6 +105,6 @@
         <Setter Property="Margin" Value="3" />
     </Style>
 
-    <SolidColorBrush x:Key="UserControlBackground" Color="LightBlue"></SolidColorBrush>
+    <SolidColorBrush x:Key="UserControlBackground" Color="LightBlue" />
 
 </ResourceDictionary>
