@@ -56,11 +56,14 @@
             Style="{StaticResource txtBlock}">
             Description
         </TextBlock>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
         <TextBox
-            Grid.Row="1"
-            Grid.Column="1"
             Style="{StaticResource txtBox}"
             Text="{x:Bind cargo.Description, Mode=TwoWay}" />
+            <RadioButton Name="rbClassic" Click="rbClassic_Click">Classic</RadioButton>
+            <RadioButton Name="rbT5" Click="rbT5_Click">T5</RadioButton>
+            <RadioButton Name="rbMongoose" Click="rbMongoose_Click">Mongoose</RadioButton>
+        </StackPanel>
         <TextBlock
             Grid.Row="2"
             Grid.Column="0"

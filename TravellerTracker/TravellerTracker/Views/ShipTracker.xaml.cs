@@ -29,10 +29,12 @@ namespace TravellerTracker.Views
 
         private void refresh()
         {
+            ship = null;
             ship = App.DB.Ships.Where(x => x.ShipId == ID).FirstOrDefault();
             webView.Navigate(ship.theJumpMapURL);
             jumpWorlds = ship.theWorld.JumpRange(ship.theClass.Jump);
             lstJumpList.ItemsSource = jumpWorlds;
+            this.DataContext = null;
             this.DataContext = this;
             lstLog.ItemsSource = ship.theLog;
             lstCargoCarried.ItemsSource = ship.theCargo;
@@ -60,31 +62,12 @@ namespace TravellerTracker.Views
             SpecCargoSell sc = new SpecCargoSell() { IsSelling = false, shipCargo = new ShipCargo() { ShipID = ship.ShipId, CargoID = cargo.CargoID, dTons = cargo.dTons } };
             popCargo.Child = sc;
             showPopup();
-            /*
-            if (ship.Credits < cargo.BasePurchasePrice)
-            {
-                ErrorHandling eh = new ErrorHandling();
-                eh.showError("Insufficient credits to purchase!");
-                return;
-            }
-            ship.Credits -= cargo.BasePurchasePrice;
-            ShipCargo shipCargo = new ShipCargo()
-            {
-                CargoCode = cargo.CargoCode,
-                ShipID = ship.ShipId,
-                CargoID = cargo.CargoID,
-                CargoType = ShipCargo.CargoTypes.Speculative,
-                OriginWorldID = ship.theWorld.WorldID,
-                dTons = cargo.dTons
-            };
-            App.DB.Add(shipCargo);
-            AddToShipLog(shipCargo);
-            */
         }
 
         private async void btnRefuel(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             int fuelNeeded = ship.theClass.Fuel - ship.Fuel;
+            if (fuelNeeded == 0) return;
             int unrefinedCost = fuelNeeded * 100;
             int refinedCost = fuelNeeded * 500;
             if (ship.Credits <= unrefinedCost)
@@ -173,6 +156,7 @@ namespace TravellerTracker.Views
                     if (item.DestinationWorld.WorldID == destination.WorldID)
                         unloadCargo(item);
             App.DB.SaveChangesAsync();
+            refresh();
         }
 
         private void btnBulkCargo(object sender, RoutedEventArgs e)
@@ -316,6 +300,7 @@ namespace TravellerTracker.Views
         private async void AddToShipLog(ShipCargo shipCargo)
         {
             AddLog al = new AddLog();
+            shipCargo.isActive = 1;
             al.addLog(ship, shipCargo, true);
             refresh();
         }
@@ -350,6 +335,7 @@ namespace TravellerTracker.Views
             switch (sc.CargoType)
             {
                 case ShipCargo.CargoTypes.Speculative:
+                    break;
                 case ShipCargo.CargoTypes.Major:
                 case ShipCargo.CargoTypes.Minor:
                 case ShipCargo.CargoTypes.Incidental:

@@ -17,6 +17,23 @@ namespace TravellerTracker.Views
         {
             this.InitializeComponent();
             cargo = TravellerTracker.App.DB.Cargo.Where(x => x.CargoID == cargoID).First();
+            foreach (TravellerVersion version in App.TravellerVersions)
+                if (version.TravellerVersionId == cargo.TravellerVersionId)
+                {
+                    switch (version.Name)
+                    {
+                        case "T5":
+                            rbT5.IsChecked = true;
+                            break;
+                        case "Mongoose Traveller":
+                            rbMongoose.IsChecked = true;
+                            break;
+                        default:
+                            rbClassic.IsChecked = true;
+                            break;
+                    }
+                    break;
+                }
         }
 
         private void btnNew(object sender, RoutedEventArgs e)
@@ -46,6 +63,21 @@ namespace TravellerTracker.Views
             cargo = App.DB.Cargo.Where(x => x.CargoID > this.cargo.CargoID).OrderBy(x => x.CargoID).FirstOrDefault();
             this.DataContext = null;
             this.DataContext = cargo;
+        }
+
+        private void rbClassic_Click(object sender, RoutedEventArgs e)
+        {
+            cargo.TravellerVersionId = App.DB.TravellerVersions.Where(x => x.Name == "Classic").First().TravellerVersionId;
+        }
+
+        private void rbT5_Click(object sender, RoutedEventArgs e)
+        {
+            cargo.TravellerVersionId = App.DB.TravellerVersions.Where(x => x.Name == "T5").First().TravellerVersionId;
+        }
+
+        private void rbMongoose_Click(object sender, RoutedEventArgs e)
+        {
+            cargo.TravellerVersionId = App.DB.TravellerVersions.Where(x => x.Name == "Mongoose").First().TravellerVersionId;
         }
     }
 }

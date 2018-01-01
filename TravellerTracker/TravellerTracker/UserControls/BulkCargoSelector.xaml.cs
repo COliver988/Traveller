@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Traveller.Models;
 using Traveller.Support;
 using Windows.UI.Xaml;
@@ -59,8 +60,11 @@ namespace TravellerTracker.UserControls
                 default:
                     break;
             }
+            Random rnd = new Random();
+            int skipTo = rnd.Next(1, App.DB.Cargo.Count());
+            int cargoID = App.DB.Cargo.Skip(skipTo).Take(1).First().CargoID;
             Enum.TryParse(bulk.CargoType, out ShipCargo.CargoTypes cargotype);
-            TravellerTracker.App.DB.Add(new ShipCargo() { CargoCode = bulk.CargoCode, ShipID = Ship.ShipId, CargoType = cargotype, OriginWorldID = Ship.theWorld.WorldID, dTons = bulk.dTons, DestinationID = Destination.WorldID });
+            TravellerTracker.App.DB.Add(new ShipCargo() { CargoCode = bulk.CargoCode, ShipID = Ship.ShipId, CargoType = cargotype, OriginWorldID = Ship.theWorld.WorldID, dTons = bulk.dTons, DestinationID = Destination.WorldID, isActive = 1, CargoID = cargoID });
             TravellerTracker.App.DB.SaveChangesAsync();
         }
     }

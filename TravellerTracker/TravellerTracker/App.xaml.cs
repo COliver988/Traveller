@@ -22,6 +22,7 @@ namespace TravellerTracker
         public static TravellerContext DB = new TravellerContext();
         public static TravellerMapUniverse.SectorList tmUniverse = new TravellerMapUniverse.SectorList();
         public static List<World> tmWorlds = new List<World>();
+        public static List<TravellerVersion> TravellerVersions = new List<TravellerVersion>();
 
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
@@ -39,6 +40,8 @@ namespace TravellerTracker
 
                 Seed s = new Seed();
                 s.SeedDB(db);
+
+                TravellerVersions = db.TravellerVersions.ToListAsync().Result;
             }
         }
 
