@@ -25,6 +25,8 @@ namespace Traveller.Models
         public int Cost6Jump { get; set; }
         public int DaysForCargoSearch { get; set; } 
         public CargoCodeTypes CargoCodeType { get; set; }
+        public int D1TopRange { get; set; }
+        public int D2TopRange { get; set; }
 
         [NotMapped]
         public CargoCodeTypeEnums CargoTypeEnums => new CargoCodeTypeEnums();

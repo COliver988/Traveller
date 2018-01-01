@@ -9,8 +9,8 @@ using Traveller.Models;
 namespace TravellerTracker.Migrations
 {
     [DbContext(typeof(TravellerContext))]
-    [Migration("20171225225027_cargoDMs")]
-    partial class cargoDMs
+    [Migration("20180101193319_intialize")]
+    partial class intialize
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -49,6 +49,8 @@ namespace TravellerTracker.Migrations
                     b.Property<int>("D2");
 
                     b.Property<string>("Description");
+
+                    b.Property<bool?>("IsSingleUnits");
 
                     b.Property<int>("Multiplier");
 
@@ -146,13 +148,27 @@ namespace TravellerTracker.Migrations
 
                     b.Property<int>("CargoType");
 
+                    b.Property<int>("DayLoaded");
+
+                    b.Property<int>("DayUnloaded");
+
                     b.Property<int>("DestinationID");
 
                     b.Property<int>("OriginWorldID");
 
+                    b.Property<int>("PurchasePrice");
+
+                    b.Property<int>("ResellPrice");
+
                     b.Property<int>("ShipID");
 
+                    b.Property<int>("YearLoaded");
+
+                    b.Property<int>("YearUnloaded");
+
                     b.Property<int>("dTons");
+
+                    b.Property<int>("isActive");
 
                     b.HasKey("ShipCargoID");
 
@@ -289,6 +305,10 @@ namespace TravellerTracker.Migrations
                     b.Property<int>("Cost5Jump");
 
                     b.Property<int>("Cost6Jump");
+
+                    b.Property<int>("D1TopRange");
+
+                    b.Property<int>("D2TopRange");
 
                     b.Property<int>("DaysForCargoSearch");
 

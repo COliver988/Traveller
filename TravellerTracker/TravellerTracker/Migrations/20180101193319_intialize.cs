@@ -4,10 +4,25 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TravellerTracker.Migrations
 {
-    public partial class intitial : Migration
+    public partial class intialize : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "ActualValues",
+                columns: table => new
+                {
+                    ActualValueId = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    DiceRoll = table.Column<int>(nullable: false),
+                    PercentageValue = table.Column<int>(nullable: false),
+                    TravellerVersionId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ActualValues", x => x.ActualValueId);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Cargo",
                 columns: table => new
@@ -20,8 +35,11 @@ namespace TravellerTracker.Migrations
                     D1 = table.Column<int>(nullable: false),
                     D2 = table.Column<int>(nullable: false),
                     Description = table.Column<string>(nullable: true),
+                    IsSingleUnits = table.Column<bool>(nullable: true),
                     Multiplier = table.Column<int>(nullable: false),
+                    PurchaseDMs = table.Column<string>(nullable: true),
                     QtyDie = table.Column<int>(nullable: false),
+                    ResaleDMs = table.Column<string>(nullable: true),
                     TravellerVersionId = table.Column<int>(nullable: false),
                     dTons = table.Column<int>(nullable: false)
                 },
@@ -93,9 +111,18 @@ namespace TravellerTracker.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     CargoCode = table.Column<string>(nullable: true),
                     CargoID = table.Column<int>(nullable: false),
+                    CargoType = table.Column<int>(nullable: false),
+                    DayLoaded = table.Column<int>(nullable: false),
+                    DayUnloaded = table.Column<int>(nullable: false),
+                    DestinationID = table.Column<int>(nullable: false),
                     OriginWorldID = table.Column<int>(nullable: false),
+                    PurchasePrice = table.Column<int>(nullable: false),
+                    ResellPrice = table.Column<int>(nullable: false),
                     ShipID = table.Column<int>(nullable: false),
-                    dTons = table.Column<int>(nullable: false)
+                    YearLoaded = table.Column<int>(nullable: false),
+                    YearUnloaded = table.Column<int>(nullable: false),
+                    dTons = table.Column<int>(nullable: false),
+                    isActive = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -134,13 +161,35 @@ namespace TravellerTracker.Migrations
                     ShipLogId = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Day = table.Column<int>(nullable: false),
+                    Image = table.Column<byte[]>(nullable: true),
                     Log = table.Column<string>(nullable: true),
                     ShipId = table.Column<int>(nullable: false),
+                    WorldID = table.Column<int>(nullable: false),
                     Year = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Logs", x => x.ShipLogId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Starports",
+                columns: table => new
+                {
+                    StarportId = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Class = table.Column<char>(nullable: false),
+                    Downport = table.Column<string>(nullable: true),
+                    Quality = table.Column<string>(nullable: true),
+                    Repairs = table.Column<string>(nullable: true),
+                    Yards = table.Column<string>(nullable: true),
+                    hasRefinedFuel = table.Column<bool>(nullable: false),
+                    hasUnrefinedFuel = table.Column<bool>(nullable: false),
+                    isStarport = table.Column<bool>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Starports", x => x.StarportId);
                 });
 
             migrationBuilder.CreateTable(
@@ -170,6 +219,19 @@ namespace TravellerTracker.Migrations
                 {
                     TravellerVersionId = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
+                    CargoCodeType = table.Column<int>(nullable: false),
+                    Cost1Jump = table.Column<int>(nullable: false),
+                    Cost2Jump = table.Column<int>(nullable: false),
+                    Cost3Jump = table.Column<int>(nullable: false),
+                    Cost4Jump = table.Column<int>(nullable: false),
+                    Cost5Jump = table.Column<int>(nullable: false),
+                    Cost6Jump = table.Column<int>(nullable: false),
+                    D1TopRange = table.Column<int>(nullable: false),
+                    D2TopRange = table.Column<int>(nullable: false),
+                    DaysForCargoSearch = table.Column<int>(nullable: false),
+                    HighPassageCost = table.Column<int>(nullable: false),
+                    LowPassageCost = table.Column<int>(nullable: false),
+                    MidPassageCost = table.Column<int>(nullable: false),
                     Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -196,6 +258,7 @@ namespace TravellerTracker.Migrations
                     Stellar = table.Column<string>(nullable: true),
                     UWP = table.Column<string>(nullable: true),
                     WorldCount = table.Column<int>(nullable: false),
+                    WorldImage = table.Column<byte[]>(nullable: true),
                     Zone = table.Column<char>(nullable: false)
                 },
                 constraints: table =>
@@ -206,6 +269,9 @@ namespace TravellerTracker.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "ActualValues");
+
             migrationBuilder.DropTable(
                 name: "Cargo");
 
@@ -226,6 +292,9 @@ namespace TravellerTracker.Migrations
 
             migrationBuilder.DropTable(
                 name: "Logs");
+
+            migrationBuilder.DropTable(
+                name: "Starports");
 
             migrationBuilder.DropTable(
                 name: "TradeClassifications");

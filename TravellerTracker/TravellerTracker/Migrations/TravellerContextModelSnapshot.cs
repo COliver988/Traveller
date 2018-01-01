@@ -49,6 +49,8 @@ namespace TravellerTracker.Migrations
 
                     b.Property<string>("Description");
 
+                    b.Property<bool?>("IsSingleUnits");
+
                     b.Property<int>("Multiplier");
 
                     b.Property<string>("PurchaseDMs");
@@ -302,6 +304,10 @@ namespace TravellerTracker.Migrations
                     b.Property<int>("Cost5Jump");
 
                     b.Property<int>("Cost6Jump");
+
+                    b.Property<int>("D1TopRange");
+
+                    b.Property<int>("D2TopRange");
 
                     b.Property<int>("DaysForCargoSearch");
 

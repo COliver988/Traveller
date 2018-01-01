@@ -38,7 +38,10 @@ namespace TravellerTracker.Views
 
         private void btnNew(object sender, RoutedEventArgs e)
         {
-
+            cargo = new Cargo() { Description = "New Cargo" };
+            App.DB.Add(cargo);
+            App.DB.SaveChanges();
+            this.DataContext = cargo;
         }
 
         private void btnSave(object sender, RoutedEventArgs e)

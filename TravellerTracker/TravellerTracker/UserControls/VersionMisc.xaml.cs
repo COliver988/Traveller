@@ -34,10 +34,16 @@ namespace TravellerTracker.UserControls
         {
             if (Version != null)
             {
+                if (Version.ActualValues.Count > 14)   // in case we screwed up on previous versions
+                {
+                    App.DB.RemoveRange(App.DB.ActualValues.Where(x => x.TravellerVersionId == Version.TravellerVersionId));
+                    App.DB.SaveChanges();
+                }
                 if (Version.ActualValues.Count == 0)
                     for (int i = 2; i < 16; i++)
                         TravellerTracker.App.DB.Add(new ActualValue() { DiceRoll = i, TravellerVersionId = Version.TravellerVersionId, PercentageValue = 100 });
-                lstValues.ItemsSource = Version.ActualValues;
+                App.DB.SaveChanges();
+                lstValues.ItemsSource = Version.ActualValues.OrderBy(x => x.DiceRoll);
                 switch (Version.CargoCodeType)
                 {
                     case TravellerVersion.CargoCodeTypes.BITS:

@@ -71,11 +71,13 @@
             Style="{StaticResource txtBlock}">
             Base Cost
         </TextBlock>
-        <TextBox
+        <StackPanel
             Grid.Row="2"
             Grid.Column="1"
-            Style="{StaticResource txtBoxNumCr}"
-            Text="{x:Bind cargo.BasePurchasePrice, Mode=TwoWay}" />
+            Orientation="Horizontal">
+            <TextBox Style="{StaticResource txtBoxNumCr}" Text="{x:Bind cargo.BasePurchasePrice, Mode=TwoWay}" />
+            <CheckBox Margin="3" IsChecked="{x:Bind cargo.IsSingleUnits, Mode=TwoWay}">Single Units (not dTons)</CheckBox>
+        </StackPanel>
         <TextBlock
             Grid.Row="3"
             Grid.Column="0"

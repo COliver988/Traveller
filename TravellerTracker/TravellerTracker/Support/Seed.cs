@@ -52,55 +52,55 @@ namespace TravellerTracker.Support
             if (db.Cargo.Count() == 0)
             {
                 // classic
-                db.Add(new Cargo() { D1 = 1, D2 = 1, BasePurchasePrice = 3000, Description = "Textiles", QtyDie = 3, Multiplier = 5 });
-                db.Add(new Cargo() { D1 = 1, D2 = 2, BasePurchasePrice = 7000, Description = "Polymers", QtyDie = 4, Multiplier = 5 });
-                db.Add(new Cargo() { D1 = 1, D2 = 3, BasePurchasePrice = 10000, Description = "Liquor", QtyDie = 1, Multiplier = 5 });
-                db.Add(new Cargo() { D1 = 1, D2 = 4, BasePurchasePrice = 1000, Description = "Wood", QtyDie = 2, Multiplier = 10 });
-                db.Add(new Cargo() { D1 = 1, D2 = 5, BasePurchasePrice = 20000, Description = "Crystals", QtyDie = 1, Multiplier = 1 });
-                db.Add(new Cargo() { D1 = 1, D2 = 6, BasePurchasePrice = 1000000, Description = "Radioactives", QtyDie = 1, Multiplier = 1 });
+                db.Add(new Cargo() { D1 = 1, D2 = 1, BasePurchasePrice = 3000, Description = "Textiles", QtyDie = 3, Multiplier = 5, IsSingleUnits = false });
+                db.Add(new Cargo() { D1 = 1, D2 = 2, BasePurchasePrice = 7000, Description = "Polymers", QtyDie = 4, Multiplier = 5, IsSingleUnits = false });
+                db.Add(new Cargo() { D1 = 1, D2 = 3, BasePurchasePrice = 10000, Description = "Liquor", QtyDie = 1, Multiplier = 5, IsSingleUnits = false });
+                db.Add(new Cargo() { D1 = 1, D2 = 4, BasePurchasePrice = 1000, Description = "Wood", QtyDie = 2, Multiplier = 10, IsSingleUnits = false });
+                db.Add(new Cargo() { D1 = 1, D2 = 5, BasePurchasePrice = 20000, Description = "Crystals", QtyDie = 1, Multiplier = 1, IsSingleUnits = false });
+                db.Add(new Cargo() { D1 = 1, D2 = 6, BasePurchasePrice = 1000000, Description = "Radioactives", QtyDie = 1, Multiplier = 1, IsSingleUnits = false });
 
-                db.Add(new Cargo() { D1 = 2, D2 = 1, BasePurchasePrice = 500, Description = "Steel", QtyDie = 4, Multiplier = 10 });
-                db.Add(new Cargo() { D1 = 2, D2 = 2, BasePurchasePrice = 2000, Description = "Copper", QtyDie = 2, Multiplier = 10 });
-                db.Add(new Cargo() { D1 = 2, D2 = 3, BasePurchasePrice = 1000, Description = "Aluminum", QtyDie = 5, Multiplier = 10 });
-                db.Add(new Cargo() { D1 = 2, D2 = 4, BasePurchasePrice = 9000, Description = "Tin", QtyDie = 3, Multiplier = 10 });
-                db.Add(new Cargo() { D1 = 2, D2 = 5, BasePurchasePrice = 70000, Description = "Silver", QtyDie = 1, Multiplier = 5 });
-                db.Add(new Cargo() { D1 = 2, D2 = 6, BasePurchasePrice = 200000, Description = "Special ALloys", QtyDie = 1, Multiplier = 1 });
+                db.Add(new Cargo() { D1 = 2, D2 = 1, BasePurchasePrice = 500, Description = "Steel", QtyDie = 4, Multiplier = 10, IsSingleUnits = false });
+                db.Add(new Cargo() { D1 = 2, D2 = 2, BasePurchasePrice = 2000, Description = "Copper", QtyDie = 2, Multiplier = 10, IsSingleUnits = false });
+                db.Add(new Cargo() { D1 = 2, D2 = 3, BasePurchasePrice = 1000, Description = "Aluminum", QtyDie = 5, Multiplier = 10, IsSingleUnits = false });
+                db.Add(new Cargo() { D1 = 2, D2 = 4, BasePurchasePrice = 9000, Description = "Tin", QtyDie = 3, Multiplier = 10, IsSingleUnits = false });
+                db.Add(new Cargo() { D1 = 2, D2 = 5, BasePurchasePrice = 70000, Description = "Silver", QtyDie = 1, Multiplier = 5, IsSingleUnits = false });
+                db.Add(new Cargo() { D1 = 2, D2 = 6, BasePurchasePrice = 200000, Description = "Special ALloys", QtyDie = 1, Multiplier = 1, IsSingleUnits = false });
 
-                db.Add(new Cargo() { D1 = 3, D2 = 1, BasePurchasePrice = 10000, Description = "Petrochemicals", QtyDie = 1, Multiplier = 1 });
-                db.Add(new Cargo() { D1 = 3, D2 = 2, BasePurchasePrice = 300, Description = "Grain", QtyDie = 8, Multiplier = 5 });
-                db.Add(new Cargo() { D1 = 3, D2 = 3, BasePurchasePrice = 1500, Description = "Meat", QtyDie = 4, Multiplier = 5 });
-                db.Add(new Cargo() { D1 = 3, D2 = 4, BasePurchasePrice = 6000, Description = "Spices", QtyDie = 1, Multiplier = 5 });
-                db.Add(new Cargo() { D1 = 3, D2 = 5, BasePurchasePrice = 1000, Description = "Fruit", QtyDie = 2, Multiplier = 5 });
-                db.Add(new Cargo() { D1 = 3, D2 = 6, BasePurchasePrice = 100000, Description = "Pharmaceuticals", QtyDie = 1, Multiplier = 1 });
+                db.Add(new Cargo() { D1 = 3, D2 = 1, BasePurchasePrice = 10000, Description = "Petrochemicals", QtyDie = 1, Multiplier = 1, IsSingleUnits = false });
+                db.Add(new Cargo() { D1 = 3, D2 = 2, BasePurchasePrice = 300, Description = "Grain", QtyDie = 8, Multiplier = 5, IsSingleUnits = false });
+                db.Add(new Cargo() { D1 = 3, D2 = 3, BasePurchasePrice = 1500, Description = "Meat", QtyDie = 4, Multiplier = 5, IsSingleUnits = false });
+                db.Add(new Cargo() { D1 = 3, D2 = 4, BasePurchasePrice = 6000, Description = "Spices", QtyDie = 1, Multiplier = 5, IsSingleUnits = false });
+                db.Add(new Cargo() { D1 = 3, D2 = 5, BasePurchasePrice = 1000, Description = "Fruit", QtyDie = 2, Multiplier = 5, IsSingleUnits = false });
+                db.Add(new Cargo() { D1 = 3, D2 = 6, BasePurchasePrice = 100000, Description = "Pharmaceuticals", QtyDie = 1, Multiplier = 1, IsSingleUnits = false });
 
-                db.Add(new Cargo() { D1 = 4, D2 = 1, BasePurchasePrice = 1000000, Description = "Gems", QtyDie = 1, Multiplier = 1 });
-                db.Add(new Cargo() { D1 = 4, D2 = 2, BasePurchasePrice = 30000, Description = "Firearms", QtyDie = 2, Multiplier = 1 });
-                db.Add(new Cargo() { D1 = 4, D2 = 3, BasePurchasePrice = 30000, Description = "Ammunition", QtyDie = 2, Multiplier = 1 });
-                db.Add(new Cargo() { D1 = 4, D2 = 4, BasePurchasePrice = 10000, Description = "Blades", QtyDie = 2, Multiplier = 1 });
-                db.Add(new Cargo() { D1 = 4, D2 = 5, BasePurchasePrice = 10000, Description = "Tools", QtyDie = 2, Multiplier = 1 });
-                db.Add(new Cargo() { D1 = 4, D2 = 6, BasePurchasePrice = 50000, Description = "Body Armor", QtyDie = 2, Multiplier = 1 });
+                db.Add(new Cargo() { D1 = 4, D2 = 1, BasePurchasePrice = 1000000, Description = "Gems", QtyDie = 1, Multiplier = 1, IsSingleUnits = false });
+                db.Add(new Cargo() { D1 = 4, D2 = 2, BasePurchasePrice = 30000, Description = "Firearms", QtyDie = 2, Multiplier = 1, IsSingleUnits = false });
+                db.Add(new Cargo() { D1 = 4, D2 = 3, BasePurchasePrice = 30000, Description = "Ammunition", QtyDie = 2, Multiplier = 1, IsSingleUnits = false });
+                db.Add(new Cargo() { D1 = 4, D2 = 4, BasePurchasePrice = 10000, Description = "Blades", QtyDie = 2, Multiplier = 1, IsSingleUnits = false });
+                db.Add(new Cargo() { D1 = 4, D2 = 5, BasePurchasePrice = 10000, Description = "Tools", QtyDie = 2, Multiplier = 1, IsSingleUnits = false });
+                db.Add(new Cargo() { D1 = 4, D2 = 6, BasePurchasePrice = 50000, Description = "Body Armor", QtyDie = 2, Multiplier = 1, IsSingleUnits = false });
 
-                db.Add(new Cargo() { D1 = 5, D2 = 1, BasePurchasePrice = 1000000, Description = "Aircraft", QtyDie = 1, Multiplier = 1 });
-                db.Add(new Cargo() { D1 = 5, D2 = 2, BasePurchasePrice = 6000000, Description = "Air/raft", QtyDie = 2, Multiplier = 1 });
-                db.Add(new Cargo() { D1 = 5, D2 = 3, BasePurchasePrice = 10000000, Description = "Computers", QtyDie = 2, Multiplier = 1 });
-                db.Add(new Cargo() { D1 = 5, D2 = 4, BasePurchasePrice = 3000000, Description = "All Terrain Vehicles", QtyDie = 2, Multiplier = 1 });
-                db.Add(new Cargo() { D1 = 5, D2 = 5, BasePurchasePrice = 7000000, Description = "Armored Vehicles", QtyDie = 2, Multiplier = 1 });
-                db.Add(new Cargo() { D1 = 5, D2 = 6, BasePurchasePrice = 150000, Description = "Farm Machinery", QtyDie = 2, Multiplier = 1 });
+                db.Add(new Cargo() { D1 = 5, D2 = 1, BasePurchasePrice = 1000000, Description = "Aircraft", QtyDie = 1, Multiplier = 1, IsSingleUnits = true });
+                db.Add(new Cargo() { D1 = 5, D2 = 2, BasePurchasePrice = 6000000, Description = "Air/raft", QtyDie = 2, Multiplier = 1, IsSingleUnits = true });
+                db.Add(new Cargo() { D1 = 5, D2 = 3, BasePurchasePrice = 10000000, Description = "Computers", QtyDie = 2, Multiplier = 1, IsSingleUnits = true });
+                db.Add(new Cargo() { D1 = 5, D2 = 4, BasePurchasePrice = 3000000, Description = "All Terrain Vehicles", QtyDie = 2, Multiplier = 1, IsSingleUnits = true });
+                db.Add(new Cargo() { D1 = 5, D2 = 5, BasePurchasePrice = 7000000, Description = "Armored Vehicles", QtyDie = 2, Multiplier = 1, IsSingleUnits = true });
+                db.Add(new Cargo() { D1 = 5, D2 = 6, BasePurchasePrice = 150000, Description = "Farm Machinery", QtyDie = 2, Multiplier = 1, IsSingleUnits = true });
 
-                db.Add(new Cargo() { D1 = 6, D2 = 1, BasePurchasePrice = 100000, Description = "Electronic Parts", QtyDie = 1, Multiplier = 5 });
-                db.Add(new Cargo() { D1 = 6, D2 = 2, BasePurchasePrice = 70000, Description = "Mechanical Parts", QtyDie = 1, Multiplier = 5 });
-                db.Add(new Cargo() { D1 = 6, D2 = 3, BasePurchasePrice = 250000, Description = "Cybernetic Parts", QtyDie = 1, Multiplier = 5 });
-                db.Add(new Cargo() { D1 = 6, D2 = 4, BasePurchasePrice = 150000, Description = "Computer Parts", QtyDie = 1, Multiplier = 5 });
-                db.Add(new Cargo() { D1 = 6, D2 = 5, BasePurchasePrice = 750000, Description = "Machine Tools", QtyDie = 1, Multiplier = 5 });
-                db.Add(new Cargo() { D1 = 6, D2 = 6, BasePurchasePrice = 400000, Description = "Vacc Suites", QtyDie = 1, Multiplier = 5 });
+                db.Add(new Cargo() { D1 = 6, D2 = 1, BasePurchasePrice = 100000, Description = "Electronic Parts", QtyDie = 1, Multiplier = 5, IsSingleUnits = false });
+                db.Add(new Cargo() { D1 = 6, D2 = 2, BasePurchasePrice = 70000, Description = "Mechanical Parts", QtyDie = 1, Multiplier = 5, IsSingleUnits = false });
+                db.Add(new Cargo() { D1 = 6, D2 = 3, BasePurchasePrice = 250000, Description = "Cybernetic Parts", QtyDie = 1, Multiplier = 5, IsSingleUnits = false });
+                db.Add(new Cargo() { D1 = 6, D2 = 4, BasePurchasePrice = 150000, Description = "Computer Parts", QtyDie = 1, Multiplier = 5, IsSingleUnits = false });
+                db.Add(new Cargo() { D1 = 6, D2 = 5, BasePurchasePrice = 750000, Description = "Machine Tools", QtyDie = 1, Multiplier = 5, IsSingleUnits = false });
+                db.Add(new Cargo() { D1 = 6, D2 = 6, BasePurchasePrice = 400000, Description = "Vacc Suites", QtyDie = 1, Multiplier = 5, IsSingleUnits = false });
             }
 
             if (db.ShipClasses.Count() == 0)
             {
-                db.Add(new ShipClass() { Cargo = 200, dTons = 400, Fuel = 50, HGClass = "R", HighPassage = 0, Jump = 1, LowPassage = 9, Man = 1, MidPassage = 8, Name = "Subsidized Merchant", Power = 1 });
-                db.Add(new ShipClass() { Cargo = 46, dTons = 200, Fuel = 50, HGClass = "A2", HighPassage = 0, Jump = 2, LowPassage = 4, Man = 2, MidPassage = 7, Name = "Far Trader", Power = 2 });
-                db.Add(new ShipClass() { Cargo = 23, dTons = 100, Fuel = 30, HGClass = "J", HighPassage = 0, Jump = 2, LowPassage = 0, Man = 2, MidPassage = 0, Name = "Seeker", Power = 2 });
-                db.Add(new ShipClass() { Cargo = 82, dTons = 200, Fuel = 42, HGClass = "A1", HighPassage = 0, Jump = 1, LowPassage = 10, Man = 1, MidPassage = 6, Name = "Beowulf", Power = 1 });
+                db.Add(new ShipClass() { Cargo = 200, dTons = 400, Fuel = 50, HGClass = "R", HighPassage = 0, Jump = 1, LowPassage = 9, Man = 1, MidPassage = 8, Name = "Subsidized Merchant", Power = 1, IsSingleUnits = false });
+                db.Add(new ShipClass() { Cargo = 46, dTons = 200, Fuel = 50, HGClass = "A2", HighPassage = 0, Jump = 2, LowPassage = 4, Man = 2, MidPassage = 7, Name = "Far Trader", Power = 2, IsSingleUnits = false });
+                db.Add(new ShipClass() { Cargo = 23, dTons = 100, Fuel = 30, HGClass = "J", HighPassage = 0, Jump = 2, LowPassage = 0, Man = 2, MidPassage = 0, Name = "Seeker", Power = 2, IsSingleUnits = false });
+                db.Add(new ShipClass() { Cargo = 82, dTons = 200, Fuel = 42, HGClass = "A1", HighPassage = 0, Jump = 1, LowPassage = 10, Man = 1, MidPassage = 6, Name = "Beowulf", Power = 1, IsSingleUnits = false });
             }
 
             if (db.Starports.Count() == 0)

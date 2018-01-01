@@ -26,6 +26,7 @@ namespace Traveller.Models
         public int Multiplier { get; set; }
         public string PurchaseDMs { get; set; }
         public string ResaleDMs { get; set; }
+        public bool? IsSingleUnits { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected void RaisePropertyChanged([CallerMemberName]string propertyName = null)

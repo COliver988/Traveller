@@ -103,57 +103,9 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20171125140716_intitial.cs" />
-    <Compile Include="Migrations\20171125140716_intitial.designer.cs">
-      <DependentUpon>20171125140716_intitial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20171125213404_starports.cs" />
-    <Compile Include="Migrations\20171125213404_starports.designer.cs">
-      <DependentUpon>20171125213404_starports.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20171202224643_shipLogGeneralizedWorld.cs" />
-    <Compile Include="Migrations\20171202224643_shipLogGeneralizedWorld.designer.cs">
-      <DependentUpon>20171202224643_shipLogGeneralizedWorld.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20171203132342_worldImage.cs" />
-    <Compile Include="Migrations\20171203132342_worldImage.designer.cs">
-      <DependentUpon>20171203132342_worldImage.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20171208172441_cargoTypesEnum.cs" />
-    <Compile Include="Migrations\20171208172441_cargoTypesEnum.designer.cs">
-      <DependentUpon>20171208172441_cargoTypesEnum.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20171210132050_versionCosts.cs" />
-    <Compile Include="Migrations\20171210132050_versionCosts.designer.cs">
-      <DependentUpon>20171210132050_versionCosts.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20171210144030_cargoDestinationWorld.cs" />
-    <Compile Include="Migrations\20171210144030_cargoDestinationWorld.designer.cs">
-      <DependentUpon>20171210144030_cargoDestinationWorld.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20171221002538_versionDaysToSearch.cs" />
-    <Compile Include="Migrations\20171221002538_versionDaysToSearch.designer.cs">
-      <DependentUpon>20171221002538_versionDaysToSearch.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20171223122322_versionCargoCodeType.cs" />
-    <Compile Include="Migrations\20171223122322_versionCargoCodeType.designer.cs">
-      <DependentUpon>20171223122322_versionCargoCodeType.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20171224120135_ActualValues.cs" />
-    <Compile Include="Migrations\20171224120135_ActualValues.designer.cs">
-      <DependentUpon>20171224120135_ActualValues.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20171225225027_cargoDMs.cs" />
-    <Compile Include="Migrations\20171225225027_cargoDMs.designer.cs">
-      <DependentUpon>20171225225027_cargoDMs.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20171226131927_shipCargoPrices.cs" />
-    <Compile Include="Migrations\20171226131927_shipCargoPrices.designer.cs">
-      <DependentUpon>20171226131927_shipCargoPrices.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20171226150505_shipCargoloadedStat.cs" />
-    <Compile Include="Migrations\20171226150505_shipCargoloadedStat.designer.cs">
-      <DependentUpon>20171226150505_shipCargoloadedStat.cs</DependentUpon>
+    <Compile Include="Migrations\20180101193319_intialize.cs" />
+    <Compile Include="Migrations\20180101193319_intialize.designer.cs">
+      <DependentUpon>20180101193319_intialize.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\TravellerContextModelSnapshot.cs" />
     <Compile Include="Models\ActualValue.cs" />
