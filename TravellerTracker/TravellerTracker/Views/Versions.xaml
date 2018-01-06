@@ -17,20 +17,25 @@
         </ResourceDictionary>
     </Page.Resources>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" ScrollViewer.HorizontalScrollMode="Auto">
+    <Grid
+        Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+        ScrollViewer.HorizontalScrollBarVisibility="Visible"
+        ScrollViewer.HorizontalScrollMode="Enabled"
+        ScrollViewer.IsHorizontalRailEnabled="True"
+        ScrollViewer.VerticalScrollMode="Disabled" MinWidth="500" MinHeight="499" HorizontalAlignment="Left" VerticalAlignment="Top">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200" />
-            <ColumnDefinition Width="100" />
-            <ColumnDefinition Width="100" />
-            <ColumnDefinition Width="100" />
-            <ColumnDefinition Width="100" />
-            <ColumnDefinition Width="100" />
-            <ColumnDefinition Width="100" />
-            <ColumnDefinition Width="100" />
-            <ColumnDefinition Width="100" />
-            <ColumnDefinition Width="100" />
-            <ColumnDefinition Width="100" />
-            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="150" />
+            <ColumnDefinition Width="70" />
+            <ColumnDefinition Width="70" />
+            <ColumnDefinition Width="70" />
+            <ColumnDefinition Width="70" />
+            <ColumnDefinition Width="70" />
+            <ColumnDefinition Width="70" />
+            <ColumnDefinition Width="70" />
+            <ColumnDefinition Width="70" />
+            <ColumnDefinition Width="70" />
+            <ColumnDefinition Width="70" />
+            <ColumnDefinition Width="70" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="50" />
@@ -49,11 +54,6 @@
             HorizontalAlignment="Center"
             Style="{StaticResource SubheaderTextBlockStyle}"
             Text="Cost per ton by jump" />
-        <TextBlock
-            Grid.Column="10"
-            HorizontalAlignment="Center"
-            Style="{StaticResource SubheaderTextBlockStyle}"
-            Text="Search" />
         <TextBlock
             Grid.Row="0"
             Grid.Column="11"
@@ -121,9 +121,13 @@
         <TextBlock
             Grid.Row="1"
             Grid.Column="10"
-            HorizontalAlignment="Center"
+            Grid.ColumnSpan="2"
             Style="{StaticResource SubheaderTextBlockStyle}"
-            Text="Cargo" />
+            Text="Days" RenderTransformOrigin="0.15,0.3" >
+            <TextBlock.RenderTransform>
+                <CompositeTransform Rotation="-90"/>
+            </TextBlock.RenderTransform>
+        </TextBlock>
         <TextBlock
             Grid.Row="1"
             Grid.Column="11"
@@ -144,59 +148,59 @@
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="200" />
-                            <ColumnDefinition Width="100" />
-                            <ColumnDefinition Width="100" />
-                            <ColumnDefinition Width="100" />
-                            <ColumnDefinition Width="100" />
-                            <ColumnDefinition Width="100" />
-                            <ColumnDefinition Width="100" />
-                            <ColumnDefinition Width="100" />
-                            <ColumnDefinition Width="100" />
-                            <ColumnDefinition Width="100" />
-                            <ColumnDefinition Width="100" />
-                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition Width="70" />
+                            <ColumnDefinition Width="70" />
+                            <ColumnDefinition Width="70" />
+                            <ColumnDefinition Width="70" />
+                            <ColumnDefinition Width="70" />
+                            <ColumnDefinition Width="70" />
+                            <ColumnDefinition Width="70" />
+                            <ColumnDefinition Width="70" />
+                            <ColumnDefinition Width="70" />
+                            <ColumnDefinition Width="70" />
+                            <ColumnDefinition Width="70" />
                         </Grid.ColumnDefinitions>
-                        <TextBox Style="{StaticResource txtBoxNumCr}" Text="{Binding Name, Mode=TwoWay}" />
+                        <TextBox Style="{StaticResource txtBox}" Text="{Binding Name, Mode=TwoWay}" />
                         <TextBox
                             Grid.Column="1"
-                            Style="{StaticResource txtBoxNumCr}"
+                            Style="{StaticResource txtBoxNum}"
                             Text="{Binding HighPassageCost, Mode=TwoWay}" />
                         <TextBox
                             Grid.Column="2"
-                            Style="{StaticResource txtBoxNumCr}"
+                            Style="{StaticResource txtBoxNum}"
                             Text="{Binding LowPassageCost, Mode=TwoWay}" />
                         <TextBox
                             Grid.Column="3"
-                            Style="{StaticResource txtBoxNumCr}"
+                            Style="{StaticResource txtBoxNum}"
                             Text="{Binding MidPassageCost, Mode=TwoWay}" />
                         <TextBox
                             Grid.Column="4"
-                            Style="{StaticResource txtBoxNumCr}"
+                            Style="{StaticResource txtBoxNum}"
                             Text="{Binding Cost1Jump, Mode=TwoWay}" />
                         <TextBox
                             Grid.Column="5"
-                            Style="{StaticResource txtBoxNumCr}"
+                            Style="{StaticResource txtBoxNum}"
                             Text="{Binding Cost2Jump, Mode=TwoWay}" />
                         <TextBox
                             Grid.Column="6"
-                            Style="{StaticResource txtBoxNumCr}"
+                            Style="{StaticResource txtBoxNum}"
                             Text="{Binding Cost3Jump, Mode=TwoWay}" />
                         <TextBox
                             Grid.Column="7"
-                            Style="{StaticResource txtBoxNumCr}"
+                            Style="{StaticResource txtBoxNum}"
                             Text="{Binding Cost4Jump, Mode=TwoWay}" />
                         <TextBox
                             Grid.Column="8"
-                            Style="{StaticResource txtBoxNumCr}"
+                            Style="{StaticResource txtBoxNum}"
                             Text="{Binding Cost5Jump, Mode=TwoWay}" />
                         <TextBox
                             Grid.Column="9"
-                            Style="{StaticResource txtBoxNumCr}"
+                            Style="{StaticResource txtBoxNum}"
                             Text="{Binding Cost6Jump, Mode=TwoWay}" />
                         <TextBox
                             Grid.Column="10"
-                            Style="{StaticResource txtBoxNumCr}"
+                            Style="{StaticResource txtBoxNum}"
                             Text="{Binding DaysForCargoSearch, Mode=TwoWay}" />
                         <Button
                             Grid.Column="11"

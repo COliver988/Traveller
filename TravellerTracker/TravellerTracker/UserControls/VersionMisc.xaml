@@ -6,7 +6,7 @@
     xmlns:local="using:TravellerTracker.UserControls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DesignHeight="500"
-    d:DesignWidth="420"
+    d:DesignWidth="620"
     mc:Ignorable="d">
 
     <UserControl.Resources>
@@ -22,6 +22,8 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100" />
             <ColumnDefinition Width="300" />
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="100" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="50" />
@@ -77,8 +79,8 @@
         <ListBox
             Name="lstValues"
             Grid.Row="3"
-            Grid.RowSpan="3"
-            Grid.Column="2"
+            Grid.RowSpan="33"
+            Grid.Column="1"
             Width="170"
             Margin="3"
             ItemsSource="{Binding}">
