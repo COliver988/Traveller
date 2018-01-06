@@ -97,10 +97,10 @@ namespace TravellerTracker.Support
 
             if (db.ShipClasses.Count() == 0)
             {
-                db.Add(new ShipClass() { Cargo = 200, dTons = 400, Fuel = 50, HGClass = "R", HighPassage = 0, Jump = 1, LowPassage = 9, Man = 1, MidPassage = 8, Name = "Subsidized Merchant", Power = 1, IsSingleUnits = false });
-                db.Add(new ShipClass() { Cargo = 46, dTons = 200, Fuel = 50, HGClass = "A2", HighPassage = 0, Jump = 2, LowPassage = 4, Man = 2, MidPassage = 7, Name = "Far Trader", Power = 2, IsSingleUnits = false });
-                db.Add(new ShipClass() { Cargo = 23, dTons = 100, Fuel = 30, HGClass = "J", HighPassage = 0, Jump = 2, LowPassage = 0, Man = 2, MidPassage = 0, Name = "Seeker", Power = 2, IsSingleUnits = false });
-                db.Add(new ShipClass() { Cargo = 82, dTons = 200, Fuel = 42, HGClass = "A1", HighPassage = 0, Jump = 1, LowPassage = 10, Man = 1, MidPassage = 6, Name = "Beowulf", Power = 1, IsSingleUnits = false });
+                db.Add(new ShipClass() { Cargo = 200, dTons = 400, Fuel = 50, HGClass = "R", HighPassage = 0, Jump = 1, LowPassage = 9, Man = 1, MidPassage = 8, Name = "Subsidized Merchant", Power = 1});
+                db.Add(new ShipClass() { Cargo = 46, dTons = 200, Fuel = 50, HGClass = "A2", HighPassage = 0, Jump = 2, LowPassage = 4, Man = 2, MidPassage = 7, Name = "Far Trader", Power = 2});
+                db.Add(new ShipClass() { Cargo = 23, dTons = 100, Fuel = 30, HGClass = "J", HighPassage = 0, Jump = 2, LowPassage = 0, Man = 2, MidPassage = 0, Name = "Seeker", Power = 2});
+                db.Add(new ShipClass() { Cargo = 82, dTons = 200, Fuel = 42, HGClass = "A1", HighPassage = 0, Jump = 1, LowPassage = 10, Man = 1, MidPassage = 6, Name = "Beowulf", Power = 1});
             }
 
             if (db.Starports.Count() == 0)
