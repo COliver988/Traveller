@@ -29,5 +29,10 @@ namespace TravellerTracker.Views
             popup.IsLightDismissEnabled = true;
             popup.IsOpen = true;
         }
+
+        private void btnSave_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            App.DB.SaveChangesAsync();
+        }
     }
 }

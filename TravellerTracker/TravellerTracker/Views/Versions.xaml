@@ -18,127 +18,74 @@
     </Page.Resources>
 
     <Grid
+        MinWidth="500"
+        MinHeight="499"
+        HorizontalAlignment="Left"
+        VerticalAlignment="Top"
         Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
         ScrollViewer.HorizontalScrollBarVisibility="Visible"
         ScrollViewer.HorizontalScrollMode="Enabled"
         ScrollViewer.IsHorizontalRailEnabled="True"
-        ScrollViewer.VerticalScrollMode="Disabled" MinWidth="500" MinHeight="499" HorizontalAlignment="Left" VerticalAlignment="Top">
+        ScrollViewer.VerticalScrollMode="Disabled">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="150" />
+            <ColumnDefinition Width="130" />
             <ColumnDefinition Width="70" />
             <ColumnDefinition Width="70" />
             <ColumnDefinition Width="70" />
             <ColumnDefinition Width="70" />
             <ColumnDefinition Width="70" />
             <ColumnDefinition Width="70" />
-            <ColumnDefinition Width="70" />
-            <ColumnDefinition Width="70" />
-            <ColumnDefinition Width="70" />
-            <ColumnDefinition Width="70" />
-            <ColumnDefinition Width="70" />
+            <ColumnDefinition Width="20" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50" />
             <RowDefinition Height="50" />
             <RowDefinition />
         </Grid.RowDefinitions>
         <TextBlock
-            Grid.Column="1"
-            Grid.ColumnSpan="3"
-            HorizontalAlignment="Center"
-            Style="{StaticResource SubheaderTextBlockStyle}"
-            Text="Passengers" />
-        <TextBlock
-            Grid.Column="4"
-            Grid.ColumnSpan="6"
-            HorizontalAlignment="Center"
-            Style="{StaticResource SubheaderTextBlockStyle}"
-            Text="Cost per ton by jump" />
-        <TextBlock
             Grid.Row="0"
-            Grid.Column="11"
-            HorizontalAlignment="Center"
-            Style="{StaticResource SubheaderTextBlockStyle}"
-            Text="Cargo" />
-        <TextBlock
-            Grid.Row="1"
             Style="{StaticResource SubheaderTextBlockStyle}"
             Text="Name" />
         <TextBlock
-            Grid.Row="1"
+            Grid.Row="0"
             Grid.Column="1"
-            HorizontalAlignment="Center"
-            Style="{StaticResource SubheaderTextBlockStyle}"
-            Text="High" />
-        <TextBlock
-            Grid.Row="1"
-            Grid.Column="2"
-            HorizontalAlignment="Center"
-            Style="{StaticResource SubheaderTextBlockStyle}"
-            Text="Low" />
-        <TextBlock
-            Grid.Row="1"
-            Grid.Column="3"
-            HorizontalAlignment="Center"
-            Style="{StaticResource SubheaderTextBlockStyle}"
-            Text="Mid" />
-        <TextBlock
-            Grid.Row="1"
-            Grid.Column="4"
             HorizontalAlignment="Center"
             Style="{StaticResource SubheaderTextBlockStyle}"
             Text="J1" />
         <TextBlock
-            Grid.Row="1"
-            Grid.Column="5"
+            Grid.Row="0"
+            Grid.Column="2"
             HorizontalAlignment="Center"
             Style="{StaticResource SubheaderTextBlockStyle}"
             Text="J2" />
         <TextBlock
-            Grid.Row="1"
-            Grid.Column="6"
+            Grid.Row="0"
+            Grid.Column="3"
             HorizontalAlignment="Center"
             Style="{StaticResource SubheaderTextBlockStyle}"
             Text="J3" />
         <TextBlock
-            Grid.Row="1"
-            Grid.Column="7"
+            Grid.Row="0"
+            Grid.Column="4"
             HorizontalAlignment="Center"
             Style="{StaticResource SubheaderTextBlockStyle}"
             Text="J4" />
         <TextBlock
-            Grid.Row="1"
-            Grid.Column="8"
+            Grid.Row="0"
+            Grid.Column="5"
             HorizontalAlignment="Center"
             Style="{StaticResource SubheaderTextBlockStyle}"
             Text="J5" />
         <TextBlock
-            Grid.Row="1"
-            Grid.Column="9"
+            Grid.Row="0"
+            Grid.Column="6"
             HorizontalAlignment="Center"
             Style="{StaticResource SubheaderTextBlockStyle}"
             Text="J6" />
-        <TextBlock
-            Grid.Row="1"
-            Grid.Column="10"
-            Grid.ColumnSpan="2"
-            Style="{StaticResource SubheaderTextBlockStyle}"
-            Text="Days" RenderTransformOrigin="0.15,0.3" >
-            <TextBlock.RenderTransform>
-                <CompositeTransform Rotation="-90"/>
-            </TextBlock.RenderTransform>
-        </TextBlock>
-        <TextBlock
-            Grid.Row="1"
-            Grid.Column="11"
-            HorizontalAlignment="Center"
-            Style="{StaticResource SubheaderTextBlockStyle}"
-            Text="Code" />
         <Popup
             Name="popup"
             Grid.Row="1"
             Grid.Column="1"
-            Grid.ColumnSpan="5"
+            Grid.ColumnSpan="8"
             IsOpen="False" />
         <ListBox
             Grid.Row="2"
@@ -148,12 +95,7 @@
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="150" />
-                            <ColumnDefinition Width="70" />
-                            <ColumnDefinition Width="70" />
-                            <ColumnDefinition Width="70" />
-                            <ColumnDefinition Width="70" />
-                            <ColumnDefinition Width="70" />
+                            <ColumnDefinition Width="130" />
                             <ColumnDefinition Width="70" />
                             <ColumnDefinition Width="70" />
                             <ColumnDefinition Width="70" />
@@ -161,53 +103,172 @@
                             <ColumnDefinition Width="70" />
                             <ColumnDefinition Width="70" />
                         </Grid.ColumnDefinitions>
-                        <TextBox Style="{StaticResource txtBox}" Text="{Binding Name, Mode=TwoWay}" />
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50" />
+                            <RowDefinition Height="50" />
+                            <RowDefinition Height="50" />
+                            <RowDefinition Height="50" />
+                            <RowDefinition Height="50" />
+                        </Grid.RowDefinitions>
                         <TextBox
-                            Grid.Column="1"
-                            Style="{StaticResource txtBoxNum}"
-                            Text="{Binding HighPassageCost, Mode=TwoWay}" />
-                        <TextBox
+                            Grid.ColumnSpan="2"
+                            Style="{StaticResource txtBox}"
+                            Text="{Binding Name, Mode=TwoWay}" />
+                        <StackPanel
                             Grid.Column="2"
-                            Style="{StaticResource txtBoxNum}"
-                            Text="{Binding LowPassageCost, Mode=TwoWay}" />
+                            Grid.ColumnSpan="5"
+                            Orientation="Horizontal">
+                            <TextBlock Style="{StaticResource txtBlock}">Search days:</TextBlock>
+                            <TextBox Style="{StaticResource txtBoxNum}" Text="{Binding DaysForCargoSearch, Mode=TwoWay}" />
+                            <Button
+                                Margin="3"
+                                Click="btnMisc">
+                                Actual Value
+                            </Button>
+                            <Button Margin="3" Click="btnSave_Click">Save</Button>
+                        </StackPanel>
+                        <TextBlock
+                            Grid.Row="1"
+                            Style="{StaticResource txtBlock}"
+                            Text="Bulk Cargo" />
+                        <TextBlock
+                            Grid.Row="2"
+                            Style="{StaticResource txtBlock}"
+                            Text="High Pax" />
+                        <TextBlock
+                            Grid.Row="3"
+                            Style="{StaticResource txtBlock}"
+                            Text="Mid Pax" />
+                        <TextBlock
+                            Grid.Row="4"
+                            Style="{StaticResource txtBlock}"
+                            Text="Low Pax" />
                         <TextBox
-                            Grid.Column="3"
-                            Style="{StaticResource txtBoxNum}"
-                            Text="{Binding MidPassageCost, Mode=TwoWay}" />
-                        <TextBox
-                            Grid.Column="4"
+                            Grid.Row="1"
+                            Grid.Column="1"
                             Style="{StaticResource txtBoxNum}"
                             Text="{Binding Cost1Jump, Mode=TwoWay}" />
                         <TextBox
-                            Grid.Column="5"
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            Style="{StaticResource txtBoxNum}"
+                            Text="{Binding Cost1HighPax, Mode=TwoWay}" />
+                        <TextBox
+                            Grid.Row="3"
+                            Grid.Column="1"
+                            Style="{StaticResource txtBoxNum}"
+                            Text="{Binding Cost1MidPax, Mode=TwoWay}" />
+                        <TextBox
+                            Grid.Row="4"
+                            Grid.Column="1"
+                            Style="{StaticResource txtBoxNum}"
+                            Text="{Binding Cost1LowPax, Mode=TwoWay}" />
+
+                        <TextBox
+                            Grid.Row="1"
+                            Grid.Column="2"
                             Style="{StaticResource txtBoxNum}"
                             Text="{Binding Cost2Jump, Mode=TwoWay}" />
                         <TextBox
-                            Grid.Column="6"
+                            Grid.Row="2"
+                            Grid.Column="2"
+                            Style="{StaticResource txtBoxNum}"
+                            Text="{Binding Cost2HighPax, Mode=TwoWay}" />
+                        <TextBox
+                            Grid.Row="3"
+                            Grid.Column="2"
+                            Style="{StaticResource txtBoxNum}"
+                            Text="{Binding Cost2MidPax, Mode=TwoWay}" />
+                        <TextBox
+                            Grid.Row="4"
+                            Grid.Column="2"
+                            Style="{StaticResource txtBoxNum}"
+                            Text="{Binding Cost2LowPax, Mode=TwoWay}" />
+
+                        <TextBox
+                            Grid.Row="1"
+                            Grid.Column="3"
                             Style="{StaticResource txtBoxNum}"
                             Text="{Binding Cost3Jump, Mode=TwoWay}" />
                         <TextBox
-                            Grid.Column="7"
+                            Grid.Row="2"
+                            Grid.Column="3"
+                            Style="{StaticResource txtBoxNum}"
+                            Text="{Binding Cost3HighPax, Mode=TwoWay}" />
+                        <TextBox
+                            Grid.Row="3"
+                            Grid.Column="3"
+                            Style="{StaticResource txtBoxNum}"
+                            Text="{Binding Cost3MidPax, Mode=TwoWay}" />
+                        <TextBox
+                            Grid.Row="4"
+                            Grid.Column="3"
+                            Style="{StaticResource txtBoxNum}"
+                            Text="{Binding Cost3LowPax, Mode=TwoWay}" />
+
+                        <TextBox
+                            Grid.Row="1"
+                            Grid.Column="4"
                             Style="{StaticResource txtBoxNum}"
                             Text="{Binding Cost4Jump, Mode=TwoWay}" />
                         <TextBox
-                            Grid.Column="8"
+                            Grid.Row="2"
+                            Grid.Column="4"
+                            Style="{StaticResource txtBoxNum}"
+                            Text="{Binding Cost4HighPax, Mode=TwoWay}" />
+                        <TextBox
+                            Grid.Row="3"
+                            Grid.Column="4"
+                            Style="{StaticResource txtBoxNum}"
+                            Text="{Binding Cost4MidPax, Mode=TwoWay}" />
+                        <TextBox
+                            Grid.Row="4"
+                            Grid.Column="4"
+                            Style="{StaticResource txtBoxNum}"
+                            Text="{Binding Cost4LowPax, Mode=TwoWay}" />
+
+                        <TextBox
+                            Grid.Row="1"
+                            Grid.Column="5"
                             Style="{StaticResource txtBoxNum}"
                             Text="{Binding Cost5Jump, Mode=TwoWay}" />
                         <TextBox
-                            Grid.Column="9"
+                            Grid.Row="2"
+                            Grid.Column="5"
+                            Style="{StaticResource txtBoxNum}"
+                            Text="{Binding Cost5HighPax, Mode=TwoWay}" />
+                        <TextBox
+                            Grid.Row="3"
+                            Grid.Column="5"
+                            Style="{StaticResource txtBoxNum}"
+                            Text="{Binding Cost5MidPax, Mode=TwoWay}" />
+                        <TextBox
+                            Grid.Row="4"
+                            Grid.Column="5"
+                            Style="{StaticResource txtBoxNum}"
+                            Text="{Binding Cost5LowPax, Mode=TwoWay}" />
+
+                        <TextBox
+                            Grid.Row="1"
+                            Grid.Column="6"
                             Style="{StaticResource txtBoxNum}"
                             Text="{Binding Cost6Jump, Mode=TwoWay}" />
                         <TextBox
-                            Grid.Column="10"
+                            Grid.Row="2"
+                            Grid.Column="6"
                             Style="{StaticResource txtBoxNum}"
-                            Text="{Binding DaysForCargoSearch, Mode=TwoWay}" />
-                        <Button
-                            Grid.Column="11"
-                            Margin="3"
-                            Click="btnMisc">
-                            Actual Value
-                        </Button>
+                            Text="{Binding Cost6HighPax, Mode=TwoWay}" />
+                        <TextBox
+                            Grid.Row="3"
+                            Grid.Column="6"
+                            Style="{StaticResource txtBoxNum}"
+                            Text="{Binding Cost6MidPax, Mode=TwoWay}" />
+                        <TextBox
+                            Grid.Row="4"
+                            Grid.Column="6"
+                            Style="{StaticResource txtBoxNum}"
+                            Text="{Binding Cost6LowPax, Mode=TwoWay}" />
+
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>

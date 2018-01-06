@@ -103,9 +103,9 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20180101193319_intialize.cs" />
-    <Compile Include="Migrations\20180101193319_intialize.designer.cs">
-      <DependentUpon>20180101193319_intialize.cs</DependentUpon>
+    <Compile Include="Migrations\20180106224651_initialize.cs" />
+    <Compile Include="Migrations\20180106224651_initialize.designer.cs">
+      <DependentUpon>20180106224651_initialize.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\TravellerContextModelSnapshot.cs" />
     <Compile Include="Models\ActualValue.cs" />

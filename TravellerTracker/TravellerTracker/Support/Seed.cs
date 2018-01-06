@@ -26,9 +26,9 @@ namespace TravellerTracker.Support
 
             if (db.TravellerVersions.Count() == 0)
             {
-                db.Add(new TravellerVersion() { Name = "Classic" });
                 db.Add(new TravellerVersion() { Name = "Mongoose Traveller" });
                 db.Add(new TravellerVersion() { Name = "T5" });
+                db.Add(new TravellerVersion() { Name = "Classic" });
             }
 
             if (db.CargoTypes.Count() == 0)

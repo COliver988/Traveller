@@ -9,8 +9,8 @@ using Traveller.Models;
 namespace TravellerTracker.Migrations
 {
     [DbContext(typeof(TravellerContext))]
-    [Migration("20180101193319_intialize")]
-    partial class intialize
+    [Migration("20180106224651_initialize")]
+    partial class initialize
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -294,29 +294,59 @@ namespace TravellerTracker.Migrations
 
                     b.Property<int>("CargoCodeType");
 
+                    b.Property<int>("Cost1HighPax");
+
                     b.Property<int>("Cost1Jump");
+
+                    b.Property<int>("Cost1LowPax");
+
+                    b.Property<int>("Cost1MidPax");
+
+                    b.Property<int>("Cost2HighPax");
 
                     b.Property<int>("Cost2Jump");
 
+                    b.Property<int>("Cost2LowPax");
+
+                    b.Property<int>("Cost2MidPax");
+
+                    b.Property<int>("Cost3HighPax");
+
                     b.Property<int>("Cost3Jump");
+
+                    b.Property<int>("Cost3LowPax");
+
+                    b.Property<int>("Cost3MidPax");
+
+                    b.Property<int>("Cost4HighPax");
 
                     b.Property<int>("Cost4Jump");
 
+                    b.Property<int>("Cost4LowPax");
+
+                    b.Property<int>("Cost4MidPax");
+
+                    b.Property<int>("Cost5HighPax");
+
                     b.Property<int>("Cost5Jump");
 
+                    b.Property<int>("Cost5LowPax");
+
+                    b.Property<int>("Cost5MidPax");
+
+                    b.Property<int>("Cost6HighPax");
+
                     b.Property<int>("Cost6Jump");
+
+                    b.Property<int>("Cost6LowPax");
+
+                    b.Property<int>("Cost6MidPax");
 
                     b.Property<int>("D1TopRange");
 
                     b.Property<int>("D2TopRange");
 
                     b.Property<int>("DaysForCargoSearch");
-
-                    b.Property<int>("HighPassageCost");
-
-                    b.Property<int>("LowPassageCost");
-
-                    b.Property<int>("MidPassageCost");
 
                     b.Property<string>("Name");
 

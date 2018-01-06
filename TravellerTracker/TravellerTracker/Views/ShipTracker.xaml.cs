@@ -224,7 +224,7 @@ namespace TravellerTracker.Views
             else
                 passengers = ship.HighPaxAvail;
             ship.HighPaxCarried += passengers;
-            ship.Credits += passengers * ship.theVersion.HighPassageCost;
+            ship.Credits += passengers * calcPaxCost(ShipCargo.CargoTypes.HighPassage, ship.theWorld, ca.world, ship.theVersion);
             ShipCargo shipCargo = new ShipCargo()
             {
                 CargoCode = $"High Passage: {passengers}",
@@ -237,6 +237,29 @@ namespace TravellerTracker.Views
             App.DB.Add(shipCargo);
             AddToShipLog(shipCargo);
             App.DB.SaveChangesAsync();
+        }
+
+        private int calcPaxCost(ShipCargo.CargoTypes PaxType, World Origin, World Destination, TravellerVersion theVersion)
+        {
+            Utilities util = new Utilities();
+            int distance = util.calcDistance(Origin.Hex, Destination.Hex);
+            if (distance < 1 || distance > 6) distance = 1;
+            int cost = 0;
+            switch (PaxType)
+            {
+                case ShipCargo.CargoTypes.HighPassage:
+                    cost = theVersion.HighPax[distance - 1];
+                    break;
+                case ShipCargo.CargoTypes.MidPassage:
+                    cost = theVersion.MidPax[distance - 1];
+                    break;
+                case ShipCargo.CargoTypes.LowPassage:
+                    cost = theVersion.LowPax[distance - 1];
+                    break;
+                default:
+                    break;
+            }
+            return cost;
         }
 
         private void btnMidPax(object sender, RoutedEventArgs e)
@@ -260,7 +283,7 @@ namespace TravellerTracker.Views
                 passengers = ca.MidPassage;
             else
                 passengers = ship.MidPaxAvail;
-            ship.Credits += passengers * ship.theVersion.MidPassageCost;
+            ship.Credits += passengers * calcPaxCost(ShipCargo.CargoTypes.MidPassage, ship.theWorld, ca.world, ship.theVersion);
             ship.MidPaxCarried += passengers;
             ShipCargo shipCargo = new ShipCargo() { CargoCode = $"Mid Passage: {passengers}", ShipID = ship.ShipId, CargoType = ShipCargo.CargoTypes.MidPassage, OriginWorldID = ship.theWorld.WorldID, DestinationID = ca.world.WorldID, dTons = passengers };
             App.DB.Add(shipCargo);
@@ -289,7 +312,7 @@ namespace TravellerTracker.Views
                 passengers = ca.LowPassage;
             else
                 passengers = ship.LowPaxAvail;
-            ship.Credits += passengers * ship.theVersion.LowPassageCost;
+            ship.Credits += passengers * calcPaxCost(ShipCargo.CargoTypes.LowPassage, ship.theWorld, ca.world, ship.theVersion);
             ship.LowPaxCarried += passengers;
             ShipCargo shipCargo = new ShipCargo() { CargoCode = $"Low Passage: {ca.LowPassage}", ShipID = ship.ShipId, CargoType = ShipCargo.CargoTypes.LowPassage, OriginWorldID = ship.theWorld.WorldID, DestinationID = ca.world.WorldID, dTons = passengers };
             App.DB.Add(shipCargo);

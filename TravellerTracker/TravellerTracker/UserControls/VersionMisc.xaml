@@ -24,11 +24,16 @@
             <ColumnDefinition Width="300" />
             <ColumnDefinition Width="100" />
             <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="100" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="50" />
             <RowDefinition Height="50" />
             <RowDefinition Height="25" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
             <RowDefinition Height="50" />
             <RowDefinition Height="50" />
             <RowDefinition />
@@ -43,10 +48,6 @@
             Grid.Row="1"
             Style="{StaticResource txtBlockRightBold}"
             Text="Cargo Code" />
-        <TextBlock
-            Grid.Row="3"
-            Style="{StaticResource txtBlockRightBold}"
-            Text="Actual Value" />
         <StackPanel
             Grid.Row="1"
             Grid.Column="1"
@@ -56,6 +57,41 @@
             <RadioButton Name="rbT5" Click="rbT5_Click">T5</RadioButton>
             <RadioButton Name="rbBITS" Click="rbBITS_Click">BITS</RadioButton>
         </StackPanel>
+        <TextBlock
+            Grid.Row="3"
+            Style="{StaticResource txtBlockRightBold}"
+            Text="Actual Value" />
+        <TextBlock
+            Grid.Row="3"
+            Grid.Column="2"
+            Style="{StaticResource txtBlockRightBold}"
+            Text="Jump 1" />
+        <TextBox Grid.Column="3" Grid.Row="3" Text="{x:Bind Version.Cost1Jump}" Style="{StaticResource txtBoxNum}"></TextBox>
+        <TextBlock
+            Grid.Row="4"
+            Grid.Column="2"
+            Style="{StaticResource txtBlockRightBold}"
+            Text="Jump 2" />
+        <TextBlock
+            Grid.Row="5"
+            Grid.Column="2"
+            Style="{StaticResource txtBlockRightBold}"
+            Text="Jump 3" />
+        <TextBlock
+            Grid.Row="6"
+            Grid.Column="2"
+            Style="{StaticResource txtBlockRightBold}"
+            Text="Jump 4" />
+        <TextBlock
+            Grid.Row="7"
+            Grid.Column="2"
+            Style="{StaticResource txtBlockRightBold}"
+            Text="Jump 5" />
+        <TextBlock
+            Grid.Row="8"
+            Grid.Column="2"
+            Style="{StaticResource txtBlockRightBold}"
+            Text="Jump 6" />
         <Grid
             Grid.Row="2"
             Grid.Column="1"

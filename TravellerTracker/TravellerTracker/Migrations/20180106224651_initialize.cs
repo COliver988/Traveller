@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TravellerTracker.Migrations
 {
-    public partial class intialize : Migration
+    public partial class initialize : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -220,18 +220,33 @@ namespace TravellerTracker.Migrations
                     TravellerVersionId = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     CargoCodeType = table.Column<int>(nullable: false),
+                    Cost1HighPax = table.Column<int>(nullable: false),
                     Cost1Jump = table.Column<int>(nullable: false),
+                    Cost1LowPax = table.Column<int>(nullable: false),
+                    Cost1MidPax = table.Column<int>(nullable: false),
+                    Cost2HighPax = table.Column<int>(nullable: false),
                     Cost2Jump = table.Column<int>(nullable: false),
+                    Cost2LowPax = table.Column<int>(nullable: false),
+                    Cost2MidPax = table.Column<int>(nullable: false),
+                    Cost3HighPax = table.Column<int>(nullable: false),
                     Cost3Jump = table.Column<int>(nullable: false),
+                    Cost3LowPax = table.Column<int>(nullable: false),
+                    Cost3MidPax = table.Column<int>(nullable: false),
+                    Cost4HighPax = table.Column<int>(nullable: false),
                     Cost4Jump = table.Column<int>(nullable: false),
+                    Cost4LowPax = table.Column<int>(nullable: false),
+                    Cost4MidPax = table.Column<int>(nullable: false),
+                    Cost5HighPax = table.Column<int>(nullable: false),
                     Cost5Jump = table.Column<int>(nullable: false),
+                    Cost5LowPax = table.Column<int>(nullable: false),
+                    Cost5MidPax = table.Column<int>(nullable: false),
+                    Cost6HighPax = table.Column<int>(nullable: false),
                     Cost6Jump = table.Column<int>(nullable: false),
+                    Cost6LowPax = table.Column<int>(nullable: false),
+                    Cost6MidPax = table.Column<int>(nullable: false),
                     D1TopRange = table.Column<int>(nullable: false),
                     D2TopRange = table.Column<int>(nullable: false),
                     DaysForCargoSearch = table.Column<int>(nullable: false),
-                    HighPassageCost = table.Column<int>(nullable: false),
-                    LowPassageCost = table.Column<int>(nullable: false),
-                    MidPassageCost = table.Column<int>(nullable: false),
                     Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
