@@ -60,6 +60,7 @@
             <Button Click="btnSave" Style="{StaticResource btnMenu}">Save</Button>
             <Button Click="btnNewLog" Style="{StaticResource btnMenu}">Add Log</Button>
             <Button Click="btnClearLogs" Style="{StaticResource btnMenu}">Clear Logs</Button>
+            <Button Click="btnDelete" Style="{StaticResource btnMenu}">Delete</Button>
         </StackPanel>
         <TextBlock
             Grid.Row="1"

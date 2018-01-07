@@ -17,6 +17,11 @@ namespace TravellerTracker.Views
         public StarportList()
         {
             this.InitializeComponent();
+            Loaded += StarportList_Loaded;
+        }
+
+        private void StarportList_Loaded(object sender, RoutedEventArgs e)
+        {
             ports = TravellerTracker.App.DB.Starports.ToList();
             lstPorts.ItemsSource = ports;
         }
@@ -29,6 +34,24 @@ namespace TravellerTracker.Views
         private void btnSave(object sender, RoutedEventArgs e)
         {
             TravellerTracker.App.DB.SaveChangesAsync();
+        }
+
+        private void btnNew(object sender, RoutedEventArgs e)
+        {
+            App.DB.Add(new Starport());
+            App.DB.SaveChanges();
+            StarportList_Loaded(null, null);
+        }
+        private void btnDelete(object sender, RoutedEventArgs e)
+        {
+            Button btn = sender as Button;
+            Starport port = (Starport)btn.DataContext;
+            if (port != null)
+            {
+                App.DB.Remove(port);
+                App.DB.SaveChangesAsync();
+                StarportList_Loaded(null, null);
+            }
         }
     }
 }

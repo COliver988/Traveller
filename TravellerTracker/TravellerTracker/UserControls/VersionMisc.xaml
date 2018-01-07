@@ -66,7 +66,11 @@
             Grid.Column="2"
             Style="{StaticResource txtBlockRightBold}"
             Text="Jump 1" />
-        <TextBox Grid.Column="3" Grid.Row="3" Text="{x:Bind Version.Cost1Jump}" Style="{StaticResource txtBoxNum}"></TextBox>
+        <TextBox
+            Grid.Row="3"
+            Grid.Column="3"
+            Style="{StaticResource txtBoxNum}"
+            Text="{x:Bind Version.Cost1Jump}" />
         <TextBlock
             Grid.Row="4"
             Grid.Column="2"

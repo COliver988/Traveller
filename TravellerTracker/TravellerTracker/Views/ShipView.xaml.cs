@@ -254,5 +254,14 @@ namespace TravellerTracker.Views
         {
             ship.DeleteLogs();
         }
+
+        private void btnDelete(object sender, RoutedEventArgs e)
+        {
+            ship.DeleteCargos();
+            ship.DeleteLogs();
+            App.DB.Ships.Remove(ship);
+            App.DB.SaveChangesAsync();
+            App.mainFrame.Content = new ShipList();
+        }
     }
 }

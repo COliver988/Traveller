@@ -107,6 +107,7 @@ namespace TravellerTracker
         {
             var deferral = e.SuspendingOperation.GetDeferral();
             //TODO: Save application state and stop any background activity
+            DB.SaveChanges();
             deferral.Complete();
         }
     }

@@ -120,9 +120,7 @@
                             Orientation="Horizontal">
                             <TextBlock Style="{StaticResource txtBlock}">Search days:</TextBlock>
                             <TextBox Style="{StaticResource txtBoxNum}" Text="{Binding DaysForCargoSearch, Mode=TwoWay}" />
-                            <Button
-                                Margin="3"
-                                Click="btnMisc">
+                            <Button Margin="3" Click="btnMisc">
                                 Actual Value
                             </Button>
                             <Button Margin="3" Click="btnSave_Click">Save</Button>

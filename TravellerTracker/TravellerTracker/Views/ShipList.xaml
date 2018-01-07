@@ -16,6 +16,10 @@
     </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="40" />
+        </Grid.RowDefinitions>
 
         <Popup Name="popup" IsLightDismissEnabled="True" />
         <StackPanel Orientation="Vertical">
@@ -26,9 +30,9 @@
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition />
                                 <ColumnDefinition />
+                                <ColumnDefinition Width="200" />
                                 <ColumnDefinition Width="150" />
                                 <ColumnDefinition Width="150" />
-                                <ColumnDefinition Width="100" />
                                 <ColumnDefinition Width="100" />
                                 <ColumnDefinition />
                             </Grid.ColumnDefinitions>
@@ -65,23 +69,23 @@
                                 Grid.Column="5"
                                 VerticalAlignment="Center"
                                 Style="{StaticResource SubtitleTextBlockStyle}"
-                                Text="{Binding theWorld.Name}" />
-                            <Button
+                                Text="{Binding theClass.Name}" />
+                            <TextBlock
                                 Grid.Column="6"
-                                Margin="3"
-                                Click="btnRemove">
-                                <Button.Content>
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock Margin="3" Text="Delete [" />
-                                        <TextBlock Margin="0,3,0,3" Text="{Binding ShipId}" />
-                                        <TextBlock Margin="3" Text="]" />
-                                    </StackPanel>
-                                </Button.Content>
-                            </Button>
+                                VerticalAlignment="Center"
+                                Style="{StaticResource SubtitleTextBlockStyle}"
+                                Text="{Binding theWorld.Name}" />
                         </Grid>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
         </StackPanel>
+        <Button
+            Grid.Row="1"
+            HorizontalAlignment="Left"
+            Click="btnNew"
+            Style="{StaticResource btnMenu}">
+            New Ship
+        </Button>
     </Grid>
 </Page>

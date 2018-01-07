@@ -1,19 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
+﻿using System.Linq;
 using Traveller.Models;
-using TravellerTracker.Models;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -44,15 +32,13 @@ namespace TravellerTracker.Views
             App.mainFrame.Content = p;
         }
 
-        private void btnRemove(object sender, RoutedEventArgs e)
+        private void btnNew(object sender, RoutedEventArgs e)
         {
-            Button btn = sender as Button;
-            Ship ship = btn.DataContext as Ship;
-            ship.DeleteCargos();
-            ship.DeleteLogs();
-            App.DB.Ships.Remove(ship);
-            App.DB.SaveChangesAsync();
-            lvShips.ItemsSource = App.DB.Ships.ToList();
+            Ship ship = new Ship() { Name = "new ship" };
+            App.DB.Add(ship);
+            App.DB.SaveChanges();
+            Page p = new ShipView(ship.ShipId);
+            App.mainFrame.Content = p;
         }
     }
 }

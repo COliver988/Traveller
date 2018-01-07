@@ -25,10 +25,13 @@
             <ColumnDefinition Width="70" />
             <ColumnDefinition Width="70" />
             <ColumnDefinition Width="70" />
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="20" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="45" />
             <RowDefinition />
+            <RowDefinition Height="40" />
         </Grid.RowDefinitions>
         <TextBlock
             Grid.Column="0"
@@ -67,7 +70,7 @@
             Name="lstPorts"
             Grid.Row="1"
             Grid.Column="0"
-            Grid.ColumnSpan="8"
+            Grid.ColumnSpan="10"
             ItemsSource="{Binding}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
@@ -81,6 +84,7 @@
                             <ColumnDefinition Width="70" />
                             <ColumnDefinition Width="70" />
                             <ColumnDefinition Width="70" />
+                            <ColumnDefinition Width="50" />
                         </Grid.ColumnDefinitions>
                         <TextBox
                             Grid.Column="0"
@@ -120,9 +124,20 @@
                             Grid.Column="7"
                             Margin="3"
                             IsChecked="{Binding isStarport, Mode=TwoWay}" />
+                        <Button Grid.Column="8" Click="btnDelete">
+                            X
+                        </Button>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+        <Button
+            Grid.Row="2"
+            Grid.ColumnSpan="2"
+            HorizontalAlignment="Left"
+            Click="btnNew"
+            Style="{StaticResource btnMenu}">
+            New Starport
+        </Button>
     </Grid>
 </Page>
