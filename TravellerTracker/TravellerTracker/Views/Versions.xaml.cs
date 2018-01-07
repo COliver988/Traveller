@@ -34,5 +34,13 @@ namespace TravellerTracker.Views
         {
             App.DB.SaveChangesAsync();
         }
+
+        private void btnNew_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            App.DB.Add(new TravellerVersion() { Name = "New" });
+            App.DB.SaveChanges();
+            versions = TravellerTracker.App.DB.TravellerVersions;
+            this.DataContext = versions;
+        }
     }
 }
