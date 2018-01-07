@@ -301,7 +301,7 @@ namespace TravellerTracker.Views
             }
             Button btn = sender as Button;
             CargoAvailable ca = btn.DataContext as CargoAvailable;
-            if (ca.MidPassage == 0)
+            if (ca.LowPassage == 0)
             {
                 ErrorHandling eh = new ErrorHandling();
                 eh.showError("There are no low passage passengers available.");

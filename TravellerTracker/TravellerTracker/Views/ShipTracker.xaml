@@ -54,14 +54,17 @@
             HorizontalAlignment="Center"
             Style="{StaticResource txtBlockTitle}"
             Text="{x:Bind ship.Name}" />
-        <TextBlock
-            Grid.Row="0"
-            Grid.Column="2"
-            Margin="3"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            FontWeight="Bold"
-            Text="{x:Bind ship.theVersion.Name}" />
+        <StackPanel Grid.Column="2" Orientation="Horizontal">
+            <TextBlock
+                Margin="3"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                FontWeight="Bold"
+                Text="{x:Bind ship.theVersion.Name}" />
+            <TextBlock Margin="3" VerticalAlignment="Center" Text="{x:Bind ship.Day, Mode=OneWay}"></TextBlock>
+            <TextBlock Margin="3" VerticalAlignment="Center" Text="-"></TextBlock>
+            <TextBlock Margin="3" VerticalAlignment="Center" Text="{x:Bind ship.Year, Mode=OneWay}"></TextBlock>
+        </StackPanel>
         <TextBlock
             Grid.Row="1"
             Grid.Column="0"

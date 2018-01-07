@@ -5,8 +5,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:TravellerTracker.UserControls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    d:DesignHeight="500"
-    d:DesignWidth="620"
+    d:DesignHeight="400"
+    d:DesignWidth="420"
     mc:Ignorable="d">
 
     <UserControl.Resources>
@@ -22,21 +22,13 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100" />
             <ColumnDefinition Width="300" />
-            <ColumnDefinition Width="100" />
-            <ColumnDefinition Width="100" />
-            <ColumnDefinition Width="100" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="50" />
             <RowDefinition Height="50" />
             <RowDefinition Height="25" />
             <RowDefinition Height="50" />
-            <RowDefinition Height="50" />
-            <RowDefinition Height="50" />
-            <RowDefinition Height="50" />
-            <RowDefinition Height="50" />
-            <RowDefinition Height="50" />
-            <RowDefinition />
+            <RowDefinition Height="400" />
         </Grid.RowDefinitions>
         <TextBlock
             Grid.ColumnSpan="2"
@@ -61,41 +53,6 @@
             Grid.Row="3"
             Style="{StaticResource txtBlockRightBold}"
             Text="Actual Value" />
-        <TextBlock
-            Grid.Row="3"
-            Grid.Column="2"
-            Style="{StaticResource txtBlockRightBold}"
-            Text="Jump 1" />
-        <TextBox
-            Grid.Row="3"
-            Grid.Column="3"
-            Style="{StaticResource txtBoxNum}"
-            Text="{x:Bind Version.Cost1Jump}" />
-        <TextBlock
-            Grid.Row="4"
-            Grid.Column="2"
-            Style="{StaticResource txtBlockRightBold}"
-            Text="Jump 2" />
-        <TextBlock
-            Grid.Row="5"
-            Grid.Column="2"
-            Style="{StaticResource txtBlockRightBold}"
-            Text="Jump 3" />
-        <TextBlock
-            Grid.Row="6"
-            Grid.Column="2"
-            Style="{StaticResource txtBlockRightBold}"
-            Text="Jump 4" />
-        <TextBlock
-            Grid.Row="7"
-            Grid.Column="2"
-            Style="{StaticResource txtBlockRightBold}"
-            Text="Jump 5" />
-        <TextBlock
-            Grid.Row="8"
-            Grid.Column="2"
-            Style="{StaticResource txtBlockRightBold}"
-            Text="Jump 6" />
         <Grid
             Grid.Row="2"
             Grid.Column="1"
@@ -119,11 +76,12 @@
         <ListBox
             Name="lstValues"
             Grid.Row="3"
-            Grid.RowSpan="33"
+            Grid.RowSpan="2"
             Grid.Column="1"
             Width="170"
             Margin="3"
-            ItemsSource="{Binding}">
+            ItemsSource="{Binding}"
+            ScrollViewer.VerticalScrollMode="Enabled">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
