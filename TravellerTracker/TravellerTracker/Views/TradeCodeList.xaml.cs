@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Traveller.Models;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -20,7 +21,20 @@ namespace TravellerTracker.Views
         private void btnLoadTrade(object sender, RoutedEventArgs e)
         {
             var btn = sender as Button;
-            Page p = new TradeClassificationEdit((int) btn.Tag);
+            loadEdit((int)btn.Tag);
+        }
+
+        private void btnNew(object sender, RoutedEventArgs e)
+        {
+            TradeClassification code = new TradeClassification() { Classification = "New" };
+            App.DB.Add(code);
+            App.DB.SaveChanges();
+            loadEdit(code.TradeClassificationID);
+        }
+
+        private void loadEdit(int id)
+        {
+            Page p = new TradeClassificationEdit(id);
             App.mainFrame.Content = p;
         }
     }

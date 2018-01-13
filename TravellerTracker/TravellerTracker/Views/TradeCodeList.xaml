@@ -16,7 +16,10 @@
     </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
         <ListView Name="lstTradeCodes">
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -37,5 +40,13 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        <Button
+            Grid.Row="1"
+            Width="Auto"
+            HorizontalAlignment="Left"
+            Click="btnNew"
+            Style="{StaticResource btnMenu}">
+            New Trade CLassification
+        </Button>
     </Grid>
 </Page>

@@ -29,7 +29,7 @@ namespace TravellerTracker.Views
             tc = new TradeClassification();
             tc.Name = "new trade classification";
             App.DB.TradeClassifications.Add(tc);
-            App.DB.SaveChangesAsync();
+            App.DB.SaveChanges();
             TradeClassificationEdit p = new TradeClassificationEdit(tc.TradeClassificationID);
             App.mainFrame.Content = p;
         }
