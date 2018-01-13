@@ -35,7 +35,7 @@ namespace TravellerTracker.Views
             ship = null;
             ship = App.DB.Ships.Where(x => x.ShipId == ID).FirstOrDefault();
             webView.Navigate(ship.theJumpMapURL);
-            loadEra();
+            comboVersions.ItemsSource = App.DB.TravellerVersions.ToList();
             sector = App.DB.Sectors.Where(x => x.SectorID == ship.SectorID).FirstOrDefault();
             loadWorlds();
             jumpWorlds = ship.theWorld.JumpRange(ship.theClass.Jump);
@@ -56,10 +56,10 @@ namespace TravellerTracker.Views
                 ErrorHandling e = new ErrorHandling();
                 e.showError("Ship class does not exist - please add a class");
             }
-            if (App.tmUniverse.Sectors != null)
+            if (App.DB.Sectors != null)
             {
-                comboSectors.ItemsSource = App.tmUniverse.Sectors.OrderBy(x => x.FirstName);
-                comboSectors.SelectedItem = App.tmUniverse.Sectors.Where(x => x.FirstName == sector.Name).First();
+                comboSectors.ItemsSource = App.DB.Sectors.Where(x => x.Milieu == ship.Era).OrderBy(o => o.Name).ToList();
+                comboSectors.SelectedItem = App.DB.Sectors.Where(x => x.Name == sector.Name).First();
             }
             if (App.tmWorlds != null)
             {
@@ -521,7 +521,6 @@ namespace TravellerTracker.Views
             if (era.ToString() != ship.Era)
             {
                 ship.Era = (string)era;
-                loadEra();
             }
         }
 
@@ -534,14 +533,14 @@ namespace TravellerTracker.Views
                 return;
             }
             ComboBox cb = (ComboBox)sender;
-            TravellerMapUniverse.Sector tu = (TravellerMapUniverse.Sector)cb.SelectedItem;
+            Sector tu = (Sector)cb.SelectedItem;
             if (tu != null)
             {
-                sector = App.DB.Sectors.Where(x => x.Name == tu.FirstName && x.Milieu == ship.Era).FirstOrDefault();
+                sector = App.DB.Sectors.Where(x => x.Name == tu.Name && x.Milieu == ship.Era).FirstOrDefault();
                 if (sector == null)
                 {
                     sector = new Sector();
-                    sector.Name = tu.FirstName;
+                    sector.Name = tu.Name;
                     sector.Milieu = ship.Era;
                     sector.Tags = tu.Tags;
                     App.DB.Add(sector);
@@ -558,19 +557,6 @@ namespace TravellerTracker.Views
             World w = (World)cb.SelectedItem;
             if (w != null)
                 ship.WorldID = w.WorldID;
-        }
-
-        private async void loadEra()
-        {
-            if (ship.Era != null)
-            {
-                if (App.tmUniverse is null)
-                {
-                    TravellerMapAPI tu = new TravellerMapAPI();
-                    App.tmUniverse = await tu.loadUniverse(ship.Era);
-                }
-                comboVersions.ItemsSource = App.DB.TravellerVersions.ToList();
-            }
         }
 
         // load the worlds when the sector changes

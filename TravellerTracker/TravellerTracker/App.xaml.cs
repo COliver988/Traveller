@@ -20,7 +20,6 @@ namespace TravellerTracker
         public static Frame mainFrame;
         public static Ship ship;
         public static TravellerContext DB = new TravellerContext();
-        public static TravellerMapUniverse.SectorList tmUniverse = new TravellerMapUniverse.SectorList();
         public static List<World> tmWorlds = new List<World>();
         public static List<TravellerVersion> TravellerVersions = new List<TravellerVersion>();
 

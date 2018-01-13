@@ -30,7 +30,7 @@ namespace TravellerTracker.Views
             Ship ship = new Ship() { Name = "new ship" };
             App.DB.Add(ship);
             App.DB.SaveChanges();
-            Page p = new ShipView(ship.ShipId);
+            Page p = new ShipTracker(ship.ShipId);
             App.mainFrame.Content = p;
         }
     }
