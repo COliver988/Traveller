@@ -37,6 +37,7 @@ namespace TravellerTracker.Views
             webView.Navigate(ship.theJumpMapURL);
             loadEra();
             sector = App.DB.Sectors.Where(x => x.SectorID == ship.SectorID).FirstOrDefault();
+            loadWorlds();
             jumpWorlds = ship.theWorld.JumpRange(ship.theClass.Jump);
             lstJumpList.ItemsSource = jumpWorlds;
             this.DataContext = null;
@@ -563,8 +564,11 @@ namespace TravellerTracker.Views
         {
             if (ship.Era != null)
             {
-                TravellerMapAPI tu = new TravellerMapAPI();
-                App.tmUniverse = await tu.loadUniverse(ship.Era);
+                if (App.tmUniverse is null)
+                {
+                    TravellerMapAPI tu = new TravellerMapAPI();
+                    App.tmUniverse = await tu.loadUniverse(ship.Era);
+                }
                 comboVersions.ItemsSource = App.DB.TravellerVersions.ToList();
             }
         }
