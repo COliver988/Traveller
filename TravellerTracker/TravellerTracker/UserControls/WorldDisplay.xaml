@@ -19,7 +19,7 @@
 
     <Grid
         Name="gridWorld"
-        Background="LightBlue"
+        Background="{StaticResource UserControlBackground}"
         BorderBrush="Black"
         BorderThickness="2">
         <Grid.ColumnDefinitions>

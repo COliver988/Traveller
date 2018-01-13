@@ -386,11 +386,24 @@
                                     Grid.Column="0"
                                     Margin="3"
                                     Click="btnJump">
-                                    Jump
+                                    <Button.Content>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock
+                                                Margin="3"
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                Text="Jump " />
+                                            <TextBlock
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                Text="{Binding JumpDistance}" />
+                                        </StackPanel>
+                                    </Button.Content>
                                 </Button>
                                 <TextBlock
                                     Grid.Column="1"
                                     Margin="3"
+                                    VerticalAlignment="Center"
                                     PointerPressed="ptrShowWorldList"
                                     Text="{Binding Description}" />
                             </Grid>

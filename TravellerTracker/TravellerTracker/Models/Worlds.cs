@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
-using System.Reflection;
 using Traveller.Support;
 
 namespace Traveller.Models
 {
-    public class World
+    public partial class World
     {
         public World() { }
 
@@ -80,6 +77,9 @@ namespace Traveller.Models
         [NotMapped]
         public int Tech { get { return Utilities.HexToInt(UWP[8]); } }
 
+        [NotMapped]
+        public int JumpDistance { get; set; }
+
         public List<World> JumpRange(int jump)
         {
             Utilities util = new Utilities();
@@ -87,10 +87,15 @@ namespace Traveller.Models
             foreach (World world in TravellerTracker.App.DB.Worlds.Where(x => x.SectorID == this.SectorID))
             {
                 if (this.Hex != world.Hex)
-                    if (util.calcDistance(this.Hex, world.Hex) <= jump)
+                {
+                    int distance = util.calcDistance(this.Hex, world.Hex);
+                    if (distance <= jump)
+                    {
+                        world.JumpDistance = distance;
                         results.Add(world);
+                    }
+                }
             }
-
             return results;
         }
     }

@@ -36,22 +36,19 @@ namespace Traveller.Support
         {
             // if we've already got this sector we should have loaded the worlds as well
             Sector DBsector;
-            using (var db = new TravellerContext())
+            DBsector = App.DB.Sectors.Where(x => x.Name == sector && x.Milieu == milieu).First();
+            if (DBsector != null)
             {
-                DBsector = db.Sectors.Where(x => x.Name == sector && x.Milieu == milieu).First();
-                if (DBsector != null)
-                {
-                    List<World> worlds = db.Worlds.Where(x => x.SectorID == DBsector.SectorID).ToList();
-                    if (worlds.Count > 0)
-                        return worlds;
-                }
-                else
-                {
-                    DBsector = new Sector();
-                    DBsector.Name = sector;
-                    DBsector.Milieu = milieu;
-                    await db.SaveChangesAsync();
-                }
+                List<World> worlds = App.DB.Worlds.Where(x => x.SectorID == DBsector.SectorID).ToList();
+                if (worlds.Count > 0)
+                    return worlds;
+            }
+            else
+            {
+                DBsector = new Sector();
+                DBsector.Name = sector;
+                DBsector.Milieu = milieu;
+                await App.DB.SaveChangesAsync();
             }
 
 
