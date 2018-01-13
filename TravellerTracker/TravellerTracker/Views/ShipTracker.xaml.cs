@@ -18,6 +18,9 @@ namespace TravellerTracker.Views
         List<World> jumpWorlds;
         public List<CargoAvailable> pax { get; set; }
         Utilities util = new Utilities();
+        public ImperialDates date;
+        public Sector sector { get; set; }
+        public List<ShipClass> classes;
         int ID;
 
         public ShipTracker(int shipID)
@@ -32,12 +35,40 @@ namespace TravellerTracker.Views
             ship = null;
             ship = App.DB.Ships.Where(x => x.ShipId == ID).FirstOrDefault();
             webView.Navigate(ship.theJumpMapURL);
+            loadEra();
+            sector = App.DB.Sectors.Where(x => x.SectorID == ship.SectorID).FirstOrDefault();
             jumpWorlds = ship.theWorld.JumpRange(ship.theClass.Jump);
             lstJumpList.ItemsSource = jumpWorlds;
             this.DataContext = null;
             this.DataContext = this;
             lstLog.ItemsSource = ship.theLog;
             lstCargoCarried.ItemsSource = ship.theCargo;
+            date = new ImperialDates(ship.Day, ship.Year);
+            try
+            {
+                classes = App.DB.ShipClasses.ToList();
+                cbClasses.ItemsSource = classes;
+                cbClasses.SelectedItem = classes.Where(x => x.ShipClassID == ship.ShipClassID).FirstOrDefault();
+            }
+            catch (System.Exception)
+            {
+                ErrorHandling e = new ErrorHandling();
+                e.showError("Ship class does not exist - please add a class");
+            }
+            if (App.tmUniverse.Sectors != null)
+            {
+                comboSectors.ItemsSource = App.tmUniverse.Sectors.OrderBy(x => x.FirstName);
+                comboSectors.SelectedItem = App.tmUniverse.Sectors.Where(x => x.FirstName == sector.Name).First();
+            }
+            if (App.tmWorlds != null)
+            {
+                comboWorlds.ItemsSource = App.tmWorlds.OrderBy(x => x.Name);
+                comboWorlds.SelectedItem = App.tmWorlds.Where(x => x.WorldID == ship.WorldID).First();
+            }
+            if (ship.theVersion != null)
+            {
+                comboVersions.SelectedItem = ship.theVersion;
+            }
         }
 
         private void btnLoadCargo(object sender, Windows.UI.Xaml.RoutedEventArgs e)
@@ -54,6 +85,7 @@ namespace TravellerTracker.Views
             foreach (World dest in jumpWorlds)
                 pax.Add(new CargoAvailable(ship, dest));
             lstPax.DataContext = pax;
+            refresh();
         }
 
         private void btnPrice(object sender, Windows.UI.Xaml.RoutedEventArgs e)
@@ -381,5 +413,173 @@ namespace TravellerTracker.Views
             AddLog al = new AddLog();
             al.addLog(ship, sc, false);
         }
+
+        private void comboVersions_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox cb = (ComboBox)sender;
+            TravellerVersion tv = (TravellerVersion)cb.SelectedItem;
+            if (tv != null)
+            {
+                ship.TravellerVersionID = tv.TravellerVersionId;
+                App.DB.SaveChangesAsync();
+            }
+        }
+
+        private void btnClearCargo(object sender, RoutedEventArgs e)
+        {
+            ship.DeleteCargos();
+        }
+
+        private void btnClearLogs(object sender, RoutedEventArgs e)
+        {
+            ship.DeleteLogs();
+        }
+
+        private void btnDelete(object sender, RoutedEventArgs e)
+        {
+            ship.DeleteCargos();
+            ship.DeleteLogs();
+            App.DB.Ships.Remove(ship);
+            App.DB.SaveChangesAsync();
+            App.mainFrame.Content = new ShipList();
+        }
+
+        private void btnSave(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            if (ship.SectorID == 0 || ship.WorldID == 0 || ship.Era is null)
+            {
+                ErrorHandling err = new ErrorHandling();
+                err.showError("Please enter a valid milieu, sector and planet");
+                return;
+            }
+            App.DB.SaveChangesAsync();
+            refresh();
+        }
+
+        private void cbClasses_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ShipClass c = cbClasses.SelectedItem as ShipClass;
+            if (c != null)
+                ship.ShipClassID = c.ShipClassID;
+        }
+
+        private void btn_AddDay(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            date.addDays(1);
+            ship.Day = date.Day;
+            ship.Year = date.Year;
+            App.DB.SaveChangesAsync();
+        }
+
+        private void btn_AddWeek(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            date.addDays(7);
+            ship.Day = date.Day;
+            ship.Year = date.Year;
+            App.DB.SaveChangesAsync();
+        }
+
+        private async void btnNewLog(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            TextBox txt = new TextBox { Width = 400, Height = 200 };
+            txt.TextWrapping = TextWrapping.Wrap;
+            txt.AcceptsReturn = true;
+            var conDlg = new Windows.UI.Xaml.Controls.ContentDialog
+            {
+                Title = string.Format("Enter new log for {0}-{1}", ship.Day, ship.Year),
+                PrimaryButtonText = "Add Log",
+                SecondaryButtonText = "Cancel",
+                Content = txt
+            };
+            var content = await conDlg.ShowAsync();
+            switch (content)
+            {
+                case ContentDialogResult.None:
+                    break;
+                case ContentDialogResult.Primary:
+                    using (TravellerContext db = new TravellerContext())
+                    {
+                        ShipLog log = new ShipLog(ship);
+                        log.Log = txt.Text;
+                        db.Add(log);
+                        await db.SaveChangesAsync();
+                        refresh();
+                    }
+                    break;
+                case ContentDialogResult.Secondary:
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void cbSetMilieu(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox cb = (ComboBox)sender;
+            var era = (cb.SelectedItem as ComboBoxItem).Content;
+            if (era.ToString() != ship.Era)
+            {
+                ship.Era = (string)era;
+                loadEra();
+            }
+        }
+
+        private void cbSetSector(object sender, SelectionChangedEventArgs e)
+        {
+            if (ship.Era == null)
+            {
+                ErrorHandling err = new ErrorHandling();
+                err.showError("You must enter an era before selecting a sector");
+                return;
+            }
+            ComboBox cb = (ComboBox)sender;
+            TravellerMapUniverse.Sector tu = (TravellerMapUniverse.Sector)cb.SelectedItem;
+            if (tu != null)
+            {
+                sector = App.DB.Sectors.Where(x => x.Name == tu.FirstName && x.Milieu == ship.Era).FirstOrDefault();
+                if (sector == null)
+                {
+                    sector = new Sector();
+                    sector.Name = tu.FirstName;
+                    sector.Milieu = ship.Era;
+                    sector.Tags = tu.Tags;
+                    App.DB.Add(sector);
+                    App.DB.SaveChangesAsync();
+                }
+                ship.SectorID = sector.SectorID;
+                loadWorlds();
+            }
+        }
+
+        private void cbSetWorld(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox cb = (ComboBox)sender;
+            World w = (World)cb.SelectedItem;
+            if (w != null)
+                ship.WorldID = w.WorldID;
+        }
+
+        private async void loadEra()
+        {
+            if (ship.Era != null)
+            {
+                TravellerMapAPI tu = new TravellerMapAPI();
+                App.tmUniverse = await tu.loadUniverse(ship.Era);
+                comboVersions.ItemsSource = App.DB.TravellerVersions.ToList();
+            }
+        }
+
+        // load the worlds when the sector changes
+        private async void loadWorlds()
+        {
+            if (ship.SectorID > 0)
+            {
+                TravellerMapAPI tu = new TravellerMapAPI();
+                App.tmWorlds = await tu.loadWorlds(sector.Milieu, sector.Name);
+                comboWorlds.ItemsSource = App.tmWorlds.OrderBy(x => x.Name);
+            }
+        }
+
+
     }
 }

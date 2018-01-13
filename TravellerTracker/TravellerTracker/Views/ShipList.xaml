@@ -42,13 +42,6 @@
                                 Tag="{Binding ShipId}">
                                 Tracking
                             </Button>
-                            <Button
-                                Grid.Column="1"
-                                Margin="3"
-                                Click="btnLoadShip"
-                                Tag="{Binding ShipId}">
-                                Edit
-                            </Button>
                             <TextBlock
                                 Grid.Column="2"
                                 VerticalAlignment="Center"

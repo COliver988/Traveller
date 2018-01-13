@@ -25,6 +25,7 @@
         <Setter Property="Width" Value="90" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="PlaceholderText" Value="Credits" />
     </Style>
 
     <Style

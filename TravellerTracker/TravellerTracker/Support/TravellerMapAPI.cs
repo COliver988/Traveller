@@ -12,7 +12,6 @@ namespace Traveller.Support
 {
     public class TravellerMapAPI
     {
-
         public async Task<TravellerMapUniverse.SectorList> loadUniverse(string milieu)
         {
             Uri uriUniverse = new Uri(string.Format("https://travellermap.com/data?era={0}&requireData=1", milieu));
@@ -95,7 +94,7 @@ namespace Traveller.Support
         public Uri JumpMapURL(World w, int jump)
         {
             string sector = App.DB.Sectors.Where(x => x.SectorID == w.SectorID).FirstOrDefault().Name.Replace(" ", "%20");
-            return new Uri( string.Format("Https://travellermap.com/api/jumpmap?sector={0}&hex={1}&jump={2}", sector, w.Hex, jump));
+            return new Uri(string.Format("Https://travellermap.com/api/jumpmap?sector={0}&hex={1}&jump={2}", sector, w.Hex, jump));
         }
     }
 }
