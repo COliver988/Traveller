@@ -365,51 +365,50 @@
                     </ListBox>
                 </Grid>
             </PivotItem>
-            <PivotItem Header="Jump Map">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition />
-                    </Grid.RowDefinitions>
-                    <WebView x:Name="webView" />
-                </Grid>
-            </PivotItem>
             <PivotItem Header="Jump List">
-                <ListBox Name="lstJumpList" ItemsSource="{Binding}">
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="80" />
-                                    <ColumnDefinition Width="Auto" />
-                                </Grid.ColumnDefinitions>
-                                <Button
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <ListBox Name="lstJumpList" ItemsSource="{Binding}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="80" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Button
                                     Grid.Column="0"
                                     Margin="3"
                                     Click="btnJump">
-                                    <Button.Content>
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock
+                                        <Button.Content>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock
                                                 Margin="3"
                                                 HorizontalAlignment="Center"
                                                 VerticalAlignment="Center"
                                                 Text="Jump " />
-                                            <TextBlock
+                                                <TextBlock
                                                 HorizontalAlignment="Center"
                                                 VerticalAlignment="Center"
                                                 Text="{Binding JumpDistance}" />
-                                        </StackPanel>
-                                    </Button.Content>
-                                </Button>
-                                <TextBlock
+                                            </StackPanel>
+                                        </Button.Content>
+                                    </Button>
+                                    <TextBlock
                                     Grid.Column="1"
                                     Margin="3"
                                     VerticalAlignment="Center"
                                     PointerPressed="ptrShowWorldList"
                                     Text="{Binding Description}" />
-                            </Grid>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <WebView x:Name="webView" Grid.Column="1" />
+                </Grid>
             </PivotItem>
             <PivotItem Header="Ship Details">
                 <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
