@@ -109,4 +109,8 @@
 
     <SolidColorBrush x:Key="UserControlBackground" Color="LightSlateGray" />
 
+    <Style TargetType="ListBox">
+        <Setter Property="Background" Value="White" />
+    </Style>
+
 </ResourceDictionary>
