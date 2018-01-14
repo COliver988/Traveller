@@ -17,6 +17,7 @@ namespace TravellerTracker.Models
         public DbSet<CargoType> CargoTypes { get; set; }
         public DbSet<Starport> Starports { get; set; }
         public DbSet<ActualValue> ActualValues { get; set; }
+        public DbSet<ImageList> ImageLists { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

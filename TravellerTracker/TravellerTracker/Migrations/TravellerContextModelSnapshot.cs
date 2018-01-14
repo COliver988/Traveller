@@ -393,6 +393,22 @@ namespace TravellerTracker.Migrations
 
                     b.ToTable("Worlds");
                 });
+
+            modelBuilder.Entity("TravellerTracker.Models.ImageList", b =>
+                {
+                    b.Property<int>("ImageListID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("ShipID");
+
+                    b.Property<int>("WorldID");
+
+                    b.Property<byte[]>("theImage");
+
+                    b.HasKey("ImageListID");
+
+                    b.ToTable("ImageLists");
+                });
         }
     }
 }

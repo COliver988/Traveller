@@ -107,9 +107,9 @@
     <Compile Include="Migrations\20180106224651_initialize.designer.cs">
       <DependentUpon>20180106224651_initialize.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20180114150521_imageList.cs" />
-    <Compile Include="Migrations\20180114150521_imageList.designer.cs">
-      <DependentUpon>20180114150521_imageList.cs</DependentUpon>
+    <Compile Include="Migrations\20180114153101_imageList.cs" />
+    <Compile Include="Migrations\20180114153101_imageList.designer.cs">
+      <DependentUpon>20180114153101_imageList.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\TravellerContextModelSnapshot.cs" />
     <Compile Include="Models\ActualValue.cs" />

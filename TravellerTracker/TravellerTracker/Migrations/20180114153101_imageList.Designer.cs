@@ -9,7 +9,7 @@ using Traveller.Models;
 namespace TravellerTracker.Migrations
 {
     [DbContext(typeof(TravellerContext))]
-    [Migration("20180114150521_imageList")]
+    [Migration("20180114153101_imageList")]
     partial class imageList
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -393,6 +393,22 @@ namespace TravellerTracker.Migrations
                     b.HasKey("WorldID");
 
                     b.ToTable("Worlds");
+                });
+
+            modelBuilder.Entity("TravellerTracker.Models.ImageList", b =>
+                {
+                    b.Property<int>("ImageListID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("ShipID");
+
+                    b.Property<int>("WorldID");
+
+                    b.Property<byte[]>("theImage");
+
+                    b.HasKey("ImageListID");
+
+                    b.ToTable("ImageLists");
                 });
         }
     }
