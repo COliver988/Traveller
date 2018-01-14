@@ -22,6 +22,7 @@ namespace TravellerTracker
         public static TravellerContext DB = new TravellerContext();
         public static List<World> tmWorlds = new List<World>();
         public static List<TravellerVersion> TravellerVersions = new List<TravellerVersion>();
+        public static List<string> Eras = new List<string>() { "M0", "M1105", "M1248", "M1900" };
 
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code

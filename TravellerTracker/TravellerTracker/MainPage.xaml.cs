@@ -53,5 +53,10 @@ namespace TravellerTracker
         {
             mainFrame.Content = new Versions();
         }
+
+        private void btbOptions(object sender, RoutedEventArgs e)
+        {
+            mainFrame.Content = new Options();
+        }
     }
 }

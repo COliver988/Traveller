@@ -34,13 +34,16 @@ namespace TravellerTracker.Views
         {
             ship = null;
             ship = App.DB.Ships.Where(x => x.ShipId == ID).FirstOrDefault();
-            webView.Navigate(ship.theJumpMapURL);
+            if (ship.theJumpMapURL != null)
+                webView.Navigate(ship.theJumpMapURL);
             comboVersions.ItemsSource = App.DB.TravellerVersions.ToList();
-            sector = App.DB.Sectors.Where(x => x.SectorID == ship.SectorID).FirstOrDefault();
-            loadWorlds();
-            jumpWorlds = ship.theWorld.JumpRange(ship.theClass.Jump);
-            lstJumpList.ItemsSource = jumpWorlds;
-            this.DataContext = null;
+            if (ship.SectorID > 0)
+            {
+                sector = App.DB.Sectors.Where(x => x.SectorID == ship.SectorID).FirstOrDefault();
+                loadWorlds();
+                jumpWorlds = ship.theWorld.JumpRange(ship.theClass.Jump);
+                lstJumpList.ItemsSource = jumpWorlds;
+            }
             this.DataContext = this;
             lstLog.ItemsSource = ship.theLog;
             lstCargoCarried.ItemsSource = ship.theCargo;
@@ -59,17 +62,19 @@ namespace TravellerTracker.Views
             if (App.DB.Sectors != null)
             {
                 comboSectors.ItemsSource = App.DB.Sectors.Where(x => x.Milieu == ship.Era).OrderBy(o => o.Name).ToList();
-                comboSectors.SelectedItem = App.DB.Sectors.Where(x => x.Name == sector.Name).First();
+                if (sector != null)
+                    comboSectors.SelectedItem = App.DB.Sectors.Where(x => x.Name == sector.Name).First();
             }
             if (App.tmWorlds != null)
             {
                 comboWorlds.ItemsSource = App.tmWorlds.OrderBy(x => x.Name);
-                comboWorlds.SelectedItem = App.tmWorlds.Where(x => x.WorldID == ship.WorldID).First();
+                if (ship.WorldID > 0)
+                    comboWorlds.SelectedItem = App.tmWorlds.Where(x => x.WorldID == ship.WorldID).First();
             }
             if (ship.theVersion != null)
-            {
                 comboVersions.SelectedItem = ship.theVersion;
-            }
+            comboEra.ItemsSource = App.Eras;
+            comboEra.SelectedValue = ship.Era;
         }
 
         private void btnLoadCargo(object sender, Windows.UI.Xaml.RoutedEventArgs e)
@@ -517,11 +522,9 @@ namespace TravellerTracker.Views
         private void cbSetMilieu(object sender, SelectionChangedEventArgs e)
         {
             ComboBox cb = (ComboBox)sender;
-            var era = (cb.SelectedItem as ComboBoxItem).Content;
-            if (era.ToString() != ship.Era)
-            {
-                ship.Era = (string)era;
-            }
+            string era = cb.SelectedItem.ToString();
+            if (era != ship.Era)
+                ship.Era = era;
         }
 
         private void cbSetSector(object sender, SelectionChangedEventArgs e)

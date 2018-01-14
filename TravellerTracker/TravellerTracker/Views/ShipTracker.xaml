@@ -368,8 +368,8 @@
             <PivotItem Header="Jump List">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <ListBox Name="lstJumpList" ItemsSource="{Binding}">
                         <ListBox.ItemTemplate>
@@ -380,29 +380,29 @@
                                         <ColumnDefinition Width="Auto" />
                                     </Grid.ColumnDefinitions>
                                     <Button
-                                    Grid.Column="0"
-                                    Margin="3"
-                                    Click="btnJump">
+                                        Grid.Column="0"
+                                        Margin="3"
+                                        Click="btnJump">
                                         <Button.Content>
                                             <StackPanel Orientation="Horizontal">
                                                 <TextBlock
-                                                Margin="3"
-                                                HorizontalAlignment="Center"
-                                                VerticalAlignment="Center"
-                                                Text="Jump " />
+                                                    Margin="3"
+                                                    HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
+                                                    Text="Jump " />
                                                 <TextBlock
-                                                HorizontalAlignment="Center"
-                                                VerticalAlignment="Center"
-                                                Text="{Binding JumpDistance}" />
+                                                    HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
+                                                    Text="{Binding JumpDistance}" />
                                             </StackPanel>
                                         </Button.Content>
                                     </Button>
                                     <TextBlock
-                                    Grid.Column="1"
-                                    Margin="3"
-                                    VerticalAlignment="Center"
-                                    PointerPressed="ptrShowWorldList"
-                                    Text="{Binding Description}" />
+                                        Grid.Column="1"
+                                        Margin="3"
+                                        VerticalAlignment="Center"
+                                        PointerPressed="ptrShowWorldList"
+                                        Text="{Binding Description}" />
                                 </Grid>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
@@ -531,16 +531,13 @@
                         <ComboBox
                             Name="comboEra"
                             Margin="3"
-                            SelectionChanged="cbSetMilieu">
-                            <ComboBoxItem Content="M0" />
-                            <ComboBoxItem Content="M1105" />
-                            <ComboBoxItem Content="M1248" />
-                            <ComboBoxItem Content="M1900" />
-                        </ComboBox>
+                            ItemsSource="{Binding}"
+                            SelectionChanged="cbSetMilieu" />
                         <TextBlock Style="{StaticResource txtBlock}">Sector</TextBlock>
                         <ComboBox
                             Name="comboSectors"
                             Margin="0,2,0,0"
+                            SelectedItem="{x:Bind ship.theWorld.theSector}"
                             SelectionChanged="cbSetSector">
                             <ComboBox.ItemTemplate>
                                 <DataTemplate>
@@ -555,6 +552,7 @@
                             Name="comboWorlds"
                             Width="Auto"
                             Margin="0,2,0,0"
+                            SelectedItem="{x:Bind ship.theWorld}"
                             SelectionChanged="cbSetWorld">
                             <ComboBox.ItemTemplate>
                                 <DataTemplate>

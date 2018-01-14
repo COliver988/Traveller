@@ -90,8 +90,13 @@ namespace Traveller.Support
 
         public Uri JumpMapURL(World w, int jump)
         {
-            string sector = App.DB.Sectors.Where(x => x.SectorID == w.SectorID).FirstOrDefault().Name.Replace(" ", "%20");
-            return new Uri(string.Format("Https://travellermap.com/api/jumpmap?sector={0}&hex={1}&jump={2}", sector, w.Hex, jump));
+            if (w != null)
+            {
+                string sector = App.DB.Sectors.Where(x => x.SectorID == w.SectorID).FirstOrDefault().Name.Replace(" ", "%20");
+                if (sector != null)
+                    return new Uri(string.Format("Https://travellermap.com/api/jumpmap?sector={0}&hex={1}&jump={2}", sector, w.Hex, jump));
+            }
+            return null;
         }
     }
 }
