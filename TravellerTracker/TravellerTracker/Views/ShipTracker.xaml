@@ -646,6 +646,17 @@
                     </StackPanel>
                 </Grid>
             </PivotItem>
+            <PivotItem Header="Images">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Click="btnAdd" Style="{StaticResource btnMenu}">Add Image</Button>
+                    </StackPanel>
+                </Grid>
+            </PivotItem>
         </Pivot>
     </Grid>
 </Page>

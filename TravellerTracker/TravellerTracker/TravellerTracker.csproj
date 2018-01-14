@@ -145,6 +145,7 @@
     <Compile Include="Support\LoadCargo.cs" />
     <Compile Include="Support\Seed.cs" />
     <Compile Include="Support\SelectBulkCargo.cs" />
+    <Compile Include="Support\ShowDialog.cs" />
     <Compile Include="Support\TravellerMapAPI.cs" />
     <Compile Include="Support\Utilities.cs" />
     <Compile Include="UserControls\BulkCargoSelector.xaml.cs">

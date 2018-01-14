@@ -573,6 +573,20 @@ namespace TravellerTracker.Views
             }
         }
 
-
+        private async void btnAdd(object sender, RoutedEventArgs e)
+        {
+            ImageHandler ih = new ImageHandler();
+            byte[] newImage = await ih.openImage();
+            if (newImage.Length > 0)
+            {
+                ShowDialog sd = new ShowDialog();
+                string desc = await sd.GetResponse("Image Description", "OK", "Cancel");
+                if (desc != "Cancel")
+                {
+                    App.DB.Add(new ImageList()  { theImage = newImage, Description = desc, ShipID = ship.ShipId } );
+                    App.DB.SaveChangesAsync();
+                }
+            }
+        }
     }
 }
