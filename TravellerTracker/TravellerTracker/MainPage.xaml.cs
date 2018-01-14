@@ -18,7 +18,7 @@ namespace TravellerTracker
             this.DataContext = App.ship;
         }
 
-        private async void Page_Loaded(object sender, RoutedEventArgs e)
+        private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             mainFrame.Content = new ShipList();
         }

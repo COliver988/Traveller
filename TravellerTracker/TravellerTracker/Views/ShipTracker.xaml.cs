@@ -358,12 +358,11 @@ namespace TravellerTracker.Views
             App.DB.SaveChangesAsync();
         }
 
-        private async void AddToShipLog(ShipCargo shipCargo)
+        private void AddToShipLog(ShipCargo shipCargo)
         {
             AddLog al = new AddLog();
             shipCargo.isActive = 1;
             al.addLog(ship, shipCargo, true);
-            refresh();
         }
 
         private async void btnRemoveCargo(object sender, RoutedEventArgs e)
@@ -387,7 +386,7 @@ namespace TravellerTracker.Views
             showPopup();
         }
 
-        private async void unloadCargo(ShipCargo sc)
+        private void unloadCargo(ShipCargo sc)
         {
             sc.isActive = 0;
             sc.DayUnloaded = ship.Day;

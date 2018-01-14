@@ -23,10 +23,8 @@ namespace TravellerTracker.Support
                     break;
                 case ContentDialogResult.Primary:
                     return tb.Text;
-                    break;
                 case ContentDialogResult.Secondary:
                     return secondary;
-                    break;
                 default:
                     break;
             }
