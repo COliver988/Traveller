@@ -133,7 +133,7 @@
         </StackPanel>
         <Popup
             Name="popCargo"
-            Grid.Row="5"
+            Grid.Row="1"
             Grid.Column="0"
             Grid.ColumnSpan="3"
             IsOpen="False" />
@@ -279,14 +279,16 @@
                     </StackPanel>
                     <TextBlock
                         Grid.Row="1"
-                        Grid.Column="1"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
                         Style="{StaticResource txtBlockTitleCenter}"
                         Text="Cargo and Passengers By Destination" />
                     <TextBlock
                         Grid.Row="2"
                         Grid.Column="0"
-                        Style="{StaticResource txtBlockTitleCenter}"
-                        Text="Destination" />
+                        HorizontalAlignment="Left"
+                        Style="{StaticResource txtBlock}"
+                        Text="Destination  [Jump]" />
                     <Grid Grid.Row="2" Grid.Column="1">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="120" />
@@ -296,19 +298,22 @@
                         </Grid.ColumnDefinitions>
                         <TextBlock
                             Grid.Column="0"
+                            HorizontalAlignment="Left"
                             Style="{StaticResource txtBlock}"
                             Text="High Passage" />
                         <TextBlock
                             Grid.Column="1"
+                            HorizontalAlignment="Left"
                             Style="{StaticResource txtBlock}"
                             Text="Mid Passage" />
                         <TextBlock
                             Grid.Column="2"
+                            HorizontalAlignment="Left"
                             Style="{StaticResource txtBlock}"
                             Text="Low Passage" />
                         <TextBlock
                             Grid.Column="3"
-                            HorizontalAlignment="Center"
+                            HorizontalAlignment="Left"
                             Style="{StaticResource txtBlock}"
                             Text="Bulk Cargo" />
                     </Grid>
@@ -325,7 +330,16 @@
                                         <ColumnDefinition Width="200" />
                                         <ColumnDefinition />
                                     </Grid.ColumnDefinitions>
-                                    <TextBlock Text="{Binding world.Name}" />
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock
+                                            Width="150"
+                                            HorizontalAlignment="Left"
+                                            PointerPressed="ptrShowWorldList"
+                                            Text="{Binding world.Name}" />
+                                        <TextBlock Text="[" />
+                                        <TextBlock Text="{Binding world.JumpDistance}" />
+                                        <TextBlock Text="]" />
+                                    </StackPanel>
                                     <Grid Grid.Column="1">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="120" />
@@ -333,30 +347,54 @@
                                             <ColumnDefinition Width="120" />
                                             <ColumnDefinition />
                                         </Grid.ColumnDefinitions>
-                                        <StackPanel Grid.Column="0" Orientation="Horizontal">
-                                            <TextBlock
-                                                Width="40"
-                                                Style="{StaticResource txtBlockNormal}"
-                                                Text="{Binding HighPassage}" />
-                                            <Button Margin="3" Click="btnHighPax">OK</Button>
-                                        </StackPanel>
-                                        <StackPanel Grid.Column="1" Orientation="Horizontal">
-                                            <TextBlock
-                                                Width="40"
-                                                Style="{StaticResource txtBlockNormal}"
-                                                Text="{Binding MidPassage}" />
-                                            <Button Margin="3" Click="btnMidPax">OK</Button>
-                                        </StackPanel>
-                                        <StackPanel Grid.Column="2" Orientation="Horizontal">
-                                            <TextBlock
-                                                Width="40"
-                                                Style="{StaticResource txtBlockNormal}"
-                                                Text="{Binding LowPassage}" />
-                                            <Button Margin="3" Click="btnLowPax">OK</Button>
-                                        </StackPanel>
+                                        <Button
+                                            Grid.Column="0"
+                                            Margin="3"
+                                            HorizontalAlignment="Center"
+                                            Click="btnHighPax">
+                                            <Button.Content>
+                                                <TextBlock
+                                                    Width="40"
+                                                    HorizontalAlignment="Center"
+                                                    Text="{Binding HighPassage}" />
+                                            </Button.Content>
+                                        </Button>
+                                        <Button
+                                            Grid.Column="1"
+                                            Margin="3"
+                                            HorizontalAlignment="Center"
+                                            Click="btnMidPax">
+                                            <Button.Content>
+                                                <TextBlock
+                                                    Width="40"
+                                                    HorizontalAlignment="Center"
+                                                    Text="{Binding MidPassage}" />
+                                            </Button.Content>
+                                        </Button>
+                                        <Button
+                                            Grid.Column="2"
+                                            Margin="3"
+                                            HorizontalAlignment="Center"
+                                            Click="btnLowPax">
+                                            <Button.Content>
+                                                <TextBlock
+                                                    Width="40"
+                                                    HorizontalAlignment="Center"
+                                                    Text="{Binding LowPassage}" />
+                                            </Button.Content>
+                                        </Button>
                                         <StackPanel Grid.Column="3" Orientation="Horizontal">
-                                            <TextBlock Style="{StaticResource txtBlockNormal}" Text="{Binding CargoListing}" />
-                                            <Button Margin="3" Click="btnBulkCargo">Inspect</Button>
+                                            <Button
+                                                Width="Auto"
+                                                Margin="3"
+                                                Click="btnBulkCargo">
+                                                <Button.Content>
+                                                    <TextBlock
+                                                        Width="240"
+                                                        VerticalAlignment="Center"
+                                                        Text="{Binding CargoListing}" />
+                                                </Button.Content>
+                                            </Button>
                                         </StackPanel>
                                     </Grid>
                                 </Grid>
@@ -649,8 +687,8 @@
             <PivotItem Header="Images">
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="50"></RowDefinition>
-                        <RowDefinition></RowDefinition>
+                        <RowDefinition Height="50" />
+                        <RowDefinition />
                     </Grid.RowDefinitions>
                     <StackPanel Orientation="Horizontal">
                         <Button Click="btnAdd" Style="{StaticResource btnMenu}">Add Image</Button>

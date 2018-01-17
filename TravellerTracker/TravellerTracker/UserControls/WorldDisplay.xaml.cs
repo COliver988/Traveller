@@ -49,11 +49,14 @@ namespace TravellerTracker.UserControls
         private async void WorldDisplay_Loaded(object sender, RoutedEventArgs e)
         {
             this.DataContext = WorldItem;
-            lstWorldLog.ItemsSource = WorldItem.theLog;
-            if (WorldItem.WorldImage != null)
+            if (WorldItem != null)
             {
-                ImageHandler ih = new ImageHandler();
-                imageWorld.Source = await ih.bytesToImage(WorldItem.WorldImage);
+                lstWorldLog.ItemsSource = WorldItem.theLog;
+                if (WorldItem.WorldImage != null)
+                {
+                    ImageHandler ih = new ImageHandler();
+                    imageWorld.Source = await ih.bytesToImage(WorldItem.WorldImage);
+                }
             }
         }
 
@@ -70,10 +73,13 @@ namespace TravellerTracker.UserControls
         {
             ImageHandler ih = new ImageHandler();
             byte[] image = await ih.openImage();
-            WorldItem.WorldImage = image;
-            App.DB.SaveChangesAsync();
-            BitmapImage img = await ih.bytesToImage(image);
-            imageWorld.Source = img;
+            if (image.Length > 0)
+            {
+                WorldItem.WorldImage = image;
+                App.DB.SaveChangesAsync();
+                BitmapImage img = await ih.bytesToImage(image);
+                imageWorld.Source = img;
+            }
         }
     }
 }

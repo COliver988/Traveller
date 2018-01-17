@@ -13,7 +13,7 @@ namespace Traveller.Models
         public List<int> CargoMinor { get; set; }
         public List<int> CargoIncidental { get; set; }
 
-        public string CargoListing {  get { return string.Format("{0} major lots; {1} minor lots; {2} incidental lots", CargoMajor.Count, CargoMinor.Count, CargoIncidental.Count); } }
+        public string CargoListing { get { return $"Major: {CargoMajor.Count} Minor: {CargoMinor.Count} Incidental: {CargoIncidental.Count}"; } }
 
 
         public CargoAvailable(Ship ship, World destination)

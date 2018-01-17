@@ -227,6 +227,11 @@ namespace TravellerTracker.Views
         {
             TextBlock lbi = sender as TextBlock;
             World w = lbi.DataContext as World;
+            if (w == null)
+            {
+                CargoAvailable ca = lbi.DataContext as CargoAvailable;
+                w = ca.world;
+            }
             showWorldPopup(w);
         }
 

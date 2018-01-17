@@ -18,7 +18,8 @@
     </UserControl.Resources>
 
     <Grid
-        Background="BlanchedAlmond"
+        MinWidth="300"
+        Background="{StaticResource UserControlBackground}"
         BorderBrush="Black"
         BorderThickness="2">
         <Grid.RowDefinitions>
@@ -81,6 +82,12 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-
+        <TextBlock
+            Name="txtNoCargo"
+            Grid.Row="1"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Text="No bulk cargo available"
+            Visibility="Collapsed" />
     </Grid>
 </UserControl>

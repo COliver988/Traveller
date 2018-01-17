@@ -23,12 +23,15 @@
 
         <Popup Name="popup" IsLightDismissEnabled="True" />
         <StackPanel Orientation="Vertical">
-            <ListView Name="lvShips" Margin="3" SelectionChanged="lvShips_SelectionChanged">
+            <ListView
+                Name="lvShips"
+                Margin="3"
+                SelectionChanged="lvShips_SelectionChanged">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto" />
                                 <ColumnDefinition Width="100" />
                                 <ColumnDefinition Width="100" />
                                 <ColumnDefinition Width="150" />

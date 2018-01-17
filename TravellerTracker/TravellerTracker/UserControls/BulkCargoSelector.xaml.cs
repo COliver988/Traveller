@@ -22,6 +22,11 @@ namespace TravellerTracker.UserControls
         public BulkCargoSelector()
         {
             this.InitializeComponent();
+            if (CargoList == null)
+            {
+                lstCargo.Visibility = Visibility.Collapsed;
+                txtNoCargo.Visibility = Visibility.Visible;
+            }
         }
 
         private void btnLoad(object sender, RoutedEventArgs e)

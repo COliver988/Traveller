@@ -272,6 +272,12 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Button Grid.Row="2" Style="{StaticResource btnMenu}" HorizontalAlignment="Left" Click="btnNew_Click">New Version</Button>
+        <Button
+            Grid.Row="2"
+            HorizontalAlignment="Left"
+            Click="btnNew_Click"
+            Style="{StaticResource btnMenu}">
+            New Version
+        </Button>
     </Grid>
 </Page>
