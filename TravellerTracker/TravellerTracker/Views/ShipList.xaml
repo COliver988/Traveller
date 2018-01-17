@@ -23,48 +23,41 @@
 
         <Popup Name="popup" IsLightDismissEnabled="True" />
         <StackPanel Orientation="Vertical">
-            <ListView Name="lvShips" Margin="3">
+            <ListView Name="lvShips" Margin="3" SelectionChanged="lvShips_SelectionChanged">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                                <ColumnDefinition Width="200" />
-                                <ColumnDefinition Width="150" />
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="100" />
                                 <ColumnDefinition Width="150" />
                                 <ColumnDefinition Width="100" />
                                 <ColumnDefinition />
                             </Grid.ColumnDefinitions>
-                            <Button
-                                Margin="3"
-                                Click="btnLoadShipInfo"
-                                Tag="{Binding ShipId}">
-                                Tracking
-                            </Button>
                             <TextBlock
-                                Grid.Column="2"
+                                Grid.Column="0"
                                 VerticalAlignment="Center"
                                 Style="{StaticResource SubtitleTextBlockStyle}"
                                 Text="{Binding Name}" />
                             <TextBlock
-                                Grid.Column="3"
+                                Grid.Column="1"
                                 Margin="3"
                                 VerticalAlignment="Center"
                                 Style="{StaticResource SubtitleTextBlockStyle}"
                                 Text="{Binding theclass.Description}" />
                             <TextBlock
-                                Grid.Column="4"
+                                Grid.Column="2"
                                 VerticalAlignment="Center"
                                 Style="{StaticResource SubtitleTextBlockStyle}"
                                 Text="{Binding theVersion.Name}" />
                             <TextBlock
-                                Grid.Column="5"
+                                Grid.Column="3"
                                 VerticalAlignment="Center"
                                 Style="{StaticResource SubtitleTextBlockStyle}"
                                 Text="{Binding theClass.Name}" />
                             <TextBlock
-                                Grid.Column="6"
+                                Grid.Column="4"
                                 VerticalAlignment="Center"
                                 Style="{StaticResource SubtitleTextBlockStyle}"
                                 Text="{Binding theWorld.Name}" />

@@ -18,19 +18,24 @@ namespace TravellerTracker.Views
             lvShips.ItemsSource = App.DB.Ships.ToList();
         }
 
-        private void btnLoadShipInfo(object sender, RoutedEventArgs e)
-        {
-            var btn = sender as Button;
-            Page p = new ShipTracker((int)btn.Tag);
-            App.mainFrame.Content = p;
-        }
-
         private void btnNew(object sender, RoutedEventArgs e)
         {
             Ship ship = new Ship() { Name = "new ship" };
             App.DB.Add(ship);
             App.DB.SaveChanges();
-            Page p = new ShipTracker(ship.ShipId);
+            showShip(ship.ShipId);
+        }
+
+        private void lvShips_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ListView lv = (ListView)sender ;
+            Ship s = lv.SelectedItem as Ship;
+            showShip(s.ShipId);
+        }
+
+        private void showShip(int id)
+        {
+            Page p = new ShipTracker(id);
             App.mainFrame.Content = p;
         }
     }
