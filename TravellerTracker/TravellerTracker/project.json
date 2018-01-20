@@ -3,7 +3,8 @@
     "Microsoft.EntityFrameworkCore.Sqlite": "1.1.1",
     "Microsoft.EntityFrameworkCore.Tools": "1.1.0",
     "Microsoft.NetCore.UniversalWindowsPlatform": "5.3.1",
-    "newtonsoft.json": "10.0.3"
+    "newtonsoft.json": "10.0.3",
+    "Telerik.UI.for.UniversalWindowsPlatform": "1.0.0.9"
   },
   "frameworks": {
     "uap10.0.10240": {}
