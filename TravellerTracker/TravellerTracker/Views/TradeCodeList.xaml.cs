@@ -18,12 +18,6 @@ namespace TravellerTracker.Views
             lstTradeCodes.ItemsSource = TravellerTracker.App.DB.TradeClassifications.ToList().OrderBy(x => x.Classification);
         }
 
-        private void btnLoadTrade(object sender, RoutedEventArgs e)
-        {
-            var btn = sender as Button;
-            loadEdit((int)btn.Tag);
-        }
-
         private void btnNew(object sender, RoutedEventArgs e)
         {
             TradeClassification code = new TradeClassification() { Classification = "New" };
@@ -36,6 +30,13 @@ namespace TravellerTracker.Views
         {
             Page p = new TradeClassificationEdit(id);
             App.mainFrame.Content = p;
+        }
+
+        private void lstTradeCodes_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ListView lv = (ListView)sender ;
+            TradeClassification tc = lv.SelectedItem as TradeClassification;
+            loadEdit(tc.TradeClassificationID);
         }
     }
 }

@@ -31,6 +31,7 @@
             <RowDefinition Height="45" />
             <RowDefinition Height="45" />
             <RowDefinition Height="45" />
+            <RowDefinition Height="45" />
         </Grid.RowDefinitions>
         <StackPanel
             Grid.Row="0"
@@ -38,9 +39,6 @@
             Grid.ColumnSpan="2"
             Orientation="Horizontal">
             <TextBlock Style="{StaticResource txtBlockTitle}" Text="{x:Bind cargo.Description, Mode=TwoWay}" />
-            <Button Margin="3" Click="btnNew">
-                New
-            </Button>
             <Button Margin="3" Click="btnSave">
                 Save
             </Button>
@@ -146,5 +144,14 @@
             Grid.Column="1"
             HorizontalAlignment="Left"
             Text="Enter codes as trade code +/-DM.  I.e., Ag+5 will add to the actual value roll" />
+        <Button
+            Grid.Row="9"
+            Grid.Column="1"
+            Margin="3"
+            HorizontalAlignment="Left"
+            Click="btnNew">
+            New Cargo
+        </Button>
+
     </Grid>
 </Page>

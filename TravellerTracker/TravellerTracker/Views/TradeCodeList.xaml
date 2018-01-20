@@ -20,21 +20,13 @@
             <RowDefinition />
             <RowDefinition Height="50" />
         </Grid.RowDefinitions>
-        <ListView Name="lstTradeCodes">
+        <ListView Name="lstTradeCodes" SelectionChanged="lstTradeCodes_SelectionChanged" >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="60" />
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
-                        <Button
-                            Grid.Column="0"
-                            VerticalAlignment="Center"
-                            Click="btnLoadTrade"
-                            Tag="{Binding TradeClassificationID}">
-                            Edit
-                        </Button>
                         <TextBlock Grid.Column="1" Text="{Binding ShortDescription}" />
                     </Grid>
                 </DataTemplate>

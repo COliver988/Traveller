@@ -21,21 +21,14 @@
             <RowDefinition Height="40" />
         </Grid.RowDefinitions>
 
-        <ListView Name="lvClasses" Margin="3">
+        <ListView Name="lvClasses" Margin="3" SelectionChanged="lvClasses_SelectionChanged">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition />
                             <ColumnDefinition />
-                            <ColumnDefinition />
                         </Grid.ColumnDefinitions>
-                        <Button
-                            Margin="3"
-                            Click="btnLoadClass"
-                            Tag="{Binding ShipClassID}">
-                            Edit
-                        </Button>
                         <TextBlock
                             Grid.Column="1"
                             Margin="3"

@@ -38,13 +38,6 @@ namespace TravellerTracker.Views
             lvClasses.ItemsSource = App.DB.ShipClasses.ToList();
         }
 
-        private void btnLoadClass(object sender, RoutedEventArgs e)
-        {
-            var btn = sender as Button;
-            Page p = new ShipClassEdit((int) btn.Tag);
-            App.mainFrame.Content = p;
-        }
-
         private void btnNewClass(object sender, RoutedEventArgs e)
         {
             shipclass = new ShipClass();
@@ -57,6 +50,14 @@ namespace TravellerTracker.Views
         private void btnSave(object sender, RoutedEventArgs e)
         {
             App.DB.SaveChangesAsync();
+        }
+
+        private void lvClasses_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ListView lv = (ListView)sender ;
+            ShipClass tc = lv.SelectedItem as ShipClass;
+            Page p = new ShipClassEdit(tc.ShipClassID);
+            App.mainFrame.Content = p;
         }
     }
 }

@@ -21,7 +21,6 @@
             <RowDefinition />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="60" />
             <ColumnDefinition Width="200" />
             <ColumnDefinition Width="100" />
             <ColumnDefinition Width="120" />
@@ -30,21 +29,20 @@
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <TextBlock Grid.Column="0" Text="Edit" />
-        <TextBlock Grid.Column="1" Text="Description" />
-        <TextBlock Grid.Column="2" Text="Base Cost" />
-        <TextBlock Grid.Column="3" Text="Cargo Type" />
-        <TextBlock Grid.Column="4" Text="Purchase DMs" />
-        <TextBlock Grid.Column="5" Text="Resale DMs" />
+        <TextBlock Grid.Column="0" Text="Description" />
+        <TextBlock Grid.Column="1" Text="Base Cost" />
+        <TextBlock Grid.Column="2" Text="Cargo Type" />
+        <TextBlock Grid.Column="3" Text="Purchase DMs" />
+        <TextBlock Grid.Column="4" Text="Resale DMs" />
         <ListView
             Name="lstCargo"
             Grid.Row="1"
+            SelectionChanged="lstCargo_SelectionChanged"
             Grid.ColumnSpan="10">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="60" />
                             <ColumnDefinition Width="200" />
                             <ColumnDefinition Width="100" />
                             <ColumnDefinition Width="120" />
@@ -53,31 +51,24 @@
                             <ColumnDefinition />
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
-                        <Button
-                            Grid.Column="0"
-                            VerticalAlignment="Center"
-                            Click="btnLoadTrade"
-                            Tag="{Binding CargoID}">
-                            Edit
-                        </Button>
                         <TextBlock
-                            Grid.Column="1"
+                            Grid.Column="0"
                             Style="{StaticResource txtBlockLeft}"
                             Text="{Binding ListDesc}" />
                         <TextBlock
-                            Grid.Column="2"
+                            Grid.Column="1"
                             Style="{StaticResource txtBlockLeft}"
                             Text="{Binding BasePurchasePrice}" />
                         <TextBlock
-                            Grid.Column="3"
+                            Grid.Column="2"
                             Style="{StaticResource txtBlockLeft}"
                             Text="{Binding CargoType}" />
                         <TextBlock
-                            Grid.Column="4"
+                            Grid.Column="3"
                             Style="{StaticResource txtBlockLeft}"
                             Text="{Binding PurchaseDMs}" />
                         <TextBlock
-                            Grid.Column="5"
+                            Grid.Column="4"
                             Style="{StaticResource txtBlockLeft}"
                             Text="{Binding ResaleDMs}" />
                     </Grid>

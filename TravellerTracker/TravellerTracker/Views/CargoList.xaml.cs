@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Traveller.Models;
 using Windows.UI.Xaml.Controls;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -16,12 +17,12 @@ namespace TravellerTracker.Views
             lstCargo.ItemsSource = App.DB.Cargo.ToList().OrderBy(x => x.D1).ThenBy(x => x.D2);
         }
 
-        private void btnLoadTrade(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        private void lstCargo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var btn = sender as Button;
-            Page p = new CargoEditor((int) btn.Tag);
+            ListView lv = sender as ListView;
+            Cargo c = lv.SelectedItem as Cargo;
+            Page p = new CargoEditor(c.CargoID);
             App.mainFrame.Content = p;
-
         }
     }
 }
