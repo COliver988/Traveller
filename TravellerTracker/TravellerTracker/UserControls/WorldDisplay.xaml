@@ -33,6 +33,7 @@
             <RowDefinition Height="45" />
             <RowDefinition Height="45" />
             <RowDefinition Height="45" />
+            <RowDefinition Height="90" />
             <RowDefinition Height="45" />
             <RowDefinition Height="45" />
         </Grid.RowDefinitions>
@@ -124,8 +125,20 @@
             <TextBlock Style="{StaticResource txtBlockLeft}" Text="Unrefined: " />
             <TextBlock Style="{StaticResource txtBlockLeft}" Text="{Binding thePort.hasUnrefinedFuel}" />
         </StackPanel>
-        <Button
+        <TextBlock
             Grid.Row="6"
+            Grid.Column="0"
+            Style="{StaticResource txtBlockRightBold}"
+            Text="Notes" />
+        <TextBox
+            Grid.Row="6"
+            Grid.Column="1"
+            Height="90"
+            ScrollViewer.VerticalScrollBarVisibility="Auto"
+            AcceptsReturn="True"
+            Text="{Binding Notes, Mode=TwoWay}" />
+        <Button
+            Grid.Row="7"
             Grid.Column="0"
             Margin="3"
             HorizontalAlignment="Right"
@@ -134,7 +147,7 @@
         </Button>
         <ListBox
             Name="lstWorldLog"
-            Grid.Row="6"
+            Grid.Row="7"
             Grid.RowSpan="2"
             Grid.Column="1"
             Margin="3"

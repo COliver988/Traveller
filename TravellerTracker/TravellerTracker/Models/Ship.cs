@@ -30,6 +30,7 @@ namespace Traveller.Models
         public int HighPaxCarried { get; set; }
         public int MidPaxCarried { get; set; }
         public int LowPaxCarried { get; set; }
+        public string Notes { get; set; }
 
         [NotMapped]
         public int AvailableCargo { get { return theClass.Cargo - this.CargoCarried; } }

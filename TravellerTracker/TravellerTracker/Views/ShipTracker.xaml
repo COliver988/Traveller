@@ -141,6 +141,12 @@
             Grid.Row="5"
             Grid.Column="0"
             Grid.ColumnSpan="3">
+            <PivotItem Header="Notes">
+                <TextBox
+                    Margin="3"
+                    AcceptsReturn="True"
+                    Text="{x:Bind ship.Notes, Mode=TwoWay}" />
+            </PivotItem>
             <PivotItem Header="Log">
                 <ListBox
                     Name="lstLog"

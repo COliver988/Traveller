@@ -24,6 +24,7 @@ namespace Traveller.Models
         public string Bases { get; set; }
         public char Zone { get; set; }
         public int SectorID { get; set; }
+        public string Notes { get; set; }
         public byte[] WorldImage { get; set; }
 
         public World(string line, int sectorID)

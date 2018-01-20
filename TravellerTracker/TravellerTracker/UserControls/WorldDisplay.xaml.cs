@@ -52,10 +52,17 @@ namespace TravellerTracker.UserControls
             if (WorldItem != null)
             {
                 lstWorldLog.ItemsSource = WorldItem.theLog;
-                if (WorldItem.WorldImage != null)
+                if (WorldItem.WorldImage != null && WorldItem.WorldImage.Length > 0)
                 {
-                    ImageHandler ih = new ImageHandler();
-                    imageWorld.Source = await ih.bytesToImage(WorldItem.WorldImage);
+                    try
+                    {
+                        ImageHandler ih = new ImageHandler();
+                        imageWorld.Source = await ih.bytesToImage(WorldItem.WorldImage);
+                    }
+                    catch (System.Exception)
+                    {
+                        //TODO: log errors?
+                    }
                 }
             }
         }
