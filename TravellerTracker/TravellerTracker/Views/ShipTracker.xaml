@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:TravellerTracker.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:my="using:Telerik.UI.Xaml.Controls.DataVisualization"
     mc:Ignorable="d">
 
     <Page.Resources>
@@ -180,6 +181,9 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50" />
                         <RowDefinition />
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="10" />
                     </Grid.RowDefinitions>
                     <Grid Grid.Row="0">
                         <Grid.ColumnDefinitions>
@@ -256,6 +260,20 @@
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>
+                    <my:RadBulletGraph
+                        Grid.Row="2"
+                        Margin="6"
+                        EndValue="{x:Bind ship.theClass.Cargo}"
+                        FeaturedMeasure="{x:Bind ship.CargoCarried}"
+                        FeaturedMeasureBrush="Red"
+                        Foreground="Black"
+                        ProjectedMeasure="{x:Bind ship.theClass.Cargo}"
+                        ProjectedMeasureBrush="Black">
+                        <my:RadBulletGraph.Background>
+                            <SolidColorBrush Color="{ThemeResource SystemChromeDisabledLowColor}" />
+                        </my:RadBulletGraph.Background>
+                    </my:RadBulletGraph>
+                    <TextBlock Grid.Column="1" Grid.Row="3" Text="Current Cargo Load" HorizontalAlignment="Center" Margin="3"></TextBlock>
                 </Grid>
             </PivotItem>
             <PivotItem Header="Available Cargo">
