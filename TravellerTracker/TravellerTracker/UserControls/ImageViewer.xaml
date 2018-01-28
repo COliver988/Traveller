@@ -6,12 +6,17 @@
     xmlns:local="using:TravellerTracker.UserControls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:my="using:Microsoft.Toolkit.Uwp.UI.Controls"
-    d:DesignHeight="300"
-    d:DesignWidth="400"
+    d:DesignHeight="600"
+    d:DesignWidth="800"
     mc:Ignorable="d">
 
-    <Grid>
-        <my:Carousel x:Name="ctlCarousel">
+    <Grid BorderBrush="AliceBlue" Margin="3" BorderThickness="2">
+        <my:Carousel
+            x:Name="ctlCarousel"
+            Margin="3"
+            ItemsSource="{Binding}"
+            BorderThickness="2"
+            BorderBrush="Black">
             <my:Carousel.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -21,9 +26,9 @@
                         </Grid.RowDefinitions>
                         <Image
                             VerticalAlignment="Bottom"
-                            Source="{Binding theImage}"
+                            Source="{Binding bmp}"
                             Stretch="Uniform" />
-                        <TextBlock Grid.Row="1" Text="{Binding Description}" />
+                        <TextBlock Grid.Row="1" Text="{Binding Description}" Margin="3" />
                     </Grid>
                 </DataTemplate>
             </my:Carousel.ItemTemplate>
