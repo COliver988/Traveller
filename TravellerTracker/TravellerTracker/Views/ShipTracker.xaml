@@ -717,6 +717,7 @@
                     <StackPanel Orientation="Horizontal">
                         <Button Click="btnAdd" Style="{StaticResource btnMenu}">Add Image</Button>
                     </StackPanel>
+                    <ctl:ImageViewer Grid.Row="1" x:Name="ctlImageViewer" ShipID="{x:Bind ship.ShipId}"></ctl:ImageViewer>
                 </Grid>
             </PivotItem>
         </Pivot>
