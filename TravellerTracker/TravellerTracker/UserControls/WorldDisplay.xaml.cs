@@ -88,5 +88,21 @@ namespace TravellerTracker.UserControls
                 imageWorld.Source = img;
             }
         }
+
+        private async void btnAddGeneralImage(object sender, RoutedEventArgs e)
+        {
+            ImageHandler ih = new ImageHandler();
+            byte[] image = await ih.openImage();
+            if (image.Length > 0)
+            {
+                ShowDialog sd = new ShowDialog();
+                string desc = await sd.GetResponse("Image Description", "OK", "Cancel");
+                if (desc != "Cancel")
+                {
+                    App.DB.ImageLists.Add(new Models.ImageList() { theImage = image, WorldID = WorldItem.WorldID, Description = desc });
+                    App.DB.SaveChanges();
+                }
+            }
+        }
     }
 }

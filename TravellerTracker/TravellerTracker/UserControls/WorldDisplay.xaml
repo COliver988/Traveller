@@ -33,32 +33,38 @@
             <RowDefinition Height="45" />
             <RowDefinition Height="45" />
             <RowDefinition Height="45" />
-            <RowDefinition Height="90" />
-            <RowDefinition Height="45" />
-            <RowDefinition Height="45" />
+            <RowDefinition />
         </Grid.RowDefinitions>
         <TextBlock
             Grid.Row="0"
             Grid.Column="0"
             Grid.ColumnSpan="2"
-            HorizontalAlignment="Center"
+            HorizontalAlignment="Left"
             Style="{StaticResource txtBlockTitle}"
             Text="{Binding Name}" />
-        <Button
+        <StackPanel
             Grid.Row="0"
             Grid.Column="1"
             Margin="3"
             HorizontalAlignment="Right"
-            Click="btnAddImage">
-            Add Image
-        </Button>
-        <Image
-            Name="imageWorld"
-            Grid.Row="1"
-            Grid.RowSpan="5"
-            Grid.Column="1"
-            Margin="3"
-            HorizontalAlignment="Right" />
+            Orientation="Horizontal">
+            <Button
+                Width="150"
+                HorizontalAlignment="Right"
+                Click="btnAddImage"
+                Style="{StaticResource btnMenu}">
+                Add World Image
+            </Button>
+            <Button
+                Width="150"
+                Click="btnAddGeneralImage"
+                Style="{StaticResource btnMenu}">
+                Add General Image
+            </Button>
+            <Button Click="btnAddLog" Style="{StaticResource btnMenu}">
+                Add Log
+            </Button>
+        </StackPanel>
         <TextBlock
             Grid.Row="1"
             Grid.Column="0"
@@ -125,56 +131,53 @@
             <TextBlock Style="{StaticResource txtBlockLeft}" Text="Unrefined: " />
             <TextBlock Style="{StaticResource txtBlockLeft}" Text="{Binding thePort.hasUnrefinedFuel}" />
         </StackPanel>
-        <TextBlock
+        <Pivot
             Grid.Row="6"
             Grid.Column="0"
-            Style="{StaticResource txtBlockRightBold}"
-            Text="Notes" />
-        <TextBox
-            Grid.Row="6"
-            Grid.Column="1"
-            Height="90"
-            ScrollViewer.VerticalScrollBarVisibility="Auto"
-            AcceptsReturn="True"
-            Text="{Binding Notes, Mode=TwoWay}" />
-        <Button
-            Grid.Row="7"
-            Grid.Column="0"
-            Margin="3"
-            HorizontalAlignment="Right"
-            Click="btnAddLog">
-            Add Log
-        </Button>
-        <ListBox
-            Name="lstWorldLog"
-            Grid.Row="7"
-            Grid.RowSpan="2"
-            Grid.Column="1"
-            Margin="3"
-            Background="LightBlue"
-            ItemsSource="{Binding}"
-            ScrollViewer.VerticalScrollBarVisibility="Auto">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition />
-                        </Grid.ColumnDefinitions>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Margin="3" Text="{Binding DayDisplay}" />
-                            <TextBlock Margin="3">-</TextBlock>
-                            <TextBlock Margin="3" Text="{Binding Year}" />
-                        </StackPanel>
-                        <TextBlock
-                            Grid.Column="1"
-                            Height="Auto"
-                            Margin="3"
-                            Text="{Binding Log}"
-                            TextWrapping="Wrap" />
-                    </Grid>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+            Grid.ColumnSpan="2">
+            <PivotItem Header="World Image">
+                <Image Name="imageWorld" Margin="3" />
+            </PivotItem>
+            <PivotItem Header="Notes">
+                <TextBox
+                    VerticalAlignment="Top"
+                    AcceptsReturn="True"
+                    ScrollViewer.VerticalScrollBarVisibility="Auto"
+                    Text="{x:Bind WorldItem.Notes}" />
+            </PivotItem>
+            <PivotItem Header="Log">
+                <ListBox
+                    Name="lstWorldLog"
+                    Margin="3"
+                    Background="LightBlue"
+                    ItemsSource="{Binding}"
+                    ScrollViewer.VerticalScrollBarVisibility="Auto">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Margin="3" Text="{Binding DayDisplay}" />
+                                    <TextBlock Margin="3">-</TextBlock>
+                                    <TextBlock Margin="3" Text="{Binding Year}" />
+                                </StackPanel>
+                                <TextBlock
+                                    Grid.Column="1"
+                                    Height="Auto"
+                                    Margin="3"
+                                    Text="{Binding Log}"
+                                    TextWrapping="Wrap" />
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </PivotItem>
+            <PivotItem Header="Images">
+                <local:ImageViewer WorldID="{x:Bind WorldItem.WorldID}" />
+            </PivotItem>
+        </Pivot>
     </Grid>
 </UserControl>
