@@ -16,6 +16,11 @@
             Margin="3"
             ItemsSource="{Binding}"
             BorderThickness="2"
+            ItemDepth="400"
+            ItemMargin="50"
+            InvertPositive="True"
+            ItemRotationY="20"
+            SelectedIndex="0"
             BorderBrush="Black">
             <my:Carousel.ItemTemplate>
                 <DataTemplate>
