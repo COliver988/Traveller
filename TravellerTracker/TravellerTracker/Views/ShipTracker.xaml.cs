@@ -592,5 +592,11 @@ namespace TravellerTracker.Views
                 }
             }
         }
+
+        private void btnPrint_Click(object sender, RoutedEventArgs e)
+        {
+            PrinterHelper ph = new PrinterHelper();
+            ph.PrintGrid(gridCargoManist);
+        }
     }
 }

@@ -177,7 +177,7 @@
                 </ListBox>
             </PivotItem>
             <PivotItem Header="Cargo Manifest">
-                <Grid>
+                <Grid Name="gridCargoManist">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50" />
                         <RowDefinition />
@@ -222,7 +222,8 @@
                         <Button
                             Grid.Column="6"
                             Margin="3"
-                            VerticalAlignment="Center">
+                            VerticalAlignment="Center"
+                            Click="btnPrint_Click">
                             Print
                         </Button>
                     </Grid>
@@ -273,7 +274,12 @@
                             <SolidColorBrush Color="{ThemeResource SystemChromeDisabledLowColor}" />
                         </my:RadBulletGraph.Background>
                     </my:RadBulletGraph>
-                    <TextBlock Grid.Column="1" Grid.Row="3" Text="Current Cargo Load" HorizontalAlignment="Center" Margin="3"></TextBlock>
+                    <TextBlock
+                        Grid.Row="3"
+                        Grid.Column="1"
+                        Margin="3"
+                        HorizontalAlignment="Center"
+                        Text="Current Cargo Load" />
                 </Grid>
             </PivotItem>
             <PivotItem Header="Available Cargo">
@@ -717,7 +723,10 @@
                     <StackPanel Orientation="Horizontal">
                         <Button Click="btnAdd" Style="{StaticResource btnMenu}">Add Image</Button>
                     </StackPanel>
-                    <ctl:ImageViewer Grid.Row="1" x:Name="ctlImageViewer" ShipID="{x:Bind ship.ShipId}"></ctl:ImageViewer>
+                    <ctl:ImageViewer
+                        x:Name="ctlImageViewer"
+                        Grid.Row="1"
+                        ShipID="{x:Bind ship.ShipId}" />
                 </Grid>
             </PivotItem>
         </Pivot>

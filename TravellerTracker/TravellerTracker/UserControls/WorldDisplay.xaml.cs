@@ -1,4 +1,5 @@
-﻿using Traveller.Models;
+﻿using System.Linq;
+using Traveller.Models;
 using TravellerTracker.Support;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;

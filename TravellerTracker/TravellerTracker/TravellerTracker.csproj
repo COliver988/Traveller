@@ -151,6 +151,7 @@
     <Compile Include="Models\Ship.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Support\LoadCargo.cs" />
+    <Compile Include="Support\PrinterHelper.cs" />
     <Compile Include="Support\Seed.cs" />
     <Compile Include="Support\SelectBulkCargo.cs" />
     <Compile Include="Support\ShowDialog.cs" />
@@ -161,6 +162,9 @@
     </Compile>
     <Compile Include="UserControls\ImageViewer.xaml.cs">
       <DependentUpon>ImageViewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\PrintCargoManifest.xaml.cs">
+      <DependentUpon>PrintCargoManifest.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\SpecCargoSell.xaml.cs">
       <DependentUpon>SpecCargoSell.xaml</DependentUpon>
@@ -276,6 +280,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\ImageViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\PrintCargoManifest.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
