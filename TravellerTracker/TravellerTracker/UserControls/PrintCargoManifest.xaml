@@ -9,5 +9,44 @@
     d:DesignWidth="400"
     mc:Ignorable="d">
 
-    <Grid />
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/TravDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid Name="gridCargo" Background="{StaticResource UserControlBackground}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60" />
+            <RowDefinition Height="40" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Button
+            Grid.Row="2"
+            Grid.Column="3"
+            Grid.ColumnSpan="2"
+            Margin="60,0,-20,13"
+            VerticalAlignment="Bottom"
+            Click="btnPrint_Click">
+            Print
+        </Button>
+        <TextBlock Grid.ColumnSpan="5" Style="{StaticResource txtBlockTitle}">
+            <Run Text="Cargo Manifiest for " />
+            <Run Text="{x:Bind TheShip.Name}" />
+            <Run Text=" as of " />
+            <Run Text="{x:Bind TheShip.Day}" />
+            <Run Text="-" />
+            <Run Text="{x:Bind TheShip.Year}" />
+        </TextBlock>
+        <Canvas Name="canvas" Visibility="Collapsed" />
+    </Grid>
 </UserControl>

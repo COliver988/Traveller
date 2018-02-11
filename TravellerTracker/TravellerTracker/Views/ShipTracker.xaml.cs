@@ -595,8 +595,10 @@ namespace TravellerTracker.Views
 
         private void btnPrint_Click(object sender, RoutedEventArgs e)
         {
-            PrinterHelper ph = new PrinterHelper();
-            ph.PrintGrid(gridCargoManist);
+            PrintCargoManifest pcf = new PrintCargoManifest();
+            pcf.TheShip = ship;
+            popCargo.Child = pcf;
+            showPopup();
         }
     }
 }

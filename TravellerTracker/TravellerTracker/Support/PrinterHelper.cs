@@ -1,8 +1,10 @@
 ﻿using Microsoft.Toolkit.Uwp.Helpers;
 using System;
+using System.Linq;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using TravellerTracker.Support;
 
 namespace TravellerTracker.Support
 {
@@ -13,9 +15,11 @@ namespace TravellerTracker.Support
         public async void PrintGrid(Grid grid)
         {
             Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Wait, 1);
-            Grid ContainerItem = new Grid();
+            Canvas ContainerItem = new Canvas();
 
             _printHelper = new PrintHelper(ContainerItem);
+            Grid g = grid.DeepClone<Grid>();
+            _printHelper.AddFrameworkElementToPrint(g);
             _printHelper.AddFrameworkElementToPrint(ContainerItem);
             _printHelper.OnPrintCanceled += PrintHelper_OnPrintCanceled;
             _printHelper.OnPrintFailed += PrintHelper_OnPrintFailed;
