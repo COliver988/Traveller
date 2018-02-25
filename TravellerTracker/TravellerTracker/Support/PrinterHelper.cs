@@ -12,18 +12,17 @@ namespace TravellerTracker.Support
     {
         private PrintHelper _printHelper;
 
-        public async void PrintRTF(RichTextBlock rtf)
+        public async void PrintList(Grid Container, ListBox list)
         {
             Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Wait, 1);
-            Canvas ContainerItem = new Canvas();
 
-            _printHelper = new PrintHelper(ContainerItem);
-            _printHelper.AddFrameworkElementToPrint(rtf);
-            _printHelper.AddFrameworkElementToPrint(ContainerItem);
+            _printHelper = new PrintHelper(Container);
+            _printHelper.AddFrameworkElementToPrint(list);
             _printHelper.OnPrintCanceled += PrintHelper_OnPrintCanceled;
             _printHelper.OnPrintFailed += PrintHelper_OnPrintFailed;
             _printHelper.OnPrintSucceeded += PrintHelper_OnPrintSucceeded;
 
+            Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
             await _printHelper.ShowPrintUIAsync($"{App.AppName}");
         }
 

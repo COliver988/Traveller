@@ -185,6 +185,9 @@
     <Compile Include="Views\Options.xaml.cs">
       <DependentUpon>Options.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\PrintPage.xaml.cs">
+      <DependentUpon>PrintPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\SelectCargo.xaml.cs">
       <DependentUpon>SelectCargo.xaml</DependentUpon>
     </Compile>
@@ -309,6 +312,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Options.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PrintPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

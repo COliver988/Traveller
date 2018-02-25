@@ -1,0 +1,68 @@
+﻿<Page
+    x:Class="TravellerTracker.Views.PrintPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TravellerTracker.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid x:Name="printableArea">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="0" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!--  Header  -->
+        <Grid Grid.Row="0" Margin="0,0,0,8">
+            <StackPanel Orientation="Horizontal">
+                <Image Height="32" Source="ms-appx:///Assets/StoreLogo.png" />
+                <TextBlock
+                    Margin="8,0,0,0"
+                    VerticalAlignment="Center"
+                    FontSize="16"
+                    Text="XAML Brewer UWP Printing Sample" />
+            </StackPanel>
+            <TextBlock
+                Name="title"
+                HorizontalAlignment="Right"
+                FontSize="16"
+                Foreground="Black"
+                Text="" />
+        </Grid>
+
+        <RichTextBlock
+            x:Name="textContent"
+            Grid.Row="1"
+            FontSize="18"
+            OverflowContentTarget="{Binding ElementName=textOverflow}" />
+
+        <RichTextBlockOverflow x:Name="textOverflow" Grid.Row="2" />
+
+        <!--  Footer  -->
+        <Grid
+            Grid.Row="3"
+            Grid.Column="0"
+            Margin="0,8,0,0">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock
+                    VerticalAlignment="Bottom"
+                    FontSize="16"
+                    Text="© 2016 by XAML Brewer" />
+            </StackPanel>
+            <TextBlock
+                Name="pageNumber"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom"
+                FontSize="16"
+                Foreground="Black"
+                Text="-#-" />
+        </Grid>
+    </Grid>
+</Page>

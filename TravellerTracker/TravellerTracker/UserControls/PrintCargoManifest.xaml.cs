@@ -25,24 +25,5 @@ namespace TravellerTracker.UserControls
         {
             this.InitializeComponent();
         }
-
-        public PrintCargoManifest(RichTextBlockOverflow textLinkContainer)
-       : this()
-        {
-            if (textLinkContainer == null)
-                throw new ArgumentNullException(nameof(textLinkContainer));
-            textLinkContainer.OverflowContentTarget = textOverflow;
-        }
-
-        internal Grid PrintableArea => printableArea;
-
-        internal RichTextBlock TextContent => textContent;
-
-        internal RichTextBlockOverflow TextOverflow => textOverflow;
-
-        internal void AddContent(Paragraph block)
-        {
-            textContent.Blocks.Add(block);
-        }
     }
 }

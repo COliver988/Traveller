@@ -596,6 +596,7 @@ namespace TravellerTracker.Views
 
         private void btnPrint_Click(object sender, RoutedEventArgs e)
         {
+            /*
             RichTextBlock rtf = new RichTextBlock();
             Run headText = new Run();
             headText.Text = $"Cargo Manifest for {ship.Name} Date: {ship.Day} - {ship.Year}";
@@ -603,8 +604,11 @@ namespace TravellerTracker.Views
             Paragraph header = new Paragraph();
             header.Inlines.Add(headText);
             rtf.Blocks.Add(header);
+            */
+            gridCargoManist.Children.Remove(lstCargoCarried);
             PrinterHelper ph = new PrinterHelper();
-            ph.PrintRTF(rtf);
+            ph.PrintList(Container, lstCargoCarried);
+            gridCargoManist.Children.Add(lstCargoCarried);
         }
     }
 }

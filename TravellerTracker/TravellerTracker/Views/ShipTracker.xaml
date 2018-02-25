@@ -185,6 +185,7 @@
                         <RowDefinition Height="50" />
                         <RowDefinition Height="10" />
                     </Grid.RowDefinitions>
+                    <Grid Name="Container" Grid.ColumnSpan="7" Opacity="0"></Grid>
                     <Grid Grid.Row="0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="100" />

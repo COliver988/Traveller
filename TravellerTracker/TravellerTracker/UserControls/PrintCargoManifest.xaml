@@ -17,62 +17,14 @@
         </ResourceDictionary>
     </UserControl.Resources>
 
-    <Grid x:Name="printableArea">
-
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="0" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-
-        <!--  Header  -->
-        <Grid Grid.Row="0" Margin="0,0,0,8">
-            <StackPanel Orientation="Horizontal">
-                <Image Height="32" Source="ms-appx:///Assets/StoreLogo.png" />
-                <TextBlock
-                    Margin="8,0,0,0"
-                    VerticalAlignment="Center"
-                    FontSize="16"
-                    Text="XAML Brewer UWP Printing Sample" />
-            </StackPanel>
-            <TextBlock
-                Name="title"
-                HorizontalAlignment="Right"
-                FontSize="16"
-                Foreground="Black"
-                Text="" />
-        </Grid>
-
-        <RichTextBlock
-            x:Name="textContent"
-            Grid.Row="1"
-            FontSize="18"
-            OverflowContentTarget="{Binding ElementName=textOverflow}" />
-
-        <RichTextBlockOverflow x:Name="textOverflow" Grid.Row="2" />
-
-        <!--  Footer  -->
-        <Grid
-            Grid.Row="3"
-            Grid.Column="0"
-            Margin="0,8,0,0">
-            <StackPanel Orientation="Horizontal">
-                <TextBlock
-                    VerticalAlignment="Bottom"
-                    FontSize="16"
-                    Text="© 2016 by XAML Brewer" />
-            </StackPanel>
-            <TextBlock
-                Name="pageNumber"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Bottom"
-                FontSize="16"
-                Foreground="Black"
-                Text="-#-" />
-        </Grid>
-    </Grid>
+    <RichTextBlock>
+        <Paragraph TextAlignment="Left">
+            <Run Text="Cargo Manifest for " FontSize="28"></Run>
+            <Run Text="{Binding Name}"></Run>
+            <Run Text=" on "></Run>
+            <Run Text="{Binding Day}"></Run>
+            <Run Text=" - "></Run>
+            <Run Text="{Binding Day}"></Run>
+        </Paragraph>
+    </RichTextBlock>
 </UserControl>
