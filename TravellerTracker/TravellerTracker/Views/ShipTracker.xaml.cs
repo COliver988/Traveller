@@ -9,6 +9,7 @@ using TravellerTracker.Support;
 using TravellerTracker.UserControls;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Documents;
 
 namespace TravellerTracker.Views
 {
@@ -595,10 +596,15 @@ namespace TravellerTracker.Views
 
         private void btnPrint_Click(object sender, RoutedEventArgs e)
         {
-            PrintCargoManifest pcf = new PrintCargoManifest();
-            pcf.TheShip = ship;
-            popCargo.Child = pcf;
-            showPopup();
+            RichTextBlock rtf = new RichTextBlock();
+            Run headText = new Run();
+            headText.Text = $"Cargo Manifest for {ship.Name} Date: {ship.Day} - {ship.Year}";
+            headText.FontSize = 22;
+            Paragraph header = new Paragraph();
+            header.Inlines.Add(headText);
+            rtf.Blocks.Add(header);
+            PrinterHelper ph = new PrinterHelper();
+            ph.PrintRTF(rtf);
         }
     }
 }

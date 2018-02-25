@@ -17,36 +17,62 @@
         </ResourceDictionary>
     </UserControl.Resources>
 
-    <Grid Name="gridCargo" Background="{StaticResource UserControlBackground}">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
+    <Grid x:Name="printableArea">
+
         <Grid.RowDefinitions>
-            <RowDefinition Height="60" />
-            <RowDefinition Height="40" />
-            <RowDefinition />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="0" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <Button
-            Grid.Row="2"
-            Grid.Column="3"
-            Grid.ColumnSpan="2"
-            Margin="60,0,-20,13"
-            VerticalAlignment="Bottom"
-            Click="btnPrint_Click">
-            Print
-        </Button>
-        <TextBlock Grid.ColumnSpan="5" Style="{StaticResource txtBlockTitle}">
-            <Run Text="Cargo Manifiest for " />
-            <Run Text="{x:Bind TheShip.Name}" />
-            <Run Text=" as of " />
-            <Run Text="{x:Bind TheShip.Day}" />
-            <Run Text="-" />
-            <Run Text="{x:Bind TheShip.Year}" />
-        </TextBlock>
-        <Canvas Name="canvas" Visibility="Collapsed" />
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!--  Header  -->
+        <Grid Grid.Row="0" Margin="0,0,0,8">
+            <StackPanel Orientation="Horizontal">
+                <Image Height="32" Source="ms-appx:///Assets/StoreLogo.png" />
+                <TextBlock
+                    Margin="8,0,0,0"
+                    VerticalAlignment="Center"
+                    FontSize="16"
+                    Text="XAML Brewer UWP Printing Sample" />
+            </StackPanel>
+            <TextBlock
+                Name="title"
+                HorizontalAlignment="Right"
+                FontSize="16"
+                Foreground="Black"
+                Text="" />
+        </Grid>
+
+        <RichTextBlock
+            x:Name="textContent"
+            Grid.Row="1"
+            FontSize="18"
+            OverflowContentTarget="{Binding ElementName=textOverflow}" />
+
+        <RichTextBlockOverflow x:Name="textOverflow" Grid.Row="2" />
+
+        <!--  Footer  -->
+        <Grid
+            Grid.Row="3"
+            Grid.Column="0"
+            Margin="0,8,0,0">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock
+                    VerticalAlignment="Bottom"
+                    FontSize="16"
+                    Text="© 2016 by XAML Brewer" />
+            </StackPanel>
+            <TextBlock
+                Name="pageNumber"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom"
+                FontSize="16"
+                Foreground="Black"
+                Text="-#-" />
+        </Grid>
     </Grid>
 </UserControl>

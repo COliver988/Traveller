@@ -1,7 +1,9 @@
-﻿using Traveller.Models;
+﻿using System;
+using Traveller.Models;
 using TravellerTracker.Support;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Documents;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
@@ -24,10 +26,23 @@ namespace TravellerTracker.UserControls
             this.InitializeComponent();
         }
 
-        private void btnPrint_Click(object sender, RoutedEventArgs e)
+        public PrintCargoManifest(RichTextBlockOverflow textLinkContainer)
+       : this()
         {
-            PrinterHelper ph = new PrinterHelper();
-            ph.PrintGrid(gridCargo);
+            if (textLinkContainer == null)
+                throw new ArgumentNullException(nameof(textLinkContainer));
+            textLinkContainer.OverflowContentTarget = textOverflow;
+        }
+
+        internal Grid PrintableArea => printableArea;
+
+        internal RichTextBlock TextContent => textContent;
+
+        internal RichTextBlockOverflow TextOverflow => textOverflow;
+
+        internal void AddContent(Paragraph block)
+        {
+            textContent.Blocks.Add(block);
         }
     }
 }
