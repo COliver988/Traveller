@@ -19,12 +19,12 @@
 
     <RichTextBlock>
         <Paragraph TextAlignment="Left">
-            <Run Text="Cargo Manifest for " FontSize="28"></Run>
-            <Run Text="{Binding Name}"></Run>
-            <Run Text=" on "></Run>
-            <Run Text="{Binding Day}"></Run>
-            <Run Text=" - "></Run>
-            <Run Text="{Binding Day}"></Run>
+            <Run FontSize="28" Text="Cargo Manifest for " />
+            <Run Text="{Binding Name}" />
+            <Run Text=" on " />
+            <Run Text="{Binding Day}" />
+            <Run Text=" - " />
+            <Run Text="{Binding Day}" />
         </Paragraph>
     </RichTextBlock>
 </UserControl>

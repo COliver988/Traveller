@@ -1,12 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using Traveller.Models;
+using TravellerTracker;
+using Windows.Storage;
 
 namespace Traveller.Support
 {
     public class LoadCargo
     {
+        Random rnd = new Random();
         Utilities util = new Utilities();
         public List<Cargo> findCargo(Ship ship)
         {
@@ -28,9 +33,31 @@ namespace Traveller.Support
             return results;
         }
 
+        // T5 code = TL - trade codes Cr<cost>
         private List<Cargo> findT5Cargo(Ship ship)
         {
-            throw new NotImplementedException();
+            List<Cargo> results = new List<Cargo>();
+            string[] TradeCodes = ship.theWorld.Remarks.Split(' ');
+            foreach (string tradecode in TradeCodes)
+            {
+                Cargo c = new Cargo() { isSpeculative = true };
+                c.Description = T5LoadDescription(tradecode);
+                c.CargoCode = string.Format("{0} -{1} Cr", ship.theWorld.Tech, ship.theWorld.Remarks);
+                results.Add(c);
+            }
+
+            // now to calculate the cost
+
+            return results;
+        }
+
+        private string T5LoadDescription(string tradecode)
+        {
+            TradeGood[] tradegoods = App.DB.TradeGoods.Where(x => x.TradeCode == tradecode).ToArray();
+            if (tradegoods.Length > 0)
+                return tradegoods[rnd.Next(0, tradegoods.Length)].Description;
+            else
+                return "N/A";
         }
 
         private List<Cargo> findMongooseCargo(Ship ship)

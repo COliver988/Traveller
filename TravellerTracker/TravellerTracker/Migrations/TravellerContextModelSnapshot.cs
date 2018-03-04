@@ -288,6 +288,22 @@ namespace TravellerTracker.Migrations
                     b.ToTable("TradeClassifications");
                 });
 
+            modelBuilder.Entity("Traveller.Models.TradeGood", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("CargoTypeID");
+
+                    b.Property<string>("Description");
+
+                    b.Property<string>("TradeCode");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("TradeGoods");
+                });
+
             modelBuilder.Entity("Traveller.Models.TravellerVersion", b =>
                 {
                     b.Property<int>("TravellerVersionId")
