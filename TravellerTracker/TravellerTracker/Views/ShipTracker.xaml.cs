@@ -606,12 +606,13 @@ namespace TravellerTracker.Views
             rtf.Blocks.Add(header);
             Paragraph cargo = new Paragraph();
             cargo.FontFamily = new Windows.UI.Xaml.Media.FontFamily("Courier New");
+            cargo.Inlines.Add(new Run() { Text = string.Format("\n{0, -20} {1, -10} {2, -8} {3, -15} {4} \n\n", "Description", "Tons/Ppl", "Load Date", "Origin", "Destination") });
             foreach (ShipCargo item in ship.theCargo)
             {
                 switch (item.CargoType)
                 {
                     case ShipCargo.CargoTypes.Speculative:
-                    cargo.Inlines.Add(new Run() { Text = $"{item.theCargo.Description, -20} {item.dTons, -10} {item.DayLoaded, -3}-{ item.YearLoaded, -4} {item.OriginWorld.Name}\n" });
+                    cargo.Inlines.Add(new Run() { Text = $"{item.theCargo.Description, -20} {item.dTons, -10} {item.DayLoaded, -4}-{ item.YearLoaded, -4} {item.OriginWorld.Name, -15}\n" });
                         break;
                     case ShipCargo.CargoTypes.Major:
                     case ShipCargo.CargoTypes.Minor:
@@ -621,7 +622,7 @@ namespace TravellerTracker.Views
                     case ShipCargo.CargoTypes.HighPassage:
                     case ShipCargo.CargoTypes.MidPassage:
                     case ShipCargo.CargoTypes.LowPassage:
-                    cargo.Inlines.Add(new Run() { Text = $"{item.CargoCode, -20} {item.dTons, -10} {item.DayLoaded, -3}-{ item.YearLoaded, -4} {item.OriginWorld.Name} -> {item.DestinationWorld.Name}\n" });
+                    cargo.Inlines.Add(new Run() { Text = $"{item.CargoCode, -20} {item.DayLoaded, 15}-{ item.YearLoaded, -4} {item.OriginWorld.Name, -15} {item.DestinationWorld.Name}\n" });
                         break;
                     default:
                         break;
