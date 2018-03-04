@@ -1,10 +1,8 @@
 ﻿using Microsoft.Toolkit.Uwp.Helpers;
 using System;
-using System.Linq;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using TravellerTracker.Support;
 
 namespace TravellerTracker.Support
 {
@@ -12,12 +10,23 @@ namespace TravellerTracker.Support
     {
         private PrintHelper _printHelper;
 
-        public async void PrintList(Grid Container, ListBox list)
+        public void PrintRTF(Grid Container, RichTextBlock item)
+        {
+            _printHelper = new PrintHelper(Container);
+            _printHelper.AddFrameworkElementToPrint(item);
+            setupPrinter();
+        }
+        public void PrintList(Grid Container, ListBox list)
         {
             Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Wait, 1);
 
             _printHelper = new PrintHelper(Container);
             _printHelper.AddFrameworkElementToPrint(list);
+            setupPrinter();
+        }
+
+        private async void setupPrinter()
+        { 
             _printHelper.OnPrintCanceled += PrintHelper_OnPrintCanceled;
             _printHelper.OnPrintFailed += PrintHelper_OnPrintFailed;
             _printHelper.OnPrintSucceeded += PrintHelper_OnPrintSucceeded;

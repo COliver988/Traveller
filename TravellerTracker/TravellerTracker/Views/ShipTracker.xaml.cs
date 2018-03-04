@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using Traveller.Models;
@@ -588,7 +589,7 @@ namespace TravellerTracker.Views
                 string desc = await sd.GetResponse("Image Description", "OK", "Cancel");
                 if (desc != "Cancel")
                 {
-                    App.DB.Add(new ImageList()  { theImage = newImage, Description = desc, ShipID = ship.ShipId } );
+                    App.DB.Add(new ImageList() { theImage = newImage, Description = desc, ShipID = ship.ShipId });
                     App.DB.SaveChangesAsync();
                 }
             }
@@ -596,7 +597,6 @@ namespace TravellerTracker.Views
 
         private void btnPrint_Click(object sender, RoutedEventArgs e)
         {
-            /*
             RichTextBlock rtf = new RichTextBlock();
             Run headText = new Run();
             headText.Text = $"Cargo Manifest for {ship.Name} Date: {ship.Day} - {ship.Year}";
@@ -604,11 +604,38 @@ namespace TravellerTracker.Views
             Paragraph header = new Paragraph();
             header.Inlines.Add(headText);
             rtf.Blocks.Add(header);
-            */
+            Paragraph cargo = new Paragraph();
+            cargo.FontFamily = new Windows.UI.Xaml.Media.FontFamily("Courier New");
+            foreach (ShipCargo item in ship.theCargo)
+            {
+                switch (item.CargoType)
+                {
+                    case ShipCargo.CargoTypes.Speculative:
+                    cargo.Inlines.Add(new Run() { Text = $"{item.theCargo.Description, -20} {item.dTons, -10} {item.DayLoaded, -3}-{ item.YearLoaded, -4} {item.OriginWorld.Name}\n" });
+                        break;
+                    case ShipCargo.CargoTypes.Major:
+                    case ShipCargo.CargoTypes.Minor:
+                    case ShipCargo.CargoTypes.Incidental:
+                    case ShipCargo.CargoTypes.Mail:
+                        break;
+                    case ShipCargo.CargoTypes.HighPassage:
+                    case ShipCargo.CargoTypes.MidPassage:
+                    case ShipCargo.CargoTypes.LowPassage:
+                    cargo.Inlines.Add(new Run() { Text = $"{item.CargoCode, -20} {item.dTons, -10} {item.DayLoaded, -3}-{ item.YearLoaded, -4} {item.OriginWorld.Name} -> {item.DestinationWorld.Name}\n" });
+                        break;
+                    default:
+                        break;
+                }
+            }
+            rtf.Blocks.Add(cargo);
+            PrinterHelper ph = new PrinterHelper();
+            ph.PrintRTF(Container, rtf);
+            /*
             gridCargoManist.Children.Remove(lstCargoCarried);
             PrinterHelper ph = new PrinterHelper();
             ph.PrintList(Container, lstCargoCarried);
             gridCargoManist.Children.Add(lstCargoCarried);
+            */
         }
     }
 }
