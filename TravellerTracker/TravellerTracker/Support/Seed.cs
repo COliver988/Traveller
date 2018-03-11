@@ -116,6 +116,58 @@ namespace TravellerTracker.Support
                 db.Add(new Starport() { Class = 'H', Quality = "Basic", Repairs = "None", hasRefinedFuel = false, hasUnrefinedFuel = false, Downport = "Beacon", Yards = "None", isStarport = false });
                 db.Add(new Starport() { Class = 'Y', Quality = "None", Repairs = "None", hasRefinedFuel = false, hasUnrefinedFuel = false, Downport = "None", Yards = "None", isStarport = false });
             }
+
+            if (db.TradeGoods.Count() == 0)
+            {
+                db.Add(new TradeGood() { TradeCode = "Ag", Description = "Bulk Protein" });
+                db.Add(new TradeGood() { TradeCode = "Ag", Description = "Bulk Carbs" });
+                db.Add(new TradeGood() { TradeCode = "Ag", Description = "Bulk Fats" });
+                db.Add(new TradeGood() { TradeCode = "Ag", Description = "Bulk Pharma" });
+                db.Add(new TradeGood() { TradeCode = "Ag", Description = "Livestock" });
+                db.Add(new TradeGood() { TradeCode = "Ag", Description = "Feedstock" });
+                db.Add(new TradeGood() { TradeCode = "As", Description = "Bulk nitrarates" });
+                db.Add(new TradeGood() { TradeCode = "As", Description = "Bulk carbon" });
+                db.Add(new TradeGood() { TradeCode = "As", Description = "Bulk iron" });
+                db.Add(new TradeGood() { TradeCode = "As", Description = "Bulk copper" });
+                db.Add(new TradeGood() { TradeCode = "As", Description = "radiactive ores" });
+                db.Add(new TradeGood() { TradeCode = "As", Description = "Bulk ices" });
+                db.Add(new TradeGood() { TradeCode = "Na", Description = "Bulk Abarasives" });
+                db.Add(new TradeGood() { TradeCode = "Na", Description = "Bulk Gases" });
+                db.Add(new TradeGood() { TradeCode = "Na", Description = "Bulk Minerals" });
+                db.Add(new TradeGood() { TradeCode = "Na", Description = "Bulk Precipitates" });
+                db.Add(new TradeGood() { TradeCode = "Na", Description = "Exotic Fauna" });
+                db.Add(new TradeGood() { TradeCode = "Na", Description = "Exotic Flora" });
+                db.Add(new TradeGood() { TradeCode = "In", Description = "Electronics" });
+                db.Add(new TradeGood() { TradeCode = "In", Description = "Photonics" });
+                db.Add(new TradeGood() { TradeCode = "In", Description = "Magnetics" });
+                db.Add(new TradeGood() { TradeCode = "In", Description = "Fluidics" });
+                db.Add(new TradeGood() { TradeCode = "In", Description = "Polymerics" });
+                db.Add(new TradeGood() { TradeCode = "In", Description = "Gravatics" });
+                db.Add(new TradeGood() { TradeCode = "Po", Description = "Bulk Nutrients" });
+                db.Add(new TradeGood() { TradeCode = "Po", Description = "Bulk Fibers" });
+                db.Add(new TradeGood() { TradeCode = "Po", Description = "Bulk Organics" });
+                db.Add(new TradeGood() { TradeCode = "Po", Description = "Bulk Minerals" });
+                db.Add(new TradeGood() { TradeCode = "Po", Description = "Bulk Textiles" });
+                db.Add(new TradeGood() { TradeCode = "Po", Description = "Exotic Flora" });
+                db.Add(new TradeGood() { TradeCode = "Ri", Description = "Bulk Foodstuffs" });
+                db.Add(new TradeGood() { TradeCode = "Ri", Description = "Bulk Protein" });
+                db.Add(new TradeGood() { TradeCode = "Ri", Description = "Bulk Carbs" });
+                db.Add(new TradeGood() { TradeCode = "Ri", Description = "Bulk Fats" });
+                db.Add(new TradeGood() { TradeCode = "Ri", Description = "Exotic Flora" });
+                db.Add(new TradeGood() { TradeCode = "Ri", Description = "Exotic Fauna" });
+                db.Add(new TradeGood() { TradeCode = "Va", Description = "Bulk Dusts" });
+                db.Add(new TradeGood() { TradeCode = "Va", Description = "Bulk Minerals" });
+                db.Add(new TradeGood() { TradeCode = "Va", Description = "Bulk Metals" });
+                db.Add(new TradeGood() { TradeCode = "Va", Description = "Radioactive Ores" });
+                db.Add(new TradeGood() { TradeCode = "Va", Description = "Bulk Particulates" });
+                db.Add(new TradeGood() { TradeCode = "Va", Description = "Emphemerals" });
+                db.Add(new TradeGood() { TradeCode = "Cp", Description = "Coinage" });
+                db.Add(new TradeGood() { TradeCode = "Cp", Description = "Currency" });
+                db.Add(new TradeGood() { TradeCode = "Cp", Description = "Money Cards" });
+                db.Add(new TradeGood() { TradeCode = "Cp", Description = "Gold" });
+                db.Add(new TradeGood() { TradeCode = "Cp", Description = "Silver" });
+                db.Add(new TradeGood() { TradeCode = "Cp", Description = "Platinum" });
+            }
             db.SaveChangesAsync();
         }
     }

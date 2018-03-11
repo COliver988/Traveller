@@ -44,7 +44,8 @@
                 <Button Click="btnNewClass" Style="{StaticResource btnMenu}">Ship Classes</Button>
                 <Button Click="btnStarports" Style="{StaticResource btnMenu}">Starports</Button>
                 <Button Click="btnTradeCodes" Style="{StaticResource btnMenu}">Trade Codes</Button>
-                <Button Click="btnCargoList" Style="{StaticResource btnMenu}">Cargo List</Button>
+                <Button Click="btnCargoList" Style="{StaticResource btnMenu}">Classic Cargo</Button>
+                <Button Click="btnGenericCargo" Style="{StaticResource btnMenu}">Generic Cargo</Button>
                 <Button Click="btnVersions" Style="{StaticResource btnMenu}">Versions</Button>
             </StackPanel>
             <Button

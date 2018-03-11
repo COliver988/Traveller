@@ -190,9 +190,6 @@
     <Compile Include="Views\Options.xaml.cs">
       <DependentUpon>Options.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\PrintPage.xaml.cs">
-      <DependentUpon>PrintPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\SelectCargo.xaml.cs">
       <DependentUpon>SelectCargo.xaml</DependentUpon>
     </Compile>
@@ -216,6 +213,9 @@
     </Compile>
     <Compile Include="Views\TradeCodeList.xaml.cs">
       <DependentUpon>TradeCodeList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TradeGoods.xaml.cs">
+      <DependentUpon>TradeGoods.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Versions.xaml.cs">
       <DependentUpon>Versions.xaml</DependentUpon>
@@ -322,10 +322,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\PrintPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\SelectCargo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -355,6 +351,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\TradeCodeList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TradeGoods.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

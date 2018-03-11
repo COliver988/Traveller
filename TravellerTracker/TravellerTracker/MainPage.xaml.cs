@@ -58,5 +58,10 @@ namespace TravellerTracker
         {
             mainFrame.Content = new Options();
         }
+
+        private void btnGenericCargo(object sender, RoutedEventArgs e)
+        {
+            mainFrame.Content = new TradeGoods();
+        }
     }
 }
