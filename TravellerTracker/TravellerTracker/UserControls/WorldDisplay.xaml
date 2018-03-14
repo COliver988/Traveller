@@ -175,6 +175,30 @@
                     </ListBox.ItemTemplate>
                 </ListBox>
             </PivotItem>
+            <PivotItem Header="Trade Codes">
+                <ListBox
+                    Name="lstTradeCodes"
+                    Margin="3"
+                    Background="LightBlue"
+                    ItemsSource="{Binding}"
+                    ScrollViewer.VerticalScrollBarVisibility="Auto">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Margin="3" Text="{Binding Classification}" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    Margin="3"
+                                    Text="{Binding Name}" />
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </PivotItem>
             <PivotItem Header="Images">
                 <local:ImageViewer WorldID="{x:Bind WorldItem.WorldID}" />
             </PivotItem>

@@ -149,7 +149,7 @@
     <Compile Include="Models\Worlds.cs" />
     <Compile Include="Support\AddLog.cs" />
     <Compile Include="Support\BITSCargoCode.cs" />
-    <Compile Include="Support\DeepClone.cs" />
+    <Compile Include="Support\GenerateTradeCodes.cs" />
     <Compile Include="Support\ImageHandler.cs" />
     <Compile Include="Support\ImperialDates.cs" />
     <Compile Include="Models\ShipClass.cs" />

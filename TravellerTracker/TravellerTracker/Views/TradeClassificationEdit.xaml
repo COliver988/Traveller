@@ -93,7 +93,7 @@
         <TextBlock
             Grid.Row="5"
             Style="{StaticResource txtBlock}"
-            Text="Hydrogrpahics" />
+            Text="Hydrographics" />
         <TextBox
             Grid.Row="5"
             Grid.Column="1"

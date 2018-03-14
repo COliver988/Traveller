@@ -99,5 +99,8 @@ namespace Traveller.Models
             }
             return results;
         }
+
+        [NotMapped]
+        public List<TradeClassification> TradeCodes {  get { return GenerateTradeCodes.GetCodes(UWP); } }
     }
 }

@@ -53,6 +53,7 @@ namespace TravellerTracker.UserControls
             if (WorldItem != null)
             {
                 lstWorldLog.ItemsSource = WorldItem.theLog;
+                lstTradeCodes.ItemsSource = WorldItem.TradeCodes;
                 if (WorldItem.WorldImage != null && WorldItem.WorldImage.Length > 0)
                 {
                     try
