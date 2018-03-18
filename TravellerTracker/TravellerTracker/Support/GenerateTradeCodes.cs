@@ -19,11 +19,9 @@ namespace Traveller.Support
             List<TradeClassification> results = App.DB.TradeClassifications.Where(x => x.Sizes.Length == 0 || x.Sizes.Contains(Size)).
                 Where(x => x.Atmospheres.Length == 0 || x.Atmospheres.Contains(Atmosphere)).
                 Where(x => x.Hydro.Length == 0 || x.Hydro.Contains(Hydro)).ToList().
-                Where(x => x.Pop.Length == 0 || x.Pop.Contains(Population)).ToList();
-            /*
+                Where(x => x.Pop != null || x.Pop.Contains(Population)).
                 Where(x => x.Gov.Length == 0 || x.Gov.Contains(Gov)).
                 Where(x =>x.Law.Length == 0 || x.Law.Contains(Law)).ToList();
-                */
             return results;
         }
     }

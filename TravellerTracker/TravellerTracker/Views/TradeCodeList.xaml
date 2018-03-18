@@ -20,7 +20,7 @@
             <RowDefinition />
             <RowDefinition Height="50" />
         </Grid.RowDefinitions>
-        <ListView Name="lstTradeCodes" SelectionChanged="lstTradeCodes_SelectionChanged" >
+        <ListView Name="lstTradeCodes" SelectionChanged="lstTradeCodes_SelectionChanged">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>

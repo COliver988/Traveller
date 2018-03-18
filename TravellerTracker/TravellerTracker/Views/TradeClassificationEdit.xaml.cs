@@ -26,8 +26,8 @@ namespace TravellerTracker.Views
 
         private void btnNew(object sender, RoutedEventArgs e)
         {
-            tc = new TradeClassification();
-            tc.Name = "new trade classification";
+            tc = new TradeClassification() { Sizes = "", Atmospheres = "", Hydro = "", Pop = "", Gov = "", Law = "" };
+            tc.Name = "new";
             App.DB.TradeClassifications.Add(tc);
             App.DB.SaveChanges();
             TradeClassificationEdit p = new TradeClassificationEdit(tc.TradeClassificationID);

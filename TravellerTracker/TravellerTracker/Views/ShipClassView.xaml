@@ -21,7 +21,10 @@
             <RowDefinition Height="40" />
         </Grid.RowDefinitions>
 
-        <ListView Name="lvClasses" Margin="3" SelectionChanged="lvClasses_SelectionChanged">
+        <ListView
+            Name="lvClasses"
+            Margin="3"
+            SelectionChanged="lvClasses_SelectionChanged">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>

@@ -103,29 +103,9 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20180106224651_initialize.cs" />
-    <Compile Include="Migrations\20180106224651_initialize.designer.cs">
-      <DependentUpon>20180106224651_initialize.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20180114153101_imageList.cs" />
-    <Compile Include="Migrations\20180114153101_imageList.designer.cs">
-      <DependentUpon>20180114153101_imageList.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20180114202037_imageListDesc.cs" />
-    <Compile Include="Migrations\20180114202037_imageListDesc.designer.cs">
-      <DependentUpon>20180114202037_imageListDesc.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20180120141636_WorldNotes.cs" />
-    <Compile Include="Migrations\20180120141636_WorldNotes.designer.cs">
-      <DependentUpon>20180120141636_WorldNotes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20180120182746_ShipNotes.cs" />
-    <Compile Include="Migrations\20180120182746_ShipNotes.designer.cs">
-      <DependentUpon>20180120182746_ShipNotes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20180304225420_TradeGoods.cs" />
-    <Compile Include="Migrations\20180304225420_TradeGoods.designer.cs">
-      <DependentUpon>20180304225420_TradeGoods.cs</DependentUpon>
+    <Compile Include="Migrations\20180317223445_initialize.cs" />
+    <Compile Include="Migrations\20180317223445_initialize.designer.cs">
+      <DependentUpon>20180317223445_initialize.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\TravellerContextModelSnapshot.cs" />
     <Compile Include="Models\ActualValue.cs" />
@@ -147,6 +127,7 @@
     <Compile Include="Models\TravellerVersion.cs" />
     <Compile Include="Models\WorldLog.cs" />
     <Compile Include="Models\Worlds.cs" />
+    <Compile Include="Models\WorldTC.cs" />
     <Compile Include="Support\AddLog.cs" />
     <Compile Include="Support\BITSCargoCode.cs" />
     <Compile Include="Support\GenerateTradeCodes.cs" />
@@ -363,6 +344,7 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

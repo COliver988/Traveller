@@ -265,23 +265,33 @@ namespace TravellerTracker.Migrations
                     b.Property<int>("TradeClassificationID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Atmospheres");
+                    b.Property<string>("Atmospheres")
+                        .IsRequired();
 
-                    b.Property<string>("Classification");
+                    b.Property<string>("Classification")
+                        .IsRequired();
 
                     b.Property<string>("Description");
 
-                    b.Property<string>("Gov");
+                    b.Property<string>("Gov")
+                        .IsRequired();
 
-                    b.Property<string>("Hydro");
+                    b.Property<string>("Hydro")
+                        .IsRequired();
 
-                    b.Property<string>("Law");
+                    b.Property<bool>("IsManuallyAssigned");
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Law")
+                        .IsRequired();
 
-                    b.Property<string>("Pop");
+                    b.Property<string>("Name")
+                        .IsRequired();
 
-                    b.Property<string>("Sizes");
+                    b.Property<string>("Pop")
+                        .IsRequired();
+
+                    b.Property<string>("Sizes")
+                        .IsRequired();
 
                     b.HasKey("TradeClassificationID");
 
@@ -412,6 +422,20 @@ namespace TravellerTracker.Migrations
                     b.HasKey("WorldID");
 
                     b.ToTable("Worlds");
+                });
+
+            modelBuilder.Entity("Traveller.Models.WorldTC", b =>
+                {
+                    b.Property<int>("WorldTCID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("TradeClassificationID");
+
+                    b.Property<int>("WorldID");
+
+                    b.HasKey("WorldTCID");
+
+                    b.ToTable("WorldTCs");
                 });
 
             modelBuilder.Entity("TravellerTracker.Models.ImageList", b =>

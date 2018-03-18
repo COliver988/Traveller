@@ -41,8 +41,6 @@ namespace TravellerTracker
 
                 Seed s = new Seed();
                 s.SeedDB(db);
-
-                TravellerVersions = db.TravellerVersions.ToListAsync().Result;
             }
         }
 

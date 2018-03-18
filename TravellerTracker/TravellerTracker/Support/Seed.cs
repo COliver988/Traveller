@@ -15,13 +15,64 @@ namespace TravellerTracker.Support
                 tc.Name = "Agriculteral";
                 tc.Description = "The world has climate and conditions that promote farming and ranching. It is a producer of inexpensive food stuffs. It also is a source of unusual, exotic or strange delicacies";
                 tc.Sizes = "";
-                tc.Atmospheres = "4 5 6 7 8 9";
-                tc.Hydro = "4 5 6 7 8";
-                tc.Pop = "5 6 7";
+                tc.Atmospheres = "456789";
+                tc.Hydro = "45678";
+                tc.Pop = "567";
                 tc.Gov = "";
                 tc.Law = "";
 
                 db.Add(tc);
+                db.Add(new TradeClassification() { Classification = "As", Name = "Asteroid", Sizes = "0", Atmospheres = "0", Hydro = "0", Pop = "", Gov = "", Law = "", IsManuallyAssigned = false});
+                db.Add(new TradeClassification() { Classification = "De", Name = "Desert", Sizes = "", Atmospheres = "23456789", Hydro = "0", Pop = "", Gov = "", Law = "", IsManuallyAssigned = false});
+                db.Add(new TradeClassification() { Classification = "Fl", Name = "Fluid",  Sizes = "", Atmospheres = "ABC", Hydro = "123456789A", Pop = "", Gov = "", Law = "", IsManuallyAssigned = false});
+                db.Add(new TradeClassification() { Classification = "Ga", Name = "Garden World", Sizes = "678", Atmospheres = "568", Hydro = "567", Pop = "", Gov = "", Law = "", IsManuallyAssigned = false});
+                db.Add(new TradeClassification() { Classification = "He", Name = "Hell World", Sizes = "3459ABC", Atmospheres = "2479ABC", Hydro = "012", Pop = "", Gov = "", Law = "", IsManuallyAssigned = false});
+                db.Add(new TradeClassification() { Classification = "Ic", Name = "Ice-Capped", Sizes = "", Atmospheres = "01", Hydro = "123456789A", Pop = "", Gov = "", Law = "", IsManuallyAssigned = false});
+                db.Add(new TradeClassification() { Classification = "Oc", Name = "Ocean World", Sizes = "ABC", Atmospheres = "", Hydro = "A", Pop = "", Gov = "", Law = "", IsManuallyAssigned = false});
+                db.Add(new TradeClassification() { Classification = "Va", Name = "Vacuum", Sizes = "", Atmospheres = "0", Hydro = "", Pop = "", Gov = "", Law = "", IsManuallyAssigned = false });
+                db.Add(new TradeClassification() { Classification = "Wa", Name = "Water World", Sizes = "56789", Atmospheres = "", Hydro = "A", Pop = "", Gov = "", Law = "", IsManuallyAssigned = false});
+
+                db.Add(new TradeClassification() { Classification = "Di", Name = "Dieback", Sizes = "", Atmospheres = "", Hydro = "", Pop = "0", Gov = "0", Law = "0", IsManuallyAssigned = true});
+                db.Add(new TradeClassification() { Classification = "Ba", Name = "Barren", Sizes = "", Atmospheres = "", Hydro = "", Pop = "0", Gov = "0", Law = "0", IsManuallyAssigned = true});
+                db.Add(new TradeClassification() { Classification = "Lo", Name = "Low Population", Sizes = "", Atmospheres = "", Hydro = "", Pop = "123 ", Gov = "", Law = "", IsManuallyAssigned = false});
+                db.Add(new TradeClassification() { Classification = "Ni", Name = "Non-Industrial", Sizes = "", Atmospheres = "", Hydro = "", Pop = "456", Gov = "", Law = "", IsManuallyAssigned = false});
+                db.Add(new TradeClassification() { Classification = "Ph", Name = "Pre-High", Sizes = "", Atmospheres = "", Hydro = "", Pop = "8", Gov = "", Law = "", IsManuallyAssigned = false});
+                db.Add(new TradeClassification() { Classification = "Hi", Name = "High Population", Sizes = "", Atmospheres = "", Hydro = "", Pop = "9ABC", Gov = "", Law = "", IsManuallyAssigned = false});
+
+                db.Add(new TradeClassification() { Classification = "Pa", Name = "Pre-Agricultural", Sizes = "", Atmospheres = "45678", Hydro = "45678", Pop = "48", Gov = "", Law = "", IsManuallyAssigned = false});
+                db.Add(new TradeClassification() { Classification = "Ag", Name = "Agricultural", Sizes = "", Atmospheres = "45678", Hydro = "45678", Pop = "567", Gov = "", Law = "", IsManuallyAssigned = false});
+                db.Add(new TradeClassification() { Classification = "Na", Name = "Non-Agricultural", Sizes = "", Atmospheres = "0123", Hydro = "0123", Pop = "6789ABC", Gov = "", Law = "", IsManuallyAssigned = false});
+                db.Add(new TradeClassification() { Classification = "Pi", Name = "Pre-Industrial", Sizes = "", Atmospheres = "012479", Hydro = "", Pop = "78", Gov = "", Law = "", IsManuallyAssigned = false});
+                db.Add(new TradeClassification() { Classification = "In", Name = "Industrial", Sizes = "", Atmospheres = "012479", Hydro = "", Pop = "9ABC", Gov = "", Law = "", IsManuallyAssigned = false});
+                db.Add(new TradeClassification() { Classification = "Po", Name = "Poor", Sizes = "", Atmospheres = "2345", Hydro = "0123", Pop = "", Gov = "", Law = "", IsManuallyAssigned = false});
+                db.Add(new TradeClassification() { Classification = "Ri", Name = "Rich", Sizes = "", Atmospheres = "68", Hydro = "",  Pop = "678", Gov = "", Law = "", IsManuallyAssigned = false});
+
+                db.Add(new TradeClassification() { Classification = "Fr", Name = "Frozen", Sizes = "23456789", Atmospheres = "", Hydro = "123456789A", Pop = "", Gov = "", Law = "", IsManuallyAssigned = true});
+                db.Add(new TradeClassification() { Classification = "Ho", Name = "Hot", Sizes = "", Atmospheres = "", Hydro = "", Pop = "", Law = "", Gov = "", IsManuallyAssigned = true});
+                db.Add(new TradeClassification() { Classification = "Co", Name = "Cold", Sizes = "", Atmospheres = "", Hydro = "", Pop = "", Law = "", Gov = "", IsManuallyAssigned = true});
+                db.Add(new TradeClassification() { Classification = "Lk", Name = "Locked", Sizes = "", Atmospheres = "", Hydro = "", Pop = "", Law = "", Gov = "", IsManuallyAssigned = true});
+                db.Add(new TradeClassification() { Classification = "Tr", Name = "Tropic", Sizes = "6789", Atmospheres = "456789", Hydro = "34567", Pop = "", Gov = "", Law = "", IsManuallyAssigned = true});
+                db.Add(new TradeClassification() { Classification = "Tu", Name = "Tundra", Sizes = "6789", Atmospheres = "456789", Hydro = "34567", Pop = "", Gov = "", Law = "", IsManuallyAssigned = true});
+                db.Add(new TradeClassification() { Classification = "Tz", Name = "Twilight Zone", Sizes = "", Atmospheres = "", Hydro = "", Pop = "", Gov = "", Law = "", IsManuallyAssigned = true});
+
+                db.Add(new TradeClassification() { Classification = "Fa", Name = "Farming", Sizes = "456789", Atmospheres = "45678", Hydro = "", Pop = "23456", Gov = "", Law = "", IsManuallyAssigned = true});
+                db.Add(new TradeClassification() { Classification = "Mi", Name = "Mining", Sizes = "", Atmospheres = "", Hydro = "", Pop = "23456", Gov = "", Law = "", IsManuallyAssigned = true});
+                db.Add(new TradeClassification() { Classification = "Mr", Name = "Military Rule", Sizes = "", Atmospheres = "", Hydro = "", Pop = "", Gov = "", Law = "", IsManuallyAssigned = true});
+                db.Add(new TradeClassification() { Classification = "Px", Name = "Prison Exile", Sizes = "23AB", Atmospheres = "12345", Hydro = "", Pop = "3456", Gov = "", Law = "6789", IsManuallyAssigned = true});
+                db.Add(new TradeClassification() { Classification = "Pe", Name = "Penal Colony", Sizes = "23AB", Atmospheres = "12345", Hydro = "", Pop = "3456", Gov = "6", Law = "6789", IsManuallyAssigned = true});
+                db.Add(new TradeClassification() { Classification = "Re", Name = "Reserve", Sizes = "", Atmospheres = "", Hydro = "", Pop = "1234", Gov = "6", Law = "45", IsManuallyAssigned = true});
+
+                db.Add(new TradeClassification() { Classification = "Cp", Name = "Subsector Capital", Sizes = "", Atmospheres = "", Hydro = "", Pop = "", Gov = "", Law = "", IsManuallyAssigned = true});
+                db.Add(new TradeClassification() { Classification = "Cs", Name = "Sector Capital", Sizes = "", Atmospheres = "", Hydro = "", Pop = "", Gov = "", Law = "",  IsManuallyAssigned = true});
+                db.Add(new TradeClassification() { Classification = "Cx", Name = "Capital", Sizes = "", Atmospheres = "", Hydro = "", Pop = "", Gov = "", Law = "",  IsManuallyAssigned = true});
+                db.Add(new TradeClassification() { Classification = "Cy", Name = "Colony", Sizes = "", Atmospheres = "", Hydro = "", Pop = "56789A", Gov = "6", Law = "0123", IsManuallyAssigned = true});
+
+                db.Add(new TradeClassification() { Classification = "Sa", Name = "Satellite", Sizes = "", Atmospheres = "", Hydro = "", Pop = "", Law = "", Gov = "", IsManuallyAssigned = true});
+                db.Add(new TradeClassification() { Classification = "Fo", Name = "Forbidden", Sizes = "", Atmospheres = "", Hydro = "", Pop = "", Law = "", Gov = "", IsManuallyAssigned = true});
+                db.Add(new TradeClassification() { Classification = "Pz", Name = "Puzzle", Sizes = "", Atmospheres = "", Hydro = "", Law = "", Gov = "", Pop = "789ABC", IsManuallyAssigned = true});
+                db.Add(new TradeClassification() { Classification = "Da", Name = "Dangerous", Sizes = "", Atmospheres = "", Hydro = "", Law = "", Gov = "", Pop = "0123456", IsManuallyAssigned = true});
+                db.Add(new TradeClassification() { Classification = "Ab", Name = "Data Repository", Sizes = "", Atmospheres = "", Hydro = "", Pop = "", Law = "", Gov = "", IsManuallyAssigned = true});
+                db.Add(new TradeClassification() { Classification = "An", Name = "Ancient Site", Sizes = "", Atmospheres = "", Hydro = "", Pop = "", Law = "", Gov = "", IsManuallyAssigned = true});
             }
 
             if (db.TravellerVersions.Count() == 0)
@@ -42,7 +93,7 @@ namespace TravellerTracker.Support
                 db.Add(new CargoType() { Type = "Pharma", Description = "Pharmaceuticals and medicine for treatment of all manner of illness or disability." });
                 db.Add(new CargoType() { Type = "Rares", Description = "Many trade goods are in demand because of their rarity or relative scarcity." });
                 db.Add(new CargoType() { Type = "Raws", Description = "One of the basic trade goos in interstellar trade is raw materials." });
-                db.Add(new CargoType() { Type = "Red Tape", Description = "Because there are interstellar governments, the products of their bureacracy must be distributed throughout their area of authority." });
+                db.Add(new CargoType() { Type = "Red Tape", Description = "Because there are interstellar governments, the products of their bureac racy must be distributed throughout their area of authority." });
                 db.Add(new CargoType() { Type = "Samples", Description = "Newly discovered, created or manufactured items may be distributed to other workds for analysis or evaluation." });
                 db.Add(new CargoType() { Type = "Scrap/Waste", Description = "The trash of some worlds can be a valued commodity on other worlds." });
                 db.Add(new CargoType() { Type = "Uniques", Description = "Some items cannot be reproduced, adding value to the product." });
@@ -168,7 +219,8 @@ namespace TravellerTracker.Support
                 db.Add(new TradeGood() { TradeCode = "Cp", Description = "Silver" });
                 db.Add(new TradeGood() { TradeCode = "Cp", Description = "Platinum" });
             }
-            db.SaveChangesAsync();
+            db.SaveChanges();
+            //db.SaveChangesAsync();
         }
     }
 }

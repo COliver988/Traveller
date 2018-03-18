@@ -17,7 +17,7 @@ namespace TravellerTracker.Views
         {
             this.InitializeComponent();
             cargo = TravellerTracker.App.DB.Cargo.Where(x => x.CargoID == cargoID).First();
-            foreach (TravellerVersion version in App.TravellerVersions)
+            foreach (TravellerVersion version in App.DB.TravellerVersions)
                 if (version.TravellerVersionId == cargo.TravellerVersionId)
                 {
                     switch (version.Name)

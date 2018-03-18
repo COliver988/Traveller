@@ -30,6 +30,7 @@
             <RowDefinition Height="40" />
             <RowDefinition Height="40" />
             <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
             <RowDefinition />
         </Grid.RowDefinitions>
         <TextBlock
@@ -129,9 +130,18 @@
         <TextBlock
             Grid.Row="9"
             Style="{StaticResource txtBlock}"
+            Text="Manual" />
+        <CheckBox
+            Grid.Row="9"
+            Grid.Column="1"
+            Margin="3"
+            IsChecked="{x:Bind tc.IsManuallyAssigned}" />
+        <TextBlock
+            Grid.Row="10"
+            Style="{StaticResource txtBlock}"
             Text="Description" />
         <TextBox
-            Grid.Row="9"
+            Grid.Row="10"
             Grid.Column="1"
             Margin="3"
             Text="{x:Bind tc.Description, Mode=TwoWay}"

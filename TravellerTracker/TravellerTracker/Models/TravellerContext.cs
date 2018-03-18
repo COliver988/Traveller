@@ -19,6 +19,7 @@ namespace TravellerTracker.Models
         public DbSet<ActualValue> ActualValues { get; set; }
         public DbSet<ImageList> ImageLists { get; set; }
         public DbSet<TradeGood> TradeGoods { get; set; }
+        public DbSet<WorldTC> WorldTCs { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
