@@ -38,11 +38,12 @@ namespace Traveller.Support
         {
             List<Cargo> results = new List<Cargo>();
             string[] TradeCodes = ship.theWorld.Remarks.Split(' ');
-            foreach (string tradecode in TradeCodes)
+            string codes = ship.theWorld.TradeCodes.Select(o => new { o.Classification }).ToString();
+            foreach (TradeClassification tradecode in ship.theWorld.TradeCodes)
             {
                 Cargo c = new Cargo() { isSpeculative = true };
-                c.Description = T5LoadDescription(tradecode);
-                c.CargoCode = string.Format("{0} -{1} Cr", ship.theWorld.Tech, ship.theWorld.Remarks);
+                c.Description = T5LoadDescription(tradecode.Classification);
+                c.CargoCode = string.Format("{0} -{1} Cr", ship.theWorld.Tech, codes);
                 results.Add(c);
             }
 

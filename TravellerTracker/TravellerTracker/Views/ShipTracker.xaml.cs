@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Text;
 using Traveller.Models;
@@ -61,8 +60,14 @@ namespace TravellerTracker.Views
                 ErrorHandling e = new ErrorHandling();
                 e.showError("Ship class does not exist - please add a class");
             }
-            if (App.DB.Sectors != null)
+            if (ship.Era != null)
             {
+                if (App.DB.Sectors.Where(x => x.Milieu == ship.Era).Count() == 0)
+                    if (ship.Era != null)
+                    {
+                        TravellerMapAPI api = new TravellerMapAPI();
+                        api.loadAppDB(ship.Era);
+                    }
                 comboSectors.ItemsSource = App.DB.Sectors.Where(x => x.Milieu == ship.Era).OrderBy(o => o.Name).ToList();
                 if (sector != null)
                     comboSectors.SelectedItem = App.DB.Sectors.Where(x => x.Name == sector.Name).First();
@@ -612,7 +617,7 @@ namespace TravellerTracker.Views
                 switch (item.CargoType)
                 {
                     case ShipCargo.CargoTypes.Speculative:
-                    cargo.Inlines.Add(new Run() { Text = $"{item.theCargo.Description, -20} {item.dTons, -10} {item.DayLoaded, -4}-{ item.YearLoaded, -4} {item.OriginWorld.Name, -15}\n" });
+                        cargo.Inlines.Add(new Run() { Text = $"{item.theCargo.Description,-20} {item.dTons,-10} {item.DayLoaded,-4}-{ item.YearLoaded,-4} {item.OriginWorld.Name,-15}\n" });
                         break;
                     case ShipCargo.CargoTypes.Major:
                     case ShipCargo.CargoTypes.Minor:
@@ -622,7 +627,7 @@ namespace TravellerTracker.Views
                     case ShipCargo.CargoTypes.HighPassage:
                     case ShipCargo.CargoTypes.MidPassage:
                     case ShipCargo.CargoTypes.LowPassage:
-                    cargo.Inlines.Add(new Run() { Text = $"{item.CargoCode, -20} {item.DayLoaded, 15}-{ item.YearLoaded, -4} {item.OriginWorld.Name, -15} {item.DestinationWorld.Name}\n" });
+                        cargo.Inlines.Add(new Run() { Text = $"{item.CargoCode,-20} {item.DayLoaded,15}-{ item.YearLoaded,-4} {item.OriginWorld.Name,-15} {item.DestinationWorld.Name}\n" });
                         break;
                     default:
                         break;

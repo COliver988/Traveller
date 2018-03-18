@@ -32,6 +32,14 @@ namespace Traveller.Support
             return results;
         }
 
+        public async void loadAppDB(string milieu)
+        {
+            TravellerMapUniverse.SectorList sectors = await (loadUniverse(milieu));
+            foreach (TravellerMapUniverse.Sector sector in sectors.Sectors)
+                App.DB.Add(new Sector() { Milieu = milieu, Name = sector.FirstName, Tags = sector.Tags });
+            App.DB.SaveChangesAsync();
+        }
+
         public async Task<List<World>> loadWorlds(string milieu, string sector)
         {
             // if we've already got this sector we should have loaded the worlds as well
