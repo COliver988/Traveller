@@ -101,6 +101,6 @@ namespace Traveller.Models
         }
 
         [NotMapped]
-        public List<TradeClassification> TradeCodes {  get { return GenerateTradeCodes.GetCodes(UWP); } }
+        public List<TradeClassification> TradeCodes {  get { return GenerateTradeCodes.GetCodes(this); } }
     }
 }

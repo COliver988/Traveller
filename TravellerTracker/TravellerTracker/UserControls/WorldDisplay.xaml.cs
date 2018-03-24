@@ -50,6 +50,7 @@ namespace TravellerTracker.UserControls
         private async void WorldDisplay_Loaded(object sender, RoutedEventArgs e)
         {
             this.DataContext = WorldItem;
+            lstManualCodes.ItemsSource = App.DB.TradeClassifications.Where(x => x.IsManuallyAssigned == true);
             if (WorldItem != null)
             {
                 lstWorldLog.ItemsSource = WorldItem.theLog;
@@ -105,6 +106,15 @@ namespace TravellerTracker.UserControls
                     App.DB.SaveChanges();
                 }
             }
+        }
+
+        private void cbTCChange(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox s = sender as ComboBox;
+            TradeClassification tc = s.SelectedItem as TradeClassification;
+            App.DB.Add(new WorldTC { TradeClassificationID = tc.TradeClassificationID, WorldID = WorldItem.WorldID });
+            App.DB.SaveChangesAsync();
+            lstTradeCodes.ItemsSource = WorldItem.TradeCodes;
         }
     }
 }
