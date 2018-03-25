@@ -185,18 +185,17 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="180" />
                             <ColumnDefinition Width="200" />
-                            <ColumnDefinition Width="50" />
                         </Grid.ColumnDefinitions>
                         <TextBlock Style="{StaticResource txtBlock}" Text="Add manual trade code" />
                         <ComboBox
-                            Grid.Column="1"
                             Name="lstManualCodes"
+                            Grid.Column="1"
                             Margin="3"
-                            SelectionChanged="cbTCChange"
-                            ItemsSource="{Binding}">
+                            ItemsSource="{Binding}"
+                            SelectionChanged="cbTCChange">
                             <ComboBox.ItemTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding Name}"></TextBlock>
+                                    <TextBlock Text="{Binding Name}" />
                                 </DataTemplate>
                             </ComboBox.ItemTemplate>
                         </ComboBox>
@@ -212,7 +211,8 @@
                             <DataTemplate>
                                 <Grid>
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition />
+                                        <ColumnDefinition Width="50" />
+                                        <ColumnDefinition Width="150" />
                                         <ColumnDefinition />
                                     </Grid.ColumnDefinitions>
                                     <TextBlock Margin="3" Text="{Binding Classification}" />
@@ -220,6 +220,13 @@
                                         Grid.Column="1"
                                         Margin="3"
                                         Text="{Binding Name}" />
+                                    <Button
+                                        Grid.Column="2"
+                                        Margin="3"
+                                        Click="btnDeleteTC"
+                                        IsEnabled="{Binding IsManuallyAssigned}">
+                                        Delete
+                                    </Button>
                                 </Grid>
                             </DataTemplate>
                         </ListBox.ItemTemplate>

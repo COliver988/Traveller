@@ -22,7 +22,7 @@ namespace Traveller.Support
                 Where(x => x.Pop.Length == 0 || x.Pop.Contains(Population)).
                 Where(x => x.Gov.Length == 0 || x.Gov.Contains(Gov)).
                 Where(x =>x.Law.Length == 0 || x.Law.Contains(Law)).Where(x => x.IsManuallyAssigned == false).ToList();
-            List<int> ids = App.DB.WorldTCs.Where(x => x.WorldID == world.WorldID).Select(y => y.WorldID).ToList();
+            List<int> ids = App.DB.WorldTCs.Where(x => x.WorldID == world.WorldID).Select(y => y.TradeClassificationID).ToList();
             results.AddRange(App.DB.TradeClassifications.Where(x => ids.Contains(x.TradeClassificationID)).ToList());
             return results;
         }
@@ -37,12 +37,12 @@ namespace Traveller.Support
             string Gov = UWP[5].ToString();
             string Law = UWP[6].ToString();
 
-            List<TradeClassification> results = App.DB.TradeClassifications.Where(x => x.Sizes.Length == 0 || x.Sizes.Contains(Size) && x.IsManuallyAssigned == true).
-                Where(x => x.Atmospheres.Length == 0 || x.Atmospheres.Contains(Atmosphere) && x.IsManuallyAssigned == true).
-                Where(x => x.Hydro.Length == 0 || x.Hydro.Contains(Hydro) && x.IsManuallyAssigned == true).
-                Where(x => x.Pop != null || x.Pop.Contains(Population) && x.IsManuallyAssigned == true).
-                Where(x => x.Gov.Length == 0 || x.Gov.Contains(Gov) && x.IsManuallyAssigned == true).
-                Where(x =>x.Law.Length == 0 || x.Law.Contains(Law) && x.IsManuallyAssigned == true).ToList();
+            List<TradeClassification> results = App.DB.TradeClassifications.Where(x => x.Sizes.Length == 0 || x.Sizes.Contains(Size)).
+                Where(x => x.Atmospheres.Length == 0 || x.Atmospheres.Contains(Atmosphere)).
+                Where(x => x.Hydro.Length == 0 || x.Hydro.Contains(Hydro)).
+                Where(x => x.Pop.Length == 0 || x.Pop.Contains(Population)).
+                Where(x => x.Gov.Length == 0 || x.Gov.Contains(Gov)).
+                Where(x =>x.Law.Length == 0 || x.Law.Contains(Law)).Where(y => y.IsManuallyAssigned == true).ToList();
             return results;
         }
     }

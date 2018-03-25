@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Traveller.Models;
+using TravellerTracker.Models;
 using TravellerTracker.Support;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -115,6 +116,24 @@ namespace TravellerTracker.UserControls
             App.DB.Add(new WorldTC { TradeClassificationID = tc.TradeClassificationID, WorldID = WorldItem.WorldID });
             App.DB.SaveChangesAsync();
             lstTradeCodes.ItemsSource = WorldItem.TradeCodes;
+        }
+
+        private void btnDeleteTC(object sender, RoutedEventArgs e)
+        {
+            Button b = sender as Button;
+            TradeClassification tc = b.DataContext as TradeClassification;
+            WorldTC wtc = App.DB.WorldTCs.Where(x => x.TradeClassificationID == tc.TradeClassificationID && x.WorldID == WorldItem.WorldID).FirstOrDefault();
+            try
+            {
+                App.DB.WorldTCs.Remove(wtc);
+                App.DB.SaveChangesAsync();
+                lstTradeCodes.ItemsSource = WorldItem.TradeCodes;
+            }
+            catch (System.Exception)
+            {
+                ErrorHandling eh = new ErrorHandling();
+                eh.showError("Sorry - I can't find that record to delete!");
+            }
         }
     }
 }
