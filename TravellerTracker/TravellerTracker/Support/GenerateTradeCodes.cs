@@ -43,6 +43,7 @@ namespace Traveller.Support
                 Where(x => x.Pop.Length == 0 || x.Pop.Contains(Population)).
                 Where(x => x.Gov.Length == 0 || x.Gov.Contains(Gov)).
                 Where(x =>x.Law.Length == 0 || x.Law.Contains(Law)).Where(y => y.IsManuallyAssigned == true).ToList();
+            results = App.DB.TradeClassifications.Where(x => x.IsManuallyAssigned == true).ToList();
             return results;
         }
     }

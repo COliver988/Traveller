@@ -1,5 +1,7 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Traveller.Models;
+using Traveller.Support;
 using TravellerTracker.Models;
 using TravellerTracker.Support;
 using Windows.UI.Xaml;
@@ -51,7 +53,7 @@ namespace TravellerTracker.UserControls
         private async void WorldDisplay_Loaded(object sender, RoutedEventArgs e)
         {
             this.DataContext = WorldItem;
-            lstManualCodes.ItemsSource = App.DB.TradeClassifications.Where(x => x.IsManuallyAssigned == true);
+            lstManualCodes.ItemsSource = GenerateTradeCodes.GetManualCodes(WorldItem.UWP);
             if (WorldItem != null)
             {
                 lstWorldLog.ItemsSource = WorldItem.theLog;
