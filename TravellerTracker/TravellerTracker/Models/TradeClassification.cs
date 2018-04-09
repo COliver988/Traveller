@@ -32,6 +32,8 @@ namespace Traveller.Models
         public string Law { get; set; }             // list of Law
         [Required]
         public bool IsManuallyAssigned { get; set; }    // not calculated by UWP
+        [Required]
+        public int BuyingAdjustment { get; set; }
 
         [NotMapped]
         public string Codes {  get { return string.Format("Size: {0} Atm: {1} Hydro: {2} Pop: {3} Gov: {4} Law: {5}", Sizes, Atmospheres, Hydro, Pop, Gov, Law); } }

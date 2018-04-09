@@ -54,6 +54,8 @@
             <Button Margin="3" Click="btnDelete">
                 Delete
             </Button>
+            <Button Margin="3" Click="btnPrevious">Prev</Button>
+            <Button Margin="3" Click="btnNext">Next</Button>
         </StackPanel>
         <TextBlock
             Grid.Row="1"
@@ -131,11 +133,17 @@
             Grid.Row="9"
             Style="{StaticResource txtBlock}"
             Text="Manual" />
-        <CheckBox
+        <StackPanel
             Grid.Row="9"
             Grid.Column="1"
-            Margin="3"
-            IsChecked="{x:Bind tc.IsManuallyAssigned}" />
+            Orientation="Horizontal">
+            <CheckBox Margin="3" IsChecked="{x:Bind tc.IsManuallyAssigned, Mode=TwoWay}" />
+            <TextBlock
+                Margin="3"
+                Style="{StaticResource txtBlock}"
+                Text="T5 Trade Class Effect" />
+            <TextBox Style="{StaticResource txtBoxNumCr}" Text="{x:Bind tc.BuyingAdjustment, Mode=TwoWay}" />
+        </StackPanel>
         <TextBlock
             Grid.Row="10"
             Style="{StaticResource txtBlock}"

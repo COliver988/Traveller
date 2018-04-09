@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Traveller.Models;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -13,6 +15,7 @@ namespace TravellerTracker.Views
     public sealed partial class TradeClassificationEdit : Page
     {
         public TradeClassification tc { get; set; }
+        private List<TradeClassification> allCodes = null;
         public TradeClassificationEdit(int id)
         {
             this.InitializeComponent();
@@ -40,6 +43,28 @@ namespace TravellerTracker.Views
             App.DB.SaveChangesAsync();
             TradeCodeList p = new TradeCodeList();
             App.mainFrame.Content = p;
+        }
+
+        private void btnPrevious(object sender, RoutedEventArgs e)
+        {
+            if (allCodes == null)
+                loadAllCodes();
+            TradeClassification prev = allCodes.SkipWhile(x => x.Classification != tc.Classification).Skip(-2).First();
+            tc = prev;
+        }
+
+        private void btnNext(object sender, RoutedEventArgs e)
+        {
+            if (allCodes == null)
+                loadAllCodes();
+            TradeClassification prev = allCodes.SkipWhile(x => x.Classification != tc.Classification).Skip(2).First();
+            tc = null;
+            tc = prev;
+        }
+
+        private void loadAllCodes()
+        {
+            allCodes = App.DB.TradeClassifications.OrderBy(x => x.Classification).ToList();
         }
     }
 }

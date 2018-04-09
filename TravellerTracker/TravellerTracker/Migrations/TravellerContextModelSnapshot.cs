@@ -268,6 +268,8 @@ namespace TravellerTracker.Migrations
                     b.Property<string>("Atmospheres")
                         .IsRequired();
 
+                    b.Property<int>("BuyingAdjustment");
+
                     b.Property<string>("Classification")
                         .IsRequired();
 
