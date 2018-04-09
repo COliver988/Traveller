@@ -38,7 +38,7 @@
             Grid.ColumnSpan="2"
             HorizontalAlignment="Center"
             Style="{StaticResource txtBlockTitle}"
-            Text="{x:Bind tc.Name, Mode=TwoWay}" />
+            Text="{Binding Name, Mode=TwoWay}" />
         <StackPanel
             Grid.Row="0"
             Grid.Column="1"
@@ -65,7 +65,7 @@
             Grid.Row="1"
             Grid.Column="1"
             Style="{StaticResource txtBox}"
-            Text="{x:Bind tc.Classification, Mode=TwoWay}" />
+            Text="{Binding Classification, Mode=TwoWay}" />
         <TextBlock
             Grid.Row="2"
             Style="{StaticResource txtBlock}"
@@ -74,7 +74,7 @@
             Grid.Row="2"
             Grid.Column="1"
             Style="{StaticResource txtBox}"
-            Text="{x:Bind tc.Name, Mode=TwoWay}" />
+            Text="{Binding Name, Mode=TwoWay}" />
         <TextBlock
             Grid.Row="3"
             Style="{StaticResource txtBlock}"
@@ -83,7 +83,7 @@
             Grid.Row="3"
             Grid.Column="1"
             Style="{StaticResource txtBox}"
-            Text="{x:Bind tc.Sizes, Mode=TwoWay}" />
+            Text="{Binding Sizes, Mode=TwoWay}" />
         <TextBlock
             Grid.Row="4"
             Style="{StaticResource txtBlock}"
@@ -92,7 +92,7 @@
             Grid.Row="4"
             Grid.Column="1"
             Style="{StaticResource txtBox}"
-            Text="{x:Bind tc.Atmospheres, Mode=TwoWay}" />
+            Text="{Binding Atmospheres, Mode=TwoWay}" />
         <TextBlock
             Grid.Row="5"
             Style="{StaticResource txtBlock}"
@@ -101,7 +101,7 @@
             Grid.Row="5"
             Grid.Column="1"
             Style="{StaticResource txtBox}"
-            Text="{x:Bind tc.Hydro, Mode=TwoWay}" />
+            Text="{Binding Hydro, Mode=TwoWay}" />
         <TextBlock
             Grid.Row="6"
             Style="{StaticResource txtBlock}"
@@ -110,7 +110,7 @@
             Grid.Row="6"
             Grid.Column="1"
             Style="{StaticResource txtBox}"
-            Text="{x:Bind tc.Pop, Mode=TwoWay}" />
+            Text="{Binding Pop, Mode=TwoWay}" />
         <TextBlock
             Grid.Row="7"
             Style="{StaticResource txtBlock}"
@@ -119,7 +119,7 @@
             Grid.Row="7"
             Grid.Column="1"
             Style="{StaticResource txtBox}"
-            Text="{x:Bind tc.Gov, Mode=TwoWay}" />
+            Text="{Binding Gov, Mode=TwoWay}" />
         <TextBlock
             Grid.Row="8"
             Style="{StaticResource txtBlock}"
@@ -128,7 +128,7 @@
             Grid.Row="8"
             Grid.Column="1"
             Style="{StaticResource txtBox}"
-            Text="{x:Bind tc.Law, Mode=TwoWay}" />
+            Text="{Binding Law, Mode=TwoWay}" />
         <TextBlock
             Grid.Row="9"
             Style="{StaticResource txtBlock}"
@@ -137,12 +137,12 @@
             Grid.Row="9"
             Grid.Column="1"
             Orientation="Horizontal">
-            <CheckBox Margin="3" IsChecked="{x:Bind tc.IsManuallyAssigned, Mode=TwoWay}" />
+            <CheckBox Margin="3" IsChecked="{Binding IsManuallyAssigned, Mode=TwoWay}" />
             <TextBlock
                 Margin="3"
                 Style="{StaticResource txtBlock}"
                 Text="T5 Trade Class Effect" />
-            <TextBox Style="{StaticResource txtBoxNumCr}" Text="{x:Bind tc.BuyingAdjustment, Mode=TwoWay}" />
+            <TextBox Style="{StaticResource txtBoxNumCr}" Text="{Binding BuyingAdjustment, Mode=TwoWay}" />
         </StackPanel>
         <TextBlock
             Grid.Row="10"
@@ -152,7 +152,7 @@
             Grid.Row="10"
             Grid.Column="1"
             Margin="3"
-            Text="{x:Bind tc.Description, Mode=TwoWay}"
+            Text="{Binding Description, Mode=TwoWay}"
             TextWrapping="Wrap" />
     </Grid>
 </Page>

@@ -15,11 +15,12 @@ namespace TravellerTracker.Views
     public sealed partial class TradeClassificationEdit : Page
     {
         public TradeClassification tc { get; set; }
-        private List<TradeClassification> allCodes = null;
+        private List<string> allCodes = null;
         public TradeClassificationEdit(int id)
         {
             this.InitializeComponent();
-            tc = TravellerTracker.App.DB.TradeClassifications.Where(x => x.TradeClassificationID == id).First();
+            this.DataContext = TravellerTracker.App.DB.TradeClassifications.Where(x => x.TradeClassificationID == id).First();
+            tc = DataContext as TradeClassification;
         }
 
         private void btnSave(object sender, RoutedEventArgs e)
@@ -49,22 +50,27 @@ namespace TravellerTracker.Views
         {
             if (allCodes == null)
                 loadAllCodes();
-            TradeClassification prev = allCodes.SkipWhile(x => x.Classification != tc.Classification).Skip(-2).First();
-            tc = prev;
+            int idx = allCodes.IndexOf(tc.Classification);
+            if (idx > 0) idx--;
+            tc = App.DB.TradeClassifications.Where(x => x.Classification == allCodes[idx]).First();
+            this.DataContext = null;
+            this.DataContext = tc;
         }
 
         private void btnNext(object sender, RoutedEventArgs e)
         {
             if (allCodes == null)
                 loadAllCodes();
-            TradeClassification prev = allCodes.SkipWhile(x => x.Classification != tc.Classification).Skip(2).First();
-            tc = null;
-            tc = prev;
+            int idx = allCodes.IndexOf(tc.Classification);
+            if (idx < allCodes.Count) idx++;
+            tc = App.DB.TradeClassifications.Where(x => x.Classification == allCodes[idx]).First();
+            this.DataContext = null;
+            this.DataContext = tc;
         }
 
         private void loadAllCodes()
         {
-            allCodes = App.DB.TradeClassifications.OrderBy(x => x.Classification).ToList();
+            allCodes = App.DB.TradeClassifications.OrderBy(x => x.Classification).Select(x => x.Classification).ToList();
         }
     }
 }
