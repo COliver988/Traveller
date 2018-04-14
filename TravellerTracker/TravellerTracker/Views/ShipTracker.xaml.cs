@@ -61,17 +61,9 @@ namespace TravellerTracker.Views
                 e.showError("Ship class does not exist - please add a class");
             }
             if (ship.Era != null)
-            {
-                if (App.DB.Sectors.Where(x => x.Milieu == ship.Era).Count() == 0)
-                    if (ship.Era != null)
-                    {
-                        TravellerMapAPI api = new TravellerMapAPI();
-                        api.loadAppDB(ship.Era);
-                    }
-                comboSectors.ItemsSource = App.DB.Sectors.Where(x => x.Milieu == ship.Era).OrderBy(o => o.Name).ToList();
-                if (sector != null)
-                    comboSectors.SelectedItem = App.DB.Sectors.Where(x => x.Name == sector.Name).First();
-            }
+                loadSectorsForEra(ship.Era);
+            else
+                loadSectorsForEra("M1105");
             if (App.tmWorlds != null)
             {
                 comboWorlds.ItemsSource = App.tmWorlds.OrderBy(x => x.Name);
@@ -82,6 +74,20 @@ namespace TravellerTracker.Views
                 comboVersions.SelectedItem = ship.theVersion;
             comboEra.ItemsSource = App.Eras;
             comboEra.SelectedValue = ship.Era;
+        }
+
+        private void loadSectorsForEra(string era)
+        {
+            if (App.DB.Sectors.Where(x => x.Milieu == ship.Era).Count() == 0)
+                if (ship.Era != null)
+                {
+                    TravellerMapAPI api = new TravellerMapAPI();
+                    api.loadAppDB(era);
+                }
+            comboSectors.ItemsSource = App.DB.Sectors.Where(x => x.Milieu == ship.Era).OrderBy(o => o.Name).ToList();
+            if (sector != null)
+                comboSectors.SelectedItem = App.DB.Sectors.Where(x => x.Name == sector.Name).First();
+            throw new NotImplementedException();
         }
 
         private void btnLoadCargo(object sender, Windows.UI.Xaml.RoutedEventArgs e)
@@ -535,7 +541,10 @@ namespace TravellerTracker.Views
             ComboBox cb = (ComboBox)sender;
             string era = cb.SelectedItem.ToString();
             if (era != ship.Era)
+            {
                 ship.Era = era;
+                loadSectorsForEra(era);
+            }
         }
 
         private void cbSetSector(object sender, SelectionChangedEventArgs e)

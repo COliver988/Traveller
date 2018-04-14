@@ -25,6 +25,8 @@ namespace Traveller.Support
                 }
                 catch (Exception ex)
                 {
+                    ErrorHandling eh = new ErrorHandling();
+                    eh.showError("I'm sorry - we've had a problem. It may be that you are not connected to the Internet.");
                     var a = ex;
                     throw;
                 }
