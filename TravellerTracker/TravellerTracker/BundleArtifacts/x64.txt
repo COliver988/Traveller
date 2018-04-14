@@ -1,2 +1,2 @@
-MainPackage=C:\Users\Craig\Documents\GitHub\Traveller\TravellerTracker\TravellerTracker\bin\x64\Release\TravellerTracker_0.1.0.0_x64.appx
-SymbolPackage=C:\Users\Craig\Documents\GitHub\Traveller\TravellerTracker\TravellerTracker\AppPackages\TravellerTracker_0.1.0.0_Test\TravellerTracker_0.1.0.0_x64.appxsym
+MainPackage=C:\Users\Craig\Documents\GitHub\Traveller\TravellerTracker\TravellerTracker\bin\x64\Release\TravellerTracker_0.2.7.0_x64.appx
+SymbolPackage=C:\Users\Craig\Downloads\TravellerTracker_0.2.7.0_Test\TravellerTracker_0.2.7.0_x64.appxsym

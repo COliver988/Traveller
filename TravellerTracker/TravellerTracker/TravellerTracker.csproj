@@ -21,6 +21,9 @@
     <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
     <AppxBundle>Always</AppxBundle>
     <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
+    <AppxPackageDir>C:\Users\Craig\Downloads\</AppxPackageDir>
+    <PackageCertificateThumbprint>C293030D45CF3A863C880FB197A707D10079204A</PackageCertificateThumbprint>
+    <HockeyAppResourceId>106ce8bd94d842d9b3830da094398066</HockeyAppResourceId>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
