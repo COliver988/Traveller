@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using Traveller.Models;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -10,8 +9,7 @@ namespace TravellerTracker.UserControls
 {
     public sealed partial class VersionMisc : UserControl
     {
-
-
+        private int[] _actualValues = new int[14] { 40, 50, 70, 80, 90, 100, 110, 120, 130, 150, 170, 200, 300, 400 };
 
         public TravellerVersion Version
         {
@@ -41,7 +39,7 @@ namespace TravellerTracker.UserControls
                 }
                 if (Version.ActualValues.Count == 0)
                     for (int i = 2; i < 16; i++)
-                        TravellerTracker.App.DB.Add(new ActualValue() { DiceRoll = i, TravellerVersionId = Version.TravellerVersionId, PercentageValue = 100 });
+                        TravellerTracker.App.DB.Add(new ActualValue() { DiceRoll = i, TravellerVersionId = Version.TravellerVersionId, PercentageValue = _actualValues[i - 2] });
                 App.DB.SaveChanges();
                 lstValues.ItemsSource = Version.ActualValues.OrderBy(x => x.DiceRoll);
                 switch (Version.CargoCodeType)
