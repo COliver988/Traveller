@@ -24,8 +24,8 @@ namespace TravellerTracker.UserControls
             this.InitializeComponent();
             if (CargoList == null)
             {
-                lstCargo.Visibility = Visibility.Collapsed;
-                txtNoCargo.Visibility = Visibility.Visible;
+                //lstCargo.Visibility = Visibility.Collapsed;
+                //txtNoCargo.Visibility = Visibility.Visible;
             }
         }
 

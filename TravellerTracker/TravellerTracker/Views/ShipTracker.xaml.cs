@@ -78,16 +78,15 @@ namespace TravellerTracker.Views
 
         private void loadSectorsForEra(string era)
         {
-            if (App.DB.Sectors.Where(x => x.Milieu == ship.Era).Count() == 0)
-                if (ship.Era != null)
+            if (App.DB.Sectors.Where(x => x.Milieu == era).Count() == 0)
+                if (era != null)
                 {
                     TravellerMapAPI api = new TravellerMapAPI();
                     api.loadAppDB(era);
                 }
             comboSectors.ItemsSource = App.DB.Sectors.Where(x => x.Milieu == ship.Era).OrderBy(o => o.Name).ToList();
-            if (sector != null)
+            if (sector != null && sector.Name != null)
                 comboSectors.SelectedItem = App.DB.Sectors.Where(x => x.Name == sector.Name).First();
-            throw new NotImplementedException();
         }
 
         private void btnLoadCargo(object sender, Windows.UI.Xaml.RoutedEventArgs e)

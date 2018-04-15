@@ -37,18 +37,24 @@ namespace Traveller.Support
         private List<Cargo> findT5Cargo(Ship ship)
         {
             List<Cargo> results = new List<Cargo>();
-            string[] TradeCodes = ship.theWorld.Remarks.Split(' ');
-            string codes = ship.theWorld.TradeCodes.Select(o => new { o.Classification }).ToString();
-            foreach (TradeClassification tradecode in ship.theWorld.TradeCodes)
+            Cargo c = new Cargo() { isSpeculative = true, CargoCode = $"{ship.theWorld.Tech} - ", BasePurchasePrice = 3000 };
+            foreach (TradeClassification tc in ship.theWorld.TradeCodes)
             {
-                Cargo c = new Cargo() { isSpeculative = true };
-                c.Description = T5LoadDescription(tradecode.Classification);
-                c.CargoCode = string.Format("{0} -{1} Cr", ship.theWorld.Tech, codes);
-                results.Add(c);
+                c.CargoCode += tc.Classification + " ";
+                c.BasePurchasePrice += tc.BuyingAdjustment;
             }
-
-            // now to calculate the cost
-
+            if (c.Description == null)
+            {
+                if (ship.theWorld.TradeCodes.Count() > 0)
+                {
+                    c.Description = T5LoadDescription(ship.theWorld.TradeCodes[rnd.Next(0, ship.theWorld.TradeCodes.Count())].Classification);
+                }
+                else
+                    c.Description = App.DB.TradeGoods.First().Description;
+            }
+            c.BasePurchasePrice += ship.theWorld.Tech * 100;
+            c.CargoCode += $" Cr{c.BasePurchasePrice}";
+            results.Add(c);
             return results;
         }
 

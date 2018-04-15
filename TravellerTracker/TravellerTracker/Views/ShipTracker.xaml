@@ -545,6 +545,7 @@
                         <TextBlock Style="{StaticResource txtBlock}" Text="dTons: " />
                         <TextBox Style="{StaticResource txtBox}" Text="{Binding dTons}" />
                         <TextBlock Style="{StaticResource txtBlock}" Text="Cargo Code: " />
+                        <TextBlock Style="{StaticResource txtBlock}" Text="{Binding CargoCode}"></TextBlock>
                         <Button Click="btnPrice" Style="{StaticResource btnMenu}">Purchase</Button>
                     </StackPanel>
                     <TextBlock
