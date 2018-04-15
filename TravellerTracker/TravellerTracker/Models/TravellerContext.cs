@@ -20,6 +20,7 @@ namespace TravellerTracker.Models
         public DbSet<ImageList> ImageLists { get; set; }
         public DbSet<TradeGood> TradeGoods { get; set; }
         public DbSet<WorldTC> WorldTCs { get; set; }
+        public DbSet<TradeClassEffects> TradeClassEffects { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

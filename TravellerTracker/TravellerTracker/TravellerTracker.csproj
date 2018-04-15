@@ -114,6 +114,10 @@
     <Compile Include="Migrations\20180409170931_tradeCodeEffects.designer.cs">
       <DependentUpon>20180409170931_tradeCodeEffects.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20180415224734_T5TradeCodeMatrix.cs" />
+    <Compile Include="Migrations\20180415224734_T5TradeCodeMatrix.designer.cs">
+      <DependentUpon>20180415224734_T5TradeCodeMatrix.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\TravellerContextModelSnapshot.cs" />
     <Compile Include="Models\ActualValue.cs" />
     <Compile Include="Models\BITSCargo.cs" />

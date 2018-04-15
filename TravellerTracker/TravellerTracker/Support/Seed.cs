@@ -219,6 +219,49 @@ namespace TravellerTracker.Support
                 db.Add(new TradeGood() { TradeCode = "Cp", Description = "Silver" });
                 db.Add(new TradeGood() { TradeCode = "Cp", Description = "Platinum" });
             }
+
+            if (db.TradeClassEffects.Count() == 0)
+            {
+                db.Add(new TradeClassEffects() { Source = "Ag", Destination = "Ag", Adjustment = 1000 });
+                db.Add(new TradeClassEffects() { Source = "Ag", Destination = "As", Adjustment = 1000 });
+                db.Add(new TradeClassEffects() { Source = "Ag", Destination = "De", Adjustment = 1000 });
+                db.Add(new TradeClassEffects() { Source = "Ag", Destination = "Hi", Adjustment = 1000 });
+                db.Add(new TradeClassEffects() { Source = "Ag", Destination = "In", Adjustment = 1000 });
+                db.Add(new TradeClassEffects() { Source = "Ag", Destination = "Rs", Adjustment = 1000 });
+                db.Add(new TradeClassEffects() { Source = "Ag", Destination = "Va", Adjustment = 1000 });
+                db.Add(new TradeClassEffects() { Source = "As", Destination = "As", Adjustment = 1000 });
+                db.Add(new TradeClassEffects() { Source = "As", Destination = "In", Adjustment = 1000 });
+                db.Add(new TradeClassEffects() { Source = "As", Destination = "Ri", Adjustment = 1000 });
+                db.Add(new TradeClassEffects() { Source = "As", Destination = "Va", Adjustment = 1000 });
+                db.Add(new TradeClassEffects() { Source = "Ba", Destination = "In", Adjustment = 1000 });
+                db.Add(new TradeClassEffects() { Source = "De", Destination = "De", Adjustment = 1000 });
+                db.Add(new TradeClassEffects() { Source = "Fl", Destination = "Fl", Adjustment = 1000 });
+                db.Add(new TradeClassEffects() { Source = "Fl", Destination = "In", Adjustment = 1000 });
+                db.Add(new TradeClassEffects() { Source = "Hi", Destination = "Hi", Adjustment = 1000 });
+                db.Add(new TradeClassEffects() { Source = "In", Destination = "Ag", Adjustment = 1000 });
+                db.Add(new TradeClassEffects() { Source = "In", Destination = "As", Adjustment = 1000 });
+                db.Add(new TradeClassEffects() { Source = "In", Destination = "De", Adjustment = 1000 });
+                db.Add(new TradeClassEffects() { Source = "In", Destination = "Fl", Adjustment = 1000 });
+                db.Add(new TradeClassEffects() { Source = "In", Destination = "Hi", Adjustment = 1000 });
+                db.Add(new TradeClassEffects() { Source = "In", Destination = "In", Adjustment = 1000 });
+                db.Add(new TradeClassEffects() { Source = "In", Destination = "Ri", Adjustment = 1000 });
+                db.Add(new TradeClassEffects() { Source = "In", Destination = "Va", Adjustment = 1000 });
+                db.Add(new TradeClassEffects() { Source = "Na", Destination = "As", Adjustment = 1000 });
+                db.Add(new TradeClassEffects() { Source = "Na", Destination = "De", Adjustment = 1000 });
+                db.Add(new TradeClassEffects() { Source = "Na", Destination = "Va", Adjustment = 1000 });
+                db.Add(new TradeClassEffects() { Source = "Po", Destination = "Ag", Adjustment = -1000 });
+                db.Add(new TradeClassEffects() { Source = "Po", Destination = "Hi", Adjustment = -1000 });
+                db.Add(new TradeClassEffects() { Source = "Po", Destination = "In", Adjustment = -1000 });
+                db.Add(new TradeClassEffects() { Source = "Po", Destination = "Ri", Adjustment = -1000 });
+                db.Add(new TradeClassEffects() { Source = "Ri", Destination = "Ag", Adjustment = 1000 });
+                db.Add(new TradeClassEffects() { Source = "Ri", Destination = "De", Adjustment = 1000 });
+                db.Add(new TradeClassEffects() { Source = "Ri", Destination = "Hi", Adjustment = 1000 });
+                db.Add(new TradeClassEffects() { Source = "Ri", Destination = "In", Adjustment = 1000 });
+                db.Add(new TradeClassEffects() { Source = "Ri", Destination = "Ri", Adjustment = 1000 });
+                db.Add(new TradeClassEffects() { Source = "Va", Destination = "As", Adjustment = 1000 });
+                db.Add(new TradeClassEffects() { Source = "Va", Destination = "In", Adjustment = 1000 });
+                db.Add(new TradeClassEffects() { Source = "Va", Destination = "Va", Adjustment = 1000 });
+            }
             db.SaveChanges();
             //db.SaveChangesAsync();
         }

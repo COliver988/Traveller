@@ -457,6 +457,22 @@ namespace TravellerTracker.Migrations
 
                     b.ToTable("ImageLists");
                 });
+
+            modelBuilder.Entity("TravellerTracker.Models.TradeClassEffects", b =>
+                {
+                    b.Property<int>("TradeClassEffectsID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("Adjustment");
+
+                    b.Property<string>("Destination");
+
+                    b.Property<string>("Source");
+
+                    b.HasKey("TradeClassEffectsID");
+
+                    b.ToTable("TradeClassEffects");
+                });
         }
     }
 }
