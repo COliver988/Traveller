@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Traveller.Models;
 using Traveller.Support;
@@ -59,18 +60,28 @@ namespace TravellerTracker.UserControls
             {
                 theShip = App.DB.Ships.Where(x => x.ShipId == shipCargo.ShipID).First();
                 lstActualValues.ItemsSource = theShip.theVersion.ActualValues;
-                txtCurrentWorld.Text = theShip.theWorld.Name.Trim() + " Codes: " + theShip.theWorld.Remarks;
+                txtCurrentWorld.Text = theShip.theWorld.Name.Trim() + " Codes: " + theShip.theWorld.TradeCodes;
                 txtApplicableDMs.Text = findMatchingCodes();
                 txtTradeCodeDMs.Text = tradeCodeDMs.ToString();
                 txtTotalDMs.Text = totalDMS.ToString();
+                txtT5Effects.Text = T5TradeClassEffects();
             }
+        }
+
+        private string T5TradeClassEffects()
+        {
+            int effects = 0;
+            if (IsSelling)
+                effects = (from tc in App.DB.TradeClassEffects where shipCargo.OriginWorld.TradeCodes.Any(c => c.Classification == tc.Source) select tc.Adjustment).Sum();
+            var temp = from tc in App.DB.TradeClassEffects where shipCargo.OriginWorld.TradeCodes.Any(c => c.Classification == tc.Source) select tc;
+            return effects.ToString();
         }
 
         // find the matching resell trade codes with the current world
         private string findMatchingCodes()
         {
             string results = "";
-            string[] worldCodes = theShip.theWorld.Remarks.Trim().Split(new char[] { ' ', ',' });
+            string[] worldCodes = theShip.theWorld.TradeCodes.Select(x => x.Classification).ToArray();
             string[] cargoCodes = new string[] { " " };
             if (IsSelling)
             {
@@ -79,7 +90,7 @@ namespace TravellerTracker.UserControls
             }
             else
             {
-                if (shipCargo.theCargo.PurchaseDMs != null)
+                if (shipCargo.theCargo != null && shipCargo.theCargo.PurchaseDMs != null)
                     cargoCodes = shipCargo.theCargo.PurchaseDMs.Trim().Split(new char[] { ' ', ',' });
             }
             if (cargoCodes[0] != " ")

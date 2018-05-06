@@ -25,21 +25,21 @@
             <ColumnDefinition Width="50" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50" />
-            <RowDefinition Height="50" />
-            <RowDefinition Height="50" />
-            <RowDefinition Height="50" />
-            <RowDefinition Height="50" />
-            <RowDefinition Height="50" />
-            <RowDefinition Height="50" />
-            <RowDefinition Height="50" />
-            <RowDefinition Height="50" />
-            <RowDefinition Height="50" />
-            <RowDefinition Height="50" />
-            <RowDefinition Height="50" />
-            <RowDefinition Height="50" />
-            <RowDefinition Height="50" />
-            <RowDefinition Height="50" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
         </Grid.RowDefinitions>
         <TextBlock
             Grid.ColumnSpan="2"
@@ -94,7 +94,7 @@
         <ListBox
             Name="lstActualValues"
             Grid.Row="1"
-            Grid.RowSpan="13"
+            Grid.RowSpan="12"
             Grid.Column="2"
             Width="120"
             Margin="3,0,0,3"
@@ -126,77 +126,82 @@
             Style="{StaticResource txtBlockLeft}" />
         <TextBlock
             Grid.Row="4"
-            Grid.RowSpan="4"
             Style="{StaticResource txtBlockRightBold}"
             Text="Broker" />
-        <StackPanel
+        <ComboBox
             Grid.Row="4"
-            Grid.RowSpan="4"
             Grid.Column="1"
-            Orientation="Vertical">
-            <RadioButton Name="rbBroker0" IsChecked="True">None</RadioButton>
-            <RadioButton Name="rbBroker1" IsChecked="False">Broker 1 (5% commission)</RadioButton>
-            <RadioButton Name="rbBroker2" IsChecked="False">Broker 2 (10% commision)</RadioButton>
-            <RadioButton Name="rbBroker3" IsChecked="False">Broker 3 (15% commision)</RadioButton>
-            <RadioButton Name="rbBroker4" IsChecked="False">Broker 4 (20% commision)</RadioButton>
-        </StackPanel>
+            VerticalAlignment="Center">
+            <ComboBoxItem>No Broker</ComboBoxItem>
+            <ComboBoxItem>Broker 1 (5% commission)</ComboBoxItem>
+            <ComboBoxItem>Broker 2 (10% commission)</ComboBoxItem>
+            <ComboBoxItem>Broker 3 (15% commission)</ComboBoxItem>
+            <ComboBoxItem>Broker 4 (20% commission)</ComboBoxItem>
+        </ComboBox>
         <TextBlock
-            Grid.Row="7"
+            Grid.Row="5"
             Style="{StaticResource txtBlockRightBold}"
             Text="Resell trade code DMs" />
         <TextBlock
-            Grid.Row="7"
+            Grid.Row="5"
             Grid.Column="1"
             Style="{StaticResource txtBlockLeft}"
             Text="{x:Bind shipCargo.theCargo.ResaleDMs}" />
         <TextBlock
-            Grid.Row="8"
+            Grid.Row="6"
             Style="{StaticResource txtBlockRightBold}"
             Text="Purchase trade code DMs" />
         <TextBlock
-            Grid.Row="8"
+            Grid.Row="6"
             Grid.Column="1"
             Style="{StaticResource txtBlockLeft}"
             Text="{x:Bind shipCargo.theCargo.PurchaseDMs}" />
         <TextBlock
-            Grid.Row="9"
+            Grid.Row="7"
             Style="{StaticResource txtBlockRightBold}"
             Text="Applicable DMs" />
         <TextBlock
             Name="txtApplicableDMs"
-            Grid.Row="9"
+            Grid.Row="7"
             Grid.Column="1"
             Style="{StaticResource txtBlockLeft}"
             Text="to be figured out" />
         <TextBlock
-            Grid.Row="10"
+            Grid.Row="8"
             Style="{StaticResource txtBlockRightBold}"
             Text="DMs" />
         <StackPanel
-            Grid.Row="10"
+            Grid.Row="8"
             Grid.Column="1"
             VerticalAlignment="Center"
             Orientation="Horizontal">
-            <TextBlock VerticalAlignment="Center" Text="Trade code: " />
+            <TextBlock Style="{StaticResource txtBlockRightBold}" Text="Trade code: " />
             <TextBlock Name="txtTradeCodeDMs" VerticalAlignment="Center" />
-            <TextBlock VerticalAlignment="Center" Text=" Player DMs: " />
-            <TextBox
-                Grid.Row="10"
-                Grid.Column="1"
-                Style="{StaticResource txtBoxNum}"
-                TextChanged="TextBox_TextChanged" />
+            <TextBlock Style="{StaticResource txtBlockRightBold}" Text=" Player DMs: " />
+            <TextBox Style="{StaticResource txtBoxNum}" TextChanged="TextBox_TextChanged" />
         </StackPanel>
         <TextBlock
-            Grid.Row="11"
+            Grid.Row="9"
             Style="{StaticResource txtBlockRightBold}"
             Text="Total DM" />
         <TextBlock
             Name="txtTotalDMs"
-            Grid.Row="11"
+            Grid.Row="9"
+            Grid.Column="1"
+            VerticalAlignment="Center" />
+        <TextBlock
+            Grid.Row="10"
+            Grid.Column="0"
+            Style="{StaticResource txtBlockRightBold}">
+            T5 Class Effects
+        </TextBlock>
+        <TextBlock
+            Name="txtT5Effects"
+            Grid.Row="10"
             Grid.Column="1"
             VerticalAlignment="Center" />
         <Button
-            Grid.Row="12"
+            Grid.Row="11"
             Grid.Column="0"
             HorizontalAlignment="Right"
             Click="btnRoll_Click"
@@ -204,7 +209,7 @@
             Roll!
         </Button>
         <StackPanel
-            Grid.Row="12"
+            Grid.Row="11"
             Grid.Column="1"
             Orientation="Horizontal">
             <TextBlock Style="{StaticResource txtBlockRightBold}" Text="Rolled" />
@@ -219,7 +224,7 @@
                 Style="{StaticResource txtBoxNumCr}" />
         </StackPanel>
         <Button
-            Grid.Row="13"
+            Grid.Row="12"
             Grid.Column="1"
             Width="250"
             Click="btnTransaction"

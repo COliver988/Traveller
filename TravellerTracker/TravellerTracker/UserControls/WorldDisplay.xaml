@@ -24,7 +24,7 @@
         BorderThickness="2">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100" />
-            <ColumnDefinition Width="800" />
+            <ColumnDefinition Width="500" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="45" />

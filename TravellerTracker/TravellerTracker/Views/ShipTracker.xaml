@@ -139,6 +139,7 @@
             Grid.ColumnSpan="3"
             IsOpen="False" />
         <Pivot
+            Name="pivotInfo"
             Grid.Row="5"
             Grid.Column="0"
             Grid.ColumnSpan="3">
@@ -522,7 +523,7 @@
                         Text="Current Cargo Load" />
                 </Grid>
             </PivotItem>
-            <PivotItem Header="Available Cargo">
+            <PivotItem Name="pivotAvailableCargo" Header="Available Cargo">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="220" />
@@ -545,7 +546,7 @@
                         <TextBlock Style="{StaticResource txtBlock}" Text="dTons: " />
                         <TextBox Style="{StaticResource txtBox}" Text="{Binding dTons}" />
                         <TextBlock Style="{StaticResource txtBlock}" Text="Cargo Code: " />
-                        <TextBlock Style="{StaticResource txtBlock}" Text="{Binding CargoCode}"></TextBlock>
+                        <TextBlock Style="{StaticResource txtBlock}" Text="{Binding CargoCode}" />
                         <Button Click="btnPrice" Style="{StaticResource btnMenu}">Purchase</Button>
                     </StackPanel>
                     <TextBlock

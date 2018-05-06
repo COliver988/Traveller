@@ -103,13 +103,14 @@ namespace TravellerTracker.Views
             foreach (World dest in jumpWorlds)
                 pax.Add(new CargoAvailable(ship, dest));
             lstPax.DataContext = pax;
+            pivotInfo.SelectedItem = pivotAvailableCargo;
             refresh();
         }
 
         private void btnPrice(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             Cargo cargo = spSpecTrade.DataContext as Cargo;
-            SpecCargoSell sc = new SpecCargoSell() { IsSelling = false, shipCargo = new ShipCargo() { ShipID = ship.ShipId, CargoID = cargo.CargoID, dTons = cargo.dTons } };
+            SpecCargoSell sc = new SpecCargoSell() { IsSelling = false, shipCargo = new ShipCargo() { ShipID = ship.ShipId, CargoID = cargo.CargoID, dTons = cargo.dTons, OriginWorldID = ship.WorldID, DayLoaded = ship.Day, YearLoaded = ship.Year } };
             popCargo.Child = sc;
             showPopup();
         }
