@@ -44,5 +44,7 @@ namespace Traveller.Models
         public World DestinationWorld => TravellerTracker.App.DB.Worlds.Where(x => x.WorldID == DestinationID).FirstOrDefault();
         [NotMapped]
         public Cargo theCargo => TravellerTracker.App.DB.Cargo.Where(x => x.CargoID == CargoID).FirstOrDefault();
+        [NotMapped]
+        public Ship theShip => TravellerTracker.App.DB.Ships.Where(x => x.ShipId == ShipID).FirstOrDefault();
     }
 }

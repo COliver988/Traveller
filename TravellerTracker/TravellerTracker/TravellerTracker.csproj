@@ -118,6 +118,10 @@
     <Compile Include="Migrations\20180415224734_T5TradeCodeMatrix.designer.cs">
       <DependentUpon>20180415224734_T5TradeCodeMatrix.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20180513201354_canAlterPurchasePrice.cs" />
+    <Compile Include="Migrations\20180513201354_canAlterPurchasePrice.designer.cs">
+      <DependentUpon>20180513201354_canAlterPurchasePrice.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\TravellerContextModelSnapshot.cs" />
     <Compile Include="Models\ActualValue.cs" />
     <Compile Include="Models\BITSCargo.cs" />
@@ -142,6 +146,7 @@
     <Compile Include="Models\WorldTC.cs" />
     <Compile Include="Support\AddLog.cs" />
     <Compile Include="Support\BITSCargoCode.cs" />
+    <Compile Include="Support\BuyCargo.cs" />
     <Compile Include="Support\GenerateTradeCodes.cs" />
     <Compile Include="Support\ImageHandler.cs" />
     <Compile Include="Support\ImperialDates.cs" />

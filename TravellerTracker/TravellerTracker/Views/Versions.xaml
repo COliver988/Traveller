@@ -20,7 +20,7 @@
     <Grid
         MinWidth="500"
         MinHeight="499"
-        HorizontalAlignment="Left"
+        HorizontalAlignment="Center"
         VerticalAlignment="Top"
         Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
         ScrollViewer.HorizontalScrollBarVisibility="Visible"

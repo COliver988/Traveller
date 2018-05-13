@@ -20,10 +20,11 @@
     <Grid Background="{StaticResource UserControlBackground}">
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="120" />
             <ColumnDefinition Width="300" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
             <RowDefinition Height="50" />
             <RowDefinition Height="50" />
             <RowDefinition Height="25" />
@@ -49,12 +50,14 @@
             <RadioButton Name="rbT5" Click="rbT5_Click">T5</RadioButton>
             <RadioButton Name="rbBITS" Click="rbBITS_Click">BITS</RadioButton>
         </StackPanel>
+        <TextBlock Style="{StaticResource txtBlockRightBold}" Grid.Row="2" Text="Alter Buy Price"></TextBlock>
+        <CheckBox Grid.Column="1" Grid.Row="2"  IsChecked="{x:Bind Version.CanAlterPurchasePrice, Mode=TwoWay}" Margin="3"></CheckBox>
         <TextBlock
-            Grid.Row="3"
+            Grid.Row="4"
             Style="{StaticResource txtBlockRightBold}"
             Text="Actual Value" />
         <Grid
-            Grid.Row="2"
+            Grid.Row="3"
             Grid.Column="1"
             Width="150"
             Margin="3"
@@ -75,7 +78,7 @@
         </Grid>
         <ListBox
             Name="lstValues"
-            Grid.Row="3"
+            Grid.Row="4"
             Grid.RowSpan="2"
             Grid.Column="1"
             Width="170"

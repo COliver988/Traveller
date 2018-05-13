@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using Traveller.Models;
 using Traveller.Support;
@@ -25,8 +24,6 @@ namespace TravellerTracker.UserControls
         // Using a DependencyProperty as the backing store for MyProperty.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty MyPropertyProperty =
             DependencyProperty.Register("MyProperty", typeof(ShipCargo), typeof(SpecCargoSell), new PropertyMetadata(0));
-
-
 
         public bool IsSelling
         {
@@ -72,8 +69,10 @@ namespace TravellerTracker.UserControls
         {
             int effects = 0;
             if (IsSelling)
-                effects = (from tc in App.DB.TradeClassEffects where shipCargo.OriginWorld.TradeCodes.Any(c => c.Classification == tc.Source) select tc.Adjustment).Sum();
-            var temp = from tc in App.DB.TradeClassEffects where shipCargo.OriginWorld.TradeCodes.Any(c => c.Classification == tc.Source) select tc;
+                foreach (var cargo in shipCargo.OriginWorld.TradeCodes)
+                {
+                    effects += (from tc in App.DB.TradeClassEffects where shipCargo.OriginWorld.TradeCodes.Any(c => c.Classification == tc.Source) select tc.Adjustment).FirstOrDefault();
+                }
             return effects.ToString();
         }
 
@@ -138,17 +137,9 @@ namespace TravellerTracker.UserControls
 
         private void btnTransaction(object sender, RoutedEventArgs e)
         {
-            AddLog al = new AddLog();
+            BuySellCargo bc = new BuySellCargo();
             if (IsSelling)
-            {
-                theShip.CargoCarried -= shipCargo.dTons;
-                theShip.Credits += totalPrice;
-                shipCargo.isActive = 0;
-                shipCargo.DayUnloaded = theShip.Day;
-                shipCargo.YearUnloaded = theShip.Year;
-                shipCargo.DestinationID = theShip.theWorld.WorldID;
-                al.addLog(theShip, shipCargo, false);
-            }
+                Sell();
             else
             {
                 if (theShip.Credits < totalPrice)
@@ -163,16 +154,24 @@ namespace TravellerTracker.UserControls
                     eh.showError("You don't have the cargo space available!");
                     return;
                 }
-                theShip.Credits -= totalPrice;
-                theShip.CargoCarried += shipCargo.dTons;
-                shipCargo.DayLoaded = theShip.Day;
-                shipCargo.YearLoaded = theShip.Year;
-                shipCargo.OriginWorldID = theShip.theWorld.WorldID;
-                shipCargo.isActive = 1;
-                App.DB.Add(shipCargo);
-                al.addLog(theShip, shipCargo, true);
-                App.DB.SaveChangesAsync();
+                Buy();
             }
+        }
+
+        public void Sell()
+        {
+            BuySellCargo bc = new BuySellCargo();
+            shipCargo.ResellPrice = totalPrice;
+            bc.SellCargo(theShip, shipCargo);
+        }
+
+        public void Buy()
+        {
+            BuySellCargo bc = new BuySellCargo();
+            if (totalPrice > 0)
+                shipCargo.PurchasePrice = totalPrice;
+            bc.BuyCargo(theShip, shipCargo);
+
         }
     }
 }

@@ -42,6 +42,7 @@ namespace Traveller.Models
         public CargoCodeTypes CargoCodeType { get; set; }
         public int D1TopRange { get; set; }
         public int D2TopRange { get; set; }
+        public bool CanAlterPurchasePrice { get; set; }
 
         [NotMapped]
         public CargoCodeTypeEnums CargoTypeEnums => new CargoCodeTypeEnums();

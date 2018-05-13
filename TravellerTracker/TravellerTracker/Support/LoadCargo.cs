@@ -51,9 +51,13 @@ namespace Traveller.Support
             }
             c.BasePurchasePrice += ship.theWorld.Tech * 100;
             c.CargoCode += $" Cr{c.BasePurchasePrice}";
+            c.dTons = c.BasePurchasePrice / 250;
             results.Add(c);
+            App.DB.Add(c);
+            App.DB.SaveChangesAsync();
             return results;
         }
+
 
         private string T5LoadDescription(string tradecode)
         {

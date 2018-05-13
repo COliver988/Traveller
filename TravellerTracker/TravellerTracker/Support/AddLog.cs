@@ -11,10 +11,14 @@ namespace TravellerTracker.Support
         {
             ShipLog log = new ShipLog(ship);
             string process = "loaded";
+            string cost = $"purchase price: Cr{cargo.PurchasePrice}";
             if (!isLoading)
+            {
                 process = "unloaded";
+                cost = $"selling price: Cr{cargo.ResellPrice}";
+            }
             if (cargo.CargoType == ShipCargo.CargoTypes.Speculative)
-                log.Log = $"Cargo {process}: {cargo.CargoCode} at {ship.theWorld.Name}; speculative trade";
+                log.Log = $"Cargo {process}: {cargo.CargoCode} at {ship.theWorld.Name}; speculative trade; {cost}";
             else
                 log.Log = $"Cargo {process}: {cargo.CargoCode} at {ship.theWorld.Name}; destination {cargo.DestinationWorld.Name}";
 

@@ -321,6 +321,8 @@ namespace TravellerTracker.Migrations
                     b.Property<int>("TravellerVersionId")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<bool>("CanAlterPurchasePrice");
+
                     b.Property<int>("CargoCodeType");
 
                     b.Property<int>("Cost1HighPax");

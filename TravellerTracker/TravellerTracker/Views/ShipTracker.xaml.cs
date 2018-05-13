@@ -110,9 +110,18 @@ namespace TravellerTracker.Views
         private void btnPrice(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             Cargo cargo = spSpecTrade.DataContext as Cargo;
-            SpecCargoSell sc = new SpecCargoSell() { IsSelling = false, shipCargo = new ShipCargo() { ShipID = ship.ShipId, CargoID = cargo.CargoID, dTons = cargo.dTons, OriginWorldID = ship.WorldID, DayLoaded = ship.Day, YearLoaded = ship.Year } };
-            popCargo.Child = sc;
-            showPopup();
+            SpecCargoSell sc = new SpecCargoSell() { IsSelling = false, shipCargo = new ShipCargo() { ShipID = ship.ShipId, CargoID = cargo.CargoID, dTons = cargo.dTons, OriginWorldID = ship.WorldID, DayLoaded = ship.Day, YearLoaded = ship.Year, PurchasePrice = cargo.BasePurchasePrice } };
+            if (ship.theVersion.CanAlterPurchasePrice)
+            {
+                popCargo.Child = sc;
+                showPopup();
+            }
+            else
+                if (ship.AvailableCargo >= cargo.dTons && ship.Credits >= cargo.BasePurchasePrice)
+            {
+                sc.theShip = ship;
+                sc.Buy();
+            }
         }
 
         private async void btnRefuel(object sender, Windows.UI.Xaml.RoutedEventArgs e)
