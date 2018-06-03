@@ -64,7 +64,7 @@ namespace Traveller.Support
         {
             int tons = 0;
             int flux = Math.Abs(util.flux());
-            int fluxPop = flux * ship.theWorld.Pop;
+            int fluxPop = flux + ship.theWorld.Pop;
             int tcs = ship.theWorld.TradeCodes.Where(x => x.T5ValidFreightTC == true).Count();
             tons = fluxPop * (tcs + 1);
             return tons;
