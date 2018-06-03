@@ -22,5 +22,7 @@ namespace Traveller.Models
 
         [NotMapped]
         public string DayDisplay {  get { return string.Format("{0:000}", Day);  } }
+        [NotMapped]
+        public string DateDisplay {  get { return string.Format("{0:000}-{1:0000}", Day, Year); } }
     }
 }

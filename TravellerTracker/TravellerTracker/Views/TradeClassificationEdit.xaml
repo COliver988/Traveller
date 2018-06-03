@@ -31,6 +31,7 @@
             <RowDefinition Height="40" />
             <RowDefinition Height="40" />
             <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
             <RowDefinition />
         </Grid.RowDefinitions>
         <TextBlock
@@ -131,25 +132,27 @@
             Text="{Binding Law, Mode=TwoWay}" />
         <TextBlock
             Grid.Row="9"
-            Style="{StaticResource txtBlock}"
-            Text="Manual" />
-        <StackPanel
+            Margin="3"
+            VerticalAlignment="Center"
+            Text="T5 Trade Class Effect" />
+        <TextBox
             Grid.Row="9"
             Grid.Column="1"
+            Style="{StaticResource txtBoxNumCr}"
+            Text="{Binding BuyingAdjustment, Mode=TwoWay}" />
+        <StackPanel
+            Grid.Row="10"
+            Grid.Column="1"
             Orientation="Horizontal">
-            <CheckBox Margin="3" IsChecked="{Binding IsManuallyAssigned, Mode=TwoWay}" />
-            <TextBlock
-                Margin="3"
-                Style="{StaticResource txtBlock}"
-                Text="T5 Trade Class Effect" />
-            <TextBox Style="{StaticResource txtBoxNumCr}" Text="{Binding BuyingAdjustment, Mode=TwoWay}" />
+            <CheckBox Margin="3" IsChecked="{Binding IsManuallyAssigned, Mode=TwoWay}">Manually Assigned Code</CheckBox>
+            <CheckBox Margin="3" IsChecked="{Binding T5ValidFreightTC, Mode=TwoWay}">T5 Freight TC</CheckBox>
         </StackPanel>
         <TextBlock
-            Grid.Row="10"
+            Grid.Row="11"
             Style="{StaticResource txtBlock}"
             Text="Description" />
         <TextBox
-            Grid.Row="10"
+            Grid.Row="11"
             Grid.Column="1"
             Margin="3"
             Text="{Binding Description, Mode=TwoWay}"

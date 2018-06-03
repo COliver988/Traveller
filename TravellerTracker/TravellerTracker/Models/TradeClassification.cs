@@ -33,7 +33,9 @@ namespace Traveller.Models
         [Required]
         public bool IsManuallyAssigned { get; set; }    // not calculated by UWP
         [Required]
-        public int BuyingAdjustment { get; set; }
+        public int BuyingAdjustment { get; set; }   // Classic +/- price 
+        [Required]
+        public bool T5ValidFreightTC { get; set; }  // is this allowed for the freight generation rules?
 
         [NotMapped]
         public string Codes {  get { return string.Format("Size: {0} Atm: {1} Hydro: {2} Pop: {3} Gov: {4} Law: {5}", Sizes, Atmospheres, Hydro, Pop, Gov, Law); } }

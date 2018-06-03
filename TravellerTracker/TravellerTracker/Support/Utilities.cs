@@ -33,6 +33,11 @@ namespace Traveller.Support
             return result;
         }
 
+        public int flux()
+        {
+            return d6() - d6();
+        }
+
         /// <summary>
         /// calculate the distance between two hexes
         /// </summary>

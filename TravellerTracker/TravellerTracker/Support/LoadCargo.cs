@@ -51,13 +51,24 @@ namespace Traveller.Support
             }
             c.BasePurchasePrice += ship.theWorld.Tech * 100;
             c.CargoCode += $" Cr{c.BasePurchasePrice}";
-            c.dTons = c.BasePurchasePrice / 250;
+            c.dTons = calcT5Tons(ship);
             results.Add(c);
             App.DB.Add(c);
             App.DB.SaveChangesAsync();
             return results;
         }
 
+        // (Flux x pop) x (total TCs + 1) valid TCs
+        // DM: Liason - hmmm
+        private int calcT5Tons(Ship ship)
+        {
+            int tons = 0;
+            int flux = Math.Abs(util.flux());
+            int fluxPop = flux * ship.theWorld.Pop;
+            int tcs = ship.theWorld.TradeCodes.Where(x => x.T5ValidFreightTC == true).Count();
+            tons = fluxPop * (tcs + 1);
+            return tons;
+        }
 
         private string T5LoadDescription(string tradecode)
         {

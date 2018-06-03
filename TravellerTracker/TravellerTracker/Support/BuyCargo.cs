@@ -28,6 +28,7 @@ namespace TravellerTracker.Support
             cargo.YearUnloaded = ship.Year;
             cargo.DestinationID = ship.theWorld.WorldID;
             al.addLog(ship, cargo, false);
+            App.DB.SaveChangesAsync();
         }
     }
 }

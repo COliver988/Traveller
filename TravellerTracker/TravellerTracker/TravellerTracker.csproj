@@ -18,12 +18,15 @@
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WindowsXamlEnableOverview>true</WindowsXamlEnableOverview>
     <PackageCertificateKeyFile>TravellerTracker_TemporaryKey.pfx</PackageCertificateKeyFile>
-    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+    <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
     <AppxBundle>Always</AppxBundle>
     <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
-    <AppxPackageDir>C:\Users\Craig\Downloads\</AppxPackageDir>
+    <AppxPackageDir>C:\Users\Craig\Downloads\tracker</AppxPackageDir>
     <PackageCertificateThumbprint>C293030D45CF3A863C880FB197A707D10079204A</PackageCertificateThumbprint>
     <HockeyAppResourceId>106ce8bd94d842d9b3830da094398066</HockeyAppResourceId>
+    <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
+    <AppInstallerUpdateFrequency>1</AppInstallerUpdateFrequency>
+    <AppInstallerCheckForUpdateFrequency>OnApplicationRun</AppInstallerCheckForUpdateFrequency>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -121,6 +124,10 @@
     <Compile Include="Migrations\20180513201354_canAlterPurchasePrice.cs" />
     <Compile Include="Migrations\20180513201354_canAlterPurchasePrice.designer.cs">
       <DependentUpon>20180513201354_canAlterPurchasePrice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20180603122548_T5ValidFreightTC.cs" />
+    <Compile Include="Migrations\20180603122548_T5ValidFreightTC.designer.cs">
+      <DependentUpon>20180603122548_T5ValidFreightTC.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\TravellerContextModelSnapshot.cs" />
     <Compile Include="Models\ActualValue.cs" />
