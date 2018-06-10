@@ -413,7 +413,7 @@
                     </ListBox.ItemTemplate>
                 </ListBox>
             </PivotItem>
-            <PivotItem Header="Cargo Manifest">
+            <PivotItem Name="pivotManifest" Header="Cargo Manifest">
                 <Grid Name="gridCargoManist">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50" />

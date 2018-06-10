@@ -122,6 +122,8 @@ namespace TravellerTracker.Views
                 sc.theShip = ship;
                 sc.Buy();
             }
+            pivotInfo.SelectedItem = pivotManifest;
+            refresh();
         }
 
         private async void btnRefuel(object sender, Windows.UI.Xaml.RoutedEventArgs e)
@@ -139,7 +141,7 @@ namespace TravellerTracker.Views
                     Content = tb,
                     PrimaryButtonText = "OK"
                 };
-                var x = await dialog.ShowAsync();
+                await dialog.ShowAsync();
             }
             else if (ship.theWorld.thePort.hasRefinedFuel)
             {
