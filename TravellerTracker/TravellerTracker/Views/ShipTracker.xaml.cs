@@ -134,14 +134,8 @@ namespace TravellerTracker.Views
             int refinedCost = fuelNeeded * 500;
             if (ship.Credits <= unrefinedCost)
             {
-                TextBlock tb = new TextBlock() { Text = string.Format("Insufficient funds to purchase fuel: Cr{0} required for unrefined fuel, \nCr{1} required for refined fuel.\nYou only have Cr{2}", unrefinedCost, refinedCost, ship.Credits) };
-                var dialog = new Windows.UI.Xaml.Controls.ContentDialog
-                {
-                    Title = "Warning",
-                    Content = tb,
-                    PrimaryButtonText = "OK"
-                };
-                await dialog.ShowAsync();
+                ErrorHandling eh = new ErrorHandling();
+                eh.showError(string.Format("Insufficient funds to purchase fuel: Cr{0} required for unrefined fuel, \nCr{1} required for refined fuel.\nYou only have Cr{2}", unrefinedCost, refinedCost, ship.Credits)) ;
             }
             else if (ship.theWorld.thePort.hasRefinedFuel)
             {

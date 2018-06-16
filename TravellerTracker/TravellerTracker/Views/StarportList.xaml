@@ -15,129 +15,131 @@
         </ResourceDictionary>
     </Page.Resources>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="50" />
-            <ColumnDefinition Width="200" />
-            <ColumnDefinition Width="200" />
-            <ColumnDefinition Width="200" />
-            <ColumnDefinition Width="100" />
-            <ColumnDefinition Width="70" />
-            <ColumnDefinition Width="70" />
-            <ColumnDefinition Width="70" />
-            <ColumnDefinition Width="50" />
-            <ColumnDefinition Width="20" />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="45" />
-            <RowDefinition />
-            <RowDefinition Height="40" />
-        </Grid.RowDefinitions>
-        <TextBlock
-            Grid.Column="0"
-            Style="{StaticResource txtBlockCenterBold}"
-            Text="Class" />
-        <TextBlock
-            Grid.Column="1"
-            Style="{StaticResource txtBlockCenterBold}"
-            Text="Quality" />
-        <TextBlock
-            Grid.Column="2"
-            Style="{StaticResource txtBlockCenterBold}"
-            Text="Repairs" />
-        <TextBlock
-            Grid.Column="3"
-            Style="{StaticResource txtBlockCenterBold}"
-            Text="Yards" />
-        <TextBlock
-            Grid.Column="4"
-            Width="80"
-            Style="{StaticResource txtBlockCenterBold}"
-            Text="Downport" />
-        <TextBlock
-            Grid.Column="5"
-            Style="{StaticResource txtBlockCenterBold}"
-            Text="Refined" />
-        <TextBlock
-            Grid.Column="6"
-            Style="{StaticResource txtBlockCenterBold}"
-            Text="Unrefined" />
-        <TextBlock
-            Grid.Column="7"
-            Style="{StaticResource txtBlockCenterBold}"
-            Text="Starport" />
-        <ListBox
-            Name="lstPorts"
-            Grid.Row="1"
-            Grid.Column="0"
-            Grid.ColumnSpan="10"
-            ItemsSource="{Binding}">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="200" />
-                            <ColumnDefinition Width="200" />
-                            <ColumnDefinition Width="200" />
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="70" />
-                            <ColumnDefinition Width="70" />
-                            <ColumnDefinition Width="70" />
-                            <ColumnDefinition Width="50" />
-                        </Grid.ColumnDefinitions>
-                        <TextBox
-                            Grid.Column="0"
-                            Width="20"
-                            Margin="0"
-                            Style="{StaticResource txtBoxNum}"
-                            Text="{Binding Class, Mode=TwoWay}" />
-                        <TextBox
-                            Grid.Column="1"
-                            Width="195"
-                            Style="{StaticResource txtBoxNum}"
-                            Text="{Binding Quality, Mode=TwoWay}" />
-                        <TextBox
-                            Grid.Column="2"
-                            Width="195"
-                            Style="{StaticResource txtBoxNum}"
-                            Text="{Binding Repairs, Mode=TwoWay}" />
-                        <TextBox
-                            Grid.Column="3"
-                            Width="195"
-                            Style="{StaticResource txtBoxNum}"
-                            Text="{Binding Yards, Mode=TwoWay}" />
-                        <TextBox
-                            Grid.Column="4"
-                            Width="95"
-                            Style="{StaticResource txtBoxNum}"
-                            Text="{Binding Downport, Mode=TwoWay}" />
-                        <CheckBox
-                            Grid.Column="5"
-                            Margin="3"
-                            IsChecked="{Binding hasRefinedFuel, Mode=TwoWay}" />
-                        <CheckBox
-                            Grid.Column="6"
-                            Margin="3"
-                            IsChecked="{Binding hasUnrefinedFuel, Mode=TwoWay}" />
-                        <CheckBox
-                            Grid.Column="7"
-                            Margin="3"
-                            IsChecked="{Binding isStarport, Mode=TwoWay}" />
-                        <Button Grid.Column="8" Click="btnDelete">
-                            X
-                        </Button>
-                    </Grid>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        <Button
-            Grid.Row="2"
-            Grid.ColumnSpan="2"
-            HorizontalAlignment="Left"
-            Click="btnNew"
-            Style="{StaticResource btnMenu}">
-            New Starport
-        </Button>
-    </Grid>
+    <ScrollViewer HorizontalScrollBarVisibility="Auto">
+        <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40" />
+                <ColumnDefinition Width="180" />
+                <ColumnDefinition Width="180" />
+                <ColumnDefinition Width="180" />
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="70" />
+                <ColumnDefinition Width="70" />
+                <ColumnDefinition Width="70" />
+                <ColumnDefinition Width="50" />
+                <ColumnDefinition Width="50" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="45" />
+                <RowDefinition />
+                <RowDefinition Height="40" />
+            </Grid.RowDefinitions>
+            <TextBlock
+                Grid.Column="0"
+                Style="{StaticResource txtBlockCenterBold}"
+                Text="Class" />
+            <TextBlock
+                Grid.Column="1"
+                Style="{StaticResource txtBlockCenterBold}"
+                Text="Quality" />
+            <TextBlock
+                Grid.Column="2"
+                Style="{StaticResource txtBlockCenterBold}"
+                Text="Repairs" />
+            <TextBlock
+                Grid.Column="3"
+                Style="{StaticResource txtBlockCenterBold}"
+                Text="Yards" />
+            <TextBlock
+                Grid.Column="4"
+                Width="80"
+                Style="{StaticResource txtBlockCenterBold}"
+                Text="Downport" />
+            <TextBlock
+                Grid.Column="5"
+                Style="{StaticResource txtBlockCenterBold}"
+                Text="Refined" />
+            <TextBlock
+                Grid.Column="6"
+                Style="{StaticResource txtBlockCenterBold}"
+                Text="Unrefined" />
+            <TextBlock
+                Grid.Column="7"
+                Style="{StaticResource txtBlockCenterBold}"
+                Text="Starport" />
+            <ListBox
+                Name="lstPorts"
+                Grid.Row="1"
+                Grid.Column="0"
+                Grid.ColumnSpan="10"
+                ItemsSource="{Binding}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollMode="Enabled">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40" />
+                                <ColumnDefinition Width="180" />
+                                <ColumnDefinition Width="180" />
+                                <ColumnDefinition Width="180" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="70" />
+                                <ColumnDefinition Width="70" />
+                                <ColumnDefinition Width="70" />
+                                <ColumnDefinition Width="50" />
+                            </Grid.ColumnDefinitions>
+                            <TextBox
+                                Grid.Column="0"
+                                Width="30"
+                                Margin="0"
+                                Style="{StaticResource txtBoxNum}"
+                                Text="{Binding Class, Mode=TwoWay}" />
+                            <TextBox
+                                Grid.Column="1"
+                                Width="175"
+                                Style="{StaticResource txtBoxNum}"
+                                Text="{Binding Quality, Mode=TwoWay}" />
+                            <TextBox
+                                Grid.Column="2"
+                                Width="175"
+                                Style="{StaticResource txtBoxNum}"
+                                Text="{Binding Repairs, Mode=TwoWay}" />
+                            <TextBox
+                                Grid.Column="3"
+                                Width="175"
+                                Style="{StaticResource txtBoxNum}"
+                                Text="{Binding Yards, Mode=TwoWay}" />
+                            <TextBox
+                                Grid.Column="4"
+                                Width="95"
+                                Style="{StaticResource txtBoxNum}"
+                                Text="{Binding Downport, Mode=TwoWay}" />
+                            <CheckBox
+                                Grid.Column="5"
+                                Margin="3"
+                                IsChecked="{Binding hasRefinedFuel, Mode=TwoWay}" />
+                            <CheckBox
+                                Grid.Column="6"
+                                Margin="3"
+                                IsChecked="{Binding hasUnrefinedFuel, Mode=TwoWay}" />
+                            <CheckBox
+                                Grid.Column="7"
+                                Margin="3"
+                                IsChecked="{Binding isStarport, Mode=TwoWay}" />
+                            <Button Grid.Column="8" Click="btnDelete">
+                                X
+                            </Button>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <Button
+                Grid.Row="2"
+                Grid.ColumnSpan="2"
+                HorizontalAlignment="Left"
+                Click="btnNew"
+                Style="{StaticResource btnMenu}">
+                New Starport
+            </Button>
+        </Grid>
+    </ScrollViewer>
 </Page>
