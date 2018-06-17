@@ -111,18 +111,10 @@
                 Grid.Column="1"
                 Orientation="Horizontal">
                 <TextBlock Style="{StaticResource txtBlockRightBold}" Text="Total:" />
-                <TextBox
-                    Style="{StaticResource txtBoxNum}"
-                    Text="{x:Bind shipClass.dTons, Mode=TwoWay}" />
-                <TextBlock
-                    Style="{StaticResource txtBlockRightBold}"
-                    Text="Cargo Space:" />
-                <TextBox
-                    Style="{StaticResource txtBoxNum}"
-                    Text="{x:Bind shipClass.Cargo, Mode=TwoWay}" />
-                <TextBlock
-                    Style="{StaticResource txtBlockRightBold}"
-                    Text="Fuel:" />
+                <TextBox Style="{StaticResource txtBoxNum}" Text="{x:Bind shipClass.dTons, Mode=TwoWay}" />
+                <TextBlock Style="{StaticResource txtBlockRightBold}" Text="Cargo Space:" />
+                <TextBox Style="{StaticResource txtBoxNum}" Text="{x:Bind shipClass.Cargo, Mode=TwoWay}" />
+                <TextBlock Style="{StaticResource txtBlockRightBold}" Text="Fuel:" />
                 <TextBox Style="{StaticResource txtBoxNum}" Text="{x:Bind shipClass.Fuel, Mode=TwoWay}" />
             </StackPanel>
             <TextBlock

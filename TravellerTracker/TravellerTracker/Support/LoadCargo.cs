@@ -43,9 +43,7 @@ namespace Traveller.Support
             if (c.Description == null)
             {
                 if (ship.theWorld.TradeCodes.Count() > 0)
-                {
                     c.Description = T5LoadDescription(ship.theWorld.TradeCodes[rnd.Next(0, ship.theWorld.TradeCodes.Count())].Classification);
-                }
                 else
                     c.Description = App.DB.TradeGoods.First().Description;
             }

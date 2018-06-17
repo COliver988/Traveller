@@ -14,7 +14,7 @@ namespace TravellerTracker.Views
         public CargoList()
         {
             this.InitializeComponent();
-            lstCargo.ItemsSource = App.DB.Cargo.ToList().OrderBy(x => x.D1).ThenBy(x => x.D2);
+            lstCargo.ItemsSource = App.DB.Cargo.Where(x => x.D1 != 0).ToList().OrderBy(x => x.D1).ThenBy(x => x.D2);
         }
 
         private void lstCargo_SelectionChanged(object sender, SelectionChangedEventArgs e)

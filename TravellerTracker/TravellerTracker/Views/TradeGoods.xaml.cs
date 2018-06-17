@@ -15,5 +15,10 @@ namespace TravellerTracker.Views
             this.InitializeComponent();
             lvTradeGoods.ItemsSource = App.DB.TradeGoods.OrderBy(x => x.TradeCode);
         }
+
+        private void lvTradeGoods_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
     }
 }

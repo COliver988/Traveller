@@ -11,6 +11,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="80" />
             <ColumnDefinition />
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="50" />
@@ -22,7 +23,8 @@
             Name="lvTradeGoods"
             Grid.Row="1"
             Grid.Column="0"
-            Grid.ColumnSpan="2">
+            Grid.ColumnSpan="2"
+            ItemClick="lvTradeGoods_ItemClick">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -32,6 +34,7 @@
                         </Grid.ColumnDefinitions>
                         <TextBlock Text="{Binding TradeCode, Mode=TwoWay}" />
                         <TextBlock Grid.Column="1" Text="{Binding Description, Mode=TwoWay}" />
+                        <TextBlock Grid.Column="2" Text="{Binding theCargoType, Mode=TwoWay}" />
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>

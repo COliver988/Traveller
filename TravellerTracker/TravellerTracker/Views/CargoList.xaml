@@ -37,8 +37,8 @@
         <ListView
             Name="lstCargo"
             Grid.Row="1"
-            SelectionChanged="lstCargo_SelectionChanged"
-            Grid.ColumnSpan="10">
+            Grid.ColumnSpan="10"
+            SelectionChanged="lstCargo_SelectionChanged">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
