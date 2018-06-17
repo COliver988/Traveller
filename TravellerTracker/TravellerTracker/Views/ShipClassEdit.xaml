@@ -77,94 +77,94 @@
                 Grid.Row="2"
                 Grid.Column="0"
                 Style="{StaticResource txtBlockRightBold}"
-                Text="Jump" />
-            <TextBox
+                Text="J / M / P" />
+            <StackPanel
                 Grid.Row="2"
                 Grid.Column="1"
-                Style="{StaticResource txtBoxNum}"
-                Text="{x:Bind shipClass.Jump, Mode=TwoWay}" />
+                Orientation="Horizontal">
+                <TextBlock Style="{StaticResource txtBlockRightBold}" Text="Jump:" />
+                <TextBox Style="{StaticResource txtBoxNum}" Text="{x:Bind shipClass.Jump, Mode=TwoWay}" />
+                <TextBlock Style="{StaticResource txtBlockRightBold}" Text="Man:" />
+                <TextBox
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    Style="{StaticResource txtBoxNum}"
+                    Text="{x:Bind shipClass.Man, Mode=TwoWay}" />
+                <TextBlock
+                    Grid.Row="4"
+                    Grid.Column="0"
+                    Style="{StaticResource txtBlockRightBold}"
+                    Text="Power:" />
+                <TextBox
+                    Grid.Row="4"
+                    Grid.Column="1"
+                    Style="{StaticResource txtBoxNum}"
+                    Text="{x:Bind shipClass.Power, Mode=TwoWay}" />
+            </StackPanel>
             <TextBlock
                 Grid.Row="3"
                 Grid.Column="0"
                 Style="{StaticResource txtBlockRightBold}"
-                Text="Man" />
-            <TextBox
+                Text="Ship Tonnage" />
+            <StackPanel
                 Grid.Row="3"
                 Grid.Column="1"
-                Style="{StaticResource txtBoxNum}"
-                Text="{x:Bind shipClass.Man, Mode=TwoWay}" />
+                Orientation="Horizontal">
+                <TextBlock Style="{StaticResource txtBlockRightBold}" Text="Total:" />
+                <TextBox
+                    Style="{StaticResource txtBoxNum}"
+                    Text="{x:Bind shipClass.dTons, Mode=TwoWay}" />
+                <TextBlock
+                    Style="{StaticResource txtBlockRightBold}"
+                    Text="Cargo Space:" />
+                <TextBox
+                    Style="{StaticResource txtBoxNum}"
+                    Text="{x:Bind shipClass.Cargo, Mode=TwoWay}" />
+                <TextBlock
+                    Style="{StaticResource txtBlockRightBold}"
+                    Text="Fuel:" />
+                <TextBox Style="{StaticResource txtBoxNum}" Text="{x:Bind shipClass.Fuel, Mode=TwoWay}" />
+            </StackPanel>
             <TextBlock
                 Grid.Row="4"
                 Grid.Column="0"
                 Style="{StaticResource txtBlockRightBold}"
-                Text="Power" />
-            <TextBox
+                Text="Fuel Usage" />
+            <StackPanel
                 Grid.Row="4"
                 Grid.Column="1"
-                Style="{StaticResource txtBoxNum}"
-                Text="{x:Bind shipClass.Power, Mode=TwoWay}" />
+                Orientation="Horizontal">
+                <TextBlock Style="{StaticResource txtBlockRightBold}" Text="per parsec: " />
+                <TextBox Style="{StaticResource txtBoxNum}" Text="{x:Bind shipClass.FuelPerParsec, Mode=TwoWay}" />
+                <TextBlock Style="{StaticResource txtBlockRightBold}" Text="Weeks endurance: " />
+                <TextBox Style="{StaticResource txtBoxNum}" Text="{x:Bind shipClass.WeeksEndurance, Mode=TwoWay}" />
+            </StackPanel>
             <TextBlock
                 Grid.Row="5"
                 Grid.Column="0"
                 Style="{StaticResource txtBlockRightBold}"
-                Text="Cargo" />
-            <TextBox
+                Text="Passengers" />
+            <StackPanel
                 Grid.Row="5"
                 Grid.Column="1"
-                Style="{StaticResource txtBoxNum}"
-                Text="{x:Bind shipClass.Cargo, Mode=TwoWay}" />
+                Orientation="Horizontal">
+                <TextBlock Style="{StaticResource txtBlockRightBold}" Text="High: " />
+                <TextBox Style="{StaticResource txtBoxNum}" Text="{x:Bind shipClass.HighPassage, Mode=TwoWay}" />
+                <TextBlock Style="{StaticResource txtBlockRightBold}" Text="Mid: " />
+                <TextBox Style="{StaticResource txtBoxNum}" Text="{x:Bind shipClass.MidPassage, Mode=TwoWay}" />
+                <TextBlock Style="{StaticResource txtBlockRightBold}" Text="Low: " />
+                <TextBox Style="{StaticResource txtBoxNum}" Text="{x:Bind shipClass.LowPassage, Mode=TwoWay}" />
+            </StackPanel>
             <TextBlock
                 Grid.Row="6"
-                Grid.Column="0"
-                Style="{StaticResource txtBlockRightBold}"
-                Text="Tonnage" />
-            <TextBox
-                Grid.Row="6"
-                Grid.Column="1"
-                Style="{StaticResource txtBoxNum}"
-                Text="{x:Bind shipClass.dTons, Mode=TwoWay}" />
-            <TextBlock
-                Grid.Row="7"
                 Grid.Column="0"
                 Style="{StaticResource txtBlockRightBold}"
                 Text="Ship Type" />
             <TextBox
-                Grid.Row="7"
+                Grid.Row="6"
                 Grid.Column="1"
                 Style="{StaticResource txtBox}"
                 Text="{x:Bind shipClass.HGClass, Mode=TwoWay}" />
-            <TextBlock
-                Grid.Row="8"
-                Grid.Column="0"
-                Style="{StaticResource txtBlockRightBold}"
-                Text="Fuel" />
-            <StackPanel
-                Grid.Row="8"
-                Grid.Column="1"
-                Orientation="Horizontal">
-                <TextBlock Style="{StaticResource txtBlockNormal}" Text="Total: " />
-                <TextBox Style="{StaticResource txtBoxNum}" Text="{x:Bind shipClass.Fuel, Mode=TwoWay}" />
-                <TextBlock Style="{StaticResource txtBlockNormal}" Text="per parsec: " />
-                <TextBox Style="{StaticResource txtBoxNum}" Text="{x:Bind shipClass.FuelPerParsec, Mode=TwoWay}" />
-                <TextBlock Style="{StaticResource txtBlockNormal}" Text="Weeks endurance: " />
-                <TextBox Style="{StaticResource txtBoxNum}" Text="{x:Bind shipClass.WeeksEndurance, Mode=TwoWay}" />
-            </StackPanel>
-            <TextBlock
-                Grid.Row="9"
-                Grid.Column="0"
-                Style="{StaticResource txtBlockRightBold}"
-                Text="Passenger Capacity" />
-            <StackPanel
-                Grid.Row="9"
-                Grid.Column="1"
-                Orientation="Horizontal">
-                <TextBlock Style="{StaticResource txtBlockNormal}" Text="High: " />
-                <TextBox Style="{StaticResource txtBoxNum}" Text="{x:Bind shipClass.HighPassage, Mode=TwoWay}" />
-                <TextBlock Style="{StaticResource txtBlockNormal}" Text="Mid: " />
-                <TextBox Style="{StaticResource txtBoxNum}" Text="{x:Bind shipClass.MidPassage, Mode=TwoWay}" />
-                <TextBlock Style="{StaticResource txtBlockNormal}" Text="Low: " />
-                <TextBox Style="{StaticResource txtBoxNum}" Text="{x:Bind shipClass.LowPassage, Mode=TwoWay}" />
-            </StackPanel>
 
         </Grid>
     </ScrollViewer>
