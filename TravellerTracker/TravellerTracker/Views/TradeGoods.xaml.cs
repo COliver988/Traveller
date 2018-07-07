@@ -13,12 +13,24 @@ namespace TravellerTracker.Views
         public TradeGoods()
         {
             this.InitializeComponent();
+            refresh();
+        }
+
+        private void refresh()
+        {
             lvTradeGoods.ItemsSource = App.DB.TradeGoods.OrderBy(x => x.TradeCode);
         }
 
         private void lvTradeGoods_ItemClick(object sender, ItemClickEventArgs e)
         {
 
+        }
+
+        private async void Button_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            App.DB.TradeGoods.Add(new Traveller.Models.TradeGood());
+            await App.DB.SaveChangesAsync();
+            refresh();
         }
     }
 }

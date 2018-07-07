@@ -657,5 +657,10 @@ namespace TravellerTracker.Views
             gridCargoManist.Children.Add(lstCargoCarried);
             */
         }
+
+        private void TextBlock_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

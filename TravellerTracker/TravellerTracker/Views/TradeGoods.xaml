@@ -17,14 +17,21 @@
             <RowDefinition Height="50" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <TextBlock Text="Trade Code" />
-        <TextBlock Grid.Column="1" Text="Description" />
+        <TextBlock VerticalAlignment="Center" Text="Trade Code" />
+        <StackPanel Grid.Column="1" Orientation="Horizontal">
+            <TextBlock VerticalAlignment="Center" Text="Description" />
+            <Button
+                Margin="3"
+                VerticalAlignment="Center"
+                Click="Button_Click">
+                New Trade Good
+            </Button>
+        </StackPanel>
         <ListView
             Name="lvTradeGoods"
             Grid.Row="1"
             Grid.Column="0"
-            Grid.ColumnSpan="2"
-            ItemClick="lvTradeGoods_ItemClick">
+            Grid.ColumnSpan="2">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -32,9 +39,12 @@
                             <ColumnDefinition Width="80" />
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
-                        <TextBlock Text="{Binding TradeCode, Mode=TwoWay}" />
-                        <TextBlock Grid.Column="1" Text="{Binding Description, Mode=TwoWay}" />
-                        <TextBlock Grid.Column="2" Text="{Binding theCargoType, Mode=TwoWay}" />
+                        <TextBox Width="30" Text="{Binding TradeCode, Mode=TwoWay}" />
+                        <TextBox
+                            Grid.Column="1"
+                            Width="200"
+                            Text="{Binding Description, Mode=TwoWay}" />
+                        <TextBox Grid.Column="2" Text="{Binding theCargoType, Mode=TwoWay}" />
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>

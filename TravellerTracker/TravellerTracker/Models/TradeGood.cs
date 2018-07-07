@@ -12,6 +12,6 @@ namespace Traveller.Models
         public string Description { get; set; }
 
         [NotMapped]
-        public string theCargoType {  get { return App.DB.CargoTypes.Where(x => x.CargoTypeId == this.CargoTypeID).FirstOrDefault().Description;  } }
+        public string theCargoType {  get { return CargoTypeID > 0 ? App.DB.CargoTypes.Where(x => x.CargoTypeId == this.CargoTypeID).FirstOrDefault().Description : "";  } }
     }
 }

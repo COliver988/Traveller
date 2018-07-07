@@ -6,7 +6,6 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:TravellerTracker.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:my="using:Telerik.UI.Xaml.Controls.DataVisualization"
     mc:Ignorable="d">
 
     <Page.Resources>
@@ -39,7 +38,7 @@
             Width="100"
             Height="100"
             Click="btnLoadCargo">
-            <TextBlock Text="Search for Cargo and Passengers" TextWrapping="WrapWholeWords" />
+            <TextBlock Text="Search for Cargo and Passengers" TextWrapping="WrapWholeWords" SelectionChanged="TextBlock_SelectionChanged" />
         </Button>
         <Button
             Grid.Row="4"
@@ -502,19 +501,6 @@
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>
-                    <my:RadBulletGraph
-                        Grid.Row="2"
-                        Margin="6"
-                        EndValue="{x:Bind ship.theClass.Cargo}"
-                        FeaturedMeasure="{x:Bind ship.CargoCarried}"
-                        FeaturedMeasureBrush="Red"
-                        Foreground="Black"
-                        ProjectedMeasure="{x:Bind ship.theClass.Cargo}"
-                        ProjectedMeasureBrush="Black">
-                        <my:RadBulletGraph.Background>
-                            <SolidColorBrush Color="{ThemeResource SystemChromeDisabledLowColor}" />
-                        </my:RadBulletGraph.Background>
-                    </my:RadBulletGraph>
                     <TextBlock
                         Grid.Row="3"
                         Grid.Column="1"
