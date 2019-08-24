@@ -18,7 +18,7 @@ namespace ShipTracker.Models
         public int Fuel { get; set; }
         public int Cargo { get; set; }
         public int Jump { get; set; }
-        public int Meneauver { get; set; }
+        public int Maneuver { get; set; }
         public int Power { get; set; }
     }
 }

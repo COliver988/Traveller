@@ -27,7 +27,7 @@
                 </DockPanel>
             </Button.Content>
         </Button>
-        <Button Grid.Row="1">
+        <Button Grid.Row="1" Click="Button_Click">
             <Button.Content>
                 <DockPanel>
                     <Image Source="Assets/Navy.png" Margin="10" Width="120"></Image>

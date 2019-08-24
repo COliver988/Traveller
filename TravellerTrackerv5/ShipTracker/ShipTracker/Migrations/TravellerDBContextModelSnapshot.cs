@@ -34,7 +34,7 @@ namespace ShipTracker.Migrations
 
                     b.Property<int>("LowPassengers");
 
-                    b.Property<int>("Meneauver");
+                    b.Property<int>("Maneuver");
 
                     b.Property<int>("MidPassengers");
 

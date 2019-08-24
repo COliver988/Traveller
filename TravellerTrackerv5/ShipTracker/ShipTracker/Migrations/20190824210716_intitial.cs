@@ -2,7 +2,7 @@
 
 namespace ShipTracker.Migrations
 {
-    public partial class ship_and_shipclass : Migration
+    public partial class intitial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -41,7 +41,7 @@ namespace ShipTracker.Migrations
                     Fuel = table.Column<int>(nullable: false),
                     Cargo = table.Column<int>(nullable: false),
                     Jump = table.Column<int>(nullable: false),
-                    Meneauver = table.Column<int>(nullable: false),
+                    Maneuver = table.Column<int>(nullable: false),
                     Power = table.Column<int>(nullable: false)
                 },
                 constraints: table =>

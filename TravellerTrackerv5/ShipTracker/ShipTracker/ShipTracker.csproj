@@ -179,6 +179,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Migrations\20190824210716_intitial.cs" />
+    <Compile Include="Migrations\20190824210716_intitial.designer.cs">
+      <DependentUpon>20190824210716_intitial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\TravellerDBContextModelSnapshot.cs" />
+    <Compile Include="ShipClassList.xaml.cs">
+      <DependentUpon>ShipClassList.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -191,13 +199,12 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ShipClassList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\20190823172608_ship_and_shipclass.cs" />
-    <Compile Include="Migrations\20190823172608_ship_and_shipclass.designer.cs">
-      <DependentUpon>20190823172608_ship_and_shipclass.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\TravellerDBContextModelSnapshot.cs" />
     <Compile Include="Models\TravellerDBContext.cs" />
     <Compile Include="Models\ShipClasses.cs" />
     <Compile Include="Models\Ships.cs" />

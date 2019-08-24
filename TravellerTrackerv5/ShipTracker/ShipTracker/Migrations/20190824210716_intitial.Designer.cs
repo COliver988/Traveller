@@ -8,8 +8,8 @@ using ShipTracker.Models;
 namespace ShipTracker.Migrations
 {
     [DbContext(typeof(TravellerDBContext))]
-    [Migration("20190823172608_ship_and_shipclass")]
-    partial class ship_and_shipclass
+    [Migration("20190824210716_intitial")]
+    partial class intitial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -36,7 +36,7 @@ namespace ShipTracker.Migrations
 
                     b.Property<int>("LowPassengers");
 
-                    b.Property<int>("Meneauver");
+                    b.Property<int>("Maneuver");
 
                     b.Property<int>("MidPassengers");
 
