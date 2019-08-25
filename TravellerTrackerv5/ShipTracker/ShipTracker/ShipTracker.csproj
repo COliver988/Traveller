@@ -187,6 +187,9 @@
     <Compile Include="ShipClassList.xaml.cs">
       <DependentUpon>ShipClassList.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ShipList.xaml.cs">
+      <DependentUpon>ShipList.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -200,6 +203,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="ShipClassList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ShipList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

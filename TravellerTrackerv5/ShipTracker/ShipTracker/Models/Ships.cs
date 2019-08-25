@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
 
 namespace ShipTracker.Models
 {
@@ -15,5 +16,8 @@ namespace ShipTracker.Models
         public int currentMidPassengers { get; set; }
         public int currentLowPassengers { get; set; }
         public int currentCredits { get; set; }
+
+        [NotMapped]
+        public ShipClasses ShipCLass => App.DB.ShipClass.Where(x => x.id == this.ShipClassID).FirstOrDefault();
     }
 }

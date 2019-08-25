@@ -19,7 +19,7 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <Button Grid.Row="0">
+        <Button Grid.Row="0" Click="showShips">
             <Button.Content>
                 <DockPanel>
                     <Image Source="Assets/FreeTrader.jpg" Width="120" Margin="10"></Image>
@@ -27,7 +27,7 @@
                 </DockPanel>
             </Button.Content>
         </Button>
-        <Button Grid.Row="1" Click="Button_Click">
+        <Button Grid.Row="1" Click="showShipCLasses">
             <Button.Content>
                 <DockPanel>
                     <Image Source="Assets/Navy.png" Margin="10" Width="120"></Image>
