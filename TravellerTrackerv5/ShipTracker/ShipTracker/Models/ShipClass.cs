@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ShipTracker.Models
 {
-    public class ShipClasses
+    public class ShipClass
     {
         public int id { get; set; }
         public string ClassName { get; set; }

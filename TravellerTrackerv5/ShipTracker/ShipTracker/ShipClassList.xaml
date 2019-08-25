@@ -11,7 +11,7 @@
             <RowDefinition Height="25"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <Button Width="50" Margin="3" HorizontalAlignment="Right">New</Button>
+        <Button Width="50" Margin="3" HorizontalAlignment="Right" Click="Button_Click">New</Button>
         <ListView Name="shipClassListing" Grid.Row="1">
             <ListView.ItemTemplate>
                 <DataTemplate>

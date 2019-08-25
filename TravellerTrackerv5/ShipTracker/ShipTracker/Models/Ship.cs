@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace ShipTracker.Models
 {
-    public class Ships
+    public class Ship
     {
         public int id { get; set; }
 
@@ -18,6 +18,6 @@ namespace ShipTracker.Models
         public int currentCredits { get; set; }
 
         [NotMapped]
-        public ShipClasses ShipCLass => App.DB.ShipClass.Where(x => x.id == this.ShipClassID).FirstOrDefault();
+        public ShipClass ShipCLass => App.DB.ShipClass.Where(x => x.id == this.ShipClassID).FirstOrDefault();
     }
 }

@@ -1,0 +1,61 @@
+﻿<Window x:Class="ShipTracker.ShipClassEditor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ShipTracker"
+        mc:Ignorable="d"
+        Title="ShipClassEditor" Height="450" Width="800">
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="Margin" Value="3"></Setter>
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="Margin" Value="3"></Setter>
+        </Style>
+        
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition ></RowDefinition>
+            <RowDefinition ></RowDefinition>
+            <RowDefinition ></RowDefinition>
+            <RowDefinition ></RowDefinition>
+            <RowDefinition ></RowDefinition>
+            <RowDefinition ></RowDefinition>
+            <RowDefinition ></RowDefinition>
+            <RowDefinition ></RowDefinition>
+            <RowDefinition ></RowDefinition>
+            <RowDefinition ></RowDefinition>
+            <RowDefinition ></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Class Name"></TextBlock>
+        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding iClassName, Mode=TwoWay}" Margin="3"></TextBox>
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Classification"></TextBlock>
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Classification, Mode=TwoWay}" Margin="3"></TextBox>
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="Tonnage"></TextBlock>
+        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Tonnage, Mode=TwoWay}" Margin="3"></TextBox>
+        <TextBlock Grid.Row="3" Grid.Column="0" Text="Jump"></TextBlock>
+        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Jump, Mode=TwoWay}" Margin="3"></TextBox>
+        <TextBlock Grid.Row="4" Grid.Column="0" Text="Maneuver"></TextBlock>
+        <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Maneuver, Mode=TwoWay}" Margin="3"></TextBox>
+        <TextBlock Grid.Row="5" Grid.Column="0" Text="Power"></TextBlock>
+        <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding Power, Mode=TwoWay}" Margin="3"></TextBox>
+        <TextBlock Grid.Row="6" Grid.Column="0" Text="Cargo"></TextBlock>
+        <TextBox Grid.Row="6" Grid.Column="1" Text="{Binding Cargo, Mode=TwoWay}" Margin="3"></TextBox>
+        <TextBlock Grid.Row="7" Grid.Column="0" Text="High Passage"></TextBlock>
+        <TextBox Grid.Row="7" Grid.Column="1" Text="{Binding HighPassengers, Mode=TwoWay}" Margin="3"></TextBox>
+        <TextBlock Grid.Row="8" Grid.Column="0" Text="Mid Passage"></TextBlock>
+        <TextBox Grid.Row="8" Grid.Column="1" Text="{Binding MidPassengers, Mode=TwoWay}" Margin="3"></TextBox>
+        <TextBlock Grid.Row="9" Grid.Column="0" Text="Low Passage"></TextBlock>
+        <TextBox Grid.Row="9" Grid.Column="1" Text="{Binding LowPassengers, Mode=TwoWay}" Margin="3"></TextBox>
+        <Button Grid.Row="10" Grid.Column="1" Height="20" HorizontalAlignment="Right" Width="60" Margin="3" Click="Button_Click">Save</Button>
+    </Grid>
+</Window>
