@@ -18,7 +18,7 @@
         </Style>
         
     </Window.Resources>
-    <Grid>
+    <Grid Name="theGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
@@ -37,7 +37,7 @@
             <RowDefinition ></RowDefinition>
         </Grid.RowDefinitions>
         <TextBlock Grid.Row="0" Grid.Column="0" Text="Class Name"></TextBlock>
-        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding iClassName, Mode=TwoWay}" Margin="3"></TextBox>
+        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding ClassName, Mode=TwoWay}" Margin="3"></TextBox>
         <TextBlock Grid.Row="1" Grid.Column="0" Text="Classification"></TextBlock>
         <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Classification, Mode=TwoWay}" Margin="3"></TextBox>
         <TextBlock Grid.Row="2" Grid.Column="0" Text="Tonnage"></TextBlock>

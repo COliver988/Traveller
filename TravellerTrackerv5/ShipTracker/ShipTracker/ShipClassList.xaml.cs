@@ -15,7 +15,6 @@ namespace ShipTracker
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Window editor = new ShipClassEditor();
-            editor.DataContext = App.DB.Add(new Models.ShipClass() { ClassName = "New Ship" });
             editor.Show();
         }
     }

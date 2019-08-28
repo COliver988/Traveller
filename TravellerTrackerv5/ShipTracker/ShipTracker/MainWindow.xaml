@@ -13,7 +13,7 @@
             <Setter Property="HorizontalContentAlignment" Value="Left"></Setter>
         </Style>
     </Window.Resources>
-    <Grid>
+    <Grid x:Name="theGrid" DataContext="{Binding}">
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>

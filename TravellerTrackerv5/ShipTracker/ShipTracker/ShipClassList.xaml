@@ -12,7 +12,7 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <Button Width="50" Margin="3" HorizontalAlignment="Right" Click="Button_Click">New</Button>
-        <ListView Name="shipClassListing" Grid.Row="1">
+        <ListView Name="shipClassListing" Grid.Row="1" ItemsSource="{Binding}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -20,16 +20,16 @@
                             <RowDefinition></RowDefinition>
                             <RowDefinition></RowDefinition>
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" Text="{Binding ClassName}"></TextBlock>
+                        <TextBlock Grid.Row="0" Text="{Binding ClassName, Mode=TwoWay}"></TextBlock>
                         <TextBlock Grid.Row="1">
                         <Run Text="Classification: "></Run>
-                        <Run Text="{Binding Classification}"></Run>
+                        <Run Text="{Binding Classification, Mode=TwoWay}"></Run>
                         <Run Text="  - Jump/Man/Power"></Run>
-                        <Run Text="{Binding Jump}"></Run>
+                        <Run Text="{Binding Jump, Mode=TwoWay}"></Run>
                         <Run Text=" "></Run>
-                        <Run Text="{Binding Maneuver}"></Run>
+                        <Run Text="{Binding Maneuver, Mode=TwoWay}"></Run>
                         <Run Text=" "></Run>
-                        <Run Text="{Binding Jump}"></Run>
+                        <Run Text="{Binding Jump, Mode=TwoWay}"></Run>
                         <Run Text=" "></Run>
                         </TextBlock>
                     </Grid>
