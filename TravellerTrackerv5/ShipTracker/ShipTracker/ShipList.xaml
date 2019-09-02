@@ -28,14 +28,13 @@
                         </Button>
                         <TextBlock Grid.Row="1">
                         <Run Text="Class: "></Run>
-                        <Run Text="{Binding ShipClass.ClassName}"></Run>
-                        <Run Text="  - Jump/Man/Power"></Run>
-                        <Run Text="{Binding ShipClass.Jump}"></Run>
-                        <Run Text=" "></Run>
-                        <Run Text="{Binding ShipClass.Maneuver}"></Run>
-                        <Run Text=" "></Run>
-                        <Run Text="{Binding ShipClass.Jump}"></Run>
-                        <Run Text=" "></Run>
+                        <Run Text="{Binding shipClass.ClassName}"></Run>
+                        <Run Text="  - Jump/Man/Power: "></Run>
+                        <Run Text="{Binding shipClass.Jump}"></Run>
+                        <Run Text="/"></Run>
+                        <Run Text="{Binding shipClass.Maneuver}"></Run>
+                        <Run Text="/"></Run>
+                        <Run Text="{Binding shipClass.Jump}"></Run>
                         </TextBlock>
                     </Grid>
                 </DataTemplate>

@@ -39,16 +39,35 @@
         </Grid.RowDefinitions>
         <TextBlock Grid.Row="0" Grid.Column="0" Text="Ship Name"></TextBlock>
         <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Name, Mode=TwoWay}" Margin="3"></TextBox>
-        <ComboBox Name="classList" Margin="3" Grid.Column="1" Grid.Row="1" SelectedItem="{Binding ShipClassID, Mode=TwoWay}" SelectionChanged="ClassList_SelectionChanged">
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Class"></TextBlock>
+        <ComboBox Name="classList" Margin="3" Grid.Column="1" Grid.Row="1" SelectionChanged="ClassList_SelectionChanged">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock>
                         <Run Text="{Binding ClassName}"></Run>
                         <Run Text=" Classification: "></Run>
                         <Run Text="{Binding Classification}"></Run>
+                        <Run Text="  Jump/Man/Pow: "></Run>
+                        <Run Text="{Binding Jump}"></Run>
+                        <Run Text="/"></Run>
+                        <Run Text="{Binding Maneuver}"></Run>
+                        <Run Text="/"></Run>
+                        <Run Text="{Binding Jump}"></Run>
                     </TextBlock>
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="Credits"></TextBlock>
+        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding currentCredits, Mode=TwoWay}" Margin="3"></TextBox>
+        <TextBlock Grid.Row="3" Grid.Column="0" Text="Cargo Carried"></TextBlock>
+        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding currentCargo, Mode=TwoWay}" Margin="3"></TextBox>
+        <TextBlock Grid.Row="4" Grid.Column="0" Text="High Passengers"></TextBlock>
+        <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding currentHighPassengers, Mode=TwoWay}" Margin="3"></TextBox>
+        <TextBlock Grid.Row="5" Grid.Column="0" Text="Mid Passengers"></TextBlock>
+        <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding currentMidPassengers, Mode=TwoWay}" Margin="3"></TextBox>
+        <TextBlock Grid.Row="6" Grid.Column="0" Text="Low Passengers"></TextBlock>
+        <TextBox Grid.Row="6" Grid.Column="1" Text="{Binding currentLowPassengers, Mode=TwoWay}" Margin="3"></TextBox>
+        <TextBlock Grid.Row="7" Grid.Column="0" Text="Current Fuel"></TextBlock>
+        <TextBox Grid.Row="7" Grid.Column="1" Text="{Binding currentFuel, Mode=TwoWay}" Margin="3"></TextBox>
     </Grid>
 </Window>
