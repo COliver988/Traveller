@@ -16,15 +16,14 @@
             <Setter Property="VerticalAlignment" Value="Center"></Setter>
             <Setter Property="Margin" Value="3"></Setter>
         </Style>
-        
     </Window.Resources>
-    <Grid Name="theGrid">
+
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition ></RowDefinition>
             <RowDefinition ></RowDefinition>
             <RowDefinition ></RowDefinition>
             <RowDefinition ></RowDefinition>
@@ -56,6 +55,5 @@
         <TextBox Grid.Row="8" Grid.Column="1" Text="{Binding MidPassengers, Mode=TwoWay}" Margin="3"></TextBox>
         <TextBlock Grid.Row="9" Grid.Column="0" Text="Low Passage"></TextBlock>
         <TextBox Grid.Row="9" Grid.Column="1" Text="{Binding LowPassengers, Mode=TwoWay}" Margin="3"></TextBox>
-        <Button Grid.Row="10" Grid.Column="1" Height="20" HorizontalAlignment="Right" Width="60" Margin="3" Click="Button_Click">Save</Button>
     </Grid>
 </Window>

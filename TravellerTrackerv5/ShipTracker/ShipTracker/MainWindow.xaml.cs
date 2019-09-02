@@ -17,7 +17,8 @@ namespace ShipTracker
         private void showShips(object sender, RoutedEventArgs e)
         {
             Window shipList = new ShipList();
-            shipList.DataContext = App.DB.Ship;
+            List<Models.Ship> ships = App.DB.Ship.ToList();
+            shipList.DataContext = ships;
             shipList.Show();
         }
 
