@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Linq;
+using System.Windows;
 
 namespace ShipTracker
 {
@@ -12,6 +13,13 @@ namespace ShipTracker
             InitializeComponent();
             Models.ShipClass newClass = new Models.ShipClass() { ClassName = "New Class" };
             this.DataContext = newClass;
+        }
+
+        public ShipClassEditor(int classID)
+        {
+            InitializeComponent();
+            Models.ShipClass theClass = App.DB.ShipClass.Where(x => x.id == classID).FirstOrDefault();
+            this.DataContext = theClass;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

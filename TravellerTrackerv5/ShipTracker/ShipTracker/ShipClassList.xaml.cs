@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
 
 namespace ShipTracker
 {
@@ -16,6 +17,18 @@ namespace ShipTracker
         {
             Window editor = new ShipClassEditor();
             editor.Show();
+        }
+
+        private void edit(object sender, RoutedEventArgs e)
+        {
+            Button b = sender as Button;
+            int? id = b.Tag as int?;
+            if (id != null)
+            {
+                int classID = id.GetValueOrDefault();
+                ShipClassEditor editor = new ShipClassEditor(classID);
+                editor.Show();
+            }
         }
     }
 }

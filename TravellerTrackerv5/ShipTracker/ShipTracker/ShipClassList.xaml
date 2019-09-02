@@ -20,16 +20,20 @@
                             <RowDefinition></RowDefinition>
                             <RowDefinition></RowDefinition>
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" Text="{Binding ClassName, Mode=TwoWay}"></TextBlock>
+                        <Button Grid.Row="0" Click="edit" Width="200" Tag="{Binding id}">
+                            <Button.Content>
+                                <TextBlock Text="{Binding ClassName}"></TextBlock>
+                            </Button.Content>
+                        </Button>
                         <TextBlock Grid.Row="1">
                         <Run Text="Classification: "></Run>
-                        <Run Text="{Binding Classification, Mode=TwoWay}"></Run>
+                        <Run Text="{Binding Classification, Mode=OneWay}"></Run>
                         <Run Text="  - Jump/Man/Power"></Run>
-                        <Run Text="{Binding Jump, Mode=TwoWay}"></Run>
+                        <Run Text="{Binding Jump, Mode=OneWay}"></Run>
                         <Run Text=" "></Run>
-                        <Run Text="{Binding Maneuver, Mode=TwoWay}"></Run>
+                        <Run Text="{Binding Maneuver, Mode=OneWay}"></Run>
                         <Run Text=" "></Run>
-                        <Run Text="{Binding Jump, Mode=TwoWay}"></Run>
+                        <Run Text="{Binding Jump, Mode=OneWay}"></Run>
                         <Run Text=" "></Run>
                         </TextBlock>
                     </Grid>
