@@ -18,6 +18,6 @@ namespace ShipTracker.Models
         public int currentCredits { get; set; }
 
         [NotMapped]
-        public ShipClass ShipCLass => App.DB.ShipClass.Where(x => x.id == this.ShipClassID).FirstOrDefault();
+        public ShipClass ShipCLass => App.DB.ShipClass.Where(x => x.id == ShipClassID).FirstOrDefault();
     }
 }

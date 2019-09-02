@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ShipTracker"
         mc:Ignorable="d"
+        Closing="Window_Closing"
         Title="Ship Editor" Height="450" Width="800">
 
     <Window.Resources>
@@ -38,7 +39,7 @@
         </Grid.RowDefinitions>
         <TextBlock Grid.Row="0" Grid.Column="0" Text="Ship Name"></TextBlock>
         <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Name, Mode=TwoWay}" Margin="3"></TextBox>
-        <ComboBox Name="classList" Margin="3" Grid.Column="1" Grid.Row="1" SelectedItem="{Binding ShipClassID, Mode=TwoWay}">
+        <ComboBox Name="classList" Margin="3" Grid.Column="1" Grid.Row="1" SelectedItem="{Binding ShipClassID, Mode=TwoWay}" SelectionChanged="ClassList_SelectionChanged">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock>

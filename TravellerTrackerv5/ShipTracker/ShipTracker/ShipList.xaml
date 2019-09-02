@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Ship List" Height="450" Width="800">
 
-    <Grid>
+    <Grid Background="Transparent">
         <Grid.RowDefinitions>
             <RowDefinition Height="25"></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -16,12 +16,16 @@
         <ListView Name="shipClassListing" Grid.Row="1" ItemsSource="{Binding}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid>
+                    <Grid Background="Transparent">
                         <Grid.RowDefinitions>
                             <RowDefinition></RowDefinition>
                             <RowDefinition></RowDefinition>
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" Text="{Binding Name}"></TextBlock>
+                        <Button Grid.Row="0" Width="200" Margin="3" Tag="{Binding id}" Click="edit">
+                            <Button.Content>
+                                <TextBlock Text="{Binding Name}"></TextBlock>
+                            </Button.Content>
+                        </Button>
                         <TextBlock Grid.Row="1">
                         <Run Text="Class: "></Run>
                         <Run Text="{Binding ShipClass.ClassName}"></Run>

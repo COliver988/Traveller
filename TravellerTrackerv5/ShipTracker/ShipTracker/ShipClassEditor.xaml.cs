@@ -28,5 +28,10 @@ namespace ShipTracker
             App.DB.Add(newClass);
             App.DB.SaveChangesAsync();
         }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            App.DB.SaveChangesAsync();
+        }
     }
 }
