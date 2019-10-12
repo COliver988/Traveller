@@ -18,6 +18,6 @@ namespace TrackerCore.Models
         public int currentCredits { get; set; }
 
         [NotMapped]
-        public ShipClass shipClass => App.DB.ShipClasses.Where(x => x.id == ShipClassID).First();
+        public ShipClass shipClass => App.DB.ShipClasses.Where(x => x.id == ShipClassID).FirstOrDefault();
     }
 }

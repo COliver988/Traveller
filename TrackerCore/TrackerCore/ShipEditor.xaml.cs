@@ -28,6 +28,7 @@ namespace TrackerCore
             App.DB.Add(theShip);
             App.DB.SaveChangesAsync();
             setUp();
+            Closing += Window_Closing;
         }
         public ShipEditor(int id)
         {

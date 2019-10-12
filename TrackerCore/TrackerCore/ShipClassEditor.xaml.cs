@@ -8,16 +8,27 @@ namespace TrackerCore
     /// </summary>
     public partial class ShipClassEditor : Window
     {
+
+        Models.ShipClass theClass;
         public ShipClassEditor()
         {
             InitializeComponent();
-            Models.ShipClass newClass = new Models.ShipClass() { ClassName = "New Class" };
-            this.DataContext = newClass;
+            theClass = new Models.ShipClass() { ClassName = "New Class" };
+            this.DataContext = theClass;
+            App.DB.Add(theClass);
+            App.DB.SaveChangesAsync();
+            Closing += ShipClassEditor_Closing;
         }
+
+        private void ShipClassEditor_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            App.DB.SaveChangesAsync();
+        }
+
         public ShipClassEditor(int classID)
         {
             InitializeComponent();
-            Models.ShipClass theClass = App.DB.ShipClasses.Where(x => x.id == classID).FirstOrDefault();
+            theClass = App.DB.ShipClasses.Where(x => x.id == classID).FirstOrDefault();
             this.DataContext = theClass;
         }
 
@@ -25,11 +36,6 @@ namespace TrackerCore
         {
             Models.ShipClass newClass = this.DataContext as Models.ShipClass;
             App.DB.Add(newClass);
-            App.DB.SaveChangesAsync();
-        }
-
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
             App.DB.SaveChangesAsync();
         }
     }
