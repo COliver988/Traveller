@@ -9,6 +9,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\FreeTrader.jpg" />
+    <None Remove="Assets\Navy.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="entityframework" Version="6.3.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.0.0">
@@ -23,12 +28,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Assets\FreeTrader.jpg">
+    <Content Include="Assets\FreeTrader.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Assets\Navy.png">
+    </Content>
+    <Content Include="Assets\Navy.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    </Content>
   </ItemGroup>
 
 </Project>
