@@ -12,6 +12,7 @@
     <None Remove="Assets\FreeTrader.jpg" />
     <None Remove="Assets\gear.png" />
     <None Remove="Assets\Navy.png" />
+    <None Remove="Assets\WorldISO.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -36,6 +37,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Navy.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\WorldISO.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
