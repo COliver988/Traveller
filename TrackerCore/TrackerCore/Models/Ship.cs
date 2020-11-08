@@ -17,6 +17,7 @@ namespace TrackerCore.Models
         public int currentLowPassengers { get; set; }
         public int currentCredits { get; set; }
 
+
         [NotMapped]
         public ShipClass shipClass => App.DB.ShipClasses.Where(x => x.id == ShipClassID).FirstOrDefault();
     }

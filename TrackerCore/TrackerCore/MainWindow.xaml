@@ -37,6 +37,13 @@
                     </DockPanel>
                 </Button.Content>
             </Button>
-            <Button Grid.Row="2">Settings</Button>
+        <Button Grid.Row="2">
+            <Button.Content>
+                <DockPanel>
+                    <Image Source="Assets/gear.png" Margin="10" Width="120"></Image>
+                    <TextBlock VerticalAlignment="Center" Margin="10" Text="Settings" DockPanel.Dock="Left"></TextBlock>
+                </DockPanel>
+            </Button.Content>
+        </Button>
     </Grid>
 </Window>

@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <None Remove="Assets\FreeTrader.jpg" />
+    <None Remove="Assets\gear.png" />
     <None Remove="Assets\Navy.png" />
   </ItemGroup>
 
@@ -29,6 +30,9 @@
 
   <ItemGroup>
     <Content Include="Assets\FreeTrader.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\gear.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Navy.png">
