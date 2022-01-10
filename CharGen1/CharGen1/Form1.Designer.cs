@@ -228,7 +228,7 @@ namespace CharGen1
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(24, 319);
+            this.button2.Location = new System.Drawing.Point(21, 319);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(111, 27);
             this.button2.TabIndex = 13;

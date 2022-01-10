@@ -29,7 +29,7 @@ namespace CharGen1.Models
             string gameData = JsonConvert.SerializeObject(this);
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
 
-            saveFileDialog1.Filter = "json files|(*.json)|*.txt|All files (*.*)|*.*";
+            saveFileDialog1.Filter = "json files (*.json)|*.json|All files (*.*)|*.*";
             saveFileDialog1.FilterIndex = 2;
             saveFileDialog1.RestoreDirectory = true;
 
@@ -41,7 +41,7 @@ namespace CharGen1.Models
         {
             CharacterGameClass cc = new CharacterGameClass();
             OpenFileDialog openDialog = new OpenFileDialog();
-            openDialog.Filter = "json files|(*.json)|All files (*.*)|*.*";
+            openDialog.Filter = "json files (*.json)|*.json|All files (*.*)|*.*";
             if (openDialog.ShowDialog() == DialogResult.OK)
             {
                 string gameData = File.ReadAllText(openDialog.FileName);
