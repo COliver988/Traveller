@@ -32,6 +32,8 @@ namespace CharGen1
             this.txtResults = new System.Windows.Forms.TextBox();
             this.btn_generate = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cbHeroic = new System.Windows.Forms.CheckBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.txt_tags = new System.Windows.Forms.TextBox();
@@ -46,7 +48,6 @@ namespace CharGen1
             this.label2 = new System.Windows.Forms.Label();
             this.txt_Game = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,6 +72,7 @@ namespace CharGen1
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.panel1.Controls.Add(this.cbHeroic);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.label4);
@@ -90,6 +92,26 @@ namespace CharGen1
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(385, 399);
             this.panel1.TabIndex = 2;
+            // 
+            // cbHeroic
+            // 
+            this.cbHeroic.AutoSize = true;
+            this.cbHeroic.Location = new System.Drawing.Point(186, 167);
+            this.cbHeroic.Name = "cbHeroic";
+            this.cbHeroic.Size = new System.Drawing.Size(142, 20);
+            this.cbHeroic.TabIndex = 14;
+            this.cbHeroic.Text = "heroic (advantage)";
+            this.cbHeroic.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(21, 319);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(111, 27);
+            this.button2.TabIndex = 13;
+            this.button2.Text = "Load";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -116,12 +138,12 @@ namespace CharGen1
             this.txt_tags.Multiline = true;
             this.txt_tags.Name = "txt_tags";
             this.txt_tags.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txt_tags.Size = new System.Drawing.Size(164, 155);
+            this.txt_tags.Size = new System.Drawing.Size(174, 155);
             this.txt_tags.TabIndex = 3;
             // 
             // txt_DiceToRoll
             // 
-            this.txt_DiceToRoll.Location = new System.Drawing.Point(186, 184);
+            this.txt_DiceToRoll.Location = new System.Drawing.Point(186, 193);
             this.txt_DiceToRoll.Name = "txt_DiceToRoll";
             this.txt_DiceToRoll.Size = new System.Drawing.Size(74, 22);
             this.txt_DiceToRoll.TabIndex = 10;
@@ -129,7 +151,7 @@ namespace CharGen1
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(24, 185);
+            this.label3.Location = new System.Drawing.Point(24, 194);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(133, 16);
             this.label3.TabIndex = 9;
@@ -226,16 +248,6 @@ namespace CharGen1
             this.label1.TabIndex = 0;
             this.label1.Text = "Game";
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(21, 319);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(111, 27);
-            this.button2.TabIndex = 13;
-            this.button2.Text = "Load";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -273,6 +285,7 @@ namespace CharGen1
         private System.Windows.Forms.TextBox txt_tags;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.CheckBox cbHeroic;
     }
 }
 

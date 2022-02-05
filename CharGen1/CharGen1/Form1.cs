@@ -1,5 +1,4 @@
 ﻿using CharGen1.Models;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,7 +38,7 @@ namespace CharGen1
                 dType = 12;
             if (rb_D20.Checked)
                 dType = 20;
-            CharacterGameClass myClass = new CharacterGameClass(txt_Game.Text, tags, dType, int.Parse(txt_DiceToRoll.Text));
+            CharacterGameClass myClass = new CharacterGameClass(txt_Game.Text, tags, dType, int.Parse(txt_DiceToRoll.Text), cbHeroic.Checked);
             return myClass;
         }
 
@@ -47,15 +46,18 @@ namespace CharGen1
         {
             List<string> results = new List<string>() { myClass.Name };
             foreach (var stat in myClass.StatTags)
-                results.Add(String.Format("{0} - {1}", stat, roll(myClass.DiceToRoll, myClass.DiceType)));
+                results.Add(String.Format("{0} - {1}", stat, roll(myClass.DiceToRoll, myClass.DiceType, myClass.isHeroic)));
             txtResults.Text = String.Join(Environment.NewLine, results);
         }
-        private int roll(int number, int sides = 6)
+        private int roll(int number, int sides = 6, bool isHeroic = false)
         {
-            int results = 0;
-            for (int i = 0; i < number; i++)
-                results += r.Next(1, sides + 1);
-            return results;
+            List<int> dieRolls = new List<int>();
+            int dice = number + (isHeroic ? 1 : 0);   
+            for (int i = 0; i < dice; i++)
+                dieRolls.Add(r.Next(1, sides + 1));
+            dieRolls.Sort();
+            dieRolls.Reverse();
+            return dieRolls.Take(number).Sum();
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -76,6 +78,7 @@ namespace CharGen1
             txt_tags.Text = String.Join("\r\n", myClass.StatTags);
             txt_Game.Text = myClass.Name;
             txt_DiceToRoll.Text = myClass.DiceToRoll.ToString();
+            cbHeroic.Checked = myClass.isHeroic;
             switch (myClass.DiceType)   
             {
                 case 4:
