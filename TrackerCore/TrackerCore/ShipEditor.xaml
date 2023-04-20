@@ -66,6 +66,9 @@
         <TextBox Grid.Row="6" Grid.Column="1" Text="{Binding currentLowPassengers, Mode=TwoWay}" Margin="3"></TextBox>
         <TextBlock Grid.Row="7" Grid.Column="0" Text="Current Fuel"></TextBlock>
         <TextBox Grid.Row="7" Grid.Column="1" Text="{Binding currentFuel, Mode=TwoWay}" Margin="3"></TextBox>
+        <TextBlock Grid.Row="8" Grid.Column="0" Text="Current System"></TextBlock>
+        <TextBox Grid.Row="8" Grid.Column="1" Text="{Binding currentWorld, Mode=TwoWay}" Margin="3"></TextBox>
+
 
     </Grid>
 </Window>
