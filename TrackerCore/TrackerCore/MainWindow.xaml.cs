@@ -30,5 +30,13 @@ namespace TrackerCore
             shipClasses.Show();
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Window worldWindow = new WorldList();
+            List<Models.World> worlds = App.DB.Worlds.ToList();
+            worldWindow.DataContext = worlds;
+            worldWindow.Show();
+
+        }
     }
 }

@@ -10,7 +10,7 @@ namespace TrackerCore.Models
         [ForeignKey("ShipClass")]
         public int ShipClassID { get; set; }
 
-        [ForeignKey("WorldClass")]
+        [ForeignKey("World")]
         public int WorldID { get; set; }
 
         public string Name { get; set; }

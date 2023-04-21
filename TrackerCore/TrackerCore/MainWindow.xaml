@@ -55,7 +55,7 @@
                 </DockPanel>
             </Button.Content>
         </Button>
-        <Button Grid.Row="2" >
+        <Button Grid.Row="2" Click="Button_Click" >
             <Button.Content>
                 <DockPanel>
                     <Image
