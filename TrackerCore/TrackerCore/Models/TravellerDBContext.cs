@@ -6,6 +6,7 @@ namespace TrackerCore.Models
     {
         public DbSet<Ship> Ships { get; set; }
         public DbSet<ShipClass> ShipClasses { get; set; }
+        public DbSet<World> Worlds { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {

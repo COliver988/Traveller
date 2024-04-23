@@ -9,6 +9,10 @@ namespace TrackerCore.Models
 
         [ForeignKey("ShipClass")]
         public int ShipClassID { get; set; }
+
+        [ForeignKey("World")]
+        public int WorldID { get; set; }
+
         public string Name { get; set; }
         public int currentCargo { get; set; }
         public int currentFuel { get; set; }
@@ -16,6 +20,9 @@ namespace TrackerCore.Models
         public int currentMidPassengers { get; set; }
         public int currentLowPassengers { get; set; }
         public int currentCredits { get; set; }
+        public string currentWorld { get; set; }
+
+
 
 
         [NotMapped]
