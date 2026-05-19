@@ -7,18 +7,21 @@
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="EntityFramework" Version="6.5.2" />
-    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
-    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
-    <PackageReference Include="Remotion.Linq" Version="2.2.0" />
-    <PackageReference Include="SQLitePCLRaw.lib.e_sqlite3.linux" Version="1.1.14" />
-    <PackageReference Include="SQLitePCLRaw.lib.e_sqlite3.osx" Version="1.1.14" />
-    <PackageReference Include="SQLitePCLRaw.lib.e_sqlite3.v110_xp" Version="1.1.14" />
-    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
-    <PackageReference Include="System.Core" Version="3.5.21022.801" />
-    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
-    <PackageReference Include="System.Data.SQLite" Version="1.0.111" />
-    <PackageReference Include="System.Net.Http" Version="4.3.4" />
+    <PackageReference Include="EntityFramework" />
+    <PackageReference Include="Microsoft.CSharp" />
+    <PackageReference Include="Microsoft.CSharp" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" />
+    <PackageReference Include="Remotion.Linq" />
+    <PackageReference Include="SQLitePCLRaw.lib.e_sqlite3.linux" />
+    <PackageReference Include="SQLitePCLRaw.lib.e_sqlite3.osx" />
+    <PackageReference Include="SQLitePCLRaw.lib.e_sqlite3.v110_xp" />
+    <PackageReference Include="System.ComponentModel.Annotations" />
+    <PackageReference Include="System.Core" />
+    <PackageReference Include="System.Data.DataSetExtensions" />
+    <PackageReference Include="System.Data.SQLite" />
+    <PackageReference Include="System.Net.Http" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\FreeTrader.jpg">

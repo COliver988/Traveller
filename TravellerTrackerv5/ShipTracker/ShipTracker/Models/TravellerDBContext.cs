@@ -1,4 +1,4 @@
-﻿using System.Data.Entity;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace ShipTracker.Models
 {
@@ -9,15 +9,7 @@ namespace ShipTracker.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            try
-            {
-                _ = optionsBuilder.UseSqlite("Data Source=TravellerTracker.db");
-            }
-            catch (System.Exception ex)
-            {
-                var a = ex;
-                throw;
-            }
+             optionsBuilder.UseSqlite("Data Source=TravellerTracker.db");
         }
     }
 }
